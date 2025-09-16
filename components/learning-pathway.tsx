@@ -1,6 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { QuizInterface } from "@/components/quiz-interface"
+import ExamInterface from "@/components/exam-interface"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -16,6 +19,12 @@ interface LearningPathwayProps {
 export default function LearningPathway({ user, onClose }: LearningPathwayProps) {
   const [selectedSubject, setSelectedSubject] = useState<string>(user.profile.subjects[0]?.id || "maths")
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null)
+  const [showStudyMaterial, setShowStudyMaterial] = useState(false)
+  const [showQuiz, setShowQuiz] = useState(false)
+  const [showTest, setShowTest] = useState(false)
+  const [activeMaterial, setActiveMaterial] = useState<null | { title: string; content: string; type: string }>(null)
+  const [activeQuiz, setActiveQuiz] = useState<any>(null)
+  const [activeTest, setActiveTest] = useState<any>(null)
 
   const currentSubject = user.profile.subjects.find((s) => s.id === selectedSubject)
 
@@ -202,18 +211,73 @@ export default function LearningPathway({ user, onClose }: LearningPathwayProps)
 
                                       {/* Action Buttons */}
                                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <Button variant="outline" size="sm">
+                                        <Button
+                                          variant="outline"
+                                          size="sm"
+                                          onClick={() => {
+                                            if (topic.studyMaterials.length > 0) {
+                                              setActiveMaterial(topic.studyMaterials[0]);
+                                              setShowStudyMaterial(true);
+                                            }
+                                          }}
+                                        >
                                           <BookOpen className="h-4 w-4 mr-2" />
                                           Study Materials ({topic.studyMaterials.length})
                                         </Button>
-                                        <Button variant="outline" size="sm">
+                                        <Button
+                                          variant="outline"
+                                          size="sm"
+                                          onClick={() => {
+                                            if (topic.quizzes.length > 0) {
+                                              setActiveQuiz(topic.quizzes[0]);
+                                              setShowQuiz(true);
+                                            }
+                                          }}
+                                        >
                                           <Target className="h-4 w-4 mr-2" />
                                           Practice Quiz ({topic.quizzes.length})
                                         </Button>
-                                        <Button variant="default" size="sm">
+                                        <Button
+                                          variant="default"
+                                          size="sm"
+                                          onClick={() => {
+                                            if (topic.tests.length > 0) {
+                                              setActiveTest(topic.tests[0]);
+                                              setShowTest(true);
+                                            }
+                                          }}
+                                        >
                                           <Trophy className="h-4 w-4 mr-2" />
                                           Take Test ({topic.tests.length})
                                         </Button>
+      {/* Study Material Modal */}
+      <Dialog open={showStudyMaterial} onOpenChange={setShowStudyMaterial}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{activeMaterial?.title}</DialogTitle>
+            <DialogDescription>Type: {activeMaterial?.type}</DialogDescription>
+          </DialogHeader>
+          <div className="mt-4 whitespace-pre-line">{activeMaterial?.content}</div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Quiz Modal */}
+      <Dialog open={showQuiz} onOpenChange={setShowQuiz}>
+        <DialogContent className="max-w-2xl">
+          {activeQuiz && (
+            <QuizInterface quiz={activeQuiz} onComplete={() => setShowQuiz(false)} />
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Test Modal */}
+      <Dialog open={showTest} onOpenChange={setShowTest}>
+        <DialogContent className="max-w-2xl">
+          {activeTest && (
+            <ExamInterface subject={{ ...currentSubject, tests: [activeTest] }} onComplete={() => setShowTest(false)} />
+          )}
+        </DialogContent>
+      </Dialog>
                                       </div>
                                     </div>
                                   </div>
