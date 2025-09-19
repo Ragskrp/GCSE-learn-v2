@@ -1,6 +1,6 @@
 
 const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json'); // Download this from your Firebase project settings
+const serviceAccount = require('./nexus-academy-jjz35-firebase-adminsdk-fbsvc-5461f59076.json'); // Download this from your Firebase project settings
 
 const { users } = require('../data/users');
 const { curriculum } = require('../data/curriculum-database');

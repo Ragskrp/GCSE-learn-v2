@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -23,20 +23,7 @@ export function QuizInterface({ quiz, onComplete }: QuizInterfaceProps) {
   const [showResults, setShowResults] = useState(false)
   const [score, setScore] = useState(0)
 
-  useEffect(() => {
-    if (timeLeft > 0 && !showResults) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000)
-      return () => clearTimeout(timer)
-    } else if (timeLeft === 0) {
-      handleSubmit()
-    }
-  }, [timeLeft, showResults])
-
-  const handleAnswerChange = (questionId: string, answer: string) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: answer }))
-  }
-
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     let correctAnswers = 0
     quiz.questions.forEach((question) => {
       const userAnswer = answers[question.id]
@@ -57,6 +44,19 @@ export function QuizInterface({ quiz, onComplete }: QuizInterfaceProps) {
     setScore(finalScore)
     setShowResults(true)
     onComplete(finalScore, passed)
+  }, [answers, onComplete, quiz.passingScore, quiz.questions])
+
+  useEffect(() => {
+    if (timeLeft > 0 && !showResults) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000)
+      return () => clearTimeout(timer)
+    } else if (timeLeft === 0) {
+      handleSubmit()
+    }
+  }, [timeLeft, showResults, handleSubmit])
+
+  const handleAnswerChange = (questionId: string, answer: string) => {
+    setAnswers((prev) => ({ ...prev, [questionId]: answer }))
   }
 
   const formatTime = (seconds: number) => {
@@ -203,7 +203,7 @@ export function QuizInterface({ quiz, onComplete }: QuizInterfaceProps) {
             {question.type === "true-false" && (
               <RadioGroup
                 value={answers[question.id] || ""}
-                onValueChange={(value) => handleAnswerChange(question.id, value)}
+                onValue-Change={(value) => handleAnswerChange(question.id, value)}
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="True" id="true" />

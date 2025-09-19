@@ -9,6 +9,7 @@ export interface StoredProgress {
 
 export class ProgressStorage {
   static saveProgress(users: User[]): void {
+    if (typeof window === 'undefined') return
     try {
       const progressData: StoredProgress = {
         users,
@@ -21,6 +22,7 @@ export class ProgressStorage {
   }
 
   static loadProgress(): User[] | null {
+    if (typeof window === 'undefined') return null
     try {
       const stored = localStorage.getItem(STORAGE_KEY)
       if (!stored) return null
@@ -34,6 +36,7 @@ export class ProgressStorage {
   }
 
   static updateUserProgress(username: string, updatedProfile: User["profile"]): void {
+    if (typeof window === 'undefined') return
     try {
       const stored = this.loadProgress()
       if (!stored) return
@@ -57,6 +60,7 @@ export class ProgressStorage {
     earnedXp: number,
     earnedCoins: number,
   ): void {
+    if (typeof window === 'undefined') return
     try {
       const stored = this.loadProgress()
       if (!stored) return
@@ -106,6 +110,7 @@ export class ProgressStorage {
     earnedXp: number,
     earnedCoins: number,
   ): void {
+    if (typeof window === 'undefined') return
     try {
       const stored = this.loadProgress()
       if (!stored) return
@@ -147,6 +152,7 @@ export class ProgressStorage {
   }
 
   static getLeaderboard(): User[] {
+    if (typeof window === 'undefined') return []
     try {
       const stored = this.loadProgress()
       if (!stored) return []
@@ -163,6 +169,7 @@ export class ProgressStorage {
   }
 
   static resetProgress(): void {
+    if (typeof window === 'undefined') return
     try {
       localStorage.removeItem(STORAGE_KEY)
     } catch (error) {
@@ -171,6 +178,7 @@ export class ProgressStorage {
   }
 
   static exportProgress(): string {
+    if (typeof window === 'undefined') return ""
     try {
       const stored = localStorage.getItem(STORAGE_KEY)
       return stored || ""
@@ -181,6 +189,7 @@ export class ProgressStorage {
   }
 
   static importProgress(progressData: string): boolean {
+    if (typeof window === 'undefined') return false
     try {
       const parsed = JSON.parse(progressData)
       if (parsed.users && Array.isArray(parsed.users)) {

@@ -233,7 +233,7 @@ export default function HomePage() {
                 <Crown className="h-8 w-8 ml-3 text-yellow-300" />
               </div>
               <p className="text-lg opacity-90 mb-4">
-                "Every expert was once a beginner. Every pro was once an amateur. Every icon was once an unknown."
+                &quot;Every expert was once a beginner. Every pro was once an amateur. Every icon was once an unknown.&quot;
               </p>
               <div className="flex items-center justify-center space-x-6 text-sm">
                 <div className="flex items-center">
