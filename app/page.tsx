@@ -30,7 +30,7 @@ import RewardsPanel from "@/components/rewards-panel"
 import LearningPathway from "@/components/learning-pathway"
 import Leaderboard from "@/components/leaderboard"
 import type { User } from "@/types/user"
-import { updateUserProgress, getAllUsers } from "@/data/users"
+import { updateUserProgress, getAllUsers, getUserProgress } from "@/data/users"
 
 export default function HomePage() {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
@@ -41,6 +41,17 @@ export default function HomePage() {
   const [showLearningPathway, setShowLearningPathway] = useState(false)
   const [showLeaderboard, setShowLeaderboard] = useState(false)
   const [partyMode, setPartyMode] = useState(false)
+
+  useEffect(() => {
+    // Check if a user is logged in from a previous session
+    const loggedInUsername = localStorage.getItem("loggedInUser")
+    if (loggedInUsername) {
+      const user = getUserProgress(loggedInUsername)
+      if (user) {
+        setCurrentUser(user)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     if (partyMode) {
@@ -58,14 +69,16 @@ export default function HomePage() {
         setCurrentUser(refreshedUser)
       }
     }
-  }, [currentUser])
+  }, []) // Removed currentUser from dependency array to avoid loops
 
   const handleLogin = (user: User) => {
     setCurrentUser(user)
+    localStorage.setItem("loggedInUser", user.username)
   }
 
   const handleLogout = () => {
     setCurrentUser(null)
+    localStorage.removeItem("loggedInUser")
     setSelectedSubject(null)
     setExamStarted(false)
     setShowAvatarCustomizer(false)
@@ -85,18 +98,19 @@ export default function HomePage() {
       <ExamInterface
         subject={subject!}
         onComplete={(earnedCoins: number, earnedXp: number) => {
+          // Immutable update for subjects array
+          const updatedSubjects = currentUser.profile.subjects.map((s) =>
+            s.id === selectedSubject
+              ? { ...s, xp: s.xp + earnedXp, coins: s.coins + earnedCoins }
+              : s
+          )
+
           const updatedProfile = {
             ...currentUser.profile,
             coins: currentUser.profile.coins + earnedCoins,
             xp: currentUser.profile.xp + earnedXp,
             totalQuestsCompleted: currentUser.profile.totalQuestsCompleted + 1,
-          }
-
-          // Update subject progress
-          const subjectIndex = updatedProfile.subjects.findIndex((s) => s.id === selectedSubject)
-          if (subjectIndex !== -1) {
-            updatedProfile.subjects[subjectIndex].xp += earnedXp
-            updatedProfile.subjects[subjectIndex].coins += earnedCoins
+            subjects: updatedSubjects,
           }
 
           if (updatedProfile.xp >= updatedProfile.maxXp) {
@@ -105,7 +119,8 @@ export default function HomePage() {
             updatedProfile.maxXp = Math.floor(updatedProfile.maxXp * 1.2)
           }
 
-          setCurrentUser({ ...currentUser, profile: updatedProfile })
+          const updatedUser = { ...currentUser, profile: updatedProfile }
+          setCurrentUser(updatedUser)
           updateUserProgress(currentUser.username, updatedProfile)
 
           setExamStarted(false)
@@ -233,12 +248,12 @@ export default function HomePage() {
                 <Crown className="h-8 w-8 ml-3 text-yellow-300" />
               </div>
               <p className="text-lg opacity-90 mb-4">
-                &quot;Every expert was once a beginner. Every pro was once an amateur. Every icon was once an unknown.&quot;
+                "Every expert was once a beginner. Every pro was once an amateur. Every icon was once an unknown."
               </p>
               <div className="flex items-center justify-center space-x-6 text-sm">
                 <div className="flex items-center">
                   <Trophy className="h-4 w-4 mr-1" />
-                  <span>{currentUser.profile.subjects.length} Subjects Available</span>
+                  <span>{Array.isArray(currentUser.profile.subjects) ? currentUser.profile.subjects.length : 0} Subjects Available</span>
                 </div>
                 <div className="flex items-center">
                   <Star className="h-4 w-4 mr-1" />
@@ -269,7 +284,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {currentUser.profile.subjects.map((subject) => (
+            {Array.isArray(currentUser.profile.subjects) && currentUser.profile.subjects.map((subject) => (
               <Card
                 key={subject.id}
                 className={`cursor-pointer transition-all hover:shadow-xl hover:scale-105 relative overflow-hidden ${
