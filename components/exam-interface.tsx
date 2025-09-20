@@ -9,109 +9,21 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Clock, CheckCircle, ArrowLeft, ArrowRight, Zap, Star, Crown, Sparkles, Trophy, Target } from "lucide-react"
 import ExamResults from "@/components/exam-results"
-
-// Sample questions for different subjects
-const sampleQuestions = {
-  maths: [
-    {
-      id: 1,
-      question: "What is the value of x in the equation 2x + 5 = 13?",
-      options: ["x = 3", "x = 4", "x = 5", "x = 6"],
-      correct: 1,
-    },
-    {
-      id: 2,
-      question: "Calculate the area of a circle with radius 7cm (use π = 3.14)",
-      options: ["153.86 cm²", "43.96 cm²", "21.98 cm²", "87.92 cm²"],
-      correct: 0,
-    },
-    {
-      id: 3,
-      question: "Simplify: 3(x + 4) - 2x",
-      options: ["x + 12", "5x + 12", "x + 4", "3x + 2"],
-      correct: 0,
-    },
-  ],
-  english: [
-    {
-      id: 1,
-      question: "Which of the following is an example of a metaphor?",
-      options: [
-        "The wind whispered through the trees",
-        "She is as brave as a lion",
-        "Time is money",
-        "The car screeched to a halt",
-      ],
-      correct: 2,
-    },
-    {
-      id: 2,
-      question: "What is the main purpose of a topic sentence?",
-      options: [
-        "To conclude a paragraph",
-        "To introduce the main idea of a paragraph",
-        "To provide evidence",
-        "To create suspense",
-      ],
-      correct: 1,
-    },
-  ],
-  science: [
-    {
-      id: 1,
-      question: "What is the chemical symbol for gold?",
-      options: ["Go", "Gd", "Au", "Ag"],
-      correct: 2,
-    },
-    {
-      id: 2,
-      question: "Which organ in the human body produces insulin?",
-      options: ["Liver", "Pancreas", "Kidney", "Heart"],
-      correct: 1,
-    },
-  ],
-  history: [
-    {
-      id: 1,
-      question: "In which year did World War II end?",
-      options: ["1944", "1945", "1946", "1947"],
-      correct: 1,
-    },
-  ],
-  geography: [
-    {
-      id: 1,
-      question: "What is the longest river in the world?",
-      options: ["Amazon River", "Nile River", "Mississippi River", "Yangtze River"],
-      correct: 1,
-    },
-  ],
-}
+import {Topic} from "@/data/curriculum-database"
 
 interface ExamInterfaceProps {
-  subject: {
-    id: string
-    name: string
-    duration: number
-    questions: number
-    icon?: string
-    conquestTitle?: string
-    level?: number
-    color?: string
-  }
+  subject: Topic
   onComplete: (earnedCoins: number, earnedXp: number) => void
 }
 
 export default function ExamInterface({ subject, onComplete }: ExamInterfaceProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState<Record<number, number>>({})
-  const [timeLeft, setTimeLeft] = useState(subject.duration * 60)
+  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [timeLeft, setTimeLeft] = useState(subject.timeLimit * 60)
   const [examCompleted, setExamCompleted] = useState(false)
   const [streak, setStreak] = useState(0)
-  const [powerUpsUsed, setPowerUpsUsed] = useState(0)
-  const [hintsUsed, setHintsUsed] = useState(0)
 
-  const questions = sampleQuestions[subject.id as keyof typeof sampleQuestions] || []
+  const questions = subject.questions || []
 
   useEffect(() => {
     if (timeLeft > 0 && !examCompleted) {
@@ -128,8 +40,8 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
     return `${mins}:${secs.toString().padStart(2, "0")}`
   }
 
-  const handleAnswerChange = (questionId: number, answerIndex: number) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: answerIndex }))
+  const handleAnswerChange = (questionId: string, answer: string) => {
+    setAnswers((prev) => ({ ...prev, [questionId]: answer }))
   }
 
   const handleSubmitExam = () => {
@@ -139,7 +51,7 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
   const calculateScore = () => {
     let correct = 0
     questions.forEach((q) => {
-      if (answers[q.id] === q.correct) {
+      if (answers[q.id] === q.correctAnswer) {
         correct++
       }
     })
@@ -159,11 +71,6 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
     }
   }
 
-  const useHint = () => {
-    if (hintsUsed < 3) {
-      setHintsUsed((prev) => prev + 1)
-    }
-  }
 
   if (examCompleted) {
     const score = calculateScore()
@@ -184,10 +91,10 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
               Retreat
             </Button>
             <div className="flex items-center">
-              <div className="text-2xl mr-3">{subject.icon || "📚"}</div>
+              <div className="text-2xl mr-3">📚</div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">{subject.name} Quest</h1>
-                <p className="text-sm text-muted-foreground">{subject.conquestTitle || "Knowledge Warrior"}</p>
+                <h1 className="text-2xl font-bold text-foreground">{subject.title} Quest</h1>
+                <p className="text-sm text-muted-foreground">Knowledge Warrior</p>
               </div>
             </div>
           </div>
@@ -196,10 +103,6 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
               <Badge variant="secondary" className="flex items-center">
                 <Zap className="h-3 w-3 mr-1" />
                 Streak: {streak}
-              </Badge>
-              <Badge variant="outline" className="flex items-center">
-                <Star className="h-3 w-3 mr-1" />
-                Hints: {3 - hintsUsed}
               </Badge>
             </div>
             <div
@@ -237,18 +140,6 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
                   <Crown className="h-5 w-5 mr-2 text-primary" />
                   Challenge {currentQuestion + 1}
                 </CardTitle>
-                <div className="flex space-x-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={useHint}
-                    disabled={hintsUsed >= 3}
-                    className="flex items-center"
-                  >
-                    <Sparkles className="h-3 w-3 mr-1" />
-                    Hint ({3 - hintsUsed})
-                  </Button>
-                </div>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -258,19 +149,19 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
                 <RadioGroup
                   value={answers[questions[currentQuestion]?.id]?.toString()}
                   onValueChange={(value) => {
-                    handleAnswerChange(questions[currentQuestion]?.id, Number.parseInt(value))
-                    if (Number.parseInt(value) === questions[currentQuestion]?.correct) {
+                    handleAnswerChange(questions[currentQuestion]?.id, value)
+                    if (value === questions[currentQuestion]?.correctAnswer) {
                       setStreak((prev) => prev + 1)
                     }
                   }}
                   className="space-y-3"
                 >
-                  {questions[currentQuestion]?.options.map((option, index) => (
+                  {questions[currentQuestion]?.options?.map((option, index) => (
                     <div
                       key={index}
                       className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
                     >
-                      <RadioGroupItem value={index.toString()} id={`option-${index}`} />
+                      <RadioGroupItem value={option} id={`option-${index}`} />
                       <Label htmlFor={`option-${index}`} className="text-base cursor-pointer flex-1">
                         {option}
                       </Label>
