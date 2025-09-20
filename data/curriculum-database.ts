@@ -175,6 +175,103 @@ x = £144 ÷ 1.2 = £120
             "Solve reverse percentage problems",
           ],
         },
+        {
+          id: "ratios-proportion-lesson",
+          title: "Ratios and Proportion",
+          content: `# Ratios and Proportion
+
+## Learning Objectives
+- Simplify ratios to their simplest form
+- Divide a quantity into a given ratio
+- Solve direct and inverse proportion problems
+
+## Key Concepts
+
+### Simplifying Ratios
+Divide all parts of the ratio by their highest common factor.
+
+**Example:** Simplify the ratio 18:24
+- Highest common factor of 18 and 24 is 6
+- 18 ÷ 6 = 3
+- 24 ÷ 6 = 4
+- Simplest form is 3:4
+
+### Dividing a Quantity in a Ratio
+1. Add the parts of the ratio to find the total number of parts.
+2. Divide the quantity by the total number of parts to find the value of one part.
+3. Multiply this value by each number in the ratio.
+
+**Example:** Share £80 in the ratio 3:5
+- Total parts = 3 + 5 = 8
+- One part = £80 ÷ 8 = £10
+- 3 parts = 3 × £10 = £30
+- 5 parts = 5 × £10 = £50
+- The shares are £30 and £50
+
+### Direct and Inverse Proportion
+**Direct Proportion:** As one variable increases, the other increases at the same rate. (y = kx)
+**Inverse Proportion:** As one variable increases, the other decreases. (y = k/x)
+
+## Practice Problems
+1. Simplify the ratio 25:45
+2. Share 120 sweets in the ratio 2:3:5
+3. If 5 pens cost £1.50, how much do 8 pens cost? (Direct)
+4. If it takes 3 builders 8 days to build a wall, how long would it take 4 builders? (Inverse)`,
+          type: "lesson",
+          difficulty: "foundation",
+          estimatedTime: 60,
+          learningObjectives: [
+            "Simplify ratios",
+            "Divide quantities into a given ratio",
+            "Solve problems involving direct and inverse proportion",
+          ],
+        },
+        {
+          id: "standard-form-lesson",
+          title: "Standard Form",
+          content: `# Standard Form
+
+## Learning Objectives
+- Convert numbers to and from standard form
+- Perform calculations with numbers in standard form
+
+## Key Concepts
+
+Standard form is a way of writing very large or very small numbers. It is written in the form A × 10^n, where 1 ≤ A < 10 and n is an integer.
+
+### Converting to Standard Form
+- Move the decimal point to get a number between 1 and 10.
+- The number of places moved is the power of 10.
+- Power is positive for large numbers, negative for small numbers.
+
+**Example 1:** Write 345,000 in standard form.
+- Move decimal 5 places left: 3.45
+- Standard form: 3.45 × 10^5
+
+**Example 2:** Write 0.0078 in standard form.
+- Move decimal 3 places right: 7.8
+- Standard form: 7.8 × 10^-3
+
+### Calculations with Standard Form
+**Multiplication:** Multiply the numbers, add the powers.
+(a × 10^n) × (b × 10^m) = (a × b) × 10^(n+m)
+
+**Division:** Divide the numbers, subtract the powers.
+(a × 10^n) ÷ (b × 10^m) = (a ÷ b) × 10^(n-m)
+
+## Practice Problems
+1. Write 5,280,000 in standard form.
+2. Write 0.000091 in standard form.
+3. Calculate (2.5 × 10^4) × (3 × 10^2)
+4. Calculate (8 × 10^6) ÷ (4 × 10^3)`,
+          type: "lesson",
+          difficulty: "higher",
+          estimatedTime: 50,
+          learningObjectives: [
+            "Understand and use standard form",
+            "Perform calculations with numbers in standard form",
+          ],
+        },
       ],
       quizzes: [
         {
