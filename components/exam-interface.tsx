@@ -5,25 +5,30 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Clock, CheckCircle, ArrowLeft, ArrowRight, Zap, Star, Crown, Sparkles, Trophy, Target } from "lucide-react"
 import ExamResults from "@/components/exam-results"
-import {Topic} from "@/data/curriculum-database"
+import { Subject } from "@/data/curriculum-database"
 
 interface ExamInterfaceProps {
-  subject: Topic
+  subject: Subject
   onComplete: (earnedCoins: number, earnedXp: number) => void
 }
 
 export default function ExamInterface({ subject, onComplete }: ExamInterfaceProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
-  const [timeLeft, setTimeLeft] = useState(subject.timeLimit * 60)
+  const [timeLeft, setTimeLeft] = useState(subject.timeLimit * 60 || 3600)
   const [examCompleted, setExamCompleted] = useState(false)
   const [streak, setStreak] = useState(0)
 
-  const questions = subject.questions || []
+  // Generate questions from all topics
+  const questions = subject.topics.flatMap(topic => 
+    topic.quizzes.flatMap(quiz => quiz.questions)
+  ).slice(0, subject.questions)
 
   useEffect(() => {
     if (timeLeft > 0 && !examCompleted) {
@@ -93,7 +98,7 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
             <div className="flex items-center">
               <div className="text-2xl mr-3">📚</div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">{subject.title} Quest</h1>
+                <h1 className="text-2xl font-bold text-foreground">{subject.name} Quest</h1>
                 <p className="text-sm text-muted-foreground">Knowledge Warrior</p>
               </div>
             </div>
@@ -146,28 +151,56 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed font-medium">{questions[currentQuestion]?.question}</p>
 
-                <RadioGroup
-                  value={answers[questions[currentQuestion]?.id]?.toString()}
-                  onValueChange={(value) => {
-                    handleAnswerChange(questions[currentQuestion]?.id, value)
-                    if (value === questions[currentQuestion]?.correctAnswer) {
-                      setStreak((prev) => prev + 1)
-                    }
-                  }}
-                  className="space-y-3"
-                >
-                  {questions[currentQuestion]?.options?.map((option, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
-                    >
-                      <RadioGroupItem value={option} id={`option-${index}`} />
-                      <Label htmlFor={`option-${index}`} className="text-base cursor-pointer flex-1">
-                        {option}
-                      </Label>
+                {questions[currentQuestion]?.type === "multiple-choice" && (
+                  <RadioGroup
+                    value={answers[questions[currentQuestion]?.id]?.toString()}
+                    onValueChange={(value) => {
+                      handleAnswerChange(questions[currentQuestion]?.id, value)
+                      if (value === questions[currentQuestion]?.correctAnswer) {
+                        setStreak((prev) => prev + 1)
+                      }
+                    }}
+                    className="space-y-3"
+                  >
+                    {questions[currentQuestion]?.options?.map((option, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                      >
+                        <RadioGroupItem value={option} id={`option-${index}`} />
+                        <Label htmlFor={`option-${index}`} className="text-base cursor-pointer flex-1">
+                          {option}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                )}
+
+                {questions[currentQuestion]?.type === "true-false" && (
+                  <RadioGroup
+                    value={answers[questions[currentQuestion]?.id]?.toString()}
+                    onValueChange={(value) => handleAnswerChange(questions[currentQuestion]?.id, value)}
+                    className="space-y-3"
+                  >
+                    <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                      <RadioGroupItem value="True" id="true" />
+                      <Label htmlFor="true" className="text-base cursor-pointer flex-1">True</Label>
                     </div>
-                  ))}
-                </RadioGroup>
+                    <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                      <RadioGroupItem value="False" id="false" />
+                      <Label htmlFor="false" className="text-base cursor-pointer flex-1">False</Label>
+                    </div>
+                  </RadioGroup>
+                )}
+
+                {(questions[currentQuestion]?.type === "short-answer" || questions[currentQuestion]?.type === "calculation") && (
+                  <Input
+                    placeholder="Enter your answer..."
+                    value={answers[questions[currentQuestion]?.id] || ""}
+                    onChange={(e) => handleAnswerChange(questions[currentQuestion]?.id, e.target.value)}
+                    className="text-base p-4"
+                  />
+                )}
               </div>
             </CardContent>
           </Card>

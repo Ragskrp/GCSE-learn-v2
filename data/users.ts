@@ -36,16 +36,193 @@ const initialUsers: User[] = [
                 {
                   id: "number-1",
                   title: "Integers and Rational Numbers",
-                  content:
-                    "Master positive and negative integers, understand the number line, and work with fractions, decimals, and percentages. Learn to convert between different number forms and apply them in real-world contexts.",
-                  type: "text",
+                  content: `# Integers and Rational Numbers
+
+## Learning Objectives
+- Understand positive and negative integers
+- Work with fractions, decimals, and percentages
+- Convert between different number forms
+- Apply number skills in real-world contexts
+
+## Positive and Negative Integers
+
+Integers are whole numbers that can be positive, negative, or zero.
+
+**Examples:** ..., -3, -2, -1, 0, 1, 2, 3, ...
+
+### Number Line
+```
+-5  -4  -3  -2  -1   0   1   2   3   4   5
+```
+
+### Ordering Integers
+- Numbers increase as you move right on the number line
+- -2 > -5 (because -2 is to the right of -5)
+- 3 > -1 (positive numbers are always greater than negative numbers)
+
+### Adding and Subtracting Integers
+
+**Adding with same signs:**
+- (+3) + (+5) = +8
+- (-3) + (-5) = -8
+
+**Adding with different signs:**
+- (+3) + (-5) = -2
+- (-3) + (+5) = +2
+
+**Subtracting integers:**
+- Change subtraction to addition of the opposite
+- 5 - 3 = 5 + (-3) = 2
+- 5 - (-3) = 5 + 3 = 8
+
+## Rational Numbers
+
+Rational numbers can be expressed as fractions (a/b where b ≠ 0).
+
+### Fractions
+- Proper fractions: 3/4, 2/5 (numerator < denominator)
+- Improper fractions: 5/4, 7/3 (numerator ≥ denominator)
+- Mixed numbers: 1¼, 2⅓ (whole number + fraction)
+
+### Decimals
+- Terminating: 0.5, 0.25, 0.125
+- Recurring: 0.333..., 0.142857142857...
+
+### Percentages
+- Parts per hundred
+- 50% = 50/100 = 0.5 = ½
+
+## Converting Between Forms
+
+**Fraction to Decimal:** Divide numerator by denominator
+- ¾ = 3 ÷ 4 = 0.75
+
+**Decimal to Percentage:** Multiply by 100
+- 0.75 = 0.75 × 100 = 75%
+
+**Percentage to Fraction:** Write over 100 and simplify
+- 75% = 75/100 = ¾
+
+## Real-World Applications
+- Temperature (negative values below freezing)
+- Bank balances (negative for overdrafts)
+- Elevations (below sea level)
+- Sports scores and statistics
+
+## Practice Problems
+1. Calculate: (-5) + 8
+2. Calculate: 3 - (-7)
+3. Convert ⅗ to a decimal and percentage
+4. Order from smallest to largest: -2, 5, -7, 0, 3
+5. A diver is 15m below sea level, then descends another 8m. What is their final depth?`,
+                  type: "lesson",
+                  estimatedTime: 45,
+                  difficulty: "foundation",
+                  learningObjectives: [
+                    "Understand positive and negative integers",
+                    "Work with fractions, decimals, and percentages",
+                    "Convert between different number forms",
+                    "Apply number skills in real-world contexts"
+                  ]
                 },
                 {
                   id: "number-2",
                   title: "Percentages and Ratios",
-                  content:
-                    "Calculate percentages, percentage change, and work with ratios and proportions. Apply these skills to solve problems involving finance, statistics, and everyday situations.",
-                  type: "interactive",
+                  content: `# Percentages and Ratios
+
+## Learning Objectives
+- Calculate percentages of amounts
+- Find percentage increases and decreases
+- Work with ratios and proportions
+- Apply skills to real-world problems
+
+## Understanding Percentages
+
+Percentage means "out of 100" (per cent = per hundred).
+
+### Finding a Percentage of an Amount
+**Method 1:** Convert to decimal
+- 25% of 80 = 0.25 × 80 = 20
+
+**Method 2:** Use fractions
+- 25% of 80 = ¼ × 80 = 20
+
+**Method 3:** Find 1% first
+- 1% of 80 = 0.8
+- 25% of 80 = 25 × 0.8 = 20
+
+### Percentage Increase and Decrease
+
+**Increase:** New amount = Original × (100 + increase%)/100
+- Price increases by 15%: New price = Original × 1.15
+
+**Decrease:** New amount = Original × (100 - decrease%)/100
+- Price decreases by 20%: New price = Original × 0.8
+
+**Example:** A £50 jacket is reduced by 30%
+- Sale price = £50 × 0.7 = £35
+
+### Finding the Percentage Change
+Percentage change = (New value - Original value)/Original value × 100
+
+**Example:** Price changes from £40 to £50
+- Change = £10
+- Percentage increase = 10/40 × 100 = 25%
+
+## Understanding Ratios
+
+A ratio compares quantities by division.
+
+### Writing Ratios
+- 2:3 (read as "2 to 3")
+- Can also be written as 2/3 or 2÷3
+
+### Simplifying Ratios
+Divide all parts by their highest common factor.
+
+**Example:** 12:18
+- HCF of 12 and 18 is 6
+- 12:18 = 2:3
+
+### Sharing in a Ratio
+
+**Example:** Share £60 in the ratio 2:3
+1. Total parts = 2 + 3 = 5
+2. Each part = £60 ÷ 5 = £12
+3. First share = 2 × £12 = £24
+4. Second share = 3 × £12 = £36
+
+### Proportion
+Two quantities are in proportion if their ratio stays the same.
+
+**Direct Proportion:** As one increases, the other increases
+- If 3 apples cost £1.50, then 6 apples cost £3.00
+
+**Inverse Proportion:** As one increases, the other decreases
+- If 4 workers take 6 hours, then 8 workers take 3 hours
+
+## Real-World Applications
+- Shopping discounts and sales
+- VAT calculations (20% in UK)
+- Recipe scaling
+- Map scales
+- Financial calculations (interest, profit/loss)
+
+## Practice Problems
+1. Find 35% of £120
+2. A £80 item increases by 15%. What's the new price?
+3. Share 150 sweets in the ratio 2:3:5
+4. If 5 pens cost £2.50, how much do 8 pens cost?
+5. A car's value decreases from £15,000 to £12,000. What's the percentage decrease?`,
+                  type: "lesson",
+                  estimatedTime: 50,
+                  difficulty: "foundation",
+                  learningObjectives: [
+                    "Calculate percentages of amounts",
+                    "Find percentage increases and decreases", 
+                    "Work with ratios and proportions",
+                    "Apply skills to real-world problems"
+                  ]
                 },
                 {
                   id: "number-3",
@@ -59,27 +236,41 @@ const initialUsers: User[] = [
                 {
                   id: "number-quiz-1",
                   title: "Basic Number Operations",
+                  timeLimit: 15,
+                  difficulty: "foundation",
+                  passingScore: 70,
+                  xpReward: 50,
+                  coinReward: 25,
                   questions: [
                     {
                       id: "q1",
                       question: "What is -5 + 8?",
+                      type: "multiple-choice",
                       options: ["3", "-3", "13", "-13"],
-                      correctAnswer: 0,
+                      correctAnswer: "3",
                       explanation: "-5 + 8 = 3 because you move 8 units right from -5 on the number line.",
+                      marks: 1,
+                      topic: "Integer Operations"
                     },
                     {
                       id: "q2",
                       question: "Convert 3/4 to a percentage:",
+                      type: "multiple-choice",
                       options: ["75%", "34%", "43%", "25%"],
-                      correctAnswer: 0,
+                      correctAnswer: "75%",
                       explanation: "3/4 = 0.75 = 75%",
+                      marks: 1,
+                      topic: "Fractions to Percentages"
                     },
                     {
                       id: "q3",
                       question: "What is 20% of 150?",
+                      type: "multiple-choice",
                       options: ["30", "25", "35", "40"],
-                      correctAnswer: 0,
+                      correctAnswer: "30",
                       explanation: "20% of 150 = 0.20 × 150 = 30",
+                      marks: 2,
+                      topic: "Percentage Calculations"
                     },
                   ],
                   timeLimit: 300,
@@ -98,34 +289,37 @@ const initialUsers: User[] = [
                       explanation: "12:18 = 12÷6:18÷6 = 2:3",
                     },
                   ],
-                  timeLimit: 240,
-                  xpReward: 40,
-                  coinReward: 8,
                 },
               ],
               tests: [
                 {
                   id: "number-test-1",
                   title: "Number Mastery Test",
+                  timeLimit: 30,
+                  difficulty: "foundation", 
+                  passingScore: 60,
+                  xpReward: 100,
+                  coinReward: 50,
                   questions: [
                     {
                       id: "t1",
                       question: "Calculate: (-3) × 4 + 7",
-                      type: "short-answer",
+                      type: "calculation",
                       correctAnswer: "-5",
-                      points: 3,
+                      explanation: "(-3) × 4 = -12, then -12 + 7 = -5",
+                      marks: 3,
+                      topic: "Order of Operations"
                     },
                     {
                       id: "t2",
                       question: "A shirt costs £25. In a sale, it's reduced by 20%. What's the sale price?",
-                      type: "short-answer",
+                      type: "calculation",
                       correctAnswer: "£20",
-                      points: 4,
+                      explanation: "20% of £25 = £5, so sale price = £25 - £5 = £20",
+                      marks: 4,
+                      topic: "Percentage Decrease"
                     },
                   ],
-                  timeLimit: 1800,
-                  xpReward: 100,
-                  coinReward: 25,
                 },
               ],
             },

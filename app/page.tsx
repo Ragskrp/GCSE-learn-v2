@@ -25,10 +25,12 @@ import {
   LogOut,
 } from "lucide-react"
 import ExamInterface from "@/components/exam-interface"
+  HelpCircle,
 import AvatarCustomizer from "@/components/avatar-customizer"
 import RewardsPanel from "@/components/rewards-panel"
 import LearningPathway from "@/components/learning-pathway"
 import Leaderboard from "@/components/leaderboard"
+import HelpCenter from "@/components/help-center"
 import type { User } from "@/types/user"
 import { updateUserProgress, getAllUsers, getUserProgress } from "@/data/users"
 
@@ -43,6 +45,7 @@ export default function HomePage() {
   const [partyMode, setPartyMode] = useState(false)
 
   useEffect(() => {
+  const [showHelpCenter, setShowHelpCenter] = useState(false)
     // Check if a user is logged in from a previous session
     const loggedInUsername = localStorage.getItem("loggedInUser")
     if (loggedInUsername) {
@@ -88,6 +91,7 @@ export default function HomePage() {
     setPartyMode(false)
   }
 
+    setShowHelpCenter(false)
   if (!currentUser) {
     return <LoginForm onLogin={handleLogin} />
   }
@@ -166,6 +170,10 @@ export default function HomePage() {
     return <Leaderboard currentUser={currentUser} onClose={() => setShowLeaderboard(false)} />
   }
 
+  if (showHelpCenter) {
+    return <HelpCenter onClose={() => setShowHelpCenter(false)} />
+  }
+
   return (
     <div
       className={`min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 ${partyMode ? "party-lights" : ""}`}
@@ -222,6 +230,10 @@ export default function HomePage() {
             <Button variant="outline" onClick={() => setShowLeaderboard(true)} className="relative">
               <Users className="h-4 w-4 mr-2" />
               Leaderboard
+            </Button>
+            <Button variant="outline" onClick={() => setShowHelpCenter(true)} className="relative">
+              <HelpCircle className="h-4 w-4 mr-2" />
+              Help
             </Button>
             <Button variant="outline" onClick={() => setPartyMode(!partyMode)} className="relative">
               <PartyPopper className="h-4 w-4 mr-2" />
