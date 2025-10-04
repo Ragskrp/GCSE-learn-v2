@@ -51,9 +51,9 @@ Integers are whole numbers that can be positive, negative, or zero.
 **Examples:** ..., -3, -2, -1, 0, 1, 2, 3, ...
 
 ### Number Line
-```
+\`\`\`
 -5  -4  -3  -2  -1   0   1   2   3   4   5
-```
+\`\`\`
 
 ### Ordering Integers
 - Numbers increase as you move right on the number line

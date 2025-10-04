@@ -9,7 +9,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import LoginForm from "@/components/login-form"
 import { Crown, Coins, Star, Trophy, Sparkles, Camera, Plus, Zap, Heart, Gift, PartyPopper, Lightbulb, BookOpen, Users, LogOut, CircleHelp as HelpCircle, Calendar, ChartBar as BarChart3 } from "lucide-react"
 import ExamInterface from "@/components/exam-interface"
-  HelpCircle,
 import AvatarCustomizer from "@/components/avatar-customizer"
 import RewardsPanel from "@/components/rewards-panel"
 import LearningPathway from "@/components/learning-pathway"
@@ -17,7 +16,6 @@ import Leaderboard from "@/components/leaderboard"
 import HelpCenter from "@/components/help-center"
 import StudyPlanner from "@/components/study-planner"
 import ProgressTracker from "@/components/progress-tracker"
-import HelpCenter from "@/components/help-center"
 import type { User } from "@/types/user"
 import { updateUserProgress, getAllUsers, getUserProgress } from "@/data/users"
 
@@ -35,7 +33,6 @@ export default function HomePage() {
   const [partyMode, setPartyMode] = useState(false)
 
   useEffect(() => {
-  const [showHelpCenter, setShowHelpCenter] = useState(false)
     // Check if a user is logged in from a previous session
     const loggedInUsername = localStorage.getItem("loggedInUser")
     if (loggedInUsername) {
@@ -84,7 +81,6 @@ export default function HomePage() {
     setPartyMode(false)
   }
 
-    setShowHelpCenter(false)
   if (!currentUser) {
     return <LoginForm onLogin={handleLogin} />
   }
@@ -173,9 +169,6 @@ export default function HomePage() {
 
   if (showProgressTracker) {
     return <ProgressTracker user={currentUser} onClose={() => setShowProgressTracker(false)} />
-  }
-  if (showHelpCenter) {
-    return <HelpCenter onClose={() => setShowHelpCenter(false)} />
   }
 
   return (
