@@ -5,23 +5,80 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
-import { Clock, CheckCircle, ArrowLeft, ArrowRight, Zap, Star, Crown, Sparkles, Trophy, Target } fimport { Clock, CircleCheck as CheckCircle, ArrowLeft, ArrowRight, Zap, Star, Crown, Sparkles, Trophy, Target } from "lucide-react"se"
+import { Clock, CheckCircle, ArrowLeft, ArrowRight, Zap, Star, Crown, Sparkles, Trophy, Target } from "lucide-react"
+import ExamResults from "@/components/exam-results"
+import type { Subject } from "@/types/user"
+
+interface Question {
+  id: string
+  question: string
+  type: "multiple-choice" | "true-false" | "short-answer" | "calculation"
+  options?: string[]
+  correctAnswer: string
+  explanation: string
+  marks: number
+  topic: string
+}
 
 interface ExamInterfaceProps {
-  subject: Topic
+  subject: Subject
   onComplete: (earnedCoins: number, earnedXp: number) => void
 }
 
+// Generate questions from all topics in the subject
+const generateQuestions = (subject: Subject): Question[] => {
+  const allQuestions: Question[] = []
+  
+  subject.topics.forEach(topic => {
+    // Add quiz questions
+    topic.quizzes.forEach(quiz => {
+      quiz.questions.forEach(q => {
+        allQuestions.push({
+          id: q.id,
+          question: q.question,
+          type: q.type,
+          options: q.options,
+          correctAnswer: Array.isArray(q.correctAnswer) ? q.correctAnswer[0] : q.correctAnswer,
+          explanation: q.explanation,
+          marks: q.marks,
+          topic: q.topic
+        })
+      })
+    })
+    
+    // Add test questions
+    topic.tests.forEach(test => {
+      test.questions.forEach(q => {
+        allQuestions.push({
+          id: q.id,
+          question: q.question,
+          type: q.type as any,
+          options: q.options,
+          correctAnswer: typeof q.correctAnswer === 'string' ? q.correctAnswer : q.correctAnswer?.toString() || '',
+          explanation: "Well done! Review the study materials for more practice.",
+          marks: q.points,
+          topic: q.topic || topic.name
+        })
+      })
+    })
+  })
+  
+  // Shuffle and return limited number of questions
+  const shuffled = allQuestions.sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, Math.min(subject.questions, shuffled.length))
+}
+
 export default function ExamInterface({ subject, onComplete }: ExamInterfaceProps) {
+  const [questions] = useState<Question[]>(() => generateQuestions(subject))
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
-  const [timeLeft, setTimeLeft] = useState(subject.timeLimit * 60)
+  const [timeLeft, setTimeLeft] = useState(subject.duration * 60)
   const [examCompleted, setExamCompleted] = useState(false)
   const [streak, setStreak] = useState(0)
-
-  const questions = subject.questions || []
 
   useEffect(() => {
     if (timeLeft > 0 && !examCompleted) {
@@ -40,6 +97,12 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
 
   const handleAnswerChange = (questionId: string, answer: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: answer }))
+    
+    // Check if answer is correct for streak calculation
+    const question = questions.find(q => q.id === questionId)
+    if (question && answer === question.correctAnswer) {
+      setStreak((prev) => prev + 1)
+    }
   }
 
   const handleSubmitExam = () => {
@@ -56,10 +119,12 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
     const percentage = Math.round((correct / questions.length) * 100)
     let earnedCoins = Math.floor(percentage / 10) * 10 + streak * 5
     let earnedXp = percentage * 2 + correct * 10
+    
     if (percentage === 100) {
       earnedCoins += 50
       earnedXp += 100
     }
+    
     return {
       correct,
       total: questions.length,
@@ -69,15 +134,38 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
     }
   }
 
-
   if (examCompleted) {
     const score = calculateScore()
     return (
-      <ExamResults subject={subject} score={score} onRestart={() => onComplete(score.earnedCoins, score.earnedXp)} />
+      <ExamResults 
+        subject={subject} 
+        score={score} 
+        onRestart={() => onComplete(score.earnedCoins, score.earnedXp)} 
+      />
+    )
+  }
+
+  if (questions.length === 0) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 flex items-center justify-center">
+        <Card className="max-w-md">
+          <CardContent className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-4">No Questions Available</h2>
+            <p className="text-muted-foreground mb-6">
+              This subject doesn't have any questions yet. Please check back later or try another subject.
+            </p>
+            <Button onClick={() => onComplete(0, 0)}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Dashboard
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
     )
   }
 
   const progress = ((currentQuestion + 1) / questions.length) * 100
+  const currentQ = questions[currentQuestion]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
@@ -89,10 +177,10 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
               Retreat
             </Button>
             <div className="flex items-center">
-              <div className="text-2xl mr-3">📚</div>
+              <div className="text-2xl mr-3">{subject.icon}</div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">{subject.title} Quest</h1>
-                <p className="text-sm text-muted-foreground">Knowledge Warrior</p>
+                <h1 className="text-2xl font-bold text-foreground">{subject.name} Quest</h1>
+                <p className="text-sm text-muted-foreground">{subject.conquestTitle}</p>
               </div>
             </div>
           </div>
@@ -130,31 +218,30 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
           </CardContent>
         </Card>
 
-        {questions.length > 0 && (
-          <Card className="mb-8 shadow-lg border-2 border-primary/20">
-            <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5">
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-lg flex items-center">
-                  <Crown className="h-5 w-5 mr-2 text-primary" />
-                  Challenge {currentQuestion + 1}
-                </CardTitle>
+        <Card className="mb-8 shadow-lg border-2 border-primary/20">
+          <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5">
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg flex items-center">
+                <Crown className="h-5 w-5 mr-2 text-primary" />
+                Challenge {currentQuestion + 1}
+              </CardTitle>
+              <Badge variant="outline">{currentQ.marks} mark{currentQ.marks !== 1 ? 's' : ''}</Badge>
+            </div>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <div className="space-y-6">
+              <div>
+                <p className="text-lg leading-relaxed font-medium mb-2">{currentQ.question}</p>
+                <Badge variant="secondary" className="text-xs">Topic: {currentQ.topic}</Badge>
               </div>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <div className="space-y-6">
-                <p className="text-lg leading-relaxed font-medium">{questions[currentQuestion]?.question}</p>
 
+              {currentQ.type === "multiple-choice" && currentQ.options && (
                 <RadioGroup
-                  value={answers[questions[currentQuestion]?.id]?.toString()}
-                  onValueChange={(value) => {
-                    handleAnswerChange(questions[currentQuestion]?.id, value)
-                    if (value === questions[currentQuestion]?.correctAnswer) {
-                      setStreak((prev) => prev + 1)
-                    }
-                  }}
+                  value={answers[currentQ.id] || ""}
+                  onValueChange={(value) => handleAnswerChange(currentQ.id, value)}
                   className="space-y-3"
                 >
-                  {questions[currentQuestion]?.options?.map((option, index) => (
+                  {currentQ.options.map((option, index) => (
                     <div
                       key={index}
                       className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors"
@@ -166,10 +253,52 @@ export default function ExamInterface({ subject, onComplete }: ExamInterfaceProp
                     </div>
                   ))}
                 </RadioGroup>
-              </div>
-            </CardContent>
-          </Card>
-        )}
+              )}
+
+              {currentQ.type === "true-false" && (
+                <RadioGroup
+                  value={answers[currentQ.id] || ""}
+                  onValueChange={(value) => handleAnswerChange(currentQ.id, value)}
+                  className="space-y-3"
+                >
+                  <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                    <RadioGroupItem value="True" id="true" />
+                    <Label htmlFor="true" className="text-base cursor-pointer flex-1">True</Label>
+                  </div>
+                  <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                    <RadioGroupItem value="False" id="false" />
+                    <Label htmlFor="false" className="text-base cursor-pointer flex-1">False</Label>
+                  </div>
+                </RadioGroup>
+              )}
+
+              {(currentQ.type === "short-answer" || currentQ.type === "calculation") && (
+                <div className="space-y-2">
+                  <Label htmlFor="answer-input" className="text-sm font-medium">
+                    Your answer:
+                  </Label>
+                  {currentQ.type === "short-answer" ? (
+                    <Input
+                      id="answer-input"
+                      placeholder="Enter your answer..."
+                      value={answers[currentQ.id] || ""}
+                      onChange={(e) => handleAnswerChange(currentQ.id, e.target.value)}
+                      className="text-base"
+                    />
+                  ) : (
+                    <Textarea
+                      id="answer-input"
+                      placeholder="Show your working and final answer..."
+                      value={answers[currentQ.id] || ""}
+                      onChange={(e) => handleAnswerChange(currentQ.id, e.target.value)}
+                      className="text-base min-h-[100px]"
+                    />
+                  )}
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
 
         <div className="flex justify-between items-center">
           <Button

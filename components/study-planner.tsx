@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { Calendar, Clock, Target, BookOpen, CircleCheck as CheckCircle, CircleAlert as AlertCircle, ArrowLeft } from "lucide-react"
+import { Calendar, Clock, Target, BookOpen, CheckCircle, AlertCircle, ArrowLeft } from "lucide-react"
 import type { User } from "@/types/user"
 
 interface StudyPlannerProps {
@@ -49,7 +49,7 @@ export default function StudyPlanner({ user, onClose }: StudyPlannerProps) {
               subject: subject.name,
               topic: topic.name,
               type: "study",
-              duration: material.estimatedTime || 30,
+              duration: 30, // Default duration
               completed: false,
               scheduledDate: sessionDate.toISOString().split('T')[0],
               priority: topicIndex === 0 ? "high" : topicIndex === 1 ? "medium" : "low"
@@ -66,7 +66,7 @@ export default function StudyPlanner({ user, onClose }: StudyPlannerProps) {
               subject: subject.name,
               topic: topic.name,
               type: "quiz",
-              duration: quiz.timeLimit,
+              duration: quiz.timeLimit || 20,
               completed: false,
               scheduledDate: sessionDate.toISOString().split('T')[0],
               priority: "medium"

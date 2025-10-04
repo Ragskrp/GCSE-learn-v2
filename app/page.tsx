@@ -23,6 +23,9 @@ import {
   BookOpen,
   Users,
   LogOut,
+  HelpCircle,
+  Calendar,
+  BarChart3,
 } from "lucide-react"
 import ExamInterface from "@/components/exam-interface"
   HelpCircle,
@@ -30,6 +33,9 @@ import AvatarCustomizer from "@/components/avatar-customizer"
 import RewardsPanel from "@/components/rewards-panel"
 import LearningPathway from "@/components/learning-pathway"
 import Leaderboard from "@/components/leaderboard"
+import HelpCenter from "@/components/help-center"
+import StudyPlanner from "@/components/study-planner"
+import ProgressTracker from "@/components/progress-tracker"
 import HelpCenter from "@/components/help-center"
 import type { User } from "@/types/user"
 import { updateUserProgress, getAllUsers, getUserProgress } from "@/data/users"
@@ -42,6 +48,9 @@ export default function HomePage() {
   const [showRewards, setShowRewards] = useState(false)
   const [showLearningPathway, setShowLearningPathway] = useState(false)
   const [showLeaderboard, setShowLeaderboard] = useState(false)
+  const [showHelpCenter, setShowHelpCenter] = useState(false)
+  const [showStudyPlanner, setShowStudyPlanner] = useState(false)
+  const [showProgressTracker, setShowProgressTracker] = useState(false)
   const [partyMode, setPartyMode] = useState(false)
 
   useEffect(() => {
@@ -88,6 +97,9 @@ export default function HomePage() {
     setShowRewards(false)
     setShowLearningPathway(false)
     setShowLeaderboard(false)
+    setShowHelpCenter(false)
+    setShowStudyPlanner(false)
+    setShowProgressTracker(false)
     setPartyMode(false)
   }
 
@@ -174,6 +186,17 @@ export default function HomePage() {
     return <HelpCenter onClose={() => setShowHelpCenter(false)} />
   }
 
+  if (showStudyPlanner) {
+    return <StudyPlanner user={currentUser} onClose={() => setShowStudyPlanner(false)} />
+  }
+
+  if (showProgressTracker) {
+    return <ProgressTracker user={currentUser} onClose={() => setShowProgressTracker(false)} />
+  }
+  if (showHelpCenter) {
+    return <HelpCenter onClose={() => setShowHelpCenter(false)} />
+  }
+
   return (
     <div
       className={`min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 ${partyMode ? "party-lights" : ""}`}
@@ -227,6 +250,14 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center space-x-4">
+            <Button variant="outline" onClick={() => setShowProgressTracker(true)} className="relative">
+              <BarChart3 className="h-4 w-4 mr-2" />
+              Progress
+            </Button>
+            <Button variant="outline" onClick={() => setShowStudyPlanner(true)} className="relative">
+              <Calendar className="h-4 w-4 mr-2" />
+              Planner
+            </Button>
             <Button variant="outline" onClick={() => setShowLeaderboard(true)} className="relative">
               <Users className="h-4 w-4 mr-2" />
               Leaderboard
