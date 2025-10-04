@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
-import { Clock, CheckCircle, ArrowLeft, ArrowRight, Zap, Star, Crown, Sparkles, Trophy, Target } from "lucide-react"
+import { Clock, CircleCheck as CheckCircle, ArrowLeft, ArrowRight, Zap, Star, Crown, Sparkles, Trophy, Target } from "lucide-react"
 import ExamResults from "@/components/exam-results"
 import type { Subject } from "@/types/user"
 

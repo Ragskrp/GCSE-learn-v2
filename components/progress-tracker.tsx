@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft, TrendingUp, Target, Calendar, Award, BarChart3, PieChart, Activity } from "lucide-react"
+import { ArrowLeft, TrendingUp, Target, Calendar, Award, ChartBar as BarChart3, ChartPie as PieChart, Activity } from "lucide-react"
 import type { User } from "@/types/user"
 
 interface ProgressTrackerProps {

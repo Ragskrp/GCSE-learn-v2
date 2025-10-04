@@ -7,26 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import LoginForm from "@/components/login-form"
-import {
-  Crown,
-  Coins,
-  Star,
-  Trophy,
-  Sparkles,
-  Camera,
-  Plus,
-  Zap,
-  Heart,
-  Gift,
-  PartyPopper,
-  Lightbulb,
-  BookOpen,
-  Users,
-  LogOut,
-  HelpCircle,
-  Calendar,
-  BarChart3,
-} from "lucide-react"
+import { Crown, Coins, Star, Trophy, Sparkles, Camera, Plus, Zap, Heart, Gift, PartyPopper, Lightbulb, BookOpen, Users, LogOut, CircleHelp as HelpCircle, Calendar, ChartBar as BarChart3 } from "lucide-react"
 import ExamInterface from "@/components/exam-interface"
   HelpCircle,
 import AvatarCustomizer from "@/components/avatar-customizer"
