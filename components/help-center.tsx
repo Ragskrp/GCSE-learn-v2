@@ -6,18 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { 
-  ArrowLeft, 
-  Search, 
-  HelpCircle, 
-  BookOpen, 
-  MessageCircle, 
-  Video,
-  FileText,
-  Lightbulb,
-  Users,
-  Mail
-} from "lucide-react"
+import { ArrowLeft, Search, CircleHelp as HelpCircle, BookOpen, MessageCircle, Video, FileText, Lightbulb, Users, Mail } from "lucide-react"
 
 interface HelpCenterProps {
   onClose: () => void
