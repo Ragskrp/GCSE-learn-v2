@@ -1,20 +1,48 @@
-import { User } from '@/types';
+import { User, UserProfile } from '@/types/user';
 
 export const users: User[] = [
   {
-    id: '1',
-    name: 'Brinda',
-    pin: '1234',
-    progress: {
-      subjects: [],
-    },
+    username: 'Brinda',
+    password: '1234',
+    yearGroup: 10,
+    profile: {
+      level: 1,
+      xp: 0,
+      maxXp: 500,
+      coins: 0,
+      avatarUrl: '/cute-girl-avatar.png',
+      totalQuestsCompleted: 0,
+      subjects: []
+    }
   },
   {
-    id: '2',
-    name: 'Suppu',
-    pin: '9654',
-    progress: {
-      subjects: [],
-    },
+    username: 'Suppu',
+    password: '9654',
+    yearGroup: 10,
+    profile: {
+      level: 1,
+      xp: 0,
+      maxXp: 500,
+      coins: 0,
+      avatarUrl: '/cute-girl-avatar.png',
+      totalQuestsCompleted: 0,
+      subjects: []
+    }
   },
 ];
+
+export const getAllUsers = (): User[] => {
+  return users;
+};
+
+export const getUserProgress = (username: string): User | null => {
+  const user = users.find(u => u.username.toLowerCase() === username.toLowerCase());
+  return user || null;
+};
+
+export const updateUserProgress = (username: string, profile: UserProfile): void => {
+  const user = users.find(u => u.username.toLowerCase() === username.toLowerCase());
+  if (user) {
+    user.profile = profile;
+  }
+};
