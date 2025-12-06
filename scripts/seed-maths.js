@@ -75,6 +75,8 @@ Denominator (Bottom) → Total slices in the pizza
 
 **Example:** 3/4 means you have **3 slices** out of a pizza cut into **4 equal parts**.
 
+![Pizza showing 3 out of 4 slices](/lessons/fractions/fractions_pizza_intro_1765043998061.png)
+
 ### Visual Representation
 \`\`\`
 Full Pizza:    🍕🍕🍕🍕 (4 slices)
@@ -138,6 +140,8 @@ Step 3: Keep the denominator: 5
 Answer: 17/5
 \`\`\`
 
+![Types of Fractions Visual Guide](/lessons/fractions/fractions_types_visual_1765044014625.png)
+
 ### 🎮 Practice Challenge
 **Convert 13/5 to a mixed number**
 
@@ -169,6 +173,8 @@ All of these are 50% - exactly half!
 2/4:   [████░░░░|████░░░░] Same amount shaded!
 4/8:   [██░░|██░░|██░░|██░░] Still the same!
 \`\`\`
+
+![Equivalent Fractions Bars](/lessons/fractions/equivalent_fractions_bars_1765044027328.png)
 
 ### 🎮 Spot the Fake!
 Which of these is NOT equal to 2/3?
@@ -256,6 +262,8 @@ Step 3: Add!
 
 1/3 + 1/4 = 4/12 + 3/12 = **7/12** of the pizza! 🍕
 
+![Adding Fractions Step by Step](/lessons/fractions/adding_fractions_visual_1765044046370.png)
+
 ---
 
 ## 📚 Chapter 6: Multiplying Fractions
@@ -289,6 +297,8 @@ Start:  [████████████████] (whole)
 Half:   [████████░░░░░░░░] 
 Half of that: [████░░░░░░░░░░░░] (quarter!)
 \`\`\`
+
+![Multiplying Fractions Concept](/lessons/fractions/multiplying_fractions_concept_1765044063911.png)
 
 ---
 
@@ -353,6 +363,8 @@ Step 3: Convert back to mixed number
 - ⏱️ **Time:** Understanding hours and minutes
 - 📏 **Measurement:** Converting units (feet to inches)
 - 🎮 **Gaming:** Understanding health bars and progress
+
+![Real-World Fractions in Cooking](/lessons/fractions/real_world_fractions_cooking_1765044078678.png)
 
 ---
 
