@@ -9,12 +9,11 @@ import {
     where
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { getAllUsers as getLocalUsers, getUserProgress, updateUserProgress as updateLocalProgress } from "@/data/users";
+import { getAllUsers, getUserProgress, updateUserProgress } from "@/data/users";
 import { year10Mathematics, year7Mathematics, year10CombinedScience, year10EnglishLiterature, year10History } from "@/data/curriculum-database";
 
 const LOGGED_IN_USER_KEY = "loggedInUser";
 
-// Check if Firebase is configured
 const isFirebaseConfigured = () => {
     return !!(
         process.env.NEXT_PUBLIC_FIREBASE_API_KEY &&
@@ -24,28 +23,19 @@ const isFirebaseConfigured = () => {
 };
 
 export class AuthService {
-    /**
-     * Login with name and 4-digit PIN
-     * Tries Firebase first, falls back to LocalStorage
-     */
     static async login(name: string, pin: string): Promise<User | null> {
         if (typeof window === 'undefined') return null;
 
-        // Normalize name
         const normalizedName = name.trim();
 
-        // Try Firebase first if configured
         if (isFirebaseConfigured()) {
             try {
-                // Query Firestore for student with matching name
                 const studentDoc = await getDoc(doc(db, "students", normalizedName));
 
                 if (studentDoc.exists()) {
                     const studentData = studentDoc.data();
 
-                    // Verify PIN matches
                     if (studentData.pin === pin) {
-                        // Store session
                         localStorage.setItem(LOGGED_IN_USER_KEY, normalizedName);
 
                         const yearGroup = studentData.yearGroup || 10;
@@ -53,7 +43,6 @@ export class AuthService {
                             ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
                             : [year7Mathematics];
 
-                        // Convert Firestore data to User format
                         const user: User = {
                             username: normalizedName,
                             password: pin,
@@ -71,20 +60,17 @@ export class AuthService {
                             }
                         };
 
-                        // Cache in LocalStorage for offline access
-                        updateLocalProgress(normalizedName, user.profile);
+                        updateUserProgress(normalizedName, user.profile);
 
                         return user;
                     }
                 }
             } catch (error) {
                 console.error("Firebase login failed, falling back to LocalStorage:", error);
-                // Fall through to LocalStorage
             }
         }
 
-        // Fallback: LocalStorage authentication
-        const users = getLocalUsers();
+        const users = getAllUsers();
         const user = users.find(u =>
             u.username.toLowerCase() === normalizedName.toLowerCase() &&
             u.password === pin
@@ -98,9 +84,6 @@ export class AuthService {
         return null;
     }
 
-    /**
-     * Register a new student (Firebase only)
-     */
     static async registerStudent(name: string, pin: string, yearGroup: 7 | 10): Promise<User | null> {
         if (!isFirebaseConfigured()) {
             console.error("Firebase not configured. Cannot register students.");
@@ -110,14 +93,12 @@ export class AuthService {
         try {
             const normalizedName = name.trim();
 
-            // Check if student already exists
             const existingDoc = await getDoc(doc(db, "students", normalizedName));
             if (existingDoc.exists()) {
                 console.error("Student already exists");
                 return null;
             }
 
-            // Create new student document
             const studentData = {
                 name: normalizedName,
                 pin: pin,
@@ -138,7 +119,6 @@ export class AuthService {
                 ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
                 : [year7Mathematics];
 
-            // Create User object
             const newUser: User = {
                 username: normalizedName,
                 password: pin,
@@ -162,31 +142,21 @@ export class AuthService {
         }
     }
 
-    /**
-     * Logout current user
-     */
     static async logout(): Promise<void> {
         if (typeof window === 'undefined') return;
         localStorage.removeItem(LOGGED_IN_USER_KEY);
     }
 
-    /**
-     * Get currently logged in user
-     */
     static getCurrentUser(): User | null {
         if (typeof window === 'undefined') return null;
 
         const username = localStorage.getItem(LOGGED_IN_USER_KEY);
         if (!username) return null;
 
-        // Get from LocalStorage (cached)
         const user = getUserProgress(username);
         return user;
     }
 
-    /**
-     * Get all users/students
-     */
     static async getAllUsers(): Promise<User[]> {
         if (isFirebaseConfigured()) {
             try {
@@ -213,18 +183,12 @@ export class AuthService {
             }
         }
 
-        // Fallback to LocalStorage
-        return getLocalUsers();
+        return getAllUsers();
     }
 
-    /**
-     * Update user profile (saves to both Firebase and LocalStorage)
-     */
     static async updateUser(user: User): Promise<void> {
-        // Update LocalStorage (for offline access)
-        updateLocalProgress(user.username, user.profile);
+        updateUserProgress(user.username, user.profile);
 
-        // Update Firebase if configured
         if (isFirebaseConfigured()) {
             try {
                 const studentRef = doc(db, "students", user.username);
@@ -247,9 +211,6 @@ export class AuthService {
         }
     }
 
-    /**
-     * Check if Firebase is ready
-     */
     static isFirebaseReady(): boolean {
         return isFirebaseConfigured();
     }
