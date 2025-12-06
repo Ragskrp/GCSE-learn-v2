@@ -182,6 +182,16 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted }: Study
                       {children}
                     </blockquote>
                   ),
+                  img: ({ src, alt }) => (
+                    <div className="my-8 flex justify-center">
+                      <img
+                        src={src}
+                        alt={alt || 'Lesson illustration'}
+                        className="rounded-2xl shadow-2xl max-w-full h-auto border-4 border-purple-200"
+                        style={{ maxHeight: '400px', objectFit: 'contain' }}
+                      />
+                    </div>
+                  ),
                 }}
               >
                 {slides[currentSlide]}
@@ -210,8 +220,8 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted }: Study
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`h-3 rounded-full transition-all ${index === currentSlide
-                    ? 'w-8 bg-gradient-to-r from-purple-500 to-pink-500'
-                    : 'w-3 bg-gray-300 hover:bg-gray-400'
+                  ? 'w-8 bg-gradient-to-r from-purple-500 to-pink-500'
+                  : 'w-3 bg-gray-300 hover:bg-gray-400'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

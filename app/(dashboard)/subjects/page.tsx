@@ -11,10 +11,23 @@ export default function SubjectsPage() {
     const [user, setUser] = useState<User | null>(null)
 
     useEffect(() => {
-        setUser(AuthService.getCurrentUser())
+        const currentUser = AuthService.getCurrentUser()
+        console.log('🔍 Subjects Page - Current User:', currentUser)
+        console.log('🔍 Subjects count:', currentUser?.profile?.subjects?.length)
+        if (currentUser?.profile?.subjects) {
+            currentUser.profile.subjects.forEach((s: any, idx: number) => {
+                console.log(`   ${idx + 1}. ${s.name} (${s.id})`)
+            })
+        }
+        setUser(currentUser)
     }, [])
 
-    if (!user) return null
+    if (!user) {
+        console.log('⚠️ No user found, returning null')
+        return null
+    }
+
+    console.log('✅ Rendering subjects page with', user.profile.subjects.length, 'subjects')
 
     return (
         <div className="space-y-8">
