@@ -1,3 +1,4 @@
+
 "use client"
 
 import type React from "react"
@@ -7,8 +8,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Crown, Sparkles, Heart, Star } from "lucide-react"
-import { findUser } from "@/data/users"
+import { login } from "@/lib/firebase"
 import type { User } from "@/types/user"
+import { Button } from "@/components/ui/button"
 
 interface LoginFormProps {
   onLogin: (user: User) => void
@@ -16,24 +18,28 @@ interface LoginFormProps {
 
 export default function LoginForm({ onLogin }: LoginFormProps) {
   const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
+  const [pin, setPin] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError("")
 
-    setTimeout(() => {
-      const user = findUser(username, password)
-      if (user) {
-        onLogin(user)
+    try {
+      const result = await login(username, pin)
+
+      if (result.success) {
+        onLogin(result.user as User)
       } else {
-        setError("Invalid credentials! Please check your username and password.")
+        setError(result.error || "An unknown error occurred.")
       }
+    } catch (err) {
+      setError("Failed to login. Please try again.")
+    } finally {
       setIsLoading(false)
-    }, 1000)
+    }
   }
 
   return (
@@ -89,17 +95,18 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-medium flex items-center">
+              <Label htmlFor="pin" className="text-sm font-medium flex items-center">
                 <Heart className="h-4 w-4 mr-2 text-pink-500" />
-                Password
+                4-Digit PIN
               </Label>
               <Input
-                id="password"
+                id="pin"
                 type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="h-12 text-base"
+                maxLength={4}
+                placeholder="Enter your 4-digit PIN"
+                value={pin}
+                onChange={(e) => setPin(e.target.value)}
+                className="h-12 text-base tracking-widest text-center"
                 required
               />
             </div>
@@ -110,39 +117,25 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
               </div>
             )}
 
-            <button
+            <Button
               type="submit"
-              className="w-full h-12 text-lg font-bold rounded-md transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{
-                backgroundColor: "#059669",
-                color: "#ffffff",
-                border: "none",
-              }}
-              onMouseEnter={(e) => {
-                if (!isLoading) {
-                  e.currentTarget.style.backgroundColor = "#047857"
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isLoading) {
-                  e.currentTarget.style.backgroundColor = "#059669"
-                }
-              }}
+              className="w-full h-12 text-lg font-bold"
               disabled={isLoading}
+              size="lg"
             >
               {isLoading ? (
                 <>
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                  <span style={{ color: "#ffffff" }}>Logging in...</span>
+                  Logging in...
                 </>
               ) : (
                 <>
-                  <Sparkles className="h-5 w-5 mr-2" style={{ color: "#ffffff" }} />
-                  <span style={{ color: "#ffffff" }}>Start Your Adventure</span>
-                  <Sparkles className="h-5 w-5 ml-2" style={{ color: "#ffffff" }} />
+                  <Sparkles className="h-5 w-5 mr-2" />
+                  Start Your Adventure
+                  <Sparkles className="h-5 w-5 ml-2" />
                 </>
               )}
-            </button>
+            </Button>
           </form>
         </CardContent>
       </Card>
