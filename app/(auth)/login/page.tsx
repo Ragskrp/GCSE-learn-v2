@@ -14,6 +14,16 @@ export default function LoginPage() {
     const [pin, setPin] = useState("")
     const [error, setError] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const [cacheCleared, setCacheCleared] = useState(false)
+
+    const clearCache = () => {
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem('gcse-quest-progress')
+            localStorage.removeItem('loggedInUser')
+            setCacheCleared(true)
+            setTimeout(() => setCacheCleared(false), 3000)
+        }
+    }
 
     const handlePinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, "") // Only allow digits
@@ -33,6 +43,9 @@ export default function LoginPage() {
             setIsLoading(false)
             return
         }
+
+        // Clear cache before login to ensure fresh data
+        clearCache()
 
         try {
             const user = await AuthService.login(name, pin)
@@ -122,6 +135,12 @@ export default function LoginPage() {
                             />
                             <p className="text-xs text-gray-500 text-center">Enter your 4-digit security PIN</p>
                         </div>
+
+                        {cacheCleared && (
+                            <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                                <p className="text-green-600 text-sm text-center">✅ Cache cleared! Logging in with fresh data...</p>
+                            </div>
+                        )}
 
                         {error && (
                             <div className="bg-red-50 border border-red-200 rounded-lg p-3">
