@@ -394,61 +394,264 @@ Step 3: Convert back to mixed number
         {
           id: "percentages-lesson",
           title: "Percentages and Percentage Change",
-          content: `# Percentages and Percentage Change
+          content: `# 💯 Mastering Percentages: Your Complete Guide
 
-## Learning Objectives
-    - Calculate percentages of amounts
-    - Find percentage increases and decreases
-    - Solve reverse percentage problems
-    - Apply percentages in financial contexts
+> **"Percentages are everywhere - from shop sales to bank interest to exam scores!"**
 
-## Key Concepts
+---
 
-### Finding a Percentage of an Amount
-Method 1: Convert to decimal
-15 % of £240 = 0.15 × £240 = £36
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 🔢 Calculate percentages of amounts using multiple methods
+- 📈 Find percentage increases and decreases
+- 🔄 Solve reverse percentage problems
+- 💰 Calculate compound interest for investments
+- 🛍️ Apply percentages to real-world shopping and finance
 
-Method 2: Use fractions
-15 % of £240 = 15 / 100 × £240 = £36
+**Estimated Time:** 50 minutes | **Difficulty:** Foundation | **XP Reward:** 200 ⭐
 
-### Percentage Increase and Decrease
-    ** Percentage Increase:** New Value = Original × (100 + increase %) / 100
-    ** Percentage Decrease:** New Value = Original × (100 - decrease %) / 100
+---
 
-    ** Example 1:** A £200 item increases by 15 %
-    New price = £200 × 115 / 100 = £200 × 1.15 = £230
+## 📚 Chapter 1: What ARE Percentages?
 
-    ** Example 2:** A £80 jacket is reduced by 25 %
-    Sale price = £80 × 75 / 100 = £80 × 0.75 = £60
+**Percent** means "per hundred" - it's a way of expressing parts of 100!
 
-### Reverse Percentages
-If you know the final amount after a percentage change, work backwards:
+### The Big Idea
+\`\`\`
+50% = 50/100 = 1/2 = half
+25% = 25/100 = 1/4 = quarter
+100% = the whole thing!
+\`\`\`
 
-** Example:** After a 20 % increase, a price is £144. Find original price.
-Let original price = x
-x × 1.2 = £144
-x = £144 ÷ 1.2 = £120
+### Visual Understanding
+Think of percentages as a grid of 100 squares:
+- **50%** = 50 squares filled
+- **75%** = 75 squares filled
+- **10%** = just 10 squares filled
 
-### Compound Interest
-A = P(1 + r / 100) ^ t
-Where: A = final amount, P = principal, r = rate %, t = time
+### 🎮 Quick Check
+**What percentage of 100 squares is 35 squares?**
 
-    ** Example:** £1000 invested at 5 % compound interest for 3 years
-A = 1000(1.05)³ = 1000 × 1.157625 = £1157.63
+<details>
+<summary>💡 Show Answer</summary>
 
-## Real - World Applications
-- VAT calculations (20 % in UK)
-  - Salary increases and tax calculations
-    - Discount calculations in shopping
-      - Interest rates and investments
-        - Statistics and data analysis
+**35%** - It's right there in the number! 35 out of 100 = 35%
+</details>
 
-## Practice Problems
-1. Find 35 % of £180
-2. A £50 item is reduced by 30 %.What's the new price?
-3. After a 25 % increase, a salary is £37, 500. What was the original salary ?
-  4. Calculate compound interest: £500 at 4 % for 2 years
-5. A shop adds 20 % VAT to all prices.If the final price is £96, what was the pre - VAT price ? `,
+---
+
+## 📚 Chapter 2: Finding Percentages of Amounts
+
+There are TWO super methods you need to know!
+
+### Method 1: Convert to Decimal (The Fast Way! ⚡)
+\`\`\`
+Example: Find 15% of £240
+
+Step 1: Convert 15% to decimal: 15 ÷ 100 = 0.15
+Step 2: Multiply: 0.15 × £240 = £36
+
+Answer: £36 ✨
+\`\`\`
+
+### Method 2: Use Fractions (The Traditional Way)
+\`\`\`
+Example: Find 15% of £240
+
+Step 1: Write as fraction: 15/100
+Step 2: Multiply: (15/100) × £240 = £36
+
+Answer: £36 ✨
+\`\`\`
+
+### 🎯 Pro Tip
+For common percentages, use shortcuts:
+- **50%** → Divide by 2
+- **25%** → Divide by 4
+- **10%** → Divide by 10
+- **1%** → Divide by 100
+
+### 🎮 Practice Challenge
+**Find 20% of £85**
+
+<details>
+<summary>💡 Show Answer</summary>
+
+Method 1: 0.20 × £85 = **£17**
+Method 2: (20/100) × £85 = **£17**
+</details>
+
+---
+
+## 📚 Chapter 3: Percentage Increase & Decrease
+
+This is where percentages get REALLY useful! 🚀
+
+### Percentage INCREASE
+\`\`\`
+Formula: New Value = Original × (100 + increase%) / 100
+
+Multiplier Method:
+New Value = Original × 1.[increase%]
+
+Example: A £200 item increases by 15%
+New price = £200 × 1.15 = £230 ✅
+\`\`\`
+
+### Percentage DECREASE
+\`\`\`
+Formula: New Value = Original × (100 - decrease%) / 100
+
+Multiplier Method:
+New Value = Original × 0.[remaining%]
+
+Example: A £80 jacket is reduced by 25%
+Sale price = £80 × 0.75 = £60 ✅
+(75% because 100% - 25% = 75%)
+\`\`\`
+
+### 🛍️ Real-World Example
+**SALE! 30% OFF everything!**
+
+Original price: £50 coat
+Discount: 30%
+Multiplier: 1 - 0.30 = 0.70
+**Sale price: £50 × 0.70 = £35**
+
+You save £15! 💰
+
+---
+
+## 📚 Chapter 4: Reverse Percentages
+
+**REVERSE** means working BACKWARDS from the final amount!
+
+### The Concept
+\`\`\`
+If you know the RESULT after a percentage change,
+you can find the ORIGINAL amount!
+\`\`\`
+
+### The Method
+\`\`\`
+Example: After a 20% increase, a price is £144.
+What was the original price?
+
+Step 1: Find the multiplier
+  20% increase → multiplier = 1.20
+
+Step 2: Set up equation
+  Original × 1.20 = £144
+
+Step 3: Divide to find original
+  Original = £144 ÷ 1.20 = £120 ✨
+\`\`\`
+
+### 🎮 Challenge Problem
+**After a 40% discount, an item costs £48. What was the original price?**
+
+<details>
+<summary>💡 Show Solution</summary>
+
+40% discount means you pay 60% (100% - 40%)
+Multiplier = 0.60
+
+Original × 0.60 = £48
+Original = £48 ÷ 0.60 = **£80** ✅
+</details>
+
+---
+
+## 📚 Chapter 5: Compound Interest
+
+This is how money GROWS in savings accounts! 📈
+
+### The Formula
+\`\`\`
+A = P(1 + r/100)^t
+
+Where:
+A = Final amount
+P = Principal (starting amount)
+r = Interest rate (%)
+t = Time (years)
+\`\`\`
+
+### Step-by-Step Example
+\`\`\`
+You invest £1000 at 5% compound interest for 3 years
+
+Step 1: Identify values
+  P = £1000
+  r = 5
+  t = 3
+
+Step 2: Calculate multiplier
+  1 + 5/100 = 1.05
+
+Step 3: Apply formula
+  A = 1000 × (1.05)³
+  A = 1000 × 1.157625
+  A = £1157.63 ✨
+
+You earned £157.63 in interest! 💰
+\`\`\`
+
+### Why "Compound"?
+Because you earn **interest on your interest**!
+- Year 1: Interest on £1000
+- Year 2: Interest on £1050 (including year 1 interest!)
+- Year 3: Interest on £1102.50 (including all previous interest!)
+
+---
+
+## 🌟 Real-World Applications
+
+### Where You'll Use Percentages:
+
+💰 **Finance:**
+- Bank interest rates
+- Credit card APR
+- Savings accounts
+
+🛍️ **Shopping:**
+- Sales and discounts
+- VAT (20% in UK)
+- Price comparisons
+
+📊 **Work & School:**
+- Exam scores
+- Pay rises
+- Statistics
+
+💪 **Health:**
+- Body fat percentage
+- Success rates
+- Nutrition labels
+
+---
+
+## 🎯 Key Takeaways
+
+✅ Percent means "per hundred" - it's parts of 100
+✅ Convert to decimal by dividing by 100
+✅ For increase: multiply by (1 + rate)
+✅ For decrease: multiply by (1 - rate)
+✅ Reverse percentages: divide by the multiplier
+✅ Compound interest grows exponentially!
+
+---
+
+## 📝 Practice Problems
+
+1. Find 35% of £180
+2. A £50 item is reduced by 30%. What's the new price?
+3. After a 25% increase, a salary is £37,500. What was the original salary?
+4. Calculate compound interest: £500 at 4% for 2 years
+5. A shop adds 20% VAT to all prices. If the final price is £96, what was the pre-VAT price?
+
+**Ready to test your skills? Take the quiz to earn your Percentages Master badge!** 🏅
+`,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 50,
