@@ -44,76 +44,339 @@ const year10Mathematics = {
         {
           id: "fractions-lesson",
           title: "Working with Fractions",
-          content: `# 🍰 Working with Fractions
+          content: `# 🍰 Mastering Fractions: Your Complete Guide
 
-## "Fractions are just part of the whole picture!"
-
-Understanding fractions is a superpower in maths. Whether you're baking a cake or building a bridge, you need to know your way around them.
-
-### 🎯 Learning Objectives
-- Add, subtract, multiply and divide fractions
-- Convert between mixed numbers and improper fractions
-- Simplify fractions to their lowest terms
-- Apply fractions to real-world problems
+> **"A fraction is not just a number—it's a story about sharing!"**
 
 ---
 
-## 1. Adding and Subtracting Fractions
-**Rule:** You MUST have a common denominator (the bottom number).
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 🧩 Understand what fractions really mean
+- ➕ Add and subtract fractions like a pro
+- ✖️ Multiply and divide with confidence
+- 🔄 Convert between mixed numbers and improper fractions
+- ⚡ Apply fractions to solve real-world problems
 
-### ➕ Addition
-**Example:** 1/3 + 1/4
-
-1.  **Find the LCM:** The lowest common multiple of 3 and 4 is **12**.
-2.  **Convert:**
-    - 1/3 = 4/12
-    - 1/4 = 3/12
-3.  **Add:** 4/12 + 3/12 = 7/12
-
-### ➖ Subtraction
-**Example:** 3/4 - 1/2
-
-1.  **Find the LCM:** LCM of 4 and 2 is **4**.
-2.  **Convert:** 1/2 = 2/4
-3.  **Subtract:** 3/4 - 2/4 = 1/4
+**Estimated Time:** 45 minutes | **Difficulty:** Foundation | **XP Reward:** 150 ⭐
 
 ---
 
-## 2. Multiplying and Dividing
-These are actually easier than adding!
+## 📚 Chapter 1: Understanding Fractions
 
-### ✖️ Multiplication
-**Rule:** Multiply the tops (numerators) and multiply the bottoms (denominators).
+### What IS a Fraction?
+A fraction represents **part of a whole**. Think of it like slicing a pizza! 🍕
 
-**Example:** 2/3 × 4/5 = 8/15
+\`\`\`
+Numerator (Top) → How many slices you have
+─────────────────
+Denominator (Bottom) → Total slices in the pizza
+\`\`\`
 
-### ➗ Division
-**Rule:** Keep, Change, Flip (KCF).
-1.  **Keep** the first fraction.
-2.  **Change** division to multiplication.
-3.  **Flip** the second fraction (reciprocal).
+**Example:** 3/4 means you have **3 slices** out of a pizza cut into **4 equal parts**.
 
-**Example:** 1/2 ÷ 1/4
-- 1/2 × 4/1 = 4/2 = 2
+### Visual Representation
+\`\`\`
+Full Pizza:    🍕🍕🍕🍕 (4 slices)
+3/4 Pizza:     🍕🍕🍕□ (3 slices eaten, 1 left)
+1/2 Pizza:     🍕🍕□□ (2 slices left)
+1/4 Pizza:     🍕□□□ (only 1 slice!)
+\`\`\`
+
+### 🎮 Quick Check
+**Which is MORE pizza?**
+- A) 3/8 of a pizza
+- B) 5/8 of a pizza
+- C) 1/8 of a pizza
+
+<details>
+<summary>💡 Show Answer</summary>
+
+**B) 5/8** - More slices = more pizza! When denominators are the same, just compare the numerators.
+</details>
 
 ---
 
-## 🧠 Quick Quiz
-**What is 1/2 × 1/2?**
-- [ ] 1
-- [ ] 1/4
-- [ ] 2/4
+## 📚 Chapter 2: Types of Fractions
 
-*Answer: 1/4 (Half of a half is a quarter!)*
+### 🟢 Proper Fractions (Less than 1)
+The numerator is **smaller** than the denominator.
+> Examples: 1/2, 3/4, 7/10
+
+Think: "I have less than one whole pizza"
+
+### 🔴 Improper Fractions (Greater than or equal to 1)
+The numerator is **equal to or larger** than the denominator.
+> Examples: 5/4, 7/3, 9/9
+
+Think: "I have more than one pizza!"
+
+### 🟡 Mixed Numbers
+A whole number plus a proper fraction.
+> Examples: 1½, 2¾, 3⅖
+
+Think: "I have 2 whole pizzas AND 3 extra slices"
+
+### 🔄 Converting Between Them
+
+**Improper → Mixed:**
+\`\`\`
+Example: 11/4 = ? 
+
+Step 1: Divide 11 ÷ 4 = 2 remainder 3
+Step 2: Whole number = 2, Remainder = 3, Denominator stays = 4
+Answer: 2¾
+\`\`\`
+
+**Mixed → Improper:**
+\`\`\`
+Example: 3⅖ = ?
+
+Step 1: Multiply whole number by denominator: 3 × 5 = 15
+Step 2: Add the numerator: 15 + 2 = 17
+Step 3: Keep the denominator: 5
+Answer: 17/5
+\`\`\`
+
+### 🎮 Practice Challenge
+**Convert 13/5 to a mixed number**
+
+<details>
+<summary>💡 Show Answer</summary>
+
+13 ÷ 5 = 2 remainder 3
+**Answer: 2⅗**
+</details>
+
+---
+
+## 📚 Chapter 3: Equivalent Fractions
+
+Different fractions can represent the **same amount**!
+
+### The Rule
+**Multiply or divide BOTH the top and bottom by the SAME number.**
+
+\`\`\`
+1/2 = 2/4 = 3/6 = 4/8 = 5/10
+
+All of these are 50% - exactly half!
+\`\`\`
+
+### Visual Proof
+\`\`\`
+1/2:   [████████░░░░░░░░] Half is shaded
+2/4:   [████░░░░|████░░░░] Same amount shaded!
+4/8:   [██░░|██░░|██░░|██░░] Still the same!
+\`\`\`
+
+### 🎮 Spot the Fake!
+Which of these is NOT equal to 2/3?
+- A) 4/6
+- B) 6/9
+- C) 8/15
+- D) 10/15
+
+<details>
+<summary>💡 Show Answer</summary>
+
+**C) 8/15** - If you multiply 2×4 and 3×4, you get 8/12, not 8/15!
+The pattern is: 2/3 = 4/6 = 6/9 = 8/12 = 10/15 ✅
+</details>
+
+---
+
+## 📚 Chapter 4: Simplifying Fractions
+
+**Goal:** Make the fraction as simple as possible!
+
+### The Method
+**Divide both numerator and denominator by their Greatest Common Factor (GCF)**
+
+\`\`\`
+Example: Simplify 12/16
+
+Step 1: Find factors
+  12: 1, 2, 3, 4, 6, 12
+  16: 1, 2, 4, 8, 16
+  
+Step 2: Find GCF = 4
+
+Step 3: Divide both by 4
+  12 ÷ 4 = 3
+  16 ÷ 4 = 4
+  
+Answer: 3/4 ✨
+\`\`\`
+
+### 🎯 Pro Tip
+Look for obvious factors first:
+- Both even? → Divide by 2
+- Both end in 5 or 0? → Divide by 5
+- Both divisible by 3? → Divide by 3
+
+---
+
+## 📚 Chapter 5: Adding & Subtracting Fractions
+
+### 🔑 Golden Rule
+**You MUST have the same denominator (bottom number)!**
+
+### Same Denominator? Easy!
+\`\`\`
+Example: 3/7 + 2/7
+
+Just add the tops: 3 + 2 = 5
+Keep the bottom: 7
+Answer: 5/7 🎉
+\`\`\`
+
+### Different Denominators? Find the LCM!
+\`\`\`
+Example: 1/3 + 1/4
+
+Step 1: Find LCM of 3 and 4
+  Multiples of 3: 3, 6, 9, 12, 15...
+  Multiples of 4: 4, 8, 12, 16...
+  LCM = 12 ✅
+
+Step 2: Convert both fractions
+  1/3 = 1×4/3×4 = 4/12
+  1/4 = 1×3/4×3 = 3/12
+
+Step 3: Add!
+  4/12 + 3/12 = 7/12 ✨
+\`\`\`
+
+### Real-World Example 🌍
+**Pizza Party Problem:**
+- Sarah ate 1/3 of a pizza
+- Tom ate 1/4 of the SAME pizza
+- How much did they eat together?
+
+1/3 + 1/4 = 4/12 + 3/12 = **7/12** of the pizza! 🍕
+
+---
+
+## 📚 Chapter 6: Multiplying Fractions
+
+### The EASIEST Operation!
+**Just multiply across: tops × tops, bottoms × bottoms**
+
+\`\`\`
+Example: 2/3 × 4/5
+
+Numerator: 2 × 4 = 8
+Denominator: 3 × 5 = 15
+
+Answer: 8/15 ✨
+\`\`\`
+
+### Shortcut: Cancel First!
+\`\`\`
+Example: 3/4 × 2/3
+
+Notice: 3 on top cancels with 3 on bottom!
+
+3̶/4 × 2/3̶ → 1/4 × 2/1 = 2/4 = 1/2
+\`\`\`
+
+### What Does It Mean?
+"Half of a half" = 1/2 × 1/2 = 1/4 (a quarter!)
+
+\`\`\`
+Start:  [████████████████] (whole)
+Half:   [████████░░░░░░░░] 
+Half of that: [████░░░░░░░░░░░░] (quarter!)
+\`\`\`
+
+---
+
+## 📚 Chapter 7: Dividing Fractions
+
+### The KCF Rule 🎯
+**Keep, Change, Flip**
+
+\`\`\`
+Example: 1/2 ÷ 1/4
+
+Step 1: KEEP the first fraction → 1/2
+Step 2: CHANGE ÷ to × → ×
+Step 3: FLIP the second fraction → 4/1
+
+New problem: 1/2 × 4/1 = 4/2 = 2 ✨
+\`\`\`
+
+### Why Does This Work?
+Dividing by 1/4 means "how many quarters fit in this?"
+- How many 1/4s fit in 1/2?
+- Answer: **2** quarter slices fit in a half! 🍕
+
+---
+
+## 🏆 Final Boss Challenge
+
+**Multi-Step Problem:**
+
+A recipe calls for 2¾ cups of flour. You want to make half the recipe. How much flour do you need?
+
+<details>
+<summary>💡 Show Solution</summary>
+
+Step 1: Convert to improper fraction
+  2¾ = (2×4+3)/4 = 11/4
+
+Step 2: Find half (multiply by 1/2)
+  11/4 × 1/2 = 11/8
+
+Step 3: Convert back to mixed number
+  11÷8 = 1 remainder 3
+  **Answer: 1⅜ cups of flour** ✅
+</details>
+
+---
+
+## 🎯 Key Takeaways
+
+✅ Fractions represent **parts of a whole**
+✅ Always find a **common denominator** to add/subtract
+✅ **Multiply straight across** for multiplication
+✅ Use **KCF (Keep, Change, Flip)** for division
+✅ Simplify your final answer when possible!
+
+---
+
+## 🌟 Bonus: Real-World Applications
+
+- 🍳 **Cooking:** Adjusting recipes (halving, doubling)
+- 💰 **Money:** Calculating discounts and sales
+- ⏱️ **Time:** Understanding hours and minutes
+- 📏 **Measurement:** Converting units (feet to inches)
+- 🎮 **Gaming:** Understanding health bars and progress
+
+---
+
+## 📝 Practice Problems
+
+1. Simplify: 24/36
+2. Calculate: 2/5 + 3/10
+3. Calculate: 3/4 × 2/3
+4. Calculate: 5/6 ÷ 1/3
+5. Convert to mixed number: 23/7
+
+**Ready to test your skills? Take the quiz to earn your Fraction Master badge!** 🏅
 `,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 45,
           learningObjectives: [
-            "Add and subtract fractions with different denominators",
-            "Multiply and divide fractions",
-            "Convert between mixed numbers and improper fractions",
-            "Apply fraction skills to solve real-world problems"
+            "Understand the fundamental concept of fractions and their visual representations",
+            "Master converting between improper fractions and mixed numbers",
+            "Identify and create equivalent fractions",
+            "Add and subtract fractions with different denominators using LCM",
+            "Multiply and divide fractions using efficient methods",
+            "Simplify fractions to their lowest terms",
+            "Apply fraction skills to solve multi-step real-world problems"
           ],
         },
         {
