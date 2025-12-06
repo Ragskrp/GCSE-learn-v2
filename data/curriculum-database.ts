@@ -1,3 +1,6 @@
+import { year10EnglishLiterature, year10History } from "./extra-subjects";
+export { year10EnglishLiterature, year10History };
+
 export interface StudyMaterial {
   id: string
   title: string
@@ -81,53 +84,69 @@ export const year10Mathematics: Subject = {
         {
           id: "fractions-lesson",
           title: "Working with Fractions",
-          content: `# Working with Fractions
+          content: `# 🍰 Working with Fractions
 
-## Learning Objectives
+## "Fractions are just part of the whole picture!"
+
+Understanding fractions is a superpower in maths. Whether you're baking a cake or building a bridge, you need to know your way around them.
+
+### 🎯 Learning Objectives
 - Add, subtract, multiply and divide fractions
 - Convert between mixed numbers and improper fractions
 - Simplify fractions to their lowest terms
 - Apply fractions to real-world problems
 
-## Key Concepts
+---
 
-### Adding and Subtracting Fractions
-When adding or subtracting fractions, you need a common denominator:
+## 1. Adding and Subtracting Fractions
+**Rule:** You MUST have a common denominator (the bottom number).
 
-**Example 1:** 1/3 + 1/4
-- Find the lowest common multiple of 3 and 4: LCM(3,4) = 12
-- Convert: 4/12 + 3/12 = 7/12
+### ➕ Addition
+**Example:** 1/3 + 1/4
 
-**Example 2:** 3/5 - 1/3
-- Find LCM of 5 and 3: LCM(5,3) = 15
-- Convert: 9/15 - 5/15 = 4/15
+1.  **Find the LCM:** The lowest common multiple of 3 and 4 is **12**.
+2.  **Convert:**
+    - 1/3 = 4/12
+    - 1/4 = 3/12
+3.  **Add:** 4/12 + 3/12 = 7/12
 
-### Multiplying Fractions
-Multiply numerators together and denominators together:
+### ➖ Subtraction
+**Example:** 3/4 - 1/2
 
-**Example:** 2/3 × 3/4 = (2×3)/(3×4) = 6/12 = 1/2
+1.  **Find the LCM:** LCM of 4 and 2 is **4**.
+2.  **Convert:** 1/2 = 2/4
+3.  **Subtract:** 3/4 - 2/4 = 1/4
 
-### Dividing Fractions
-Multiply by the reciprocal (flip the second fraction):
+---
 
-**Example:** 2/3 ÷ 3/4 = 2/3 × 4/3 = 8/9
+## 2. Multiplying and Dividing
+These are actually easier than adding!
 
-### Mixed Numbers and Improper Fractions
-**Converting to improper:** 2 3/4 = (2×4 + 3)/4 = 11/4
-**Converting to mixed:** 11/4 = 2 remainder 3 = 2 3/4
+### ✖️ Multiplication
+**Rule:** Multiply the tops (numerators) and multiply the bottoms (denominators).
 
-## Real-World Applications
-- Cooking recipes (scaling ingredients)
-- Construction measurements
-- Time calculations
-- Financial calculations
+**Example:** 2/3 × 4/5 = 8/15
 
-## Practice Problems
-1. Calculate: 2/5 + 1/3
-2. Calculate: 3/4 × 2/9
-3. Simplify: 18/24
-4. Convert to mixed number: 17/5
-5. A recipe calls for 2 1/3 cups of flour. If you want to make 1 1/2 times the recipe, how much flour do you need?`,
+### ➗ Division
+**Rule:** Keep, Change, Flip (KCF).
+1.  **Keep** the first fraction.
+2.  **Change** division to multiplication.
+3.  **Flip** the second fraction (reciprocal).
+
+**Example:** 1/2 ÷ 1/4
+- 1/2 × 4/1 = 4/2 = 2
+
+---
+
+## 🧠 Quick Quiz
+**What is 1/2 × 1/2?**
+- [ ] 1
+- [ ] 1/4
+- [ ] 2/4
+
+*Answer: 1/4 (Half of a half is a quarter!)*
+`,
+
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 45,
@@ -144,58 +163,58 @@ Multiply by the reciprocal (flip the second fraction):
           content: `# Percentages and Percentage Change
 
 ## Learning Objectives
-- Calculate percentages of amounts
-- Find percentage increases and decreases
-- Solve reverse percentage problems
-- Apply percentages in financial contexts
+    - Calculate percentages of amounts
+    - Find percentage increases and decreases
+    - Solve reverse percentage problems
+    - Apply percentages in financial contexts
 
 ## Key Concepts
 
 ### Finding a Percentage of an Amount
 Method 1: Convert to decimal
-15% of £240 = 0.15 × £240 = £36
+15 % of £240 = 0.15 × £240 = £36
 
 Method 2: Use fractions
-15% of £240 = 15/100 × £240 = £36
+15 % of £240 = 15 / 100 × £240 = £36
 
 ### Percentage Increase and Decrease
-**Percentage Increase:** New Value = Original × (100 + increase%)/100
-**Percentage Decrease:** New Value = Original × (100 - decrease%)/100
+    ** Percentage Increase:** New Value = Original × (100 + increase %) / 100
+    ** Percentage Decrease:** New Value = Original × (100 - decrease %) / 100
 
-**Example 1:** A £200 item increases by 15%
-New price = £200 × 115/100 = £200 × 1.15 = £230
+    ** Example 1:** A £200 item increases by 15 %
+    New price = £200 × 115 / 100 = £200 × 1.15 = £230
 
-**Example 2:** A £80 jacket is reduced by 25%
-Sale price = £80 × 75/100 = £80 × 0.75 = £60
+    ** Example 2:** A £80 jacket is reduced by 25 %
+    Sale price = £80 × 75 / 100 = £80 × 0.75 = £60
 
 ### Reverse Percentages
 If you know the final amount after a percentage change, work backwards:
 
-**Example:** After a 20% increase, a price is £144. Find original price.
+** Example:** After a 20 % increase, a price is £144. Find original price.
 Let original price = x
 x × 1.2 = £144
 x = £144 ÷ 1.2 = £120
 
 ### Compound Interest
-A = P(1 + r/100)^t
-Where: A = final amount, P = principal, r = rate%, t = time
+A = P(1 + r / 100) ^ t
+Where: A = final amount, P = principal, r = rate %, t = time
 
-**Example:** £1000 invested at 5% compound interest for 3 years
+    ** Example:** £1000 invested at 5 % compound interest for 3 years
 A = 1000(1.05)³ = 1000 × 1.157625 = £1157.63
 
-## Real-World Applications
-- VAT calculations (20% in UK)
-- Salary increases and tax calculations
-- Discount calculations in shopping
-- Interest rates and investments
-- Statistics and data analysis
+## Real - World Applications
+- VAT calculations (20 % in UK)
+  - Salary increases and tax calculations
+    - Discount calculations in shopping
+      - Interest rates and investments
+        - Statistics and data analysis
 
 ## Practice Problems
-1. Find 35% of £180
-2. A £50 item is reduced by 30%. What's the new price?
-3. After a 25% increase, a salary is £37,500. What was the original salary?
-4. Calculate compound interest: £500 at 4% for 2 years
-5. A shop adds 20% VAT to all prices. If the final price is £96, what was the pre-VAT price?`,
+1. Find 35 % of £180
+2. A £50 item is reduced by 30 %.What's the new price?
+3. After a 25 % increase, a salary is £37, 500. What was the original salary ?
+  4. Calculate compound interest: £500 at 4 % for 2 years
+5. A shop adds 20 % VAT to all prices.If the final price is £96, what was the pre - VAT price ? `,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 50,
@@ -213,52 +232,52 @@ A = 1000(1.05)³ = 1000 × 1.157625 = £1157.63
           content: `# Standard Form and Scientific Notation
 
 ## Learning Objectives
-- Convert numbers to and from standard form
-- Perform calculations with numbers in standard form
-- Apply standard form to scientific contexts
+  - Convert numbers to and from standard form
+    - Perform calculations with numbers in standard form
+      - Apply standard form to scientific contexts
 
 ## Key Concepts
 
-Standard form expresses numbers as A × 10^n, where 1 ≤ A < 10 and n is an integer.
+Standard form expresses numbers as A × 10 ^ n, where 1 ≤ A < 10 and n is an integer.
 
 ### Converting to Standard Form
 
-**Large Numbers:**
-345,000 = 3.45 × 10^5
-(Move decimal 5 places left, so power is +5)
+  ** Large Numbers:**
+    345,000 = 3.45 × 10 ^ 5
+      (Move decimal 5 places left, so power is + 5)
 
-**Small Numbers:**
-0.0078 = 7.8 × 10^-3
-(Move decimal 3 places right, so power is -3)
+      ** Small Numbers:**
+        0.0078 = 7.8 × 10 ^ -3
+          (Move decimal 3 places right, so power is - 3)
 
 ### Converting from Standard Form
-4.7 × 10^6 = 4,700,000
-2.3 × 10^-4 = 0.00023
+4.7 × 10 ^ 6 = 4, 700,000
+2.3 × 10 ^ -4 = 0.00023
 
 ### Calculations with Standard Form
 
-**Multiplication:**
-(2.5 × 10^4) × (3 × 10^2) = (2.5 × 3) × 10^(4+2) = 7.5 × 10^6
+  ** Multiplication:**
+    (2.5 × 10 ^ 4) × (3 × 10 ^ 2) = (2.5 × 3) × 10 ^ (4 + 2) = 7.5 × 10 ^ 6
 
-**Division:**
-(8 × 10^6) ÷ (4 × 10^3) = (8 ÷ 4) × 10^(6-3) = 2 × 10^3
+      ** Division:**
+        (8 × 10 ^ 6) ÷ (4 × 10 ^ 3) = (8 ÷ 4) × 10 ^ (6 - 3) = 2 × 10 ^ 3
 
-**Addition/Subtraction:**
-Convert to same power of 10 first:
-3.2 × 10^5 + 4.7 × 10^4 = 3.2 × 10^5 + 0.47 × 10^5 = 3.67 × 10^5
+          ** Addition / Subtraction:**
+            Convert to same power of 10 first:
+3.2 × 10 ^ 5 + 4.7 × 10 ^ 4 = 3.2 × 10 ^ 5 + 0.47 × 10 ^ 5 = 3.67 × 10 ^ 5
 
 ## Scientific Applications
-- Astronomical distances (light years, AU)
-- Atomic measurements (mass, size)
-- Population statistics
-- Financial calculations (national debt, GDP)
+  - Astronomical distances(light years, AU)
+    - Atomic measurements(mass, size)
+      - Population statistics
+        - Financial calculations(national debt, GDP)
 
 ## Practice Problems
-1. Write 5,280,000 in standard form
+1. Write 5, 280,000 in standard form
 2. Write 0.000091 in standard form
-3. Calculate (2.5 × 10^4) × (3 × 10^2)
-4. Calculate (8 × 10^6) ÷ (4 × 10^3)
-5. The distance to the nearest star is 4.2 × 10^13 km. Light travels at 3 × 10^8 m/s. How long does light take to reach us?`,
+3. Calculate(2.5 × 10 ^ 4) × (3 × 10 ^ 2)
+4. Calculate(8 × 10 ^ 6) ÷ (4 × 10 ^ 3)
+5. The distance to the nearest star is 4.2 × 10 ^ 13 km.Light travels at 3 × 10 ^ 8 m / s.How long does light take to reach us ? `,
           type: "lesson",
           difficulty: "higher",
           estimatedTime: 50,
@@ -421,76 +440,76 @@ Convert to same power of 10 first:
           content: `# Solving Linear Equations
 
 ## Learning Objectives
-- Solve linear equations with one unknown
-- Rearrange formulae to change the subject
-- Solve equations with brackets and fractions
-- Apply algebraic skills to real-world problems
+  - Solve linear equations with one unknown
+    - Rearrange formulae to change the subject
+      - Solve equations with brackets and fractions
+        - Apply algebraic skills to real - world problems
 
 ## Key Concepts
 
 ### Basic Linear Equations
 An equation where the highest power of the variable is 1.
 
-**Example 1:** Solve 3x + 7 = 22
-- Subtract 7 from both sides: 3x = 15
-- Divide by 3: x = 5
-- Check: 3(5) + 7 = 15 + 7 = 22 ✓
+  ** Example 1:** Solve 3x + 7 = 22
+    - Subtract 7 from both sides: 3x = 15
+      - Divide by 3: x = 5
+        - Check: 3(5) + 7 = 15 + 7 = 22 ✓
 
-**Example 2:** Solve 5x - 8 = 2x + 10
-- Subtract 2x from both sides: 3x - 8 = 10
-- Add 8 to both sides: 3x = 18
-- Divide by 3: x = 6
+** Example 2:** Solve 5x - 8 = 2x + 10
+  - Subtract 2x from both sides: 3x - 8 = 10
+    - Add 8 to both sides: 3x = 18
+      - Divide by 3: x = 6
 
 ### Equations with Brackets
 Expand brackets first, then solve.
 
-**Example:** Solve 2(x + 3) = 14
-- Expand: 2x + 6 = 14
-- Subtract 6: 2x = 8
-- Divide by 2: x = 4
+** Example:** Solve 2(x + 3) = 14
+  - Expand: 2x + 6 = 14
+    - Subtract 6: 2x = 8
+      - Divide by 2: x = 4
 
-**Example:** Solve 3(2x - 1) = 4(x + 2)
-- Expand: 6x - 3 = 4x + 8
-- Subtract 4x: 2x - 3 = 8
-- Add 3: 2x = 11
-- Divide by 2: x = 5.5
+        ** Example:** Solve 3(2x - 1) = 4(x + 2)
+          - Expand: 6x - 3 = 4x + 8
+            - Subtract 4x: 2x - 3 = 8
+              - Add 3: 2x = 11
+                - Divide by 2: x = 5.5
 
 ### Equations with Fractions
 Multiply through by the denominator to clear fractions.
 
-**Example:** Solve (x + 2)/3 = 5
-- Multiply by 3: x + 2 = 15
-- Subtract 2: x = 13
+** Example:** Solve(x + 2) / 3 = 5
+  - Multiply by 3: x + 2 = 15
+    - Subtract 2: x = 13
 
-**Example:** Solve x/4 + x/6 = 5
-- Find common denominator (12): 3x/12 + 2x/12 = 5
-- Simplify: 5x/12 = 5
-- Multiply by 12: 5x = 60
-- Divide by 5: x = 12
+      ** Example:** Solve x / 4 + x / 6 = 5
+        - Find common denominator(12): 3x / 12 + 2x / 12 = 5
+          - Simplify: 5x / 12 = 5
+            - Multiply by 12: 5x = 60
+              - Divide by 5: x = 12
 
 ### Rearranging Formulae
 Change the subject by performing inverse operations.
 
-**Example 1:** Make x the subject of y = 3x + 2
-- Subtract 2: y - 2 = 3x
-- Divide by 3: x = (y - 2)/3
+** Example 1:** Make x the subject of y = 3x + 2
+  - Subtract 2: y - 2 = 3x
+    - Divide by 3: x = (y - 2) / 3
 
-**Example 2:** Make r the subject of A = πr²
-- Divide by π: A/π = r²
-- Square root: r = √(A/π)
+      ** Example 2:** Make r the subject of A = πr²
+- Divide by π: A / π = r²
+- Square root: r = √(A / π)
 
-## Real-World Applications
-- Distance, speed, time problems
-- Financial calculations (loans, investments)
-- Engineering and construction
-- Scientific formulae
+## Real - World Applications
+  - Distance, speed, time problems
+    - Financial calculations(loans, investments)
+      - Engineering and construction
+        - Scientific formulae
 
 ## Practice Problems
 1. Solve: 5x - 3 = 17
 2. Solve: 3(x - 2) = 21
 3. Solve: (2x + 1)/5 = 3
 4. Make t the subject: v = u + at
-5. A mobile phone plan costs £20 per month plus £0.10 per minute. If the monthly bill is £35, how many minutes were used?`,
+5. A mobile phone plan costs £20 per month plus £0.10 per minute.If the monthly bill is £35, how many minutes were used ? `,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 40,
@@ -507,10 +526,10 @@ Change the subject by performing inverse operations.
           content: `# Quadratic Equations
 
 ## Learning Objectives
-- Solve quadratic equations by factoring
-- Use the quadratic formula
-- Complete the square
-- Interpret solutions graphically
+  - Solve quadratic equations by factoring
+    - Use the quadratic formula
+      - Complete the square
+        - Interpret solutions graphically
 
 ## Key Concepts
 
@@ -518,47 +537,47 @@ Change the subject by performing inverse operations.
 A quadratic equation has the form ax² + bx + c = 0, where a ≠ 0.
 
 ### Factoring Method
-**Example 1:** Solve x² + 5x + 6 = 0
-- Factor: (x + 2)(x + 3) = 0
-- Solutions: x = -2 or x = -3
+  ** Example 1:** Solve x² + 5x + 6 = 0
+    - Factor: (x + 2)(x + 3) = 0
+      - Solutions: x = -2 or x = -3
 
-**Example 2:** Solve x² - 7x + 12 = 0
-- Factor: (x - 3)(x - 4) = 0
-- Solutions: x = 3 or x = 4
+        ** Example 2:** Solve x² - 7x + 12 = 0
+          - Factor: (x - 3)(x - 4) = 0
+            - Solutions: x = 3 or x = 4
 
 ### Quadratic Formula
 For ax² + bx + c = 0:
 x = (-b ± √(b² - 4ac)) / 2a
 
-**Example:** Solve 2x² + 3x - 2 = 0
-- a = 2, b = 3, c = -2
-- x = (-3 ± √(9 + 16)) / 4 = (-3 ± 5) / 4
-- x = 1/2 or x = -2
+  ** Example:** Solve 2x² + 3x - 2 = 0
+    - a = 2, b = 3, c = -2
+      - x = (-3 ± √(9 + 16)) / 4 = (-3 ± 5) / 4
+        - x = 1 / 2 or x = -2
 
 ### Completing the Square
-**Example:** Solve x² + 6x + 5 = 0
-- Rearrange: x² + 6x = -5
-- Complete square: (x + 3)² - 9 = -5
-- Simplify: (x + 3)² = 4
-- Solutions: x + 3 = ±2, so x = -1 or x = -5
+  ** Example:** Solve x² + 6x + 5 = 0
+    - Rearrange: x² + 6x = -5
+      - Complete square: (x + 3)² - 9 = -5
+        - Simplify: (x + 3)² = 4
+          - Solutions: x + 3 = ±2, so x = -1 or x = -5
 
 ### The Discriminant
 b² - 4ac tells us about the nature of roots:
 - If > 0: two real roots
-- If = 0: one repeated root
-- If < 0: no real roots
+  - If = 0: one repeated root
+    - If < 0: no real roots
 
-## Real-World Applications
-- Projectile motion
-- Area and optimization problems
-- Business profit/loss calculations
-- Engineering design
+## Real - World Applications
+  - Projectile motion
+    - Area and optimization problems
+      - Business profit / loss calculations
+        - Engineering design
 
 ## Practice Problems
 1. Solve by factoring: x² - 8x + 15 = 0
 2. Use the quadratic formula: 3x² - 5x - 2 = 0
 3. Complete the square: x² + 4x - 1 = 0
-4. A ball is thrown upward with initial velocity 20 m/s. Its height h = 20t - 5t². When does it hit the ground?`,
+4. A ball is thrown upward with initial velocity 20 m / s.Its height h = 20t - 5t². When does it hit the ground ? `,
           type: "lesson",
           difficulty: "higher",
           estimatedTime: 60,
@@ -622,41 +641,41 @@ b² - 4ac tells us about the nature of roots:
           content: `# Angles and Polygons
 
 ## Learning Objectives
-- Calculate angles in triangles and quadrilaterals
-- Use angle properties of parallel lines
-- Find angles in regular and irregular polygons
-- Apply circle theorems
+  - Calculate angles in triangles and quadrilaterals
+    - Use angle properties of parallel lines
+      - Find angles in regular and irregular polygons
+        - Apply circle theorems
 
 ## Key Concepts
 
 ### Basic Angle Facts
-- Angles on a straight line sum to 180°
+  - Angles on a straight line sum to 180°
 - Angles around a point sum to 360°
 - Vertically opposite angles are equal
 
 ### Triangle Properties
-- Sum of interior angles = 180°
+  - Sum of interior angles = 180°
 - Exterior angle = sum of two opposite interior angles
-- Isosceles triangle: two equal sides, two equal angles
-- Equilateral triangle: all sides equal, all angles 60°
+  - Isosceles triangle: two equal sides, two equal angles
+    - Equilateral triangle: all sides equal, all angles 60°
 
 ### Quadrilateral Properties
-- Sum of interior angles = 360°
+  - Sum of interior angles = 360°
 - Rectangle: opposite sides equal, all angles 90°
 - Rhombus: all sides equal, opposite angles equal
-- Parallelogram: opposite sides parallel and equal
+  - Parallelogram: opposite sides parallel and equal
 
 ### Parallel Lines
 When a transversal crosses parallel lines:
 - Corresponding angles are equal
-- Alternate angles are equal
-- Co-interior angles sum to 180°
+  - Alternate angles are equal
+    - Co - interior angles sum to 180°
 
 ### Polygons
-For a regular n-sided polygon:
-- Sum of interior angles = (n-2) × 180°
-- Each interior angle = (n-2) × 180° ÷ n
-- Each exterior angle = 360° ÷ n
+For a regular n - sided polygon:
+- Sum of interior angles = (n - 2) × 180°
+- Each interior angle = (n - 2) × 180° ÷ n
+  - Each exterior angle = 360° ÷ n
 
 ### Circle Theorems
 1. Angle in semicircle = 90°
@@ -667,8 +686,8 @@ For a regular n-sided polygon:
 ## Practice Problems
 1. Find the missing angle in a triangle with angles 65° and 48°
 2. Calculate each interior angle of a regular octagon
-3. Two parallel lines are cut by a transversal. If one angle is 75°, find all other angles
-4. In a circle, an arc subtends an angle of 80° at the center. What angle does it subtend at the circumference?`,
+3. Two parallel lines are cut by a transversal.If one angle is 75°, find all other angles
+4. In a circle, an arc subtends an angle of 80° at the center.What angle does it subtend at the circumference ? `,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 55,
@@ -694,64 +713,64 @@ For a regular n-sided polygon:
           content: `# Data Handling and Averages
 
 ## Learning Objectives
-- Calculate mean, median, mode, and range
-- Interpret frequency tables and grouped data
-- Create and interpret charts and graphs
-- Compare data sets using statistics
+  - Calculate mean, median, mode, and range
+    - Interpret frequency tables and grouped data
+      - Create and interpret charts and graphs
+        - Compare data sets using statistics
 
 ## Key Concepts
 
 ### Measures of Central Tendency
 
-**Mean (Average):**
-Sum of all values ÷ number of values
+  ** Mean(Average):**
+    Sum of all values ÷ number of values
 
 Example: 2, 5, 7, 8, 3
 Mean = (2 + 5 + 7 + 8 + 3) ÷ 5 = 25 ÷ 5 = 5
 
-**Median (Middle Value):**
-Arrange in order, find middle value
+  ** Median(Middle Value):**
+    Arrange in order, find middle value
 Example: 2, 3, 5, 7, 8 → Median = 5
 
 For even number of values, take mean of middle two:
 2, 3, 5, 7, 8, 9 → Median = (5 + 7) ÷ 2 = 6
 
-**Mode (Most Common):**
-The value that appears most frequently
+  ** Mode(Most Common):**
+    The value that appears most frequently
 Example: 2, 3, 3, 5, 7 → Mode = 3
 
 ### Measures of Spread
 
-**Range:**
-Highest value - Lowest value
+  ** Range:**
+    Highest value - Lowest value
 Example: 2, 3, 5, 7, 8 → Range = 8 - 2 = 6
 
 ### Frequency Tables
-| Score | Frequency |
-|-------|-----------|
-| 1     | 3         |
-| 2     | 5         |
-| 3     | 7         |
-| 4     | 2         |
+  | Score | Frequency |
+| -------| -----------|
+| 1 | 3 |
+| 2 | 5 |
+| 3 | 7 |
+| 4 | 2 |
 
-Mean = (1×3 + 2×5 + 3×7 + 4×2) ÷ (3+5+7+2) = 43 ÷ 17 = 2.53
+  Mean = (1×3 + 2×5 + 3×7 + 4×2) ÷ (3 + 5 + 7 + 2) = 43 ÷ 17 = 2.53
 
 ### Grouped Data
 For grouped data, use midpoint of each class:
 
-| Height (cm) | Frequency | Midpoint |
-|-------------|-----------|----------|
-| 150-159     | 5         | 154.5    |
-| 160-169     | 8         | 164.5    |
-| 170-179     | 3         | 174.5    |
+| Height(cm) | Frequency | Midpoint |
+| -------------| -----------| ----------|
+| 150 - 159 | 5 | 154.5 |
+| 160 - 169 | 8 | 164.5 |
+| 170 - 179 | 3 | 174.5 |
 
-Estimated mean = (154.5×5 + 164.5×8 + 174.5×3) ÷ 16
+  Estimated mean = (154.5×5 + 164.5×8 + 174.5×3) ÷ 16
 
 ### Charts and Graphs
-- Bar charts: for categorical data
-- Histograms: for continuous data
-- Pie charts: for showing proportions
-- Scatter graphs: for showing correlation
+  - Bar charts: for categorical data
+    - Histograms: for continuous data
+      - Pie charts: for showing proportions
+        - Scatter graphs: for showing correlation
 
 ## Practice Problems
 1. Find mean, median, mode, and range: 4, 7, 2, 9, 5, 7, 3
@@ -802,96 +821,96 @@ export const year10CombinedScience: Subject = {
           content: `# Cell Structure and Function
 
 ## Learning Objectives
-- Identify the main parts of animal and plant cells
-- Explain the function of each cell organelle
-- Compare prokaryotic and eukaryotic cells
-- Use microscopy calculations
+  - Identify the main parts of animal and plant cells
+    - Explain the function of each cell organelle
+      - Compare prokaryotic and eukaryotic cells
+        - Use microscopy calculations
 
 ## Animal Cell Structure
 
 ### Key Organelles and Functions:
 
-**1. Nucleus**
-- Controls cell activities and contains DNA
-- Surrounded by nuclear membrane with pores
-- Contains chromosomes made of DNA and proteins
+** 1. Nucleus **
+  - Controls cell activities and contains DNA
+    - Surrounded by nuclear membrane with pores
+    - Contains chromosomes made of DNA and proteins
 
-**2. Cytoplasm**
-- Jelly-like substance where chemical reactions occur
-- Contains dissolved nutrients and waste products
-- Site of many metabolic processes
+      ** 2. Cytoplasm **
+        - Jelly - like substance where chemical reactions occur
+          - Contains dissolved nutrients and waste products
+            - Site of many metabolic processes
 
-**3. Cell Membrane**
-- Controls what enters and leaves the cell
-- Selectively permeable barrier
-- Made of phospholipids and proteins
+              ** 3. Cell Membrane **
+                - Controls what enters and leaves the cell
+                  - Selectively permeable barrier
+                    - Made of phospholipids and proteins
 
-**4. Mitochondria**
-- Site of aerobic respiration
-- Releases energy from glucose
-- More numerous in active cells (muscle, nerve)
+                      ** 4. Mitochondria **
+                        - Site of aerobic respiration
+                          - Releases energy from glucose
+                            - More numerous in active cells(muscle, nerve)
 
-**5. Ribosomes**
-- Site of protein synthesis
-- Found free in cytoplasm or attached to ER
-- Made of RNA and proteins
+                              ** 5. Ribosomes **
+                                - Site of protein synthesis
+                                  - Found free in cytoplasm or attached to ER
+                                    - Made of RNA and proteins
 
 ## Plant Cell Structure
 
 ### Additional organelles in plant cells:
 
-**1. Cell Wall**
-- Made of cellulose fibers
-- Provides structural support and protection
-- Fully permeable to water and dissolved substances
+** 1. Cell Wall **
+  - Made of cellulose fibers
+    - Provides structural support and protection
+      - Fully permeable to water and dissolved substances
 
-**2. Chloroplasts**
-- Contain chlorophyll for photosynthesis
-- Convert light energy to chemical energy
-- Found mainly in leaf cells
+        ** 2. Chloroplasts **
+          - Contain chlorophyll for photosynthesis
+            - Convert light energy to chemical energy
+              - Found mainly in leaf cells
 
-**3. Permanent Vacuole**
-- Large fluid-filled space
-- Maintains cell shape and stores substances
-- Surrounded by tonoplast membrane
+                ** 3. Permanent Vacuole **
+                  - Large fluid - filled space
+                    - Maintains cell shape and stores substances
+                      - Surrounded by tonoplast membrane
 
 ## Prokaryotic vs Eukaryotic Cells
 
-### Prokaryotic Cells (Bacteria):
-- No nucleus (DNA free in cytoplasm)
-- No membrane-bound organelles
-- Smaller (1-5 μm)
-- Cell wall made of peptidoglycan
-- Examples: bacteria, archaea
+### Prokaryotic Cells(Bacteria):
+- No nucleus(DNA free in cytoplasm)
+  - No membrane - bound organelles
+    - Smaller(1 - 5 μm)
+    - Cell wall made of peptidoglycan
+      - Examples: bacteria, archaea
 
-### Eukaryotic Cells (Animals, Plants, Fungi):
+### Eukaryotic Cells(Animals, Plants, Fungi):
 - Nucleus present with nuclear membrane
-- Membrane-bound organelles
-- Larger (10-100 μm)
-- More complex internal structure
-- Examples: animal, plant, fungal cells
+  - Membrane - bound organelles
+    - Larger(10 - 100 μm)
+    - More complex internal structure
+      - Examples: animal, plant, fungal cells
 
 ## Microscopy and Magnification
 
 ### Magnification Calculation:
-**Magnification = Image size ÷ Actual size**
+** Magnification = Image size ÷ Actual size **
 
 ### Types of Microscopes:
-- **Light microscopes:** up to ×2000 magnification, can see living cells
-- **Electron microscopes:** up to ×2,000,000 magnification, higher resolution
+- ** Light microscopes:** up to ×2000 magnification, can see living cells
+  - ** Electron microscopes:** up to ×2,000,000 magnification, higher resolution
 
 ### Units of Measurement:
-- 1 meter = 1000 millimeters (mm)
-- 1 mm = 1000 micrometers (μm)
-- 1 μm = 1000 nanometers (nm)
+- 1 meter = 1000 millimeters(mm)
+  - 1 mm = 1000 micrometers(μm)
+    - 1 μm = 1000 nanometers(nm)
 
 ## Specialized Cells
 
 ### Examples of Cell Specialization:
-- **Red blood cells:** no nucleus, biconcave shape for oxygen transport
-- **Nerve cells:** long extensions for electrical signal transmission
-- **Root hair cells:** increased surface area for water absorption
-- **Sperm cells:** tail for swimming, many mitochondria for energy
+- ** Red blood cells:** no nucleus, biconcave shape for oxygen transport
+  - ** Nerve cells:** long extensions for electrical signal transmission
+    - ** Root hair cells:** increased surface area for water absorption
+      - ** Sperm cells:** tail for swimming, many mitochondria for energy
 
 ## Practice Questions
 1. Name three organelles found in plant cells but not animal cells
@@ -914,80 +933,80 @@ export const year10CombinedScience: Subject = {
           content: `# Cell Division and Genetics
 
 ## Learning Objectives
-- Understand the cell cycle and mitosis
-- Explain the process of meiosis
-- Describe DNA structure and function
+  - Understand the cell cycle and mitosis
+    - Explain the process of meiosis
+      - Describe DNA structure and function
 - Understand inheritance patterns
 
 ## The Cell Cycle
 
 ### Phases of the Cell Cycle:
-1. **G1 Phase:** Cell grows and organelles duplicate
-2. **S Phase:** DNA replication occurs
-3. **G2 Phase:** Further growth and protein synthesis
-4. **M Phase:** Mitosis and cell division
+1. ** G1 Phase:** Cell grows and organelles duplicate
+2. ** S Phase:** DNA replication occurs
+3. ** G2 Phase:** Further growth and protein synthesis
+4. ** M Phase:** Mitosis and cell division
 
 ### Mitosis
 Purpose: Growth and repair of tissues
 
-**Stages of Mitosis:**
-1. **Prophase:** Chromosomes condense, nuclear membrane breaks down
-2. **Metaphase:** Chromosomes line up at cell equator
-3. **Anaphase:** Chromosomes separate and move to opposite poles
-4. **Telophase:** Nuclear membranes reform, chromosomes uncoil
+  ** Stages of Mitosis:**
+    1. ** Prophase:** Chromosomes condense, nuclear membrane breaks down
+2. ** Metaphase:** Chromosomes line up at cell equator
+3. ** Anaphase:** Chromosomes separate and move to opposite poles
+4. ** Telophase:** Nuclear membranes reform, chromosomes uncoil
 
-**Result:** Two identical diploid cells
+  ** Result:** Two identical diploid cells
 
 ### Meiosis
-Purpose: Production of gametes (sex cells)
+Purpose: Production of gametes(sex cells)
 
-**Key Features:**
-- Two divisions (meiosis I and II)
-- Crossing over creates genetic variation
-- Results in four genetically different haploid cells
-- Reduces chromosome number by half
+  ** Key Features:**
+    - Two divisions(meiosis I and II)
+      - Crossing over creates genetic variation
+        - Results in four genetically different haploid cells
+          - Reduces chromosome number by half
 
 ## DNA Structure and Function
 
 ### DNA Structure:
 - Double helix made of two complementary strands
-- Made of nucleotides (phosphate, sugar, base)
-- Four bases: A, T, G, C
-- Base pairing rules: A-T, G-C
+  - Made of nucleotides(phosphate, sugar, base)
+    - Four bases: A, T, G, C
+      - Base pairing rules: A - T, G - C
 
 ### DNA Function:
 - Stores genetic information
-- Controls protein synthesis
-- Passed from parents to offspring
+  - Controls protein synthesis
+    - Passed from parents to offspring
 
 ### Genes and Chromosomes:
 - Gene: section of DNA coding for a protein
-- Chromosome: structure containing many genes
-- Humans have 46 chromosomes (23 pairs)
+  - Chromosome: structure containing many genes
+    - Humans have 46 chromosomes(23 pairs)
 
 ## Inheritance
 
 ### Key Terms:
-- **Allele:** different versions of a gene
-- **Dominant:** allele expressed when present (capital letter)
-- **Recessive:** allele only expressed when two copies present (lowercase)
-- **Homozygous:** two identical alleles (AA or aa)
-- **Heterozygous:** two different alleles (Aa)
-- **Genotype:** genetic makeup (e.g., Aa)
-- **Phenotype:** observable characteristics (e.g., brown eyes)
+- ** Allele:** different versions of a gene
+  - ** Dominant:** allele expressed when present(capital letter)
+    - ** Recessive:** allele only expressed when two copies present(lowercase)
+      - ** Homozygous:** two identical alleles(AA or aa)
+        - ** Heterozygous:** two different alleles(Aa)
+          - ** Genotype:** genetic makeup(e.g., Aa)
+            - ** Phenotype:** observable characteristics(e.g., brown eyes)
 
 ### Monohybrid Crosses:
-Example: Brown eyes (B) dominant to blue eyes (b)
+Example: Brown eyes(B) dominant to blue eyes(b)
 Bb × Bb cross:
 - Offspring: BB, Bb, Bb, bb
-- Ratio: 3 brown : 1 blue
+  - Ratio: 3 brown: 1 blue
 
 ## Genetic Disorders
 
 ### Examples:
-- **Cystic fibrosis:** recessive disorder affecting lungs
-- **Huntington's disease:** dominant disorder affecting nervous system
-- **Sickle cell anemia:** recessive disorder affecting red blood cells
+- ** Cystic fibrosis:** recessive disorder affecting lungs
+  - ** Huntington's disease:** dominant disorder affecting nervous system
+    - ** Sickle cell anemia:** recessive disorder affecting red blood cells
 
 ## Practice Problems
 1. Draw a Punnett square for Aa × aa cross
@@ -1070,82 +1089,82 @@ Bb × Bb cross:
           content: `# Atomic Structure and Periodic Table
 
 ## Learning Objectives
-- Describe the structure of atoms
-- Understand the arrangement of the periodic table
-- Explain chemical bonding
-- Calculate relative atomic mass
+  - Describe the structure of atoms
+    - Understand the arrangement of the periodic table
+      - Explain chemical bonding
+        - Calculate relative atomic mass
 
 ## Atomic Structure
 
 ### Subatomic Particles:
 | Particle | Charge | Mass | Location |
-|----------|--------|------|----------|
-| Proton   | +1     | 1    | Nucleus  |
-| Neutron  | 0      | 1    | Nucleus  |
-| Electron | -1     | 1/1840| Shells   |
+| ----------| --------| ------| ----------|
+| Proton | +1 | 1 | Nucleus |
+| Neutron | 0 | 1 | Nucleus |
+| Electron | -1 | 1 / 1840 | Shells |
 
 ### Key Terms:
-- **Atomic number:** number of protons
-- **Mass number:** protons + neutrons
-- **Isotopes:** atoms with same protons, different neutrons
+- ** Atomic number:** number of protons
+  - ** Mass number:** protons + neutrons
+    - ** Isotopes:** atoms with same protons, different neutrons
 
 ### Electronic Configuration:
 - First shell: maximum 2 electrons
-- Second shell: maximum 8 electrons
-- Third shell: maximum 8 electrons (for first 20 elements)
+  - Second shell: maximum 8 electrons
+    - Third shell: maximum 8 electrons(for first 20 elements)
 
-Examples:
-- Carbon (6): 2,4
-- Sodium (11): 2,8,1
-- Chlorine (17): 2,8,7
+  Examples:
+  - Carbon(6): 2, 4
+    - Sodium(11): 2, 8, 1
+      - Chlorine(17): 2, 8, 7
 
 ## The Periodic Table
 
 ### Organization:
-- **Groups:** vertical columns (1-7, 0)
-- **Periods:** horizontal rows
-- Elements in same group have similar properties
+- ** Groups:** vertical columns(1 - 7, 0)
+  - ** Periods:** horizontal rows
+    - Elements in same group have similar properties
 
 ### Group Properties:
-**Group 1 (Alkali Metals):**
-- One electron in outer shell
-- React with water to form hydroxides
-- Reactivity increases down the group
+** Group 1(Alkali Metals):**
+  - One electron in outer shell
+    - React with water to form hydroxides
+      - Reactivity increases down the group
 
-**Group 7 (Halogens):**
-- Seven electrons in outer shell
-- Form salts with metals
-- Reactivity decreases down the group
+        ** Group 7(Halogens):**
+          - Seven electrons in outer shell
+            - Form salts with metals
+            - Reactivity decreases down the group
 
-**Group 0 (Noble Gases):**
-- Full outer shell (stable)
-- Unreactive/inert
-- Used in lighting and welding
+              ** Group 0(Noble Gases):**
+                - Full outer shell(stable)
+                  - Unreactive / inert
+                  - Used in lighting and welding
 
 ## Chemical Bonding
 
 ### Ionic Bonding:
-- Transfer of electrons from metal to non-metal
-- Forms ions with opposite charges
-- Strong electrostatic attraction
-- Example: Na⁺Cl⁻ (sodium chloride)
+- Transfer of electrons from metal to non - metal
+  - Forms ions with opposite charges
+    - Strong electrostatic attraction
+      - Example: Na⁺Cl⁻ (sodium chloride)
 
 ### Covalent Bonding:
-- Sharing of electrons between non-metals
-- Forms molecules
-- Example: H₂O (water), CO₂ (carbon dioxide)
+- Sharing of electrons between non - metals
+  - Forms molecules
+    - Example: H₂O(water), CO₂ (carbon dioxide)
 
 ### Metallic Bonding:
 - Sea of delocalized electrons
-- Explains conductivity and malleability
-- Found in metals and alloys
+  - Explains conductivity and malleability
+    - Found in metals and alloys
 
 ## Chemical Formulae and Equations
 
 ### Writing Formulae:
-- Use valency/oxidation states
-- Balance charges
-- Examples: MgO, CaCl₂, Al₂O₃
+- Use valency / oxidation states
+  - Balance charges
+    - Examples: MgO, CaCl₂, Al₂O₃
 
 ### Balancing Equations:
 Example: Mg + O₂ → MgO
@@ -1156,14 +1175,14 @@ Balanced: 2Mg + O₂ → 2MgO
 ### Calculation:
 RAM = (mass of isotope 1 × % abundance + mass of isotope 2 × % abundance) ÷ 100
 
-Example: Chlorine has isotopes ³⁵Cl (75%) and ³⁷Cl (25%)
+Example: Chlorine has isotopes ³⁵Cl(75 %) and ³⁷Cl(25 %)
 RAM = (35 × 75 + 37 × 25) ÷ 100 = 35.5
 
 ## Practice Problems
-1. Draw the electronic configuration for oxygen (atomic number 8)
+1. Draw the electronic configuration for oxygen(atomic number 8)
 2. Explain why Group 1 metals become more reactive down the group
 3. Balance the equation: Al + O₂ → Al₂O₃
-4. Calculate the RAM of copper with isotopes ⁶³Cu (69%) and ⁶⁵Cu (31%)`,
+4. Calculate the RAM of copper with isotopes ⁶³Cu(69 %) and ⁶⁵Cu(31 %)`,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 55,
@@ -1189,72 +1208,72 @@ RAM = (35 × 75 + 37 × 25) ÷ 100 = 35.5
           content: `# Forces and Motion
 
 ## Learning Objectives
-- Understand Newton's laws of motion
-- Calculate speed, velocity, and acceleration
-- Analyze forces and their effects
-- Apply equations of motion
+  - Understand Newton's laws of motion
+    - Calculate speed, velocity, and acceleration
+      - Analyze forces and their effects
+        - Apply equations of motion
 
 ## Key Concepts
 
 ### Speed, Velocity, and Acceleration
 
-**Speed:**
-- Distance traveled per unit time
-- Speed = distance ÷ time
-- Units: m/s, km/h
-- Scalar quantity (magnitude only)
+  ** Speed:**
+    - Distance traveled per unit time
+      - Speed = distance ÷ time
+        - Units: m / s, km / h
+          - Scalar quantity(magnitude only)
 
-**Velocity:**
-- Displacement per unit time
-- Includes direction
-- Vector quantity (magnitude and direction)
+            ** Velocity:**
+              - Displacement per unit time
+                - Includes direction
+                  - Vector quantity(magnitude and direction)
 
-**Acceleration:**
-- Change in velocity per unit time
-- a = (v - u) ÷ t
-- Units: m/s²
-- Can be positive (speeding up) or negative (slowing down)
+                    ** Acceleration:**
+                      - Change in velocity per unit time
+                        - a = (v - u) ÷ t
+                          - Units: m / s²
+- Can be positive(speeding up) or negative(slowing down)
 
-### Distance-Time Graphs
-- Gradient = speed
-- Horizontal line = stationary
-- Curved line = changing speed
+### Distance - Time Graphs
+  - Gradient = speed
+    - Horizontal line = stationary
+      - Curved line = changing speed
 
-### Velocity-Time Graphs
-- Gradient = acceleration
-- Area under graph = displacement
-- Horizontal line = constant velocity
+### Velocity - Time Graphs
+  - Gradient = acceleration
+    - Area under graph = displacement
+      - Horizontal line = constant velocity
 
 ## Newton's Laws of Motion
 
-### First Law (Law of Inertia):
+### First Law(Law of Inertia):
 An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an unbalanced force.
 
 ### Second Law:
 Force = mass × acceleration
 F = ma
-- Force in Newtons (N)
-- Mass in kilograms (kg)
-- Acceleration in m/s²
+  - Force in Newtons(N)
+  - Mass in kilograms(kg)
+  - Acceleration in m / s²
 
 ### Third Law:
 For every action, there is an equal and opposite reaction.
-Examples:
+  Examples:
 - Walking: foot pushes back on ground, ground pushes forward on foot
-- Rocket propulsion: gases pushed down, rocket pushed up
+  - Rocket propulsion: gases pushed down, rocket pushed up
 
 ## Types of Forces
 
 ### Contact Forces:
-- **Friction:** opposes motion between surfaces
-- **Air resistance:** friction with air
-- **Normal force:** perpendicular to surface
-- **Tension:** force in stretched rope/cable
+- ** Friction:** opposes motion between surfaces
+  - ** Air resistance:** friction with air
+  - ** Normal force:** perpendicular to surface
+    - ** Tension:** force in stretched rope / cable
 
-### Non-contact Forces:
-- **Gravitational:** attraction between masses
-- **Magnetic:** attraction/repulsion between magnets
-- **Electrostatic:** attraction/repulsion between charges
+### Non - contact Forces:
+- ** Gravitational:** attraction between masses
+  - ** Magnetic:** attraction / repulsion between magnets
+    - ** Electrostatic:** attraction / repulsion between charges
 
 ## Equations of Motion
 
@@ -1263,25 +1282,25 @@ For constant acceleration:
 2. s = ut + ½at²
 3. v² = u² + 2as
 
-Where:
+  Where:
 - u = initial velocity
-- v = final velocity
-- a = acceleration
-- t = time
-- s = displacement
+  - v = final velocity
+    - a = acceleration
+      - t = time
+        - s = displacement
 
 ## Weight and Mass
 
 ### Mass:
 - Amount of matter in object
-- Measured in kg
-- Same everywhere
+  - Measured in kg
+  - Same everywhere
 
 ### Weight:
 - Gravitational force on object
-- Weight = mass × gravitational field strength
-- W = mg (g = 9.8 N/kg on Earth)
-- Measured in Newtons
+  - Weight = mass × gravitational field strength
+    - W = mg(g = 9.8 N / kg on Earth)
+      - Measured in Newtons
 
 ## Terminal Velocity
 
@@ -1289,13 +1308,13 @@ When falling through air:
 1. Initially accelerates due to gravity
 2. Air resistance increases with speed
 3. Eventually air resistance = weight
-4. No net force, so constant velocity (terminal velocity)
+4. No net force, so constant velocity(terminal velocity)
 
 ## Practice Problems
-1. A car travels 150m in 10s. Calculate its speed.
-2. Calculate the force needed to accelerate a 1200kg car at 2m/s².
-3. A ball is dropped from rest. After 3s, what is its velocity? (g = 9.8m/s²)
-4. Use v² = u² + 2as to find the stopping distance of a car traveling at 20m/s with deceleration 5m/s².`,
+1. A car travels 150m in 10s.Calculate its speed.
+2. Calculate the force needed to accelerate a 1200kg car at 2m / s².
+3. A ball is dropped from rest.After 3s, what is its velocity ? (g = 9.8m / s²)
+4. Use v² = u² + 2as to find the stopping distance of a car traveling at 20m / s with deceleration 5m / s².`,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 60,
@@ -1340,24 +1359,24 @@ export const year7Mathematics: Subject = {
           content: `# Place Value and Ordering Numbers
 
 ## Learning Objectives
-- Understand place value in whole numbers and decimals
-- Order numbers from smallest to largest
-- Round numbers to given places
-- Use place value in real-world contexts
+  - Understand place value in whole numbers and decimals
+    - Order numbers from smallest to largest
+      - Round numbers to given places
+        - Use place value in real - world contexts
 
 ## Place Value Chart
-| Thousands | Hundreds | Tens | Units | . | Tenths | Hundredths | Thousandths |
-|-----------|----------|------|-------|---|--------|------------|-------------|
-|     3     |    4     |  2   |   7   | . |   5    |     8      |      6      |
+  | Thousands | Hundreds | Tens | Units | . | Tenths | Hundredths | Thousandths |
+| -----------| ----------| ------| -------| ---| --------| ------------| -------------|
+| 3 | 4 | 2 | 7 | . | 5 | 8 | 6 |
 
-The number above is: 3,427.586
-- 3 is worth 3,000 (3 thousands)
-- 4 is worth 400 (4 hundreds)
-- 2 is worth 20 (2 tens)
-- 7 is worth 7 (7 units)
-- 5 is worth 0.5 (5 tenths)
-- 8 is worth 0.08 (8 hundredths)
-- 6 is worth 0.006 (6 thousandths)
+  The number above is: 3, 427.586
+    - 3 is worth 3,000(3 thousands)
+      - 4 is worth 400(4 hundreds)
+        - 2 is worth 20(2 tens)
+          - 7 is worth 7(7 units)
+            - 5 is worth 0.5(5 tenths)
+              - 8 is worth 0.08(8 hundredths)
+                - 6 is worth 0.006(6 thousandths)
 
 ## Ordering Numbers
 To order numbers from smallest to largest:
@@ -1365,35 +1384,35 @@ To order numbers from smallest to largest:
 2. If equal, move to the next place value
 3. Continue until you find a difference
 
-**Example:** Order: 3.45, 3.4, 3.54, 3.405
-- All have 3 units
-- Compare tenths: 4, 4, 5, 4
-- 3.54 is largest (5 tenths)
-- Compare hundredths of remaining: 5, 0, 0.5
-- Order: 3.4, 3.405, 3.45, 3.54
+  ** Example:** Order: 3.45, 3.4, 3.54, 3.405
+    - All have 3 units
+      - Compare tenths: 4, 4, 5, 4
+        - 3.54 is largest(5 tenths)
+          - Compare hundredths of remaining: 5, 0, 0.5
+            - Order: 3.4, 3.405, 3.45, 3.54
 
 ## Rounding Numbers
-**Rules for Rounding:**
-- Look at the digit to the right of the rounding place
-- If 5 or more, round up
-- If less than 5, round down
+  ** Rules for Rounding:**
+    - Look at the digit to the right of the rounding place
+      - If 5 or more, round up
+        - If less than 5, round down
 
-**Examples:**
-- Round 3.47 to 1 decimal place: Look at 7 (≥5), so 3.5
-- Round 2,847 to nearest 100: Look at 4 (<5), so 2,800
-- Round 156.83 to nearest whole number: Look at 8 (≥5), so 157
+          ** Examples:**
+            - Round 3.47 to 1 decimal place: Look at 7(≥5), so 3.5
+              - Round 2, 847 to nearest 100: Look at 4(<5), so 2, 800
+                - Round 156.83 to nearest whole number: Look at 8(≥5), so 157
 
-## Real-World Applications
-- Money: £3.47 rounded to nearest penny
-- Measurements: 2.34m rounded to nearest cm
-- Population: 45,678 people rounded to nearest thousand
+## Real - World Applications
+  - Money: £3.47 rounded to nearest penny
+    - Measurements: 2.34m rounded to nearest cm
+      - Population: 45, 678 people rounded to nearest thousand
 
 ## Practice Problems
-1. What is the value of 7 in 2,374.56?
-2. Order these numbers: 4.2, 4.02, 4.12, 4.021
+1. What is the value of 7 in 2, 374.56 ?
+  2. Order these numbers: 4.2, 4.02, 4.12, 4.021
 3. Round 67.89 to 1 decimal place
-4. Round 3,456 to the nearest hundred
-5. A shop sells items for £2.47, £3.89, and £1.23. Order from cheapest to most expensive.`,
+4. Round 3, 456 to the nearest hundred
+5. A shop sells items for £2.47, £3.89, and £1.23.Order from cheapest to most expensive.`,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 30,
@@ -1410,42 +1429,42 @@ To order numbers from smallest to largest:
           content: `# Basic Number Operations
 
 ## Learning Objectives
-- Perform addition and subtraction with whole numbers and decimals
-- Multiply and divide whole numbers and decimals
-- Use mental math strategies
-- Solve word problems involving all four operations
+  - Perform addition and subtraction with whole numbers and decimals
+    - Multiply and divide whole numbers and decimals
+      - Use mental math strategies
+        - Solve word problems involving all four operations
 
 ## Addition and Subtraction
 
 ### Column Method for Addition:
-```
+\`\`\`
   2,347
 +   856
 -------
   3,203
-```
+\`\`\`
 
 ### Column Method for Subtraction:
-```
+\`\`\`
   3,205
 -   847
 -------
   2,358
-```
+\`\`\`
 
 ### Adding and Subtracting Decimals:
 Line up the decimal points:
-```
+\`\`\`
   23.45
 +  7.8
 -------
   31.25
-```
+\`\`\`
 
 ## Multiplication
 
 ### Long Multiplication:
-```
+\`\`\`
     347
 ×    24
 -------
@@ -1453,47 +1472,64 @@ Line up the decimal points:
   6,940  (347 × 20)
 -------
   8,328
-```
+\`\`\`
 
 ### Multiplying Decimals:
-1. Multiply as if whole numbers
-2. Count decimal places in both numbers
-3. Put decimal point in answer
+1. Ignore decimal points and multiply
+2. Count total decimal places in both numbers
+3. Put that many decimal places in answer
 
-Example: 2.3 × 1.4
-- 23 × 14 = 322
+**Example:** 3.2 × 1.5
+- 32 × 15 = 480
 - 2 decimal places total
-- Answer: 3.22
+- Answer: 4.80 = 4.8
 
 ## Division
 
+### Short Division:
+\`\`\`
+    47
+  ------
+6 | 282
+\`\`\`
+
 ### Long Division:
-```
-    42
-   ----
-12)504
-   48
-   ---
-    24
-    24
-    ---
-     0
-```
+\`\`\`
+      23
+    -----
+15 | 345
+     30
+     ---
+      45
+      45
+      ---
+       0
+\`\`\`
 
 ### Dividing Decimals:
-- Move decimal point in divisor to make it whole
-- Move decimal point in dividend same number of places
-- Divide normally
+- Make divisor a whole number by multiplying both numbers by 10, 100, etc.
+- Then divide as normal
+
+**Example:** 12.6 ÷ 0.3
+- Multiply both by 10: 126 ÷ 3 = 42
 
 ## Mental Math Strategies
 
 ### Addition:
-- Round and adjust: 47 + 29 = 47 + 30 - 1 = 76
-- Break apart: 25 + 37 = 25 + 25 + 12 = 62
+- Break numbers into parts: 47 + 38 = (40 + 30) + (7 + 8) = 70 + 15 = 85
+- Round and adjust: 47 + 38 = 50 + 38 - 3 = 88 - 3 = 85
+
+### Subtraction:
+- Count up: 83 - 47 = count from 47 to 83
+- Round and adjust: 83 - 47 = 83 - 50 + 3 = 36
 
 ### Multiplication:
-- Double and halve: 16 × 25 = 8 × 50 = 400
-- Use factors: 24 × 15 = 24 × 3 × 5 = 72 × 5 = 360
+- Doubling: 16 × 5 = 8 × 10 = 80
+- Partitioning: 23 × 4 = (20 × 4) + (3 × 4) = 80 + 12 = 92
+
+### Division:
+- Use multiplication facts: 56 ÷ 8 = 7 (because 7 × 8 = 56)
+- Halving: 96 ÷ 4 = 48 ÷ 2 = 24
 
 ## Word Problems
 
@@ -1699,7 +1735,7 @@ Divide numerator by denominator:
 // Database of all subjects by year group
 export const curriculumDatabase: Record<number, Subject[]> = {
   7: [year7Mathematics],
-  10: [year10Mathematics, year10CombinedScience],
+  10: [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History],
 }
 
 // Function to get subjects for a year group
