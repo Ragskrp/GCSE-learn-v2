@@ -8,6 +8,7 @@ import {
   StudyMaterial,
   Quiz
 } from "@/data/curriculum-database";
+import { AuthService } from "@/services/auth-service";
 
 export class ContentService {
   static getSubjectsForYear(yearGroup: number): Subject[] {
@@ -23,11 +24,17 @@ export class ContentService {
   }
 
   static getAllSubjects(): Subject[] {
+    // Try to get from logged-in user first
+    const currentUser = AuthService.getCurrentUser();
+    if (currentUser && currentUser.profile.subjects && currentUser.profile.subjects.length > 0) {
+      return currentUser.profile.subjects as Subject[];
+    }
+    // Fallback to static database
     return Object.values(curriculumDatabase).flat();
   }
 
   static getLesson(lessonId: string): StudyMaterial | undefined {
-    // This is inefficient but works for now. In a real DB, we'd query by ID.
+    // Get subjects from the current user, not the static database
     const allSubjects = this.getAllSubjects();
     for (const subject of allSubjects) {
       for (const topic of subject.topics) {
