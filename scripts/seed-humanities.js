@@ -44,47 +44,104 @@ const year10EnglishLiterature = {
                 {
                     id: "macbeth-intro",
                     title: "Introduction to Macbeth",
-                    content: `# 🎭 Macbeth: The Scottish Play
+                    content: `# 🎭 Macbeth: Ambition & The Supernatural
 
-## "Fair is foul, and foul is fair..."
+> **"Fair is foul, and foul is fair..."**
 
-Welcome to the dark and stormy world of Macbeth! This is one of Shakespeare's most famous tragedies, filled with witches, warriors, and a whole lot of ambition.
+---
 
-### 🏰 The Setting
-- **Place:** Scotland (mostly)
-- **Atmosphere:** Dark, gloomy, supernatural, violent
-- **Key Themes:** Ambition, Guilt, Fate vs. Free Will, Kingship
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 📜 Summarize the **Plot of Act 1**
+- 👥 Analyze the **Key Characters** (Macbeth, Lady M, Witches)
+- 🗡️ Explore the fatal theme of **Ambition**
+- 🔮 Understand the role of the **Supernatural**
 
-### 👥 Key Characters
+**Estimated Time:** 20 minutes | **Difficulty:** Foundation | **XP Reward:** 150 ⭐
 
-| Character | Role | Traits |
-|-----------|------|--------|
-| **Macbeth** | Tragic Hero | Ambitious, brave warrior, easily manipulated |
-| **Lady Macbeth** | His Wife | Ruthless, manipulative, eventually consumed by guilt |
-| **The Witches** | Supernatural Agents | Mysterious, prophetic, chaotic |
-| **Banquo** | Macbeth's Friend | Loyal, skeptical of the witches |
-| **Duncan** | The King | Good, virtuous, trusting |
+---
 
-### 🎬 Act 1 Summary
-1.  **The Witches:** Three witches plan to meet Macbeth.
-2.  **The Battle:** Macbeth is a hero in battle.
-3.  **The Prophecy:** The witches tell Macbeth he will be King. They tell Banquo his children will be kings.
-4.  **The Letter:** Lady Macbeth reads about the prophecy and decides Duncan must die.
-5.  **The Plan:** Lady Macbeth convinces Macbeth to kill the King while he sleeps.
+## 📚 Chapter 1: The Setting & Mood 🌩️
 
-### 🧠 Think About It
-> "Stars, hide your fires; Let not light see my black and deep desires." - Macbeth
+Scotland. 11th Century. A storm is brewing.
 
-**What does this quote tell us about Macbeth's state of mind?**
-*He knows what he wants to do is wrong, but he wants it anyway. He is hiding his ambition from the world (and God).*
+### The Atmosphere
+- **Darkness:** Most scenes happen at night 🌑
+- **Weather:** Thunder, lightning, rain (Pathetic Fallacy) ⚡
+- **Violence:** Civil war and murder ⚔️
 
-### 🎥 Interactive Element
-Imagine you are directing the opening scene. How would you make the witches look?
-- [ ] Scary and old
-- [ ] Modern and creepy
-- [ ] Invisible voices
+### The "Fair is Foul" Paradox
+The Witches' famous line means **"Good is Bad, and Bad is Good."**
+Nothing is what it seems in this play.
 
-*There is no wrong answer! Shakespeare's plays are open to interpretation.*
+---
+
+## 📚 Chapter 2: Meet the Players 👥
+
+| Character | Role | Key Trait |
+| :--- | :--- | :--- |
+| **Macbeth** | Tragic Hero | Brave but weak-willed 🐺 |
+| **Lady Macbeth** | The Instigator | Ruthless & manipulative 🐍 |
+| **The Witches** | The Catalyst | Chaos & Prophecy 🔮 |
+| **King Duncan** | The Victim | Trusting & Virtuous 👑 |
+| **Banquo** | The Foil | Loyal & Skeptical 🛡️ |
+
+### 🎮 Quick Check
+**Who is the first person to suggest killing the King?**
+- A) Macbeth
+- B) Lady Macbeth
+- C) The Witches
+
+<details>
+<summary>💡 Show Answer</summary>
+
+**B) Lady Macbeth.** Macbeth wants to be King, but she is the one who plans the murder.
+</details>
+
+---
+
+## 📚 Chapter 3: Act 1 Summary 🎬
+
+1. **The Prophecy:** Witches tell Macbeth he will be **Thane of Cawdor** and then **King**. 👑
+2. **The Truth:** Macbeth finds out he *is* now Thane of Cawdor. The prophecy is starting! 😲
+3. **The Letter:** Lady Macbeth reads about it. She worries Macbeth is "too full of the milk of human kindness." 🥛
+4. **The Plan:** She calls on evil spirits to "unsex" her (remove her guilt) and plans Duncan's murder while he sleeps. 🛌
+
+---
+
+## 📚 Chapter 4: Key Themes 🧠
+
+### 1. Ambition (The Fatal Flaw)
+Macbeth's "Vaulting Ambition" is what destroys him. He knows it's wrong, but he can't stop.
+
+### 2. Fate vs Free Will
+- Did the Witches **make** him do it?
+- Or did they just **show** him what he secretly wanted?
+
+### 3. Masculinity & Cruelty
+Lady Macbeth connects being a "man" with being cruel. She bullies Macbeth by questioning his manhood.
+
+> **Quote:** "When you durst do it, then you were a man."
+
+---
+
+## 🎯 Key Takeaways
+
+✅ **"Fair is Foul":** Appearances are deceiving.
+✅ **Hamartia:** Macbeth's fatal flaw is Ambition.
+✅ **Lady Macbeth:** Is the driving force behind Act 1.
+✅ **Divine Right of Kings:** Killing a King was a crime against God.
+
+---
+
+## 📝 Practice Questions
+
+1. What are the three titles the Witches greet Macbeth with?
+2. How does Lady Macbeth persuade her husband to kill Duncan?
+3. What is the significance of the weather in the opening scene?
+4. Explain the meaning of "look like the innocent flower, but be the serpent under't".
+
+**Ready to face the Witches? Take the quiz!** 🧙‍♀️
 `,
                     type: "lesson",
                     difficulty: "foundation",
@@ -167,40 +224,109 @@ const year10History = {
                 {
                     id: "weimar-intro",
                     title: "The Weimar Republic (1918-1929)",
-                    content: `# 🇩🇪 The Weimar Republic
+                    content: `# 🇩🇪 The Weimar Republic: From Chaos to Culture
 
-## From Empire to Democracy
+> **"A Republic born in defeat, lived in turmoil, and died in tragedy."**
 
-After World War I, Germany changed from a powerful Empire ruled by the Kaiser to a struggling democracy known as the Weimar Republic.
+---
 
-### 📉 Key Problems (1919-1923)
-The new government faced huge challenges:
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 📉 Understand the **problems** facing the new German democracy
+- 📜 Analyze the hated **Treaty of Versailles**
+- 💸 Explain the causes and effects of **Hyperinflation**
+- 💃 Describe the **Golden Years** (1924-1929)
 
-1.  **Political Instability:** Many Germans hated the new democracy. They blamed it for losing the war.
-2.  **The Treaty of Versailles:** Germany was forced to sign this "dictated peace" (Diktat).
-    - Lost land 🗺️
-    - Military reduced 🔫
-    - Huge reparations (fines) 💰
-    - War Guilt Clause (Article 231) 📝
-3.  **Hyperinflation (1923):** Money became worthless!
-    - A loaf of bread cost 200 billion marks! 🍞
-    - People burned money for heat because it was cheaper than wood. 🔥
+**Estimated Time:** 25 minutes | **Difficulty:** Foundation | **XP Reward:** 150 ⭐
 
-### 📈 The Golden Years (1924-1929)
-Under **Gustav Stresemann**, things improved:
-- **Dawes Plan (1924):** US loans helped the economy. 🇺🇸
-- **Culture:** Berlin became famous for art, cinema, and nightlife. 🎨🎬
+---
 
-### 🧠 Flashcard Check
-**Who was the first President of the Weimar Republic?**
-- [ ] Friedrich Ebert
-- [ ] Paul von Hindenburg
-- [ ] Adolf Hitler
+## 📚 Chapter 1: A Shaky Start (1918-1919) 🚩
 
-*Answer: Friedrich Ebert*
+Germany lost WWI. The Kaiser ran away.
+A new democratic government met in the town of **Weimar** (Berlin was too dangerous!).
 
-### 🛑 The End
-The Wall Street Crash of 1929 destroyed the German economy again, leading to the rise of the Nazi party.
+### The "Stab in the Back" Myth
+Many Germans didn't believe they lost on the battlefield. They believed weak politicians (The "November Criminals") surrendered too early. This was a lie, but people believed it.
+
+---
+
+## 📚 Chapter 2: The Treaty of Versailles (1919) 📝
+
+The winners (Allies) forced Germany to sign a "Diktat" (Dictated Peace).
+
+### The Terms (LAMB)
+1.  **L**and: Lost 13% of land (including Alsasce-Lorraine). 🗺️
+2.  **A**rmy: Reduced to 100,000 men. No air force. No submarines. 🔫
+3.  **M**oney: £6.6 Billion in reparations (fines). 💰
+4.  **B**lame: Article 231 said Germany was 100% to blame. 🤬
+
+### 🎮 Quick Check
+**Which term of the Treaty did Germans hate the most?**
+- A) Lost Land
+- B) Blame (Article 231)
+- C) Army reduction
+
+<details>
+<summary>💡 Show Answer</summary>
+
+**B) Blame.** Accepting full guilt for the war was humiliating and unjustified in their eyes.
+</details>
+
+---
+
+## 📚 Chapter 3: Crisis Year (1923) 🚨
+
+Everything went wrong in 1923.
+
+### 1. Invasion of the Ruhr
+Germany couldn't pay. France invaded the industrial Ruhr to take coal instead. Workers went on strike.
+
+### 2. Hyperinflation
+The government printed money to pay the strikers.
+- **Result:** Money became worthless.
+- **Price of Bread:**
+  - 1922: 163 Marks
+  - Nov 1923: 200,000,000,000 Marks! 🍞
+
+> **Fact:** People used money as wallpaper because it was cheaper than actual wallpaper!
+
+---
+
+## 📚 Chapter 4: The Golden Years (1924-1929) ✨
+
+Enter **Gustav Stresemann**. He fixed things (briefly).
+
+### Stresemann's Solutions
+1.  **Rentenmark:** A new, stable currency. 💶
+2.  **Dawes Plan (1924):** Loans from the USA to jumpstart the economy. 🇺🇸
+3.  **League of Nations (1926):** Germany was allowed to join the "World Club" again. 🤝
+
+### Berlin Culture
+Berlin became the "Party Capital of Europe".
+- Jazz clubs 🎷
+- Cinema (Metropolis) 🎥
+- Modern Art (Bauhaus) 🎨
+
+---
+
+## 🎯 Key Takeaways
+
+✅ **Weimar Republic:** Germany's first democracy.
+✅ **Treaty of Versailles:** Hated by Germans (LAMB).
+✅ **Hyperinflation:** Caused by printing money (1923).
+✅ **Stresemann:** Saved Germany with US loans (Golden Years).
+
+---
+
+## 📝 Practice Questions
+
+1. Why was the government called the "Weimar" Republic?
+2. List three things Germany lost in the Treaty of Versailles.
+3. How did the French invasion of the Ruhr lead to Hyperinflation?
+4. Who was Gustav Stresemann and what did he do?
+
+**Ready to travel back in time? Take the quiz!** ⏳
 `,
                     type: "lesson",
                     difficulty: "foundation",

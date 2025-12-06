@@ -1065,79 +1065,203 @@ World population: 8 × 10⁹ people
         {
           id: "linear-equations",
           title: "Solving Linear Equations",
-          content: `# Solving Linear Equations
+          content: `# ⚖️ Solving Linear Equations: The Balancing Act
 
-## Learning Objectives
-  - Solve linear equations with one unknown
-    - Rearrange formulae to change the subject
-      - Solve equations with brackets and fractions
-        - Apply algebraic skills to real - world problems
+> **"Algebra is just a puzzle - keep things balanced, and you'll find the missing piece!"**
 
-## Key Concepts
+---
 
-### Basic Linear Equations
-An equation where the highest power of the variable is 1.
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 🔍 Solve linear equations with one unknown
+- 🔄 Rearrange complicated formulae to change the subject
+- 🧩 Tackle equations with brackets and fractions
+- 🏗️ Apply algebra to solve real-world problems
 
-  ** Example 1:** Solve 3x + 7 = 22
-    - Subtract 7 from both sides: 3x = 15
-      - Divide by 3: x = 5
-        - Check: 3(5) + 7 = 15 + 7 = 22 ✓
+**Estimated Time:** 40 minutes | **Difficulty:** Foundation | **XP Reward:** 150 ⭐
 
-** Example 2:** Solve 5x - 8 = 2x + 10
-  - Subtract 2x from both sides: 3x - 8 = 10
-    - Add 8 to both sides: 3x = 18
-      - Divide by 3: x = 6
+---
 
-### Equations with Brackets
-Expand brackets first, then solve.
+## 📚 Chapter 1: The Golden Rule
 
-** Example:** Solve 2(x + 3) = 14
-  - Expand: 2x + 6 = 14
-    - Subtract 6: 2x = 8
-      - Divide by 2: x = 4
+**"Whatever you do to one side, you MUST do to the other!"**
 
-        ** Example:** Solve 3(2x - 1) = 4(x + 2)
-          - Expand: 6x - 3 = 4x + 8
-            - Subtract 4x: 2x - 3 = 8
-              - Add 3: 2x = 11
-                - Divide by 2: x = 5.5
+Think of an equation like a balanced scale. ⚖️
 
-### Equations with Fractions
-Multiply through by the denominator to clear fractions.
+### Example 1: Basic Solving
+\`\`\`
+Solve: 3x + 7 = 22
 
-** Example:** Solve(x + 2) / 3 = 5
-  - Multiply by 3: x + 2 = 15
-    - Subtract 2: x = 13
+Step 1: Get '3x' by itself (Subtract 7 from both sides)
+   3x + 7 - 7 = 22 - 7
+   3x = 15
 
-      ** Example:** Solve x / 4 + x / 6 = 5
-        - Find common denominator(12): 3x / 12 + 2x / 12 = 5
-          - Simplify: 5x / 12 = 5
-            - Multiply by 12: 5x = 60
-              - Divide by 5: x = 12
+Step 2: Get 'x' by itself (Divide by 3)
+   3x ÷ 3 = 15 ÷ 3
+   x = 5
 
-### Rearranging Formulae
-Change the subject by performing inverse operations.
+Check: 3(5) + 7 = 15 + 7 = 22 ✅
+\`\`\`
 
-** Example 1:** Make x the subject of y = 3x + 2
-  - Subtract 2: y - 2 = 3x
-    - Divide by 3: x = (y - 2) / 3
+### Example 2: Unknowns on Both Sides
+\`\`\`
+Solve: 5x - 8 = 2x + 10
 
-      ** Example 2:** Make r the subject of A = πr²
-- Divide by π: A / π = r²
-- Square root: r = √(A / π)
+Step 1: Move smaller x term (Subtract 2x)
+   3x - 8 = 10
 
-## Real - World Applications
-  - Distance, speed, time problems
-    - Financial calculations(loans, investments)
-      - Engineering and construction
-        - Scientific formulae
+Step 2: Move number term (Add 8)
+   3x = 18
 
-## Practice Problems
+Step 3: Solve for x (Divide by 3)
+   x = 6 ✨
+\`\`\`
+
+### 🎮 Quick Check
+**What is the first step to solve 4x + 5 = 17?**
+- A) Divide by 4
+- B) Subtract 5
+- C) Add 5
+
+<details>
+<summary>💡 Show Answer</summary>
+
+**B) Subtract 5** - Always deal with the added/subtracted numbers first!
+Then 4x = 12, so x = 3.
+</details>
+
+---
+
+## 📚 Chapter 2: Equations with Brackets
+
+**Standard Strategy:** Expand first, THEN solve!
+
+### Review: Expanding Brackets
+\`\`\`
+2(x + 3) means 2 × x AND 2 × 3
+So: 2x + 6
+\`\`\`
+
+### Walkthrough
+\`\`\`
+Solve: 3(2x - 1) = 4(x + 2)
+
+Step 1: Expand BOTH sides
+   6x - 3 = 4x + 8
+
+Step 2: Subtract smaller x term (4x)
+   2x - 3 = 8
+
+Step 3: Add 3 to both sides
+   2x = 11
+
+Step 4: Divide by 2
+   x = 5.5 ✨
+\`\`\`
+
+---
+
+## 📚 Chapter 3: Equations with Fractions
+
+**Strategy:** Multiply to destroy the denominator! 🔨
+
+### Example: Simple Fraction
+\`\`\`
+Solve: (x + 2) / 3 = 5
+
+Step 1: Multiply both sides by 3
+   x + 2 = 15
+
+Step 2: Subtract 2
+   x = 13 ✅
+\`\`\`
+
+### Example: Tricky Fractions
+\`\`\`
+Solve: x/4 + x/6 = 5
+
+Step 1: Find Common Denominator for 4 and 6 (It's 12!)
+   3x/12 + 2x/12 = 5
+
+Step 2: Combine tops
+   5x/12 = 5
+
+Step 3: Multiply by 12
+   5x = 60
+
+Step 4: Divide by 5
+   x = 12 ✨
+\`\`\`
+
+---
+
+## 📚 Chapter 4: Rearranging Formulae
+
+Changing the subject is just solving for a letter instead of a number!
+
+### Level 1: Linear Rearranging
+**Make x the subject of y = 3x + 2**
+\`\`\`
+1. Subtract 2:
+   y - 2 = 3x
+
+2. Divide by 3:
+   x = (y - 2) / 3 ✅
+\`\`\`
+
+### Level 2: Squares and Roots
+**Make r the subject of A = πr²**
+\`\`\`
+1. Divide by π:
+   A / π = r²
+
+2. Square root:
+   r = √(A / π) ✅
+\`\`\`
+
+---
+
+## 🌍 Real-World Applications
+
+### Where is Algebra Used?
+- 🏗️ **Engineering:** Calculating loads and stresses
+- 💸 **Finance:** Working out loan repayments
+- 🚗 **Physics:** Speed, distance, time problems
+- 🧪 **Chemistry:** balancing chemical equations
+
+### Challenge Problem
+A mobile plan costs £20/month plus £0.10 per minute.
+The bill is £35. How many minutes (m) were used?
+
+\`\`\`
+Equation: 20 + 0.10m = 35
+Step 1: 0.10m = 15  (Subtract 20)
+Step 2: m = 150     (Divide by 0.10)
+
+Answer: 150 minutes! 📞
+\`\`\`
+
+---
+
+## 🎯 Key Takeaways
+
+✅ **Balance is Key:** Do the same to both sides
+✅ **Order:** Expand brackets → Clear fractions → Collect methods → Solve
+✅ **Check:** Always put your answer back into the equation
+✅ **Rearranging:** Same rules apply, just with letters!
+
+---
+
+## 📝 Practice Problems
+
 1. Solve: 5x - 3 = 17
 2. Solve: 3(x - 2) = 21
 3. Solve: (2x + 1)/5 = 3
 4. Make t the subject: v = u + at
-5. A mobile phone plan costs £20 per month plus £0.10 per minute.If the monthly bill is £35, how many minutes were used ? `,
+5. Solve: 2x + 4 = 5x - 11
+
+**Ready to balance some equations? Take the quiz!** 🏅
+`,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 40,
@@ -1151,61 +1275,194 @@ Change the subject by performing inverse operations.
         {
           id: "quadratic-equations",
           title: "Quadratic Equations",
-          content: `# Quadratic Equations
+          content: `# 🎢 Quadratic Equations: The Power of Squares
 
-## Learning Objectives
-  - Solve quadratic equations by factoring
-    - Use the quadratic formula
-      - Complete the square
-        - Interpret solutions graphically
+> **"From throwing a ball to satellite dishes, quadratics describe the curves of our world!"**
 
-## Key Concepts
+---
+
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 🧩 Solve quadratics by **factoring** (the puzzle method)
+- 🧪 Use the **Quadratic Formula** (the universal tool)
+- 🔲 **Complete the Square** (for vertex finding)
+- 📉 Understand **graphs** of quadratic functions
+- 🔍 Use the **discriminant** to predict solutions
+
+**Estimated Time:** 60 minutes | **Difficulty:** Higher | **XP Reward:** 300 ⭐
+
+---
+
+## 📚 Chapter 1: What is a Quadratic?
+
+A quadratic is any equation where the highest power is **x²** (x squared).
 
 ### Standard Form
-A quadratic equation has the form ax² + bx + c = 0, where a ≠ 0.
+\`\`\`
+ax² + bx + c = 0
+\`\`\`
+Where 'a' cannot be zero.
 
-### Factoring Method
-  ** Example 1:** Solve x² + 5x + 6 = 0
-    - Factor: (x + 2)(x + 3) = 0
-      - Solutions: x = -2 or x = -3
+### The Shape: Parabola ∪
+Every quadratic graph makes a U-shape called a **parabola**.
+- If a > 0: Happy face ∪ (minimum point)
+- If a < 0: Sad face ∩ (maximum point)
 
-        ** Example 2:** Solve x² - 7x + 12 = 0
-          - Factor: (x - 3)(x - 4) = 0
-            - Solutions: x = 3 or x = 4
+---
 
-### Quadratic Formula
-For ax² + bx + c = 0:
-x = (-b ± √(b² - 4ac)) / 2a
+## 📚 Chapter 2: Solving by Factoring
 
-  ** Example:** Solve 2x² + 3x - 2 = 0
-    - a = 2, b = 3, c = -2
-      - x = (-3 ± √(9 + 16)) / 4 = (-3 ± 5) / 4
-        - x = 1 / 2 or x = -2
+**Goal:** Turn addition into multiplication!
+If A × B = 0, then either A=0 or B=0.
 
-### Completing the Square
-  ** Example:** Solve x² + 6x + 5 = 0
-    - Rearrange: x² + 6x = -5
-      - Complete square: (x + 3)² - 9 = -5
-        - Simplify: (x + 3)² = 4
-          - Solutions: x + 3 = ±2, so x = -1 or x = -5
+### Example 1: Simple Factoring
+\`\`\`
+Solve: x² + 5x + 6 = 0
 
-### The Discriminant
-b² - 4ac tells us about the nature of roots:
-- If > 0: two real roots
-  - If = 0: one repeated root
-    - If < 0: no real roots
+Step 1: Find two numbers that:
+   - Multiply to make 6
+   - Add to make 5
+   Thinking... 2 and 3! (2×3=6, 2+3=5)
 
-## Real - World Applications
-  - Projectile motion
-    - Area and optimization problems
-      - Business profit / loss calculations
-        - Engineering design
+Step 2: Put into brackets
+   (x + 2)(x + 3) = 0
 
-## Practice Problems
+Step 3: Solve each bracket
+   x + 2 = 0  →  x = -2
+   x + 3 = 0  →  x = -3
+
+Answers: x = -2, x = -3 ✨
+\`\`\`
+
+### Example 2: Negative Numbers
+\`\`\`
+Solve: x² - 7x + 12 = 0
+
+Multiply to +12, Add to -7?
+Must be two negative numbers! -3 and -4.
+
+Factors: (x - 3)(x - 4) = 0
+Answers: x = 3, x = 4 ✅
+\`\`\`
+
+(Because -3 × -4 = +12)
+
+---
+
+## 📚 Chapter 3: The Quadratic Formula
+
+**The Universal Hammer** 🔨 - Works for ANY quadratic!
+
+### The Formula
+\`\`\`
+      -b ± √(b² - 4ac)
+x = ───────────────────
+              2a
+\`\`\`
+
+### Walkthrough
+\`\`\`
+Solve: 2x² + 3x - 2 = 0
+
+1. Identify: a=2, b=3, c=-2
+
+2. Substitute:
+   x = (-3 ± √(3² - 4(2)(-2))) / (2×2)
+
+3. Simplify inside root:
+   3² = 9
+   -4(2)(-2) = +16
+   So: √(9 + 16) = √25 = 5
+
+4. Solve both cases:
+   x = (-3 + 5) / 4  = 2/4 = 0.5
+   x = (-3 - 5) / 4  = -8/4 = -2
+
+Answers: x = 0.5, x = -2 ✨
+\`\`\`
+
+---
+
+## 📚 Chapter 4: Completing the Square
+
+Useful for finding the turning point (vertex) of the graph!
+
+### The Method
+\`\`\`
+Objective: Turn x² + bx into (x + b/2)² - ...
+
+Example: x² + 6x + 5 = 0
+
+Step 1: Halve the coefficient of x (6 ÷ 2 = 3)
+   (x + 3)²
+
+Step 2: Subtract the square of that number (3² = 9)
+   (x + 3)² - 9
+
+Step 3: Don't forget the original constant (+5)
+   (x + 3)² - 9 + 5 = 0
+   (x + 3)² - 4 = 0
+
+Step 4: Solve
+   (x + 3)² = 4
+   x + 3 = ±√4 = ±2
+   x = -3 ± 2
+   
+   x = -1 or x = -5 ✅
+\`\`\`
+
+---
+
+## 📚 Chapter 5: The Discriminant
+
+The part UNDER the square root sign tells us about the answers!
+
+\`\`\`
+Discriminant = b² - 4ac
+\`\`\`
+
+- **Positive (> 0):** Two real solutions (graph crosses x-axis twice)
+- **Zero (= 0):** One repeated solution (graph touches x-axis once)
+- **Negative (< 0):** No real solutions (graph never touches x-axis)
+
+### 🎮 Quick Check
+**For x² + 4x + 5, how many solutions?**
+
+<details>
+<summary>💡 Show Answer</summary>
+
+b² - 4ac
+4² - 4(1)(5)
+16 - 20 = **-4**
+Negative discriminant means **NO real solutions**!
+</details>
+
+---
+
+## 🌍 Real-World Applications
+
+### Projectiles 🚀
+When you throw a ball, its height (h) over time (t) is quadratic!
+h = -5t² + 20t + 2
+
+### Business 💰
+Profit curves are often quadratic. Finding the maximum point tells you the best price to charge!
+
+### Optimization 📦
+Finding the largest area you can enclose with a certain amount of fence.
+
+---
+
+## 📝 Practice Problems
+
 1. Solve by factoring: x² - 8x + 15 = 0
 2. Use the quadratic formula: 3x² - 5x - 2 = 0
 3. Complete the square: x² + 4x - 1 = 0
-4. A ball is thrown upward with initial velocity 20 m / s.Its height h = 20t - 5t². When does it hit the ground ? `,
+4. Find the discriminant of: 2x² + 3x + 5 = 0
+5. A ball is thrown upward. Height h = 20t - 5t². When does it hit the ground (h=0)?
+
+**Ready to find some roots? Take the quiz!** 🏅
+`,
           type: "lesson",
           difficulty: "higher",
           estimatedTime: 60,
@@ -1261,150 +1518,160 @@ b² - 4ac tells us about the nature of roots:
     {
       id: "geometry",
       name: "Geometry and Measures",
-      completed: false,
-      studyMaterials: [
-        {
-          id: "angles-lesson",
-          title: "Angles and Polygons",
-          content: `# Angles and Polygons
-
-## Learning Objectives
-  - Calculate angles in triangles and quadrilaterals
-    - Use angle properties of parallel lines
-      - Find angles in regular and irregular polygons
-        - Apply circle theorems
-
-## Key Concepts
-
-### Basic Angle Facts
-  - Angles on a straight line sum to 180°
-- Angles around a point sum to 360°
-- Vertically opposite angles are equal
-
-### Triangle Properties
-  - Sum of interior angles = 180°
-- Exterior angle = sum of two opposite interior angles
-  - Isosceles triangle: two equal sides, two equal angles
-    - Equilateral triangle: all sides equal, all angles 60°
-
-### Quadrilateral Properties
-  - Sum of interior angles = 360°
-- Rectangle: opposite sides equal, all angles 90°
-- Rhombus: all sides equal, opposite angles equal
-  - Parallelogram: opposite sides parallel and equal
-
-### Parallel Lines
-When a transversal crosses parallel lines:
-- Corresponding angles are equal
-  - Alternate angles are equal
-    - Co - interior angles sum to 180°
-
-### Polygons
-For a regular n - sided polygon:
-- Sum of interior angles = (n - 2) × 180°
-- Each interior angle = (n - 2) × 180° ÷ n
-  - Each exterior angle = 360° ÷ n
-
-### Circle Theorems
-1. Angle in semicircle = 90°
-2. Angles in same segment are equal
-3. Angle at center = 2 × angle at circumference
-4. Opposite angles in cyclic quadrilateral sum to 180°
-
-## Practice Problems
-1. Find the missing angle in a triangle with angles 65° and 48°
-2. Calculate each interior angle of a regular octagon
-3. Two parallel lines are cut by a transversal.If one angle is 75°, find all other angles
-4. In a circle, an arc subtends an angle of 80° at the center.What angle does it subtend at the circumference ? `,
-          type: "lesson",
-          difficulty: "foundation",
-          estimatedTime: 55,
-          learningObjectives: [
-            "Apply angle properties in various geometric shapes",
-            "Use parallel line angle relationships",
-            "Calculate polygon angles",
-            "Apply basic circle theorems"
-          ],
-        },
-      ],
-      quizzes: [],
-      tests: [],
     },
     {
       id: "statistics",
       name: "Statistics and Probability",
-      completed: false,
       studyMaterials: [
         {
           id: "data-handling",
           title: "Data Handling and Averages",
-          content: `# Data Handling and Averages
+          content: `# 📊 Data Handling: Making Sense of Numbers
 
-## Learning Objectives
-  - Calculate mean, median, mode, and range
-    - Interpret frequency tables and grouped data
-      - Create and interpret charts and graphs
-        - Compare data sets using statistics
+> **"Statistics are like a camera - they help us take a snapshot of reality!"**
 
-## Key Concepts
+---
 
-### Measures of Central Tendency
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 📉 Calculate the **Mean, Median, Mode, and Range**
+- 📋 Interpret frequency tables
+- 📊 Create and understand charts (Bar, Pie, Scatter)
+- 🔎 Compare different sets of data like a pro
 
-  ** Mean(Average):**
-    Sum of all values ÷ number of values
+**Estimated Time:** 50 minutes | **Difficulty:** Foundation | **XP Reward:** 200 ⭐
 
-Example: 2, 5, 7, 8, 3
-Mean = (2 + 5 + 7 + 8 + 3) ÷ 5 = 25 ÷ 5 = 5
+---
 
-  ** Median(Middle Value):**
-    Arrange in order, find middle value
-Example: 2, 3, 5, 7, 8 → Median = 5
+## 📚 Chapter 1: The Three M's (And an R!)
 
-For even number of values, take mean of middle two:
-2, 3, 5, 7, 8, 9 → Median = (5 + 7) ÷ 2 = 6
+These are the "Averages" (and one measure of spread).
 
-  ** Mode(Most Common):**
-    The value that appears most frequently
-Example: 2, 3, 3, 5, 7 → Mode = 3
+### 1. MEAN (The "Mean"est One) 😠
+**Add them all up, Divide by how many.**
+\`\`\`
+Data: 2, 5, 7, 8, 3
+Sum: 2 + 5 + 7 + 8 + 3 = 25
+Count: 5 numbers
+Mean: 25 ÷ 5 = 5 ✨
+\`\`\`
 
-### Measures of Spread
+### 2. MEDIAN (The Middle One) 🛣️
+**Order them first! Then find the middle.**
+\`\`\`
+Data: 2, 3, 5, 7, 8
+Median = 5 (It's right in the middle!)
+\`\`\`
+*If there are two in the middle, add them and divide by 2.*
 
-  ** Range:**
-    Highest value - Lowest value
-Example: 2, 3, 5, 7, 8 → Range = 8 - 2 = 6
+### 3. MODE (The Most Popular) 🏆
+**The one that appears the MOST.**
+\`\`\`
+Data: 2, 3, 3, 5, 7
+Mode = 3 (It appears twice!)
+\`\`\`
 
-### Frequency Tables
-  | Score | Frequency |
-| -------| -----------|
-| 1 | 3 |
-| 2 | 5 |
-| 3 | 7 |
-| 4 | 2 |
+### 4. RANGE (The Spread) ↔️
+**Biggest - Smallest.**
+\`\`\`
+Data: 2, 3, 5, 7, 8
+Range: 8 - 2 = 6 ✨
+\`\`\`
 
-  Mean = (1×3 + 2×5 + 3×7 + 4×2) ÷ (3 + 5 + 7 + 2) = 43 ÷ 17 = 2.53
+---
 
-### Grouped Data
-For grouped data, use midpoint of each class:
+## 📚 Chapter 2: Frequency Tables
 
-| Height(cm) | Frequency | Midpoint |
-| -------------| -----------| ----------|
-| 150 - 159 | 5 | 154.5 |
-| 160 - 169 | 8 | 164.5 |
-| 170 - 179 | 3 | 174.5 |
+When you have LOTS of data, we group it!
 
-  Estimated mean = (154.5×5 + 164.5×8 + 174.5×3) ÷ 16
+### Simple Frequency Table
+| Score | Frequency (How many people) | Total (Score × Freq) |
+| :---: | :---: | :---: |
+| 1 | 3 | 1 × 3 = 3 |
+| 2 | 5 | 2 × 5 = 10 |
+| 3 | 7 | 3 × 7 = 21 |
+| 4 | 2 | 4 × 2 = 8 |
+| **Total** | **17 people** | **42 points** |
 
-### Charts and Graphs
-  - Bar charts: for categorical data
-    - Histograms: for continuous data
-      - Pie charts: for showing proportions
-        - Scatter graphs: for showing correlation
+**Mean Calculation:**
+Total Points ÷ Total People
+42 ÷ 17 = **2.47** ✨
 
-## Practice Problems
-1. Find mean, median, mode, and range: 4, 7, 2, 9, 5, 7, 3
-2. From a frequency table showing test scores, calculate the mean
-3. Interpret a histogram showing heights of students
-4. Create a pie chart for favorite subjects survey data`,
+### 🎮 Quick Check
+**If 5 people score 10, what is the total for that row?**
+- A) 15
+- B) 50
+- C) 10
+
+<details>
+<summary>💡 Show Answer</summary>
+
+**B) 50** - Because 5 people × 10 points each = 50.
+</details>
+
+---
+
+## 📚 Chapter 3: Grouped Data
+
+When data is continuous (like height), we use groups!
+
+| Height (cm) | Frequency | Midpoint | Calculation |
+| :---: | :---: | :---: | :---: |
+| 150 - 160 | 5 | 155 | 5 × 155 = 775 |
+| 160 - 170 | 8 | 165 | 8 × 165 = 1320 |
+| 170 - 180 | 3 | 175 | 3 × 175 = 525 |
+
+**The Trick:** We don't know exact heights, so use the **MIDPOINT**!
+Total Estimate = 775 + 1320 + 525 = 2620
+Mean Estimate = 2620 ÷ 16 = **163.75 cm** ✨
+
+---
+
+## 📚 Chapter 4: Charts and Graphs
+
+A picture paints a thousand numbers! 🎨
+
+### 📊 Bar Charts
+- Best for: **Categories** (e.g., Favourite Colour)
+- Rule: Gaps between bars!
+
+### 📈 Histograms
+- Best for: **Continuous Data** (e.g., Height, Time)
+- Rule: NO gaps between bars! Area represents frequency.
+
+### 🥧 Pie Charts
+- Best for: **Proportions** (Parts of a whole)
+- Full circle = 360°
+- Formula: (Frequency ÷ Total) × 360°
+
+### 📉 Scatter Graphs
+- Best for: **Relationships** (Correlation)
+- Positive Correlation: Both go UP ↗️
+- Negative Correlation: One UP, one DOWN ↘️
+
+---
+
+## 🎯 Key Takeaways
+
+✅ **Mean:** Add and Divide
+✅ **Median:** Order and Find Middle
+✅ **Mode:** Most Common
+✅ **Range:** Biggest - Smallest
+✅ **Frequency Tables:** Multiply Score × Frequency first!
+✅ **Correlation:** Describes the relationship between two things
+
+---
+
+## 📝 Practice Problems
+
+1. Find the mean, median, mode, and range of: 4, 7, 2, 9, 5, 7, 3
+2. Calculate the mean from a frequency table where total frequency is 20 and total score is 140.
+3. Determine the midpoint of the group 20 < x ≤ 30.
+4. If a pie chart sector is 90°, what fraction of the data is that?
+5. Describe the correlation: As temperature goes UP, ice cream sales go UP.
+
+**Ready to analyze some data? Take the quiz!** 🏅
+`,
           type: "lesson",
           difficulty: "foundation",
           estimatedTime: 50,
@@ -1445,59 +1712,124 @@ const year7Mathematics = {
         {
           id: "place-value",
           title: "Place Value and Ordering Numbers",
-          content: `# Place Value and Ordering Numbers
+          content: `# 🔢 Place Value: The DNA of Numbers
 
-## Learning Objectives
-- Understand place value in whole numbers and decimals
-- Order numbers from smallest to largest
-- Round numbers to given places
-- Use place value in real-world contexts
+> **"Every digit has a place, and every place has a value!"**
 
-## Place Value Chart
+---
+
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- 🏠 Understand **Place Value** in whole numbers and decimals
+- 📏 **Order** numbers from smallest to largest
+- 🎯 **Round** numbers to the nearest 10, 100, or decimal place
+- 🌍 Use place value to solve **money and measurement** problems
+
+**Estimated Time:** 30 minutes | **Difficulty:** Foundation | **XP Reward:** 100 ⭐
+
+---
+
+## 📚 Chapter 1: The Place Value Chart
+
+Every position is 10x bigger than the one to its right!
+
 | Thousands | Hundreds | Tens | Units | . | Tenths | Hundredths | Thousandths |
-|-----------|----------|------|-------|---|--------|------------|-------------|
-| 3         | 4        | 2    | 7     | . | 5      | 8          | 6           |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1000 | 100 | 10 | 1 | . | 0.1 | 0.01 | 0.001 |
+| **3** | **4** | **2** | **7** | . | **5** | **8** | **6** |
 
-Value of digit 4 is 400 (4 Hundreds).
-Value of digit 8 is 0.08 (8 Hundredths).
+### What is it worth?
+- The **4** is worth **400**
+- The **2** is worth **20**
+- The **8** is worth **0.08** (8 hundredths)
 
-## Ordering Numbers
-When comparing numbers:
-1. Compare the digits in the largest place value column first.
-2. If they are the same, move to the next column to the right.
-3. Continue until you find a difference.
+### 🎮 Quick Check
+**What is the value of the 5 in 12.53?**
+- A) 50
+- B) 5
+- C) 0.5
 
-**Example:** Compare 3.42 and 3.45
-- Units: Both 3 (Same)
-- Tenths: Both 4 (Same)
-- Hundredths: 2 vs 5 (5 is bigger)
-So, 3.45 > 3.42
+<details>
+<summary>💡 Show Answer</summary>
 
-## Rounding Numbers
-**Rule:** Look at the digit to the right of the place you are rounding to.
-- If it's 5 or more, round UP (add 1 to the rounding digit).
-- If it's 4 or less, stay DOWN (keep the rounding digit same).
+**C) 0.5** (or 5 tenths) - It's the first digit after the decimal point!
+</details>
 
-**Example:** Round 45.67 to 1 decimal place.
-- Digit at 1st decimal place is 6.
-- Digit to the right is 7 (5 or more).
-- Round up 6 to 7.
-- Answer: 45.7
+---
 
-**Example:** Round 342 to the nearest 10.
-- Digit at tens place is 4.
-- Digit to the right is 2 (4 or less).
-- Keep 4, replace 2 with 0.
-- Answer: 340
+## 📚 Chapter 2: Ordering Numbers
 
-## Applications
-- Money: £12.50 is 1 ten, 2 units, 5 tenths, 0 hundredths.
-- Measurement: 1.5m vs 1.45m.
+**Rule of Thumb:** Compare columns from Left to Right!
 
-## Practice
-1. Value of 7 in 372? (Answer: 70)
-2. Order: 0.5, 0.05, 0.55 (Answer: 0.05, 0.5, 0.55)
-3. Round 12.85 to 1 d.p. (Answer: 12.9)
+### Example: Compare 3.42 and 3.45
+1. **Units:** Both are 3 (Match)
+2. **Tenths:** Both are 4 (Match)
+3. **Hundredths:** 2 vs 5... **5 is bigger!**
+
+So: **3.45 > 3.42** ✨
+
+### ⚠️ Common Trap!
+Which is bigger: **0.5** or **0.35**?
+- Add a zero to match lengths: 0.50 vs 0.35
+- 50 is bigger than 35!
+- So **0.5 > 0.35** ✅
+
+---
+
+## 📚 Chapter 3: Rounding Numbers
+
+**The Magic Rule:**
+- **5 or more?** Let it SOAR! 📈 (Round Up)
+- **4 or less?** Let it REST! 📉 (Stay same)
+
+### Example 1: Round 45.67 to 1 decimal place
+1. Look at the **1st decimal digit** (6).
+2. Look at the neighbor to the right (7).
+3. 7 is "5 or more", so **Round UP**.
+4. 6 becomes 7.
+
+Answer: **45.7** ✨
+
+### Example 2: Round 342 to the nearest 10
+1. Look at **Tens** digit (4).
+2. Look at neighbor (2).
+3. 2 is "4 or less", so **Stay Same**.
+4. Replace units with zero.
+
+Answer: **340** ✨
+
+---
+
+## 🌍 Real-World Applications
+
+### 💰 Money
+- **£12.50** means 1 ten, 2 pounds, and 50 pence
+- Comparing prices: £1.50 is MORE than £1.05
+
+### 📏 Measurement
+- **1.5m** = 150cm
+- Precision matters when building bridges!
+
+---
+
+## 🎯 Key Takeaways
+
+✅ **Place Value:** Columns get 10x smaller as you go right
+✅ **Comparing:** Start from the left-most column
+✅ **Decimals:** 0.5 is BIGGER than 0.35
+✅ **Rounding:** "5 or more, let it soar!"
+
+---
+
+## 📝 Practice Problems
+
+1. Write the value of the 7 in 372.
+2. Order these: 0.5, 0.05, 0.55
+3. Round 12.85 to 1 decimal place.
+4. Round 549 to the nearest 100.
+5. Which is cheaper: £1.25 or £1.20?
+
+**Ready to know your place? Take the quiz!** 🏅
 `,
           type: "lesson",
           difficulty: "foundation",
@@ -1512,57 +1844,142 @@ So, 3.45 > 3.42
         {
           id: "operations",
           title: "Four Operations",
-          content: `# The Four Operations
+          content: `# ➕ The Four Operations: Maths Superpowers
 
-## Learning Objectives
-- Add and subtract whole numbers and decimals
-- Multiply and divide whole numbers
-- Understand order of operations (BIDMAS)
+> **"Add, Subtract, Multiply, Divide - the foundation of everything!"**
 
-## Addition and Subtraction
-**Key Rule:** Align the decimal points!
+---
 
-**Example:** 12.5 + 3.75
-  12.50
-+  3.75
+## 🎯 Quest Objectives
+By the end of this lesson, you'll be able to:
+- ➕ Add and Subtract decimals perfectly using column methods
+- ✖️ Multiply large numbers confidently
+- ➗ Divide like a pro (Bus Stop method!)
+- 🔢 Master the **Order of Operations (BIDMAS)**
+
+**Estimated Time:** 40 minutes | **Difficulty:** Foundation | **XP Reward:** 150 ⭐
+
+---
+
+## 📚 Chapter 1: Addition & Subtraction
+
+**GOLDEN RULE: LiNE UP THE DOTS!** ⚫
+
+### Example: 12.5 + 3.75
+\`\`\`
+   1 2 . 5 0  <-- Add a 'ghost zero'
++  0 3 . 7 5
+-------------
+   1 6 . 2 5 ✨
+\`\`\`
+
+### Example: 5 - 1.2
+\`\`\`
+   4      1
+   5 . 0  <-- Borrow from the 5
+-  1 . 2
+----------
+   3 . 8 ✨
+\`\`\`
+
+---
+
+## 📚 Chapter 2: Multiplication
+
+**Grid Method or Column Method? Both work!**
+
+### Example: 23 × 4
+\`\`\`
+   2 3
+×    4
 -------
-  16.25
+   1 2  (3 × 4)
+   8 0  (20 × 4)
+-------
+   9 2 ✨
+\`\`\`
 
-## Multiplication
-**Method:** Column multiplication / Grid method
+**Tip:** If multiplying decimals (e.g., 0.2 × 0.3), ignore the decimals first (2×3=6), then count the decimal places! (0.06)
 
-**Example:** 23 x 4
-  23
-x  4
-----
-  92
+---
 
-## Division
-**Method:** Bus stop method or short division.
+## 📚 Chapter 3: Division
 
-**Example:** 96 ÷ 3
-3 | 96
-   32
+**All aboard the Bus Stop!** 🚌
 
-## Order of Operations (BIDMAS)
-- **B**rackets
-- **I**ndices (Powers)
-- **D**ivision
-- **M**ultiplication
-- **A**ddition
-- **S**ubtraction
+### Example: 96 ÷ 3
+\`\`\`
+     3 2
+   ┌─────
+ 3 │ 9 6
 
-**Example:** 3 + 4 x 2
-Multiplication first: 4 x 2 = 8
-Then addition: 3 + 8 = 11
-(NOT 7 x 2 = 14)
+Step 1: How many 3s in 9? (3)
+Step 2: How many 3s in 6? (2)
 
-## Practice
-1. 145 + 67
-2. 54 - 28
-3. 12 x 5
-4. 45 ÷ 9
-5. 5 + 2 x 3
+Answer: 32 ✨
+\`\`\`
+
+### Example: 75 ÷ 5
+\`\`\`
+     1 5
+   ┌─────
+ 5 │ 7 5
+
+1. 3s in 7? (1, remainder 2)
+2. Carry the 2 to make 25.
+3. 3s in 25? (5)
+
+Answer: 15 ✨
+\`\`\`
+
+---
+
+## 📚 Chapter 4: BIDMAS (Order of Operations)
+
+Don't just go left-to-right! Follow the code!
+
+1. **B**rackets ( )
+2. **I**ndices (Powers x²)
+3. **D**ivision ÷
+4. **M**ultiplication ×
+5. **A**ddition +
+6. **S**ubtraction -
+
+### Example: 3 + 4 × 2
+❌ Wrong: 3+4=7, 7×2= **14**
+✅ Right: Multiply first! 4×2=8. Then add. 3+8= **11**
+
+### 🎮 Quick Check
+**Calculate: 10 - 2 × 3**
+
+<details>
+<summary>💡 Show Answer</summary>
+
+Multiplication first!
+2 × 3 = 6
+10 - 6 = **4** ✅
+</details>
+
+---
+
+## 🎯 Key Takeaways
+
+✅ **Add/Sub:** Line up the decimal points
+✅ **Multiply:** Use grid or column, check magnitude
+✅ **Divide:** Use bus stop, carry remainders
+✅ **BIDMAS:** Multiplication before Addition!
+
+---
+
+## 📝 Practice Problems
+
+1. Calculate: 145.6 + 67.25
+2. Calculate: 54 - 28.5
+3. Calculate: 12 × 15
+4. Calculate: 108 ÷ 4
+5. Calculate: 5 + 2 × (3 + 1)
+
+**Ready to calculate? Take the quiz!** 🏅
 `,
           type: "lesson",
           difficulty: "foundation",
