@@ -56,23 +56,24 @@ export class AuthService {
 
         if (isFirebaseConfigured()) {
             try {
-                const studentDoc = await getDoc(doc(db, "students", normalizedName));
+                // Check 'users' collection (standardized)
+                const userDoc = await getDoc(doc(db, "users", normalizedName));
 
-                if (studentDoc.exists()) {
-                    const studentData = studentDoc.data();
+                if (userDoc.exists()) {
+                    const userData = userDoc.data();
 
-                    if (studentData.pin === pin) {
+                    if (userData.pin === pin || userData.password === pin) {
                         localStorage.setItem(LOGGED_IN_USER_KEY, normalizedName);
 
-                        const yearGroup = studentData.yearGroup || 10;
+                        const yearGroup = userData.yearGroup || 10;
 
-                        // Fetch subjects from Firestore if not present in student profile
-                        let userSubjects = studentData.subjects;
+                        // Fetch subjects from Firestore if not present in user profile
+                        let userSubjects = userData.subjects || userData.profile?.subjects;
                         if (!userSubjects || userSubjects.length === 0) {
                             userSubjects = await this.fetchCurriculumForYear(yearGroup);
                         }
 
-                        // Fallback to static if Firestore fetch returned nothing (and no local subjects)
+                        // Fallback to static if Firestore fetch returned nothing
                         if (!userSubjects || userSubjects.length === 0) {
                             const defaultSubjects = yearGroup === 10
                                 ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
@@ -80,25 +81,25 @@ export class AuthService {
                             userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
                         }
 
+                        // Create profile object
+                        const profile = {
+                            level: userData.level || userData.profile?.level || 1,
+                            xp: userData.xp || userData.profile?.xp || 0,
+                            maxXp: userData.maxXp || userData.profile?.maxXp || 500,
+                            coins: userData.coins || userData.profile?.coins || 0,
+                            avatarUrl: userData.avatarUrl || userData.profile?.avatarUrl || "/cute-girl-avatar.png",
+                            totalQuestsCompleted: userData.totalQuestsCompleted || userData.profile?.totalQuestsCompleted || 0,
+                            subjects: userSubjects
+                        };
+
                         const user: User = {
                             username: normalizedName,
                             password: pin,
                             yearGroup: yearGroup,
-                            profile: {
-                                level: studentData.level || 1,
-                                xp: studentData.xp || 0,
-                                maxXp: studentData.maxXp || 500,
-                                coins: studentData.coins || 0,
-                                avatarUrl: studentData.avatarUrl || "/cute-girl-avatar.png",
-                                totalQuestsCompleted: studentData.totalQuestsCompleted || 0,
-                                subjects: userSubjects
-                            }
+                            profile: profile
                         };
 
-                        // Update local cache via ProgressStorage logic manually to ensure consistency
-                        // We read strict from localStorage to avoid async cycle if possible, 
-                        // but updating ProgressStorage is async. 
-                        // For simplicity, we'll try to update the 'users' cache directly here.
+                        // Update local cache
                         try {
                             const stored = localStorage.getItem("gcse-quest-progress");
                             let allUsers = [];
@@ -120,6 +121,18 @@ export class AuthService {
                             }));
                         } catch (e) {
                             console.error("Failed to update local cache on login", e);
+                        }
+
+                        // Ensure Firestore has the latest subjects (repair) if they were missing
+                        if ((!userData.subjects || userData.subjects.length === 0) && userSubjects.length > 0) {
+                            try {
+                                await setDoc(doc(db, "users", normalizedName), {
+                                    subjects: userSubjects,
+                                    profile: { ...profile, subjects: userSubjects }
+                                }, { merge: true });
+                            } catch (e) {
+                                console.error("Failed to repair missing subjects in Firestore", e);
+                            }
                         }
 
                         // Also update memory for legacy calls
@@ -156,9 +169,9 @@ export class AuthService {
         try {
             const normalizedName = name.trim();
 
-            const existingDoc = await getDoc(doc(db, "students", normalizedName));
+            const existingDoc = await getDoc(doc(db, "users", normalizedName));
             if (existingDoc.exists()) {
-                console.error("Student already exists");
+                console.error("User already exists");
                 return null;
             }
 
@@ -173,9 +186,21 @@ export class AuthService {
                 defaultSubjects.push(...JSON.parse(JSON.stringify(staticSubjects)));
             }
 
-            const studentData = {
+            const profile = {
+                level: 1,
+                xp: 0,
+                maxXp: yearGroup === 10 ? 500 : 400,
+                coins: 0,
+                avatarUrl: "/cute-girl-avatar.png",
+                totalQuestsCompleted: 0,
+                subjects: defaultSubjects
+            };
+
+            const userData = {
                 name: normalizedName,
+                username: normalizedName,
                 pin: pin,
+                password: pin, // Legacy support
                 yearGroup: yearGroup,
                 level: 1,
                 xp: 0,
@@ -184,24 +209,17 @@ export class AuthService {
                 avatarUrl: "/cute-girl-avatar.png",
                 totalQuestsCompleted: 0,
                 subjects: defaultSubjects,
+                profile: profile,
                 createdAt: new Date().toISOString()
             };
 
-            await setDoc(doc(db, "students", normalizedName), studentData);
+            await setDoc(doc(db, "users", normalizedName), userData);
 
             const newUser: User = {
                 username: normalizedName,
                 password: pin,
                 yearGroup: yearGroup,
-                profile: {
-                    level: studentData.level,
-                    xp: studentData.xp,
-                    maxXp: studentData.maxXp,
-                    coins: studentData.coins,
-                    avatarUrl: studentData.avatarUrl,
-                    totalQuestsCompleted: studentData.totalQuestsCompleted,
-                    subjects: defaultSubjects
-                }
+                profile: profile
             };
 
             // Update local cache
@@ -261,26 +279,28 @@ export class AuthService {
     static async getAllUsers(): Promise<User[]> {
         if (isFirebaseConfigured()) {
             try {
-                const studentsSnapshot = await getDocs(collection(db, "students"));
-                return studentsSnapshot.docs.map(doc => {
+                const usersSnapshot = await getDocs(collection(db, "users"));
+                return usersSnapshot.docs.map(doc => {
                     const data = doc.data();
+                    const profile = data.profile || {
+                        level: data.level,
+                        xp: data.xp,
+                        maxXp: data.maxXp,
+                        coins: data.coins,
+                        avatarUrl: data.avatarUrl || "/cute-girl-avatar.png",
+                        totalQuestsCompleted: data.totalQuestsCompleted || 0,
+                        subjects: data.subjects || []
+                    };
+
                     return {
-                        username: data.name,
-                        password: data.pin,
+                        username: data.name || data.username,
+                        password: data.pin || data.password,
                         yearGroup: data.yearGroup,
-                        profile: {
-                            level: data.level,
-                            xp: data.xp,
-                            maxXp: data.maxXp,
-                            coins: data.coins,
-                            avatarUrl: data.avatarUrl || "/cute-girl-avatar.png",
-                            totalQuestsCompleted: data.totalQuestsCompleted || 0,
-                            subjects: data.subjects || []
-                        }
+                        profile: profile
                     } as User;
                 });
             } catch (error) {
-                console.error("Failed to get students from Firebase:", error);
+                console.error("Failed to get users from Firebase:", error);
             }
         }
 
@@ -311,11 +331,14 @@ export class AuthService {
 
         if (isFirebaseConfigured()) {
             try {
-                const studentRef = doc(db, "students", user.username);
-                await setDoc(studentRef, {
+                const userRef = doc(db, "users", user.username);
+                // Merge update
+                await setDoc(userRef, {
                     name: user.username,
                     pin: user.password,
+                    password: user.password, // Keep both for safety
                     yearGroup: user.yearGroup,
+                    // Flattened props
                     level: user.profile.level,
                     xp: user.profile.xp,
                     maxXp: user.profile.maxXp,
@@ -323,10 +346,12 @@ export class AuthService {
                     avatarUrl: user.profile.avatarUrl,
                     totalQuestsCompleted: user.profile.totalQuestsCompleted,
                     subjects: user.profile.subjects,
+                    // Nested profile
+                    profile: user.profile,
                     updatedAt: new Date().toISOString()
                 }, { merge: true });
             } catch (error) {
-                console.error("Failed to update student in Firebase:", error);
+                console.error("Failed to update user in Firebase:", error);
             }
         }
     }

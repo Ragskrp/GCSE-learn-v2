@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Crown, Sparkles, Heart, Star } from "lucide-react"
-import { login } from "@/lib/firebase"
+import { AuthService } from "@/services/auth-service"
 import type { User } from "@/types/user"
 import { Button } from "@/components/ui/button"
 
@@ -28,12 +28,12 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
     setError("")
 
     try {
-      const result = await login(username, pin)
+      const user = await AuthService.login(username, pin)
 
-      if (result.success) {
-        onLogin(result.user as User)
+      if (user) {
+        onLogin(user)
       } else {
-        setError(result.error || "An unknown error occurred.")
+        setError("Invalid username or PIN.")
       }
     } catch (err) {
       setError("Failed to login. Please try again.")
