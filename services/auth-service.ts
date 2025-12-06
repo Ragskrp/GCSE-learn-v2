@@ -23,6 +23,32 @@ const isFirebaseConfigured = () => {
 };
 
 export class AuthService {
+    static async fetchCurriculumForYear(yearGroup: number): Promise<any[]> {
+        if (!isFirebaseConfigured()) return [];
+
+        try {
+            const subjects: any[] = [];
+
+            // Define subject IDs based on year group
+            const subjectIds = yearGroup === 10
+                ? ['maths-10', 'science-10', 'english-lit-10', 'history-10']
+                : ['maths-7'];
+
+            for (const docId of subjectIds) {
+                const docRef = doc(db, "subjects", docId);
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    subjects.push(docSnap.data());
+                }
+            }
+
+            return subjects;
+        } catch (error) {
+            console.error("Error fetching curriculum:", error);
+            return [];
+        }
+    }
+
     static async login(name: string, pin: string): Promise<User | null> {
         if (typeof window === 'undefined') return null;
 
@@ -39,9 +65,20 @@ export class AuthService {
                         localStorage.setItem(LOGGED_IN_USER_KEY, normalizedName);
 
                         const yearGroup = studentData.yearGroup || 10;
-                        const defaultSubjects = yearGroup === 10
-                            ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
-                            : [year7Mathematics];
+
+                        // Fetch subjects from Firestore if not present in student profile
+                        let userSubjects = studentData.subjects;
+                        if (!userSubjects || userSubjects.length === 0) {
+                            userSubjects = await this.fetchCurriculumForYear(yearGroup);
+                        }
+
+                        // Fallback to static if Firestore fetch returned nothing (and no local subjects)
+                        if (!userSubjects || userSubjects.length === 0) {
+                            const defaultSubjects = yearGroup === 10
+                                ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
+                                : [year7Mathematics];
+                            userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
+                        }
 
                         const user: User = {
                             username: normalizedName,
@@ -54,12 +91,38 @@ export class AuthService {
                                 coins: studentData.coins || 0,
                                 avatarUrl: studentData.avatarUrl || "/cute-girl-avatar.png",
                                 totalQuestsCompleted: studentData.totalQuestsCompleted || 0,
-                                subjects: (studentData.subjects && studentData.subjects.length > 0)
-                                    ? studentData.subjects
-                                    : JSON.parse(JSON.stringify(defaultSubjects))
+                                subjects: userSubjects
                             }
                         };
 
+                        // Update local cache via ProgressStorage logic manually to ensure consistency
+                        // We read strict from localStorage to avoid async cycle if possible, 
+                        // but updating ProgressStorage is async. 
+                        // For simplicity, we'll try to update the 'users' cache directly here.
+                        try {
+                            const stored = localStorage.getItem("gcse-quest-progress");
+                            let allUsers = [];
+                            if (stored) {
+                                const parsed = JSON.parse(stored);
+                                allUsers = parsed.users || [];
+                            }
+
+                            const existingIndex = allUsers.findIndex((u: User) => u.username === normalizedName);
+                            if (existingIndex >= 0) {
+                                allUsers[existingIndex] = user;
+                            } else {
+                                allUsers.push(user);
+                            }
+
+                            localStorage.setItem("gcse-quest-progress", JSON.stringify({
+                                users: allUsers,
+                                lastUpdated: new Date().toISOString()
+                            }));
+                        } catch (e) {
+                            console.error("Failed to update local cache on login", e);
+                        }
+
+                        // Also update memory for legacy calls
                         updateUserProgress(normalizedName, user.profile);
 
                         return user;
@@ -99,6 +162,17 @@ export class AuthService {
                 return null;
             }
 
+            // Fetch curriculum
+            const defaultSubjects = await this.fetchCurriculumForYear(yearGroup);
+
+            // Fallback if fetch failed
+            if (defaultSubjects.length === 0) {
+                const staticSubjects = yearGroup === 10
+                    ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
+                    : [year7Mathematics];
+                defaultSubjects.push(...JSON.parse(JSON.stringify(staticSubjects)));
+            }
+
             const studentData = {
                 name: normalizedName,
                 pin: pin,
@@ -109,15 +183,11 @@ export class AuthService {
                 coins: 0,
                 avatarUrl: "/cute-girl-avatar.png",
                 totalQuestsCompleted: 0,
-                subjects: [],
+                subjects: defaultSubjects,
                 createdAt: new Date().toISOString()
             };
 
             await setDoc(doc(db, "students", normalizedName), studentData);
-
-            const defaultSubjects = yearGroup === 10
-                ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
-                : [year7Mathematics];
 
             const newUser: User = {
                 username: normalizedName,
@@ -130,9 +200,26 @@ export class AuthService {
                     coins: studentData.coins,
                     avatarUrl: studentData.avatarUrl,
                     totalQuestsCompleted: studentData.totalQuestsCompleted,
-                    subjects: JSON.parse(JSON.stringify(defaultSubjects))
+                    subjects: defaultSubjects
                 }
             };
+
+            // Update local cache
+            try {
+                const stored = localStorage.getItem("gcse-quest-progress");
+                let allUsers = [];
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    allUsers = parsed.users || [];
+                }
+                allUsers.push(newUser);
+                localStorage.setItem("gcse-quest-progress", JSON.stringify({
+                    users: allUsers,
+                    lastUpdated: new Date().toISOString()
+                }));
+            } catch (e) {
+                // ignore
+            }
 
             localStorage.setItem(LOGGED_IN_USER_KEY, normalizedName);
             return newUser;
@@ -152,6 +239,20 @@ export class AuthService {
 
         const username = localStorage.getItem(LOGGED_IN_USER_KEY);
         if (!username) return null;
+
+        // Try getting from ProgressStorage cache first
+        try {
+            const stored = localStorage.getItem("gcse-quest-progress");
+            if (stored) {
+                const data = JSON.parse(stored);
+                if (data.users) {
+                    const user = data.users.find((u: User) => u.username === username);
+                    if (user) return user;
+                }
+            }
+        } catch (e) {
+            console.error("Error reading from local cache", e);
+        }
 
         const user = getUserProgress(username);
         return user;
@@ -187,7 +288,26 @@ export class AuthService {
     }
 
     static async updateUser(user: User): Promise<void> {
+        // Update memory
         updateUserProgress(user.username, user.profile);
+
+        // Update local cache
+        try {
+            const stored = localStorage.getItem("gcse-quest-progress");
+            let allUsers = [];
+            if (stored) {
+                const parsed = JSON.parse(stored);
+                allUsers = parsed.users || [];
+            }
+            const idx = allUsers.findIndex((u: User) => u.username === user.username);
+            if (idx >= 0) allUsers[idx] = user;
+            else allUsers.push(user);
+
+            localStorage.setItem("gcse-quest-progress", JSON.stringify({
+                users: allUsers,
+                lastUpdated: new Date().toISOString()
+            }));
+        } catch (e) { }
 
         if (isFirebaseConfigured()) {
             try {
