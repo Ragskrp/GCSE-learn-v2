@@ -34,16 +34,18 @@ export class ContentService {
   }
 
   static getLesson(lessonId: string): StudyMaterial | undefined {
-    // Get subjects from the current user, not the static database
+    const context = this.getLessonWithContext(lessonId);
+    return context?.lesson;
+  }
+
+  static getLessonWithContext(lessonId: string): { lesson: StudyMaterial, topic: Topic, subject: Subject } | undefined {
     const allSubjects = this.getAllSubjects();
     for (const subject of allSubjects) {
       for (const topic of subject.topics) {
-        if (!topic.studyMaterials) {
-          console.warn(`[ContentService] Missing studyMaterials for topic: ${topic.id} in subject: ${subject.id}`);
-          continue;
+        if (topic.studyMaterials) {
+          const lesson = topic.studyMaterials.find(m => m.id === lessonId);
+          if (lesson) return { lesson, topic, subject };
         }
-        const lesson = topic.studyMaterials.find(m => m.id === lessonId);
-        if (lesson) return lesson;
       }
     }
     return undefined;

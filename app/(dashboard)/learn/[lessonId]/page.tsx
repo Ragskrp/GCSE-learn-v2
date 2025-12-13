@@ -9,12 +9,18 @@ import { useRouter } from "next/navigation"
 export default function LessonPage({ params }: { params: { lessonId: string } }) {
     const router = useRouter()
     const [lesson, setLesson] = useState<StudyMaterial | null>(null)
+    const [relatedQuizId, setRelatedQuizId] = useState<string | undefined>(undefined)
     const [completed, setCompleted] = useState(false)
 
     useEffect(() => {
-        const foundLesson = ContentService.getLesson(params.lessonId)
-        if (foundLesson) {
-            setLesson(foundLesson)
+        const context = ContentService.getLessonWithContext(params.lessonId)
+        if (context) {
+            setLesson(context.lesson)
+            // Try to find a quiz in the same topic.
+            // Ideally matches the lesson, but for now, just grab the first quiz in the topic (often the exit test)
+            if (context.topic.quizzes && context.topic.quizzes.length > 0) {
+                setRelatedQuizId(context.topic.quizzes[0].id)
+            }
         } else {
             // Lesson not found, redirect back
             router.push("/subjects")
@@ -40,6 +46,7 @@ export default function LessonPage({ params }: { params: { lessonId: string } })
             material={lesson}
             onComplete={handleComplete}
             isCompleted={completed}
+            relatedQuizId={relatedQuizId}
         />
     )
 }

@@ -22,9 +22,10 @@ interface StudyMaterialViewerProps {
   material: StudyMaterial
   onComplete: () => void
   isCompleted: boolean
+  relatedQuizId?: string
 }
 
-export function StudyMaterialViewer({ material, onComplete, isCompleted }: StudyMaterialViewerProps) {
+export function StudyMaterialViewer({ material, onComplete, isCompleted, relatedQuizId }: StudyMaterialViewerProps) {
   // Split content into slides based on ## headers or --- dividers
   const slides = material.content
     .split(/\n---\n/)
@@ -238,15 +239,28 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted }: Study
               <ChevronRight className="w-5 h-5" />
             </Button>
           ) : (
-            <Button
-              onClick={onComplete}
-              disabled={isCompleted}
-              size="lg"
-              className="gap-2 text-lg font-semibold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
-            >
-              <Trophy className="w-5 h-5" />
-              {isCompleted ? "Completed!" : "Complete Lesson"}
-            </Button>
+            <div className="flex gap-4">
+              <Button
+                onClick={onComplete}
+                disabled={isCompleted}
+                size="lg"
+                className="gap-2 text-lg font-semibold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
+              >
+                <Trophy className="w-5 h-5" />
+                {isCompleted ? "Completed!" : "Complete Lesson"}
+              </Button>
+              {relatedQuizId && (
+                <Button
+                  onClick={() => window.location.href = `/quiz/${relatedQuizId}`}
+                  size="lg"
+                  variant="secondary"
+                  className="gap-2 text-lg font-semibold"
+                >
+                  Take Test
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
+              )}
+            </div>
           )}
         </div>
 
