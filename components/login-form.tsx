@@ -1,13 +1,11 @@
-
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Crown, Sparkles, Heart, Star } from "lucide-react"
+import { Crown, Sparkles, Heart, Star, ArrowRight } from "lucide-react"
 import { AuthService } from "@/services/auth-service"
 import type { User } from "@/types/user"
 import { Button } from "@/components/ui/button"
@@ -43,102 +41,86 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute sparkle opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-            }}
-          >
-            <Sparkles className="h-4 w-4 text-purple-400" />
-          </div>
-        ))}
-      </div>
+    <div className="flex items-center justify-center w-full min-h-[80vh]">
+      <div className="glass-card w-full max-w-md p-1 rounded-3xl relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,105,180,0.3)]">
 
-      <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm shadow-2xl border-0 relative z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg"></div>
+        {/* Decor header background */}
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-pink-400/20 to-purple-400/20 z-0"></div>
 
-        <CardHeader className="text-center relative z-10">
-          <div className="flex items-center justify-center mb-4">
-            <Crown className="h-8 w-8 mr-3 text-yellow-500" />
-            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              GCSE Quest Academy
-            </CardTitle>
-            <Crown className="h-8 w-8 ml-3 text-yellow-500" />
+        <CardHeader className="text-center relative z-10 pt-10 pb-2">
+          <div className="flex items-center justify-center mb-6">
+            <div className="bg-white/50 p-4 rounded-full shadow-lg backdrop-blur-sm ring-4 ring-white/30">
+              <Crown className="h-10 w-10 text-pink-500 fill-pink-500 shimmer" />
+            </div>
           </div>
-          <CardDescription className="text-base text-muted-foreground">
-            Welcome back, Scholar! Ready to conquer your quests?
+          <CardTitle className="text-3xl font-extrabold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+            GCSE Quest
+          </CardTitle>
+          <CardDescription className="text-slate-500 font-medium mt-2">
+            Enter the magical realm of revision! ✨
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="relative z-10">
+        <CardContent className="relative z-10 px-8 pb-10">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="username" className="text-sm font-medium flex items-center">
-                <Star className="h-4 w-4 mr-2 text-yellow-500" />
+            <div className="space-y-2 group">
+              <Label htmlFor="username" className="text-slate-600 font-semibold flex items-center group-focus-within:text-pink-500 transition-colors">
+                <Star className="h-4 w-4 mr-2 text-yellow-400 fill-yellow-400" />
                 Username
               </Label>
               <Input
                 id="username"
                 type="text"
-                placeholder="Enter your username"
+                placeholder="PrincessCoder"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="h-12 text-base"
+                className="h-14 rounded-2xl bg-white/50 border-white/60 focus:bg-white/80 focus:ring-pink-400 focus:border-pink-300 text-lg shadow-inner placeholder:text-slate-300 transition-all"
                 required
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="pin" className="text-sm font-medium flex items-center">
-                <Heart className="h-4 w-4 mr-2 text-pink-500" />
-                4-Digit PIN
+            <div className="space-y-2 group">
+              <Label htmlFor="pin" className="text-slate-600 font-semibold flex items-center group-focus-within:text-pink-500 transition-colors">
+                <Heart className="h-4 w-4 mr-2 text-pink-400 fill-pink-400" />
+                Secret PIN
               </Label>
               <Input
                 id="pin"
                 type="password"
                 maxLength={4}
-                placeholder="Enter your 4-digit PIN"
+                placeholder="••••"
                 value={pin}
                 onChange={(e) => setPin(e.target.value)}
-                className="h-12 text-base tracking-widest text-center"
+                className="h-14 rounded-2xl bg-white/50 border-white/60 focus:bg-white/80 focus:ring-pink-400 focus:border-pink-300 text-lg tracking-[0.5em] text-center shadow-inner placeholder:tracking-normal placeholder:text-slate-300 transition-all"
                 required
               />
             </div>
 
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                <p className="text-red-600 text-sm text-center">{error}</p>
+              <div className="glass-panel bg-red-50/50 border-red-200/50 rounded-xl p-3 animate-shake">
+                <p className="text-red-500 text-sm text-center font-medium opacity-90">{error}</p>
               </div>
             )}
 
             <Button
               type="submit"
-              className="w-full h-12 text-lg font-bold"
+              className="w-full h-14 rounded-full text-lg font-bold bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 shadow-lg shadow-pink-200 hover:shadow-xl hover:shadow-pink-300 transform hover:-translate-y-1 transition-all duration-300 mt-4"
               disabled={isLoading}
-              size="lg"
             >
               {isLoading ? (
                 <>
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                  Logging in...
+                  Opening Portal...
                 </>
               ) : (
                 <>
-                  <Sparkles className="h-5 w-5 mr-2" />
-                  Start Your Adventure
-                  <Sparkles className="h-5 w-5 ml-2" />
+                  Enter World <ArrowRight className="ml-2 h-5 w-5" />
                 </>
               )}
             </Button>
           </form>
         </CardContent>
-      </Card>
+      </div>
     </div>
   )
 }

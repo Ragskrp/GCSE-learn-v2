@@ -1,101 +1,115 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to vibrant gamified color palette for teenage girls */
-  --background: #ffffff; /* App background */
-  --foreground: #475569; /* Primary text color */
-  --card: #f1f5f9; /* Card backgrounds */
-  --card-foreground: #059669; /* Text on cards */
-  --popover: #ffffff; /* Popover backgrounds */
-  --popover-foreground: #475569; /* Text on popovers */
-  --primary: #059669; /* Call-to-action buttons */
-  --primary-foreground: #ffffff; /* Text on primary buttons */
-  --secondary: #10b981; /* Accent elements */
-  --secondary-foreground: #ffffff; /* Text on secondary buttons */
-  --muted: #f1f5f9; /* Muted backgrounds */
-  --muted-foreground: #475569; /* Muted text */
-  --accent: #10b981; /* Highlights and rewards */
-  --accent-foreground: #ffffff; /* Text on accent elements */
-  --destructive: #ff3e3e; /* Error messages */
-  --destructive-foreground: #ffffff; /* Text on error messages */
-  --border: #e5e7eb; /* Border colors */
-  --input: #f1f5f9; /* Input fields */
-  --ring: rgba(10, 185, 129, 0.5); /* Focus ring */
-  --chart-1: #059669; /* Chart colors */
-  --chart-2: #10b981; /* Additional chart colors */
-  --chart-3: #4b5563; /* More chart colors */
-  --chart-4: #ecfeff; /* More chart colors */
-  --chart-5: #f1f5f9; /* More chart colors */
-  --radius: 0.5rem; /* Corner rounding */
-  --sidebar: #f1f5f9; /* Sidebar background */
-  --sidebar-foreground: #475569; /* Sidebar text */
-  --sidebar-primary: #059669; /* Primary sidebar elements */
-  --sidebar-primary-foreground: #ffffff; /* Text on primary sidebar elements */
-  --sidebar-accent: #10b981; /* Sidebar accent elements */
-  --sidebar-accent-foreground: #ffffff; /* Text on sidebar accent elements */
-  --sidebar-border: #e5e7eb; /* Sidebar border colors */
-  --sidebar-ring: rgba(10, 185, 129, 0.5); /* Sidebar focus ring */
+  /* 🌸 Pink Pastel Glassmorphism Theme 🌸 */
+  
+  /* Background: Soft Pink Gradient base (to be applied on body) */
+  --background: #FFF5F7; /* Very light pink */
+  --foreground: #4A3B4E; /* Deep Purple-Grey text */
 
-  /* Added party mode colors */
-  --party-pink: #ec4899;
-  --party-purple: #8b5cf6;
-  --party-yellow: #f59e0b;
-  --party-blue: #3b82f6;
+  /* Glass Cards */
+  --card: rgba(255, 255, 255, 0.5);
+  --card-foreground: #4A3B4E;
+  
+  /* Dialogs / Popovers */
+  --popover: #ffffff;
+  --popover-foreground: #4A3B4E;
 
-  /* Learning pathway specific styles and updated color tokens for pathway interface */
-  --pathway-node-unlock: #9b59b6;
-  --pathway-node-complete: #e91e63;
-  --pathway-node-locked: #f3e5f5;
-  --pathway-node-current: #e91e63;
+  /* Primary Action (Hot Pink Gradient base) */
+  --primary: #FF69B4; 
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary (Soft Lavender) */
+  --secondary: #E6E6FA;
+  --secondary-foreground: #6A5ACD;
+
+  /* Muted */
+  --muted: #FFF0F5;
+  --muted-foreground: #8E7C93;
+
+  /* Accents */
+  --accent: #FFB6C1; /* Light Pink */
+  --accent-foreground: #FFFFFF;
+
+  /* Errors */
+  --destructive: #FF8BA7;
+  --destructive-foreground: #FFFFFF;
+
+  /* Borders & Inputs */
+  --border: rgba(255, 255, 255, 0.8);
+  --input: rgba(255, 255, 255, 0.7);
+  --ring: #FF69B4; /* Focus ring */
+
+  /* Charts - Adjusted for Pastel Theme */
+  --chart-1: #FF69B4; /* Hot Pink */
+  --chart-2: #FFB6C1; /* Light Pink */
+  --chart-3: #DDA0DD; /* Plum */
+  --chart-4: #87CEFA; /* Light Blue */
+  --chart-5: #98FB98; /* Pale Green */
+
+  /* Radius */
+  --radius: 1rem; /* Softer, rounder corners */
+
+  /* Sidebar (Glass) */
+  --sidebar: rgba(255, 255, 255, 0.3);
+  --sidebar-foreground: #4A3B4E;
+  --sidebar-primary: #FF69B4;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFF0F5;
+  --sidebar-accent-foreground: #FF69B4;
+  --sidebar-border: rgba(255, 255, 255, 0.6);
+  --sidebar-ring: #FF69B4;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.65 0.12 160);
-  --primary-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-
-  /* Learning pathway specific styles and updated color tokens for pathway interface */
-  --pathway-node-unlock: #ec4899;
-  --pathway-node-complete: #8b5cf6;
-  --pathway-node-locked: #f3e5f5;
-  --pathway-node-current: #f59e0b;
+  /* Dark Mode: Deep Purple 'Galaxy' Theme */
+  --background: #2D1B36; /* Deep Purple */
+  --foreground: #FCE7F3; /* Light Pink text */
+  
+  --card: rgba(45, 27, 54, 0.6);
+  --card-foreground: #FCE7F3;
+  
+  --popover: #2D1B36;
+  --popover-foreground: #FCE7F3;
+  
+  --primary: #FF69B4;
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: #4A3B4E;
+  --secondary-foreground: #FCE7F3;
+  
+  --muted: #3E2C46;
+  --muted-foreground: #D8BFD8;
+  
+  --accent: #FF1493;
+  --accent-foreground: #FFFFFF;
+  
+  --destructive: #FF6B6B;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #FF69B4;
+  
+  --chart-1: #FF69B4;
+  --chart-2: #FFB6C1;
+  --chart-3: #DDA0DD;
+  --chart-4: #87CEFA;
+  --chart-5: #98FB98;
+  
+  --sidebar: rgba(45, 27, 54, 0.4);
+  --sidebar-foreground: #FCE7F3;
+  --sidebar-primary: #FF69B4;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #3E2C46;
+  --sidebar-accent-foreground: #FF69B4;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #FF69B4;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -134,134 +148,59 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@layer components {
+    /* Glassmorphism Classes */
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    }
+    
+    .glass-card {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15); /* Pink shadow on hover */
+    }
+
+    .glass-button {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .gradient-text {
+        background: linear-gradient(45deg, #FF69B4, #9370DB); /* Pink to Purple */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-h-screen selection:bg-pink-200 selection:text-pink-900;
+    /* Beautiful subtle mesh gradient background */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(255, 182, 193, 0.4) 0px, transparent 50%), 
+        radial-gradient(at 100% 0%, rgba(230, 230, 250, 0.5) 0px, transparent 50%), 
+        radial-gradient(at 100% 100%, rgba(255, 240, 245, 0.5) 0px, transparent 50%), 
+        radial-gradient(at 0% 100%, rgba(221, 160, 221, 0.3) 0px, transparent 50%);
+    background-attachment: fixed;
   }
-}
-
-/* Added party mode animations and effects */
-@keyframes sparkle {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes bounce-in {
-  0% {
-    transform: scale(0.3) rotate(-10deg);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.05) rotate(5deg);
-  }
-  70% {
-    transform: scale(0.9) rotate(-2deg);
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes rainbow {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-
-.sparkle {
-  animation: sparkle 1.5s ease-in-out infinite;
-}
-
-.bounce-in {
-  animation: bounce-in 0.6s ease-out;
-}
-
-.party-lights {
-  animation: rainbow 3s linear infinite;
-}
-
-.coin-flip {
-  animation: rotateY 0.6s ease-in-out;
-}
-
-@keyframes rotateY {
-  0% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    transform: rotateY(90deg);
-  }
-  100% {
-    transform: rotateY(0deg);
-  }
-}
-
-/* Learning pathway specific animations and styles */
-@keyframes node-unlock {
-  0% {
-    transform: scale(0.8);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes pathway-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 5px rgba(155, 89, 182, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
-  }
-}
-
-.node-unlock {
-  animation: node-unlock 0.8s ease-out;
-}
-
-.pathway-glow {
-  animation: pathway-glow 2s ease-in-out infinite;
-}
-
-.skill-tree-line {
-  background: linear-gradient(90deg, #9b59b6, #e91e63);
-  height: 3px;
-  border-radius: 2px;
-}
-
-.completed-node {
-  background: linear-gradient(135deg, #9b59b6, #e91e63);
-  color: white;
-}
-
-.locked-node {
-  background: #f3e5f5;
-  color: #9b59b6;
-  opacity: 0.6;
-}
-
-.current-node {
-  background: linear-gradient(135deg, #e91e63, #9b59b6);
-  color: white;
-  animation: pathway-glow 2s ease-in-out infinite;
 }
