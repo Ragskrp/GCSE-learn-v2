@@ -119,6 +119,77 @@ Imagine you are directing the opening scene. How would you make the witches look
                 }
             ],
             tests: []
+        },
+        {
+            id: "inspector-calls",
+            name: "An Inspector Calls",
+            completed: false,
+            studyMaterials: [
+                {
+                    id: "inspector-intro",
+                    title: "Introduction to An Inspector Calls",
+                    content: `# 🕵️‍♂️ An Inspector Calls
+
+## 🏚️ Context: 1912 vs 1945
+The play was written in 1945 but set in 1912.
+- **1912:** Edwardian era, rigid class system, no welfare state.
+- **1945:** Post-WW2, hope for a better society, birth of the Welfare State.
+
+## 🎭 The Birlings
+An upper-middle-class family celebrating an engagement.
+- **Mr. Birling:** Capitalist, arrogant, "hard-headed businessman".
+- **Sybil Birling:** Cold, snobbish, social superior to her husband.
+- **Sheila:** Starts naive, but changes the most.
+- **Eric:** Insecure, drinks too much.
+- **Gerald Croft:** Aristocrat, engaged to Sheila.
+
+## 🚪 The Inspector
+- **Goole:** Pun on 'Ghoul'?
+- He investigates the suicide of Eva Smith.
+- He represents **Social Responsibility**.
+
+> "We are members of one body. We are responsible for each other."
+`,
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 30,
+                    learningObjectives: ["Understand the social context", "Analyze Mr. Birling vs The Inspector"]
+                }
+            ],
+            quizzes: [
+                {
+                    id: "inspector-quiz",
+                    title: "End of Topic Test: An Inspector Calls",
+                    difficulty: "higher",
+                    passingScore: 90,
+                    xpReward: 150,
+                    coinReward: 50,
+                    timeLimit: 15,
+                    questions: [
+                        {
+                            id: "aic1",
+                            question: "In what year is the play set?",
+                            type: "multiple-choice",
+                            options: ["1912", "1914", "1945", "1939"],
+                            correctAnswer: "1912",
+                            explanation: "Just before the Titanic sinks and WW1 starts.",
+                            marks: 1,
+                            topic: "Context"
+                        },
+                        {
+                            id: "aic2",
+                            question: "Who says 'community and all that nonsense'?",
+                            type: "multiple-choice",
+                            options: ["Eric", "Inspector Goole", "Mr. Birling", "Gerald"],
+                            correctAnswer: "Mr. Birling",
+                            explanation: "He dismisses social responsibility immediately before the Inspector arrives.",
+                            marks: 1,
+                            topic: "Themes"
+                        }
+                    ]
+                }
+            ],
+            tests: []
         }
     ]
 };
@@ -220,6 +291,61 @@ The Wall Street Crash of 1929 destroyed the German economy again, leading to the
                             explanation: "In 1923, the French occupation of the Ruhr led to passive resistance and money printing, causing hyperinflation.",
                             marks: 1,
                             topic: "weimar-germany"
+                        }
+                    ]
+                }
+            ],
+            tests: []
+        },
+        {
+            id: "elizabethan-england",
+            name: "Elizabethan England",
+            completed: false,
+            studyMaterials: [
+                {
+                    id: "liz-intro",
+                    title: "Queen Elizabeth I & Government",
+                    content: `# 👑 Elizabethan Government
+
+## 🏛️ The Court
+- The centre of power.
+- Nobles attended to get power and influence (Patronage).
+
+## 🧐 The Privy Council
+- Roughly 19 very powerful men chosen by the Queen.
+- They met daily to advise her.
+- **William Cecil:** Her most trusted advisor.
+- **Francis Walsingham:** Her "spymaster".
+
+## 📜 Parliament
+- Could pass laws and grant taxes.
+- Elizabeth only called them 13 times in 45 years!
+`,
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 30,
+                    learningObjectives: ["Describe the Privy Council", "Explain Patronage"]
+                }
+            ],
+            quizzes: [
+                {
+                    id: "liz-quiz",
+                    title: "End of Topic Test: Elizabethan England",
+                    difficulty: "higher",
+                    passingScore: 90,
+                    xpReward: 150,
+                    coinReward: 50,
+                    timeLimit: 15,
+                    questions: [
+                        {
+                            id: "eq1",
+                            question: "Who was Elizabeth's Spymaster?",
+                            type: "multiple-choice",
+                            options: ["William Cecil", "Francis Walsingham", "Robert Dudley", "Earl of Essex"],
+                            correctAnswer: "Francis Walsingham",
+                            explanation: "He uncovered many plots against her.",
+                            marks: 1,
+                            topic: "Government"
                         }
                     ]
                 }

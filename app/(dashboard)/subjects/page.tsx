@@ -117,16 +117,9 @@ export default function SubjectsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {ALL_SUBJECTS.map((subject) => {
                     const stats = getSubjectProgress(subject.id);
-                    // Determine the actual link ID. Ideally we should have consistent IDs.
-                    // For now, map 'maths' -> 'maths-10' if that's what the details page expects,
-                    // BUT your previous code implies details page uses whatever ID is passed.
-                    // Let's use the ID defined in ALL_SUBJECTS, and ensure details page handles it.
-                    // Actually, let's map standard ones to -10 if that's the convention except CS.
-                    const linkId = subject.id === 'computer-science-j277' ? subject.id :
-                        (subject.id.endsWith('-10') ? subject.id : `${subject.id}-10`);
 
                     return (
-                        <Link key={subject.id} href={`/subjects/${linkId}`}>
+                        <Link key={subject.id} href={`/subjects/${subject.id}`}>
                             <div className={`glass-card p-0 rounded-[2rem] overflow-hidden h-full group relative hover:scale-[1.03] transition-all duration-300`}>
 
                                 {/* Card Header Illustration */}
