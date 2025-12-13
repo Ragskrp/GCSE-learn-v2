@@ -13,7 +13,18 @@ export default function DashboardPage() {
     const [user, setUser] = useState<User | null>(null)
 
     useEffect(() => {
-        setUser(AuthService.getCurrentUser())
+        const loadUser = async () => {
+            let currentUser = AuthService.getCurrentUser()
+
+            // Check if subjects are missing and try to refresh
+            if (currentUser && (!currentUser.profile.subjects || currentUser.profile.subjects.length === 0)) {
+                const refreshed = await AuthService.refreshUserProfile()
+                if (refreshed) currentUser = refreshed
+            }
+
+            setUser(currentUser)
+        }
+        loadUser()
     }, [])
 
     if (!user) return null

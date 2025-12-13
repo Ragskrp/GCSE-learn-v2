@@ -11,15 +11,23 @@ export default function SubjectsPage() {
     const [user, setUser] = useState<User | null>(null)
 
     useEffect(() => {
-        const currentUser = AuthService.getCurrentUser()
-        console.log('🔍 Subjects Page - Current User:', currentUser)
-        console.log('🔍 Subjects count:', currentUser?.profile?.subjects?.length)
-        if (currentUser?.profile?.subjects) {
-            currentUser.profile.subjects.forEach((s: any, idx: number) => {
-                console.log(`   ${idx + 1}. ${s.name} (${s.id})`)
-            })
+        const loadUser = async () => {
+            let currentUser = AuthService.getCurrentUser()
+
+            // Self-healing: If no subjects found, try to sync with Firestore
+            if (currentUser && (!currentUser.profile.subjects || currentUser.profile.subjects.length === 0)) {
+                console.log('🔄 No subjects found in cache, syncing with server...');
+                const refreshed = await AuthService.refreshUserProfile();
+                if (refreshed) {
+                    currentUser = refreshed;
+                    console.log('✅ Synced with server, found', refreshed.profile.subjects.length, 'subjects');
+                }
+            }
+
+            console.log('🔍 Subjects Page - Current User:', currentUser)
+            setUser(currentUser)
         }
-        setUser(currentUser)
+        loadUser()
     }, [])
 
     if (!user) {

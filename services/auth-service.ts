@@ -359,4 +359,60 @@ export class AuthService {
     static isFirebaseReady(): boolean {
         return isFirebaseConfigured();
     }
+
+    static async refreshUserProfile(): Promise<User | null> {
+        if (typeof window === 'undefined') return null;
+
+        const username = localStorage.getItem(LOGGED_IN_USER_KEY);
+        if (!username || !isFirebaseConfigured()) return null;
+
+        try {
+            const userDoc = await getDoc(doc(db, "users", username));
+            if (userDoc.exists()) {
+                const userData = userDoc.data();
+
+                // Reconstruct the user object similar to login
+                const yearGroup = userData.yearGroup || 10;
+                let userSubjects = userData.subjects || userData.profile?.subjects || [];
+
+                // Fallback to curriculum if still empty (self-healing)
+                if (userSubjects.length === 0) {
+                    userSubjects = await this.fetchCurriculumForYear(yearGroup);
+                }
+
+                // Fallback to static if Firestore fetch returned nothing
+                if (!userSubjects || userSubjects.length === 0) {
+                    const defaultSubjects = yearGroup === 10
+                        ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
+                        : [year7Mathematics];
+                    userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
+                }
+
+                const profile = {
+                    level: userData.level || userData.profile?.level || 1,
+                    xp: userData.xp || userData.profile?.xp || 0,
+                    maxXp: userData.maxXp || userData.profile?.maxXp || 500,
+                    coins: userData.coins || userData.profile?.coins || 0,
+                    avatarUrl: userData.avatarUrl || userData.profile?.avatarUrl || "/cute-girl-avatar.png",
+                    totalQuestsCompleted: userData.totalQuestsCompleted || userData.profile?.totalQuestsCompleted || 0,
+                    subjects: userSubjects
+                };
+
+                const user: User = {
+                    username: username,
+                    password: userData.pin || userData.password,
+                    yearGroup: yearGroup,
+                    profile: profile
+                };
+
+                // Update local cache
+                this.updateUser(user);
+
+                return user;
+            }
+        } catch (error) {
+            console.error("Failed to refresh user profile from Firestore:", error);
+        }
+        return null;
+    }
 }
