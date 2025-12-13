@@ -23,10 +23,25 @@ export default function SubjectDetailsPage({ params }: { params: { subjectId: st
         }
         setUser(currentUser)
 
-        const foundSubject = currentUser.profile.subjects.find(s => s.id === params.subjectId)
+        let foundSubject = currentUser.profile.subjects.find(s => s.id === params.subjectId)
+
+        // If not found in user profile (e.g. it's a new subject), look in static DB
+        if (!foundSubject) {
+            // Import dynamically or assuming getSubject is available if we import it at top
+            // For now, let's use the static fallback logic
+            const { getSubject } = require("@/data/curriculum-database")
+            const staticSubject = getSubject(params.subjectId, currentUser.yearGroup || 10)
+
+            if (staticSubject) {
+                console.log("Found subject in static DB, using as fallback:", staticSubject.name)
+                foundSubject = staticSubject
+            }
+        }
+
         if (foundSubject) {
             setSubject(foundSubject)
         } else {
+            console.error("Subject not found anywhere:", params.subjectId)
             router.push("/subjects")
         }
     }, [params.subjectId, router])
