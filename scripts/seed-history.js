@@ -1,7 +1,12 @@
 
-import { Subject } from "@/types/curriculum";
+const { initializeApp } = require('firebase/app');
+const { getFirestore, doc, setDoc } = require('firebase/firestore');
+require('dotenv').config({ path: '.env.local' });
 
-export const year10History: Subject = {
+// --- COPY OF THE DATA FROM data/history-data.ts (Converted to standard JS) ---
+// I need to paste the full content here because 'import' doesn't work in this script context usually.
+
+const year10History = {
     id: "history",
     name: "History",
     duration: 180,
@@ -716,3 +721,35 @@ export const year10History: Subject = {
         }
     ]
 };
+
+const firebaseConfig = {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+};
+
+if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+    console.error('❌ Error: Firebase configuration missing!');
+    process.exit(1);
+}
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function seedHistory() {
+    console.log('🔥 Starting History Seeding...');
+    try {
+        console.log('📝 Seeding Year 10 History...');
+        await setDoc(doc(db, 'subjects', 'history-10'), year10History);
+        console.log(`✅ History (Year 10) seeded successfully!`);
+        process.exit(0);
+    } catch (error) {
+        console.error('❌ Seeding failed:', error);
+        process.exit(1);
+    }
+}
+
+seedHistory();

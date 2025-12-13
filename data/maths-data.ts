@@ -4,17 +4,17 @@ import { Subject } from "@/types/curriculum";
 export const year10Mathematics: Subject = {
     id: "maths",
     name: "Mathematics",
-    duration: 90,
-    questions: 50,
+    duration: 120,
+    questions: 100,
     color: "from-blue-400 to-indigo-600",
     icon: "📐",
     level: 1,
     xp: 0,
-    maxXp: 1000,
+    maxXp: 3000,
     coins: 0,
     unlocked: true,
     conquestTitle: "Number Ninja",
-    timeLimit: 90,
+    timeLimit: 120,
     topics: [
         {
             id: "number",
@@ -51,77 +51,77 @@ Fractions, Decimals, and Percentages are three ways of saying the same thing.
 | 1/5 | 0.2 | 20% |
 | 1/8 | 0.125 | 12.5% |
 
-### 🔄 Converting
-*   **Fraction to Decimal:** Divide top by bottom (e.g. 3 ÷ 4 = 0.75).
-*   **Decimal to Percentage:** Multiply by 100 (e.g. 0.75 × 100 = 75%).
-*   **Percentage to Fraction:** Put over 100 and simplify (e.g. 20% = 20/100 = 1/5).
+### 🔄 Using Multipliers
+*   **Increase by 20%:** Multiply by 1.20
+*   **Decrease by 20%:** Multiply by 0.80
+*   **Find 15%:** Multiply by 0.15
 
 ---
 
-## 📚 Chapter 2: Working with Fractions
+## 📚 Chapter 2: Compound Interest
+Generating interest on interest.
+> **Formula:** Amount = Original x (Multiplier)^Years
 
-### ➕ Addition & Subtraction
-**Rule:** You need a **Common Denominator** (bottom number).
-1.  Make bottom numbers the same.
-2.  Add/Subtract top numbers.
-3.  Keep bottom number the same.
-
-*Example:* 
-\`\`\`
-1/4 + 1/2
-= 1/4 + 2/4  (Multiply 1/2 by 2)
-= 3/4
-\`\`\`
-
-### ✖️ Multiplication
-**Rule:** Top × Top, Bottom × Bottom.
-*Example:* 
-\`2/3 × 4/5 = 8/15\`
-
-### ➗ Division (KFC)
-**Keep, Flip, Change.**
-1.  **Keep** the first fraction.
-2.  **Flip** the second fraction.
-3.  **Change** sign to Multiply.
-
-*Example:* 
-\`\`\`
-1/2 ÷ 1/4
-= 1/2 × 4/1
-= 4/2
-= 2
-\`\`\`
-
----
-
-## 📚 Chapter 3: Percentage Power 💥
-
-### 📈 Percentage of Amounts
-"Find 15% of £80"
-1.  Find 10% (Divide by 10) = £8.
-2.  Find 5% (Half of 10%) = £4.
-3.  Add them up: £8 + £4 = £12.
-
-### 📉 Percentage Change
-Formula:
-\`(Difference ÷ Original) × 100\`
-
-*Example:* Phone price drops from £200 to £150.
-1.  Difference = £50.
-2.  50 ÷ 200 = 0.25.
-3.  0.25 × 100 = **25% Decrease**.
-
-### ↩️ Reverse Percentages
-"The price is £120 including 20% VAT. What was the price before VAT?"
-1.  £120 represents 120% (100% original + 20% tax).
-2.  Divide by 1.20 to get 100%.
-3.  120 ÷ 1.20 = £100.
+*Example:* £1000 at 5% for 3 years.
+\`£1000 x 1.05³ = £1157.63\`
 
 `,
                     type: "lesson",
                     difficulty: "foundation",
                     estimatedTime: 45,
-                    learningObjectives: ["Convert FDP", "Calculate Percentage Change", "Operate with Fractions"]
+                    learningObjectives: ["Convert FDP", "Calculate Percentage Change", "Compound Interest"]
+                },
+                {
+                    id: "surds-indices",
+                    title: "Surds and Indices",
+                    content: `# ⚡ Surds & Indices
+
+## 🎯 Objectives
+- 🦠 Simplify **Surds**.
+- 📈 Apply **Laws of Indices**.
+- 🌓 Rationalise the **Denominator**.
+
+---
+
+## 📚 Chapter 1: Surds (Irrational Roots)
+A surd is a square root that cannot be simplified into a whole number (e.g., √2, √3, √5).
+
+### Rules
+1.  **√a × √b = √ab**
+    *   *Example:* √3 × √2 = √6
+2.  **√a / √b = √(a/b)**
+    *   *Example:* √10 / √2 = √5
+3.  **√a × √a = a**
+    *   *Example:* √5 × √5 = 5
+
+### Simplifying
+Find the largest **square number** factor.
+*   **√12** = √4 × √3 = **2√3**
+*   **√75** = √25 × √3 = **5√3**
+
+### Rationalising the Denominator
+Getting rid of the surd on the bottom of a fraction.
+*   multiply top and bottom by the surd.
+*   *Example:* 1/√2 × (√2/√2) = **√2 / 2**
+
+---
+
+## 📚 Chapter 2: Indices (Powers)
+
+| Rule | Formula | Example |
+| :--- | :--- | :--- |
+| **Multiply** | xᵃ × xᵇ = xᵃ⁺ᵇ | x² × x³ = x⁵ |
+| **Divide** | xᵃ ÷ xᵇ = xᵃ⁻ᵇ | x⁵ ÷ x² = x³ |
+| **Brackets** | (xᵃ)ᵇ = xᵃᵇ | (x²)³ = x⁶ |
+| **Negative** | x⁻ᵃ = 1/xᵃ | 2⁻² = 1/4 |
+| **Fractional** | x^(1/n) = ⁿ√x | 64^(1/2) = √64 = 8 |
+| **Zero** | x⁰ = 1 | 999⁰ = 1 |
+
+`,
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 50,
+                    learningObjectives: ["Simplify Surds", "Apply Index Laws"]
                 }
             ],
             quizzes: [
@@ -136,33 +136,33 @@ Formula:
                     questions: [
                         {
                             id: "math-n1",
-                            question: "What is 3/4 as a percentage?",
+                            question: "Simplify √50",
                             type: "multiple-choice",
-                            options: ["30%", "45%", "60%", "75%"],
-                            correctAnswer: "75%",
-                            explanation: "3 divided by 4 is 0.75, which is 75%.",
+                            options: ["2√5", "5√2", "10√5", "5√10"],
+                            correctAnswer: "5√2",
+                            explanation: "√50 = √25 × √2 = 5√2.",
                             marks: 1,
-                            topic: "Number"
+                            topic: "Surds"
                         },
                         {
                             id: "math-n2",
-                            question: "Calculate 1/3 + 1/6",
+                            question: "What is 2⁻³?",
                             type: "multiple-choice",
-                            options: ["2/9", "3/6", "1/2", "5/6"],
-                            correctAnswer: "1/2",
-                            explanation: "1/3 becomes 2/6. 2/6 + 1/6 = 3/6, which simplifies to 1/2.",
+                            options: ["-6", "-8", "1/8", "1/6"],
+                            correctAnswer: "1/8",
+                            explanation: "Negative power means 1 over the number. 2 cubed is 8.",
                             marks: 1,
-                            topic: "Fractions"
+                            topic: "Indices"
                         },
                         {
                             id: "math-n3",
-                            question: "A shirt costs £40. It is reduced by 20%. What is the new price?",
+                            question: "Calculate 8^(2/3)",
                             type: "multiple-choice",
-                            options: ["£30", "£32", "£35", "£20"],
-                            correctAnswer: "£32",
-                            explanation: "10% is £4. 20% is £8. £40 - £8 = £32.",
+                            options: ["2", "4", "6", "16"],
+                            correctAnswer: "4",
+                            explanation: "Cube root of 8 is 2. 2 squared is 4.",
                             marks: 1,
-                            topic: "Percentages"
+                            topic: "Indices"
                         }
                     ]
                 }
@@ -176,77 +176,59 @@ Formula:
             studyMaterials: [
                 {
                     id: "algebra-basics",
-                    title: "Equations and Quadratics",
-                    content: `# ✖️ Algebra: Solving Equations
-
-> **"Algebra is the metaphysical shorthand of numbers."**
-
----
+                    title: "Equations & Quadratics",
+                    content: `# ✖️ Algebra: Advanced
 
 ## 🎯 Objectives
-- ⚖️ Solve **Linear Equations**.
-- 📦 **Expand and Factorise** brackets.
-- 📈 Solve **Quadratic Equations**.
-
-**XP Reward:** 200 ⭐
+- ⚖️ Solve **Simultaneous Equations**.
+- 🎢 Solve **Quadratics** (Factorising, Formula, Completing Square).
+- 📉 Solve **Inequalities**.
 
 ---
 
-## 📚 Chapter 1: Basic Solving (Balancing Act)
-Whatever you do to one side of the \`=\`, you MUST do to the other.
+## 📚 Chapter 1: Quadratics
 
-*Solve:* \`3x + 5 = 20\`
-1.  Subtract 5 from both sides:
-    \`3x = 15\`
-2.  Divide by 3:
-    \`x = 5\`
+### 1. Factorising
+Find two numbers that multiply to make C and add to make B.
+*   x² + 5x + 6 = 0
+*   (x + 2)(x + 3) = 0
+*   x = -2, x = -3
 
----
+### 2. The Quadratic Formula
+For when factorising is impossible.
+> **x = [-b ± √(b² - 4ac)] / 2a**
 
-## 📚 Chapter 2: Expanding & Factorising
-
-### Expanding (The Claw) 🦞
-Multiply everything outside the bracket by everything inside.
-\`\`\`
-  2(x + 3)
-= 2x + 6
-\`\`\`
-
-### Double Brackets (FOIL)
-**F**irst, **O**uter, **I**nner, **L**ast.
-\`\`\`
-  (x + 2)(x + 3)
-F: x * x = x²
-O: x * 3 = 3x
-I: 2 * x = 2x
-L: 2 * 3 = 6
-Total: x² + 5x + 6
-\`\`\`
-
-### Factorising
-Putting it back into brackets (Reverse of expanding).
-*Start:* \`6x + 9\`
-*Common Factor:* 3 goes into both.
-*Result:* \`3(2x + 3)\`
+### 3. Completing the Square
+Write in form: **(x + p)² + q = 0**
+1.  Halve the 'b' coefficient. (x + 3)²
+2.  Subtract the square of it. (x + 3)² - 9
+3.  Add the 'c' term.
 
 ---
 
-## 📚 Chapter 3: Quadratics 🎢
-Equations with an \`x²\`. They usually have **two solutions**.
+## 📚 Chapter 2: Simultaneous Equations
+Finding where two lines cross.
 
-*Solve:* \`x² - 5x + 6 = 0\`
-1.  find two numbers that Multiply to make 6 and Add to make -5.
-    *   (-2 and -3)
-2.  Put into brackets: \`(x - 2)(x - 3) = 0\`
-3.  Solve each bracket:
-    *   \`x - 2 = 0\` → **x = 2**
-    *   \`x - 3 = 0\` → **x = 3**
+### Elimination Method
+1.  Make x or y coefficients the same.
+2.  Add or Subtract equations to eliminate one variable.
+3.  Solve.
+4.  Substitute back in.
+
+*Example:*
+\`\`\`
+2x + y = 7
+x - y = 2
+---------- (Add)
+3x = 9  -> x = 3
+\`\`\`
+Substitute x=3: 3 - y = 2 -> y = 1.
 
 `,
                     type: "lesson",
                     difficulty: "higher",
                     estimatedTime: 50,
-                    learningObjectives: ["Solve linear equations", "Factorise quadratics"]
+                    learningObjectives: ["Solve using Formula", "Solve Simultaneous Equations"]
                 }
             ],
             quizzes: [
@@ -261,23 +243,23 @@ Equations with an \`x²\`. They usually have **two solutions**.
                     questions: [
                         {
                             id: "alg-1",
-                            question: "Solve 2x - 4 = 10",
+                            question: "Solve x² - 5x + 6 = 0",
                             type: "multiple-choice",
-                            options: ["x = 5", "x = 7", "x = 6", "x = 3"],
-                            correctAnswer: "x = 7",
-                            explanation: "Add 4 to get 2x = 14. Divide by 2 to get x = 7.",
+                            options: ["2 and 3", "-2 and -3", "2 and -3", "1 and 6"],
+                            correctAnswer: "2 and 3",
+                            explanation: "Factors are (x-2) and (x-3).",
                             marks: 1,
-                            topic: "Equations"
+                            topic: "Quadratics"
                         },
                         {
                             id: "alg-2",
-                            question: "Expand (x + 4)(x - 4)",
+                            question: "What is the Quadratic Formula?",
                             type: "multiple-choice",
-                            options: ["x² + 8x - 16", "x² - 16", "x² + 16", "x² - 8x + 16"],
-                            correctAnswer: "x² - 16",
-                            explanation: "This is difference of two squares. The middle terms cancel out.",
+                            options: ["-b ± √(b² - 4ac) / 2a", "-b ± √(b² + 4ac) / 2a", "b ± √(b² - 4ac) / 2a", "-b ± √(c² - 4ab) / 2a"],
+                            correctAnswer: "-b ± √(b² - 4ac) / 2a",
+                            explanation: "The standard formula for solving quadratics.",
                             marks: 1,
-                            topic: "Expanding"
+                            topic: "Formula"
                         }
                     ]
                 }
@@ -290,52 +272,60 @@ Equations with an \`x²\`. They usually have **two solutions**.
             completed: false,
             studyMaterials: [
                 {
-                    id: "pythagoras-trig",
-                    title: "Pythagoras and Trigonometry",
-                    content: `# 📐 Geometry: Triangles
-
-> **"The shortest distance between two points is a straight line."**
-
----
+                    id: "circles-vectors",
+                    title: "Circle Theorems & Vectors",
+                    content: `# 📐 Advanced Geometry
 
 ## 🎯 Objectives
-- 📐 Use **Pythagoras' Theorem**.
-- 🌊 Use **SOH CAH TOA**.
-- 📏 Calculate Area and Perimeter.
+- ⭕ Apply **Circle Theorems**.
+- ↗️ Understand **Vectors**.
+- 📐 Use **Sine and Cosine Rules**.
 
 ---
 
-## 📚 Chapter 1: Pythagoras' Theorem
-For **Right-Angled Triangles** only. Finding a missing side.
+## 📚 Chapter 1: The Circle Theorems
+Rules about angles inside circles.
 
-> **a² + b² = c²** 
-> (where c is the Hypotenuse, the longest side)
-
-*Example:* Finds side \`c\` if a=3 and b=4.
-1.  3² + 4² = c²
-2.  9 + 16 = c²
-3.  25 = c²
-4.  c = √25 = **5**
+1.  **Angle at Centre:** Is TWICE the angle at the circumference.
+2.  **Semicircle:** Angle in a semicircle is 90°.
+3.  **Same Segment:** Angles subtended by the same arc are equal (the "Bowtie").
+4.  **Cyclic Quadrilateral:** Opposite angles sum to 180°.
+5.  **Tangent:** Radius meets tangent at 90°.
+6.  **Alternate Segment:** Angle between chord and tangent equals angle in alternate segment.
 
 ---
 
-## 📚 Chapter 2: Trigonometry (SOH CAH TOA)
-Using angles in Right-Angled Triangles.
+## 📚 Chapter 2: Vectors
+Vectors have Magnitude (Size) and Direction. represented as column vectors.
 
-*   **S**in(x) = **O**pposite / **H**ypotenuse
-*   **C**os(x) = **A**djacent / **H**ypotenuse
-*   **T**an(x) = **O**pposite / **A**djacent
+### Addition
+Add the top numbers, add the bottom numbers.
+\`(3, 2) + (1, 4) = (4, 6)\`
 
-### Steps:
-1.  Label sides (Hypotenuse, Opposite, Adjacent).
-2.  Pick correct formula (S, C, or T).
-3.  Substitute numbers and solve.
+### Geometry with Vectors
+*   **Resultant:** The direct path from start to finish.
+*   **Parallel:** Vectors are parallel if one is a multiple of the other (e.g., **a** and **2a**).
+*   **Collinear:** Points lie on the same straight line.
+
+---
+
+## 📚 Chapter 3: Advanced Trigonometry
+For non right-angled triangles.
+
+### Sine Rule 🌊
+> **a / SinA = b / SinB** (For finding sides)
+> **SinA / a = SinB / b** (For finding angles)
+> *Use when you have a "matching pair".*
+
+### Cosine Rule ⏸️
+> **a² = b² + c² - 2bcCosA**
+> *Use when you have two sides and the included angle (SAS).*
 
 `,
                     type: "lesson",
                     difficulty: "higher",
-                    estimatedTime: 50,
-                    learningObjectives: ["Apply Pythagoras", "Use Trigonometry"]
+                    estimatedTime: 60,
+                    learningObjectives: ["Identify Circle Theorems", "Add Vectors", "Apply Sine/Cosine Rules"]
                 }
             ],
             quizzes: [
@@ -350,18 +340,110 @@ Using angles in Right-Angled Triangles.
                     questions: [
                         {
                             id: "geo-1",
-                            question: "Which side is the Hypotenuse?",
+                            question: "What is the angle in a semicircle?",
                             type: "multiple-choice",
-                            options: ["The side opposite the right angle", "The shortest side", "The side touching the right angle", "The vertical side"],
-                            correctAnswer: "The side opposite the right angle",
-                            explanation: "The hypotenuse is always the longest side, opposite the 90 degree angle.",
+                            options: ["45°", "60°", "90°", "180°"],
+                            correctAnswer: "90°",
+                            explanation: "Thales' Theorem states it is always a right angle.",
                             marks: 1,
-                            topic: "Pythagoras"
+                            topic: "Circle Theorems"
+                        },
+                        {
+                            id: "geo-2",
+                            question: "What does the Cosine Rule calculate?",
+                            type: "multiple-choice",
+                            options: ["Area of a circle", "Missing side in non-right angled triangle", "Volume of a sphere", "Gradient of a line"],
+                            correctAnswer: "Missing side in non-right angled triangle",
+                            explanation: "Used when you know two sides and the included angle.",
+                            marks: 1,
+                            topic: "Trigonometry"
                         }
                     ]
                 }
             ],
             tests: []
+        },
+        {
+            id: "probability",
+            name: "Probability & Statistics",
+            completed: false,
+            studyMaterials: [
+                {
+                    id: "prob-stats",
+                    title: "Probability & Statistics",
+                    content: `# 🎲 Probability & Statistics
+
+## 🎯 Objectives
+- 🌳 Use **Tree Diagrams**.
+- 🤝 **Conditional Probability**.
+- 📊 Calculate **Mean, Median, Mode, Range**.
+
+---
+
+## 📚 Chapter 1: Probability Rules
+
+### The Basics
+*   P(Event) = Successes / Total.
+*   P(A or B) = P(A) + P(B) (Mutually Exclusive).
+*   P(A and B) = P(A) × P(B) (Independent).
+
+### Conditional Probability
+When one event affects the next (e.g., Eating a sweet and not putting it back).
+*   The denominator decreases by 1 for the second pick.
+
+### Tree Diagrams
+*   Multiply along the branches (AND).
+*   Add the results at the end (OR).
+
+---
+
+## 📚 Chapter 2: Averages (The 3 M's)
+
+1.  **Mean:** Add all up and divide by count.
+2.  **Median:** The middle value (put in order first!).
+3.  **Mode:** The most common value.
+4.  **Range:** Largest - Smallest.
+
+`,
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 40,
+                    learningObjectives: ["Construct Tree Diagrams", "Calculate Averages"]
+                }
+            ],
+            quizzes: [
+                {
+                    id: "prob-exit-test",
+                    title: "End of Topic Test: Probability",
+                    difficulty: "higher",
+                    passingScore: 90,
+                    xpReward: 200,
+                    coinReward: 50,
+                    timeLimit: 20,
+                    questions: [
+                        {
+                            id: "prob-1",
+                            question: "If P(A) = 0.2 and P(B) = 0.5, what is P(A and B) if independent?",
+                            type: "multiple-choice",
+                            options: ["0.7", "0.3", "0.1", "0.01"],
+                            correctAnswer: "0.1",
+                            explanation: "0.2 multiplied by 0.5 is 0.1.",
+                            marks: 1,
+                            topic: "Probability"
+                        },
+                        {
+                            id: "prob-2",
+                            question: "What represents the 'middle' value?",
+                            type: "multiple-choice",
+                            options: ["Mean", "Median", "Mode", "Range"],
+                            correctAnswer: "Median",
+                            explanation: "Median is the middle number in a sorted list.",
+                            marks: 1,
+                            topic: "Averages"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 };

@@ -4,13 +4,13 @@ import { Subject } from "@/types/curriculum";
 export const year10ComputerScienceJ277: Subject = {
     id: "computer-science-j277",
     name: "Computer Science (J277)",
-    duration: 90,
+    duration: 120,
     questions: 50,
     color: "from-purple-400 to-fuchsia-500",
     icon: "💻",
     level: 1,
     xp: 0,
-    maxXp: 1000,
+    maxXp: 2000,
     coins: 0,
     unlocked: true,
     conquestTitle: "Binary Baron",
@@ -23,7 +23,7 @@ export const year10ComputerScienceJ277: Subject = {
             studyMaterials: [
                 {
                     id: "cpu-architecture",
-                    title: "The CPU and Van Neumann Architecture",
+                    title: "The CPU and Von Neumann Architecture",
                     content: `# 🧠 1.1 Systems Architecture: The Brain of the Computer
 
 > **"The CPU is the conductor of the digital orchestra."**
@@ -31,7 +31,6 @@ export const year10ComputerScienceJ277: Subject = {
 ---
 
 ## 🎯 Learning Objectives
-By the end of this quest, you will be able to:
 - 🏛️ Describe the **purpose of the CPU**.
 - 🧠 Explain the **Von Neumann architecture**.
 - 🔄 Describe the **Fetch-Decode-Execute** cycle.
@@ -44,7 +43,7 @@ By the end of this quest, you will be able to:
 
 ## 📚 Chapter 1: The Central Processing Unit (CPU)
 
-The **CPU (Central Processing Unit)** is often called the "brain" of the computer. Its job is to **process data** by executing a sequence of instructions (a program).
+The **CPU (Central Processing Unit)** is the key component of a computer system. It contains the circuitry necessary to interpret and execute program instructions.
 
 ### 🔑 Key Characteristics
 1.  **Clock Speed:** Measured in Hertz (Hz). It represents the number of Fetch-Decode-Execute cycles per second.
@@ -214,73 +213,93 @@ An **Embedded System** is a computer system built *into* another device. It has 
             studyMaterials: [
                 {
                     id: "ram-rom-lesson",
-                    title: "Primary Memory: RAM vs ROM",
-                    content: `# 💾 1.2 Primary Memory: RAM & ROM
+                    title: "Memory, Storage and Data",
+                    content: `# 💾 1.2 Memory, Storage & Data Representation
 
 > **"Memory is transient, Storage is forever (mostly)."**
 
 ---
 
-## 🎯 Quest Objectives
-- ⚡ Distinguish between **RAM** and **ROM**.
-- 🧠 Explain the concept of **Virtual Memory**.
-- 📏 Understand **Primary vs Secondary Storage**.
+## 🎯 Learning Objectives
+- ⚡ **Primary Storage:** RAM vs ROM.
+- 👻 Explain **Virtual Memory**.
+- 💿 **Secondary Storage:** Magnetic vs Optical vs Solid State.
+- 🔢 **Data:** Units, Numbers, Images, Sound, Compression.
 
-**XP Reward:** 100 ⭐
+**XP Reward:** 250 ⭐ | **Time:** 60 mins
 
 ---
 
 ## 📚 Chapter 1: Primary Storage (Main Memory)
-Primary storage is memory that the CPU can access **directly**. It is very fast compared to secondary storage (Hard drives).
+Primary storage is memory that the CPU can access **directly**.
 
 ### 1. RAM (Random Access Memory) 💭
 *   **Volatile:** Data is LOST when power is turned off.
 *   **Read/Write:** The CPU can read data from it and write data to it.
 *   **Purpose:** Stores the Operating System, running programs, and data currently in use.
-*   **Size:** Typically 4GB - 32GB in modern PCs.
+*   **Size:** Typically 8GB - 32GB.
 
 ### 2. ROM (Read Only Memory) 🗿
 *   **Non-Volatile:** Data is KEPT when power is turned off.
 *   **Read-Only:** The CPU can only read; it cannot easily write new data.
-*   **Purpose:** Stores the **BIOS / Bootstrap Loader** (Instructions to start the computer).
-*   **Size:** Very small (e.g., 2-8 MB).
+*   **Purpose:** Stores the **BIOS / Bootstrap Loader** (Start-up instructions).
+*   **Size:** Very small (e.g., 4-8 MB).
 
 ---
 
-## 📚 Chapter 2: Virtual Memory 👻
-What happens when you open too many Chrome tabs and your RAM gets full?
+## 📚 Chapter 2: Secondary Storage
+Long-term, non-volatile storage. The CPU cannot access it directly; data must be loaded into RAM first.
 
-The Operating System uses **Virtual Memory**.
+### Types of Storage
+| Type | Technology | Examples | Pros | Cons |
+| :--- | :--- | :--- | :--- | :--- |
+| **Magnetic** | Moving platters, magnetic read/write head. | HDD (Hard Drive), Tape | High capacity, Cheap per GB | Moving parts (fragile), Slow(er), Noisy |
+| **Optical** | Lasers burn pits and lands. | CD, DVD, Blu-Ray | Cheap, Portable | Slowest, Easily Scratched, Low Capacity |
+| **Solid State** | Flash memory (floating gate transistors). No moving parts. | SSD, USB Pen, SD Card | Super Fast, Durable, Silent | Expensive per GB, Finite write cycles |
 
-1.  The OS moves data that hasn't been used recently from RAM to a specific section of the **Hard Drive** (Secondary Storage).
-2.  This frees up space in RAM for new data.
-3.  If the CPU needs that old data, it must be moved **back** from the Hard Drive to RAM (called 'swapping').
-
-### ⚠️ The Problem: Disk Thrashing
-Virtual Memory is **much slower** than real RAM. If the computer relies on it too much, it becomes very slow and the hard drive works constantly. This is called "Disk Thrashing".
+### ⚠️ Capacity vs Speed vs Cost
+*   **SSD:** Fastest, Most Expensive.
+*   **HDD:** Good balance of speed/cost for large storage.
+*   **Tape:** Slowest access (sequential), but huge capacity for cheap (used for archives).
 
 ---
 
 ## 📚 Chapter 3: Units of Data 📏
-Computers work in binary (1s and 0s).
 
 | Unit | Value | Example size |
 | :--- | :--- | :--- |
 | **Bit (b)** | A single 1 or 0 | On/Off switch |
 | **Nibble** | 4 bits | Half a byte |
 | **Byte (B)** | 8 bits | One character of text |
-| **Kilobyte (KB)** | 1000 Bytes | A small text file |
-| **Megabyte (MB)** | 1000 KB | A MP3 song |
-| **Gigabyte (GB)** | 1000 MB | A HD Movie |
-| **Terabyte (TB)** | 1000 GB | A modern Hard Drive |
-| **Petabyte (PB)** | 1000 TB | Google's data servers |
+| **Kilobyte (KB)** | 1000 Bytes | A text file |
+| **Megabyte (MB)** | 1000 KB | An MP3 song |
+| **Gigabyte (GB)** | 1000 MB | A Movie |
+| **Terabyte (TB)** | 1000 GB | A Hard Drive |
+| **Petabyte (PB)** | 1000 TB | Google's Servers |
 
-> *Note: Sometimes KB is defined as 1024 bytes (Binary prefix 'Kibi'), but for GCSE, 1000 is often accepted unless specified otherwise.*
+---
+
+## 📚 Chapter 4: Data Representation
+
+### 🖼️ Images
+*   **Pixel:** Picture Element. The smallest dot of colour.
+*   **Colour Depth:** Number of bits used to represent the colour of each pixel. (Higher depth = More colours = Larger file).
+*   **Resolution:** Width x Height in pixels.
+
+### 🎵 Sound
+*   **Sampling:** Converting analogue sound waves into digital binary.
+*   **Sample Rate:** How many times per second we measure the wave (Hz). (Higher rate = Better quality = Larger file).
+*   **Bit Depth:** How accurate each sample is.
+
+### 📦 Compression
+Reducing file size.
+1.  **Lossy:** Removes data PERMANENTLY. Quality is reduced. (e.g., JPG, MP3).
+2.  **Lossless:** Shrinks file but KEEPS perfectly original quality. (e.g., ZIP, PNG).
 
 `,
                     type: "lesson",
-                    difficulty: "foundation",
-                    estimatedTime: 30,
+                    difficulty: "higher",
+                    estimatedTime: 60,
                     learningObjectives: ["Compare RAM and ROM", "Explain Virtual Memory", "List Data Units"]
                 }
             ],
@@ -316,13 +335,23 @@ Computers work in binary (1s and 0s).
                         },
                         {
                             id: "mq3",
-                            question: "Why is Virtual Memory slower than RAM?",
+                            question: "Which storage has no moving parts?",
                             type: "multiple-choice",
-                            options: ["It is further away", "It uses Secondary Storage which is slower", "It is smaller", "It is older technology"],
-                            correctAnswer: "It uses Secondary Storage which is slower",
-                            explanation: "Virtual memory uses the Hard Drive, which has slower read/write speeds than RAM.",
+                            options: ["Optical", "Magnetic", "Solid State", "Cloud"],
+                            correctAnswer: "Solid State",
+                            explanation: "Solid State uses flash memory circuits, making it durable and fast.",
                             marks: 1,
-                            topic: "Virtual Memory"
+                            topic: "Storage"
+                        },
+                        {
+                            id: "mq4",
+                            question: "Which compression type loses quality?",
+                            type: "multiple-choice",
+                            options: ["Lossless", "Lossy", "Archive", "Encrypt"],
+                            correctAnswer: "Lossy",
+                            explanation: "Lossy removes data permanently to save space.",
+                            marks: 1,
+                            topic: "Compression"
                         }
                     ]
                 }
@@ -335,68 +364,86 @@ Computers work in binary (1s and 0s).
             completed: false,
             studyMaterials: [
                 {
-                    id: "networks-intro",
-                    title: "LAN, WAN and Network Topologies",
-                    content: `# 🌐 1.3 Computer Networks: Connecting the World
+                    id: "networks-deep-dive",
+                    title: "Networks, Protocols and The Internet",
+                    content: `# 🌐 1.3 Networks: Deep Dive
 
-## 🎯 Quest Objectives
-- 🌍 Define **LAN** and **WAN**.
-- 🕸️ Understand **Star** and **Mesh** topologies.
-- 📡 Differentiate between **Client-Server** and **Peer-to-Peer**.
+## 🎯 Objectives
+- 🌍 **LAN vs WAN.**
+- 🌟 **Topologies:** Star and Mesh.
+- 📡 **Protocols:** TCP/IP, HTTP, FTP, IMAP, SMTP.
+- 🍰 **Layers:** The 4-Layer TCP/IP Model.
 
 ---
 
-## 📚 Chapter 1: Types of Networks
+## 📚 Chapter 1: Network Types
 
 ### LAN (Local Area Network) 🏠
-*   **Area:** Small geographical area (e.g., Home, School, Single Office).
-*   **Ownership:** Hardware is owned by the organization.
-*   **Connection:** fast (Twisted pair copper or Wi-Fi).
+*   **Area:** Small (School, Home).
+*   **Hardware:** Owned by you.
+*   **Tech:** Ethernet, Wi-Fi.
 
 ### WAN (Wide Area Network) 🌍
-*   **Area:** Large geographical area (e.g., The Internet, Bank connecting branches).
-*   **Ownership:** Infrastructure is leased from telecoms companies (BT, Virgin).
-*   **Connection:** Slower, uses Fiber Optic, Satellite, Phone lines.
+*   **Area:** Large (The Internet, Connecting branch offices).
+*   **Hardware:** Leased from Telecom companies (BT, Virgin) because you can't lay cables across the ocean!
+*   **Tech:** Fiber Optics, Satellite.
 
 ---
 
-## 📚 Chapter 2: Network Topologies
+## 📚 Chapter 2: Hardware & Topologies
+
+### 📦 Hardware
+*   **NIC (Network Interface Controller):** Allows device to connect.
+*   **Switch:** Connects devices on a LAN. Intelligent (sends data ONLY to intended recipient).
+*   **Router:** Connects different networks (e.g., LAN to WAN). Routes packets.
+*   **WAP:** Wireless Access Point.
 
 ### 🌟 Star Topology
-All devices connect to a central **Switch** or **Server**.
-*   ✅ **Reliable:** If one cable breaks, others connect fine.
-*   ✅ **Fast:** Fewer collisions.
-*   ❌ **Cost:** Lots of cable needed.
-*   ❌ **Reliance:** If the switch fails, the whole network fails.
+*   All nodes connect to a central **Switch**.
+*   ✅ Fast, Reliable (one cable break doesn't kill network).
+*   ❌ Expensive cabling, Switch is single point of failure.
 
 ### 🕸️ Mesh Topology
-All devices connect to multiple other devices. No central switch.
-*   ✅ **Self-Healing:** If one route is blocked, data finds another way.
-*   ❌ **Cost:** EXTREMELY expensive to wire up (Full Mesh).
-*   *Note: The Internet is a partial mesh.*
+*   All nodes connect to many others.
+*   ✅ No single point of failure, Self-healing.
+*   ❌ Very expensive to wire (Full mesh).
 
 ---
 
-## 📚 Chapter 3: Client-Server vs Peer-to-Peer
+## 📚 Chapter 3: Client-Server vs P2P
 
-### Client-Server 🖥️➡️💾
-*   **Server:** Powerful computer controlling security, backups, and files.
-*   **Client:** Requests data from the server.
-*   *Used in:* Schools, Offices.
-*   *Pros:* Centralized backups and security.
-*   *Cons:* Expensive, server crash kills network.
+| Feature | Client-Server | Peer-to-Peer (P2P) |
+| :--- | :--- | :--- |
+| **Control** | Central Server controls access/security. | No central control. All peers equal. |
+| **Backups** | Done centrally (Easy). | Done individually on each PC (Risky). |
+| **Cost** | Expensive (Server + Expert staff). | Cheap (Just cables/Wi-Fi). |
+| **Use Case** | Schools, Offices. | Home networks. |
 
-### Peer-to-Peer (P2P) 💻↔️💻
-*   All computers are equal. No central server.
-*   *Used in:* Home networks.
-*   *Pros:* Cheap, easy to set up.
-*   *Cons:* No central backup, security is hard to manage.
+---
+
+## 📚 Chapter 4: Protocols 📜
+A **Protocol** is a set of rules for how computers communicate.
+
+| Protocol | Full Name | Use |
+| :--- | :--- | :--- |
+| **TCP/IP** | Transmission Control Protocol / Internet Protocol | The dictating rules of the internet. TCP bursts data into packets; IP addresses them. |
+| **HTTP(S)** | HyperText Transfer Protocol (Secure) | Viewing webpages. (S = Encrypted). |
+| **FTP** | File Transfer Protocol | Uploading/Downloading files to a server. |
+| **SMTP** | Simple Mail Transfer Protocol | **Sending** emails. |
+| **IMAP** | Internet Message Access Protocol | **Retrieving** emails. |
+| **POP** | Post Office Protocol | Older way to retrieve emails (deletes from server). |
+
+### 🍰 The 4 Layers (TCP/IP Model)
+1.  **Application:** The app you are using (Browser, Email). (HTTP, FTP, SMTP).
+2.  **Transport:** Splits data into packets. (TCP).
+3.  **Internet:** Adds IP addresses to packets. (IP).
+4.  **Link:** Physical cables/Wi-Fi. (Ethernet).
 
 `,
                     type: "lesson",
-                    difficulty: "foundation",
-                    estimatedTime: 40,
-                    learningObjectives: ["Define LAN/WAN", "Compare Star and Mesh", "Explain Client-Server"]
+                    difficulty: "hard",
+                    estimatedTime: 60,
+                    learningObjectives: ["Define LAN/WAN", "Compare Star and Mesh", "Explain Protocols"]
                 }
             ],
             quizzes: [
@@ -411,33 +458,33 @@ All devices connect to multiple other devices. No central switch.
                     questions: [
                         {
                             id: "nq1",
-                            question: "Who owns the infrastructure of a LAN?",
+                            question: "Who owns the infrastructure of a WAN?",
                             type: "multiple-choice",
-                            options: ["Telecoms Companies", "The User / Organization", "The Government", "Microsoft"],
-                            correctAnswer: "The User / Organization",
-                            explanation: "In a LAN, you own the cables and switches.",
+                            options: ["Telecoms Companies", "The User", "Amazon", "Microsoft"],
+                            correctAnswer: "Telecoms Companies",
+                            explanation: "WANs lease lines from external providers.",
                             marks: 1,
                             topic: "Networks"
                         },
                         {
                             id: "nq2",
-                            question: "Which topology relies on a central switch?",
+                            question: "Which protocol is used for SENDING email?",
                             type: "multiple-choice",
-                            options: ["Mesh", "Bus", "Star", "Ring"],
-                            correctAnswer: "Star",
-                            explanation: "Star topology connects all nodes to a central point.",
+                            options: ["IMAP", "POP", "SMTP", "HTTP"],
+                            correctAnswer: "SMTP",
+                            explanation: "Simple Mail Transfer Protocol is for sending.",
                             marks: 1,
-                            topic: "Networks"
+                            topic: "Protocols"
                         },
                         {
                             id: "nq3",
-                            question: "What is a disadvantage of a Client-Server network?",
+                            question: "Which topology uses a central switch?",
                             type: "multiple-choice",
-                            options: ["No central backups", "Expert staff needed to manage server", "Cheap to set up", "Files are stored on local PCs"],
-                            correctAnswer: "Expert staff needed to manage server",
-                            explanation: "Servers are complex and expensive to maintain.",
+                            options: ["Bus", "Ring", "Star", "Mesh"],
+                            correctAnswer: "Star",
+                            explanation: "Star topology connects everything to a central point.",
                             marks: 1,
-                            topic: "Networks"
+                            topic: "Topologies"
                         }
                     ]
                 }
@@ -451,52 +498,43 @@ All devices connect to multiple other devices. No central switch.
             studyMaterials: [
                 {
                     id: "security-threats",
-                    title: "Threats to Computer Systems",
-                    content: `# 🛡️ 1.4 Network Security: Attack & Defense
+                    title: "Threats and Prevention",
+                    content: `# 🛡️ 1.4 Network Security
 
-## 🎯 key Objectives
-- 🦠 Identify forms of **Malware**.
-- 🎣 Explain **Social Engineering** (Phishing).
-- 🔓 Understand **Brute Force** and **DDOS**.
-- 💂‍♂️ Learn prevention methods (Firewalls, Encryption).
+## 🎯 Objectives
+- 🦠 **Threats:** Malware, Phishing, SQL Injection, DDOS.
+- 💂‍♂️ **Prevention:** Firewalls, Anti-malware, Encryption.
 
 ---
 
-## 📚 Chapter 1: Malware (Malicious Software)
+## 📚 Chapter 1: The Threats 🦠
 
-### Types of Malware:
-1.  **Virus:** Attaches to a file. Replicates when you open the file. Damages data.
-2.  **Worm:** A standalone program. Replicates itself to fill up memory/bandwidth. Doesn't need a host file.
-3.  **Trojan:** Disguises itself as legitimate software (e.g., a Free Game). When installed, it opens a backdoor for hackers.
-4.  **Ransomware:** Encrypts your files and demands payment (Bitcoin) to unlock them.
-5.  **Spyware:** Records key presses (Keylogger) to steal passwords.
+### Malware (Malicious Software)
+1.  **Virus:** Needs a host file. Replicates. Damages data.
+2.  **Worm:** Standalone. Replicates through networks. Eats bandwidth.
+3.  **Trojan:** Disguised as something good. Opens backdoors.
+4.  **Ransomware:** Encrypts files. Demands bitcoin.
+5.  **Spyware:** Keyloggers steal passwords.
 
----
-
-## 📚 Chapter 2: Social Engineering & Hacking
-
-### 🎣 Phishing
-sending emails pretending to be a bank or company to trick users into giving up passwords.
-*   *Clues:* Bad spelling, urgent tone ("Act Now!"), generic greeting ("Dear Customer").
-
-### 🔨 Brute Force Attack
-Trying every possible combination of passwords.
-*   *Defense:* Account lockout (3 attempts), Strong passwords, 2-Factor Authentication (2FA).
-
-### 🌊 DDOS (Distributed Denial of Service)
-Flooding a web server with millions of requests from hacked computers (Botnet) so it crashes.
+### Hacking Methods
+*   **Social Engineering:** Manipulating **people** (Phishing calls/emails).
+*   **Brute Force:** Trying every password combination.
+*   **DDOS:** Flooding a server with traffic to crash it.
+*   **SQL Injection:** Typing SQL code into a web box to break the database.
+    *   *Prevention:* Input Sanitization.
 
 ---
 
-## 📚 Chapter 3: Defenses
+## 📚 Chapter 2: The Defences 🛡️
 
-| Method | Function |
+| Method | How it works |
 | :--- | :--- |
-| **Firewall** | Checks incoming/outgoing traffic. Blocks unauthorized access. |
-| **Anti-Malware** | Scans for and removes known viruses. |
-| **Encryption** | Scrambling data so it cannot be read if intercepted. |
-| **User Access Levels** | Giving staff only the permissions they need (e.g., Read-Only). |
-| **Penetration Testing** | Employing "White Hat" hackers to find weaknesses. |
+| **Penetration Testing** | Hiring "White Hat" hackers to find bugs *before* bad guys do. |
+| **Anti-Malware** | Scans filesystem for signatures of known viruses. |
+| **Firewall** | Can be Hardware or Software. Inspects packets. Blocks unauthorized ports. |
+| **User Access Levels** | "Least Privilege". Only give staff access to files they *need*. |
+| **Encryption** | Scrambling data using an algorithm and a key. |
+| **Physical Security** | Locks, Biometrics, CCTV. |
 
 `,
                     type: "lesson",
@@ -519,19 +557,19 @@ Flooding a web server with millions of requests from hacked computers (Botnet) s
                             id: "sq1",
                             question: "What differentiates a Worm from a Virus?",
                             type: "multiple-choice",
-                            options: ["Worms are bigger", "Worms do not need a host file to replicate", "Viruses are safe", "There is no difference"],
-                            correctAnswer: "Worms do not need a host file to replicate",
+                            options: ["Worms are bigger", "Worms do not need a host file", "Viruses are safe", "There is no difference"],
+                            correctAnswer: "Worms do not need a host file",
                             explanation: "Worms are standalone programs that self-replicate.",
                             marks: 1,
                             topic: "Malware"
                         },
                         {
                             id: "sq2",
-                            question: "Which attack involves flooding a server with traffic?",
+                            question: "Which attack inserts code into a database input?",
                             type: "multiple-choice",
                             options: ["Phishing", "SQL Injection", "DDOS", "Brute Force"],
-                            correctAnswer: "DDOS",
-                            explanation: "Distributed Denial of Service aims to crash the server by overloading it.",
+                            correctAnswer: "SQL Injection",
+                            explanation: "Structured Query Language Injection exploits un-sanitized inputs.",
                             marks: 1,
                             topic: "Threats"
                         }
@@ -547,46 +585,39 @@ Flooding a web server with millions of requests from hacked computers (Botnet) s
             studyMaterials: [
                 {
                     id: "os-functions",
-                    title: "Operating Systems",
-                    content: `# 💻 1.5 Operating Systems
+                    title: "Operating Systems & Utility Software",
+                    content: `# 💻 1.5 Systems Software
 
 ## 🎯 Objectives
-- ⚙️ Functions of an **Operating System (OS)**.
-- 🔧 **Utility Software**.
+- ⚙️ **OS Functions:** Interface, Memory, Multi-tasking, Peripherals, Files, Users.
+- 🔧 **Utility Software:** Defrag, Encryption, Compression, Backup.
 
 ---
 
-## 📚 Chapter 1: Functions of the OS
-The OS (like Windows, macOS, Android) manages the hardware. It is the bridge between the User and the Hardware.
+## 📚 Chapter 1: The Operating System (OS)
+The OS manages the hardware and provides a platform for apps.
+*   *Examples:* Windows, macOS, Linux, iOS, Android.
 
-### 1. User Interface (UI)
-*   **GUI (Graphical User Interface):** WIMP (Windows, Icons, Menus, Pointers). Easy to use.
-*   **CLI (Command Line Interface):** Text based. Harder to use, but powerful for experts.
-
-### 2. Memory Management 🧠
-*   Manages RAM.
-*   Multitasking: Keeps programs separate in memory so they don't crash each other.
-*   Handles Virtual Memory.
-
-### 3. Peripheral Management 🖱️
-*   Communicates with hardware (Printers, Mice) using **Drivers**.
-
-### 4. File Management 📁
-*   Organizes data into folders and files.
-*   Permissions (Read, Write, Execute).
-
-### 5. User Management 👥
-*   Logins, Passwords, Access rights.
+### Key Functions
+1.  **User Interface (UI):**
+    *   **GUI:** Windows, Icons, Menus, Pointers (WIMP). Visual.
+    *   **CLI:** Command Line (Text). Powerful, resource light.
+2.  **Memory Management:** Moves data between RAM and Virtual Memory. Ensures apps don't overwrite each other.
+3.  **Multi-tasking:** The OS schedules the CPU to switch between tasks rapidly.
+4.  **Peripheral Management:** Uses **Drivers** to talk to printers, mice, cameras.
+5.  **User Management:** Accounts, Passwords, Permissions.
 
 ---
 
 ## 📚 Chapter 2: Utility Software
 Small programs that maintain the system.
 
-1.  **Defragmentation:** Reorganizes files on a magnetic Hard Drive so they are contiguous. Speeds up read times. (Not needed for SSDs).
-2.  **Compression:** Reduces file size (e.g., .zip) to save space or speed up transmission.
-3.  **Encryption:** Scrambles data for security.
-4.  **Backup:** Copies data to another location in case of failure.
+| Utility | Purpose |
+| :--- | :--- |
+| **Defragmentation** | Reorders files on a HDD so they are contiguous. Reduces read/write head movement -> Faster. (DO NOT use on SSDs!). |
+| **Compression** | Reduces file size (Zip). |
+| **Encryption** | Scrambles confidential data. |
+| **Backup** | Full (everything) or Incremental (only changes since last backup). |
 
 `,
                     type: "lesson",
@@ -607,23 +638,23 @@ Small programs that maintain the system.
                     questions: [
                         {
                             id: "oq1",
-                            question: "Which UI is text-based?",
+                            question: "Why should you NOT defragment an SSD?",
                             type: "multiple-choice",
-                            options: ["GUI", "WIMP", "CLI", "Touchscreen"],
-                            correctAnswer: "CLI",
-                            explanation: "Command Line Interface uses text commands.",
+                            options: ["It explodes", "It wears out the limited write cycles", "It makes it too fast", "It deletes data"],
+                            correctAnswer: "It wears out the limited write cycles",
+                            explanation: "SSDs have no moving parts so defragging gives no speed boost, only damage.",
                             marks: 1,
-                            topic: "OS"
+                            topic: "Utility"
                         },
                         {
                             id: "oq2",
-                            question: "What does Defragmentation do?",
+                            question: "Which software translates hardware signals for the OS?",
                             type: "multiple-choice",
-                            options: ["Deletes viruses", "Groups file parts together on the disk", "Compresses files", "Installs drivers"],
-                            correctAnswer: "Groups file parts together on the disk",
-                            explanation: "It fixes fragmented files to improve read speed on HDDs.",
+                            options: ["Translator", "Compiler", "Driver", "App"],
+                            correctAnswer: "Driver",
+                            explanation: "Device drivers act as a bridge between OS and hardware.",
                             marks: 1,
-                            topic: "Utility"
+                            topic: "OS"
                         }
                     ]
                 }
@@ -632,7 +663,7 @@ Small programs that maintain the system.
         },
         {
             id: "1.6-ethics",
-            name: "1.6 Ethical, Legal, Cultural & Environmental",
+            name: "1.6 Ethics, Laws & Environment",
             completed: false,
             studyMaterials: [
                 {
@@ -643,39 +674,35 @@ Small programs that maintain the system.
 ## 📜 Key Legislation (Laws)
 
 ### 1. Data Protection Act (2018) / GDPR 🔒
-Controls how your personal data is used.
-*   Data must be kept secure.
-*   Used fairly and lawfully.
-*   Kept for no longer than necessary.
+Controls how companies use your personal data.
+*   Data must be used **fairly**, **lawfully**, and **transparently**.
+*   Used for **specified purposes**.
+*   **Accurate** and kept up to date.
+*   Kept for **no longer than necessary**.
+*   Kept **secure**.
 
 ### 2. Computer Misuse Act (1990) ⚔️
 Makes Hacking illegal.
-1.  Unauthorised access (basic hacking).
-2.  Unauthorised access with intent to commit crime (stealing data).
-3.  Modification of data (viruses / deleting files).
+1.  **Unauthorised access** (basic hacking).
+2.  **Unauthorised access with intent** (to steal/destroy).
+3.  **Unauthorised modification** (viruses / deleting files).
 
 ### 3. Copyright, Designs and Patents Act (1988) ©
-Protects Intellectual Property (Music, Books, Software).
-*   Illegal to copy or distribute without permission (Piracy).
+Protects Intellectual Property (Music, Code, Images).
+*   Illegal to copy/distribute without permission (Piracy).
+*   **Open Source:** Code is free to share/edit (Linux).
+*   **Proprietary:** Code is closed/sold (Windows).
 
 ---
 
 ## 🌍 Environmental Issues
-
-### E-Waste 🗑️
-Old computers contain toxic chemicals (Lead, Mercury) which leak into the ground in landfill.
-
-### Data Centers ⚡
-The internet uses huge amounts of electricity for cooling servers, contributing to carbon emissions.
-
----
+*   **E-Waste:** Toxic chemicals (lead, mercury) in landfill.
+*   **Energy:** Data centers and mining crypto consume vast electricity -> Carbon footprint.
 
 ## 🏙️ Cultural Issues
-
-### The Digital Divide 📉
-The gap between those who have technology/internet and those who don't.
-*   *Causes:* Poverty, Age, Location (Rural areas).
-*   *Impact:* People left behind regarding jobs and education.
+*   **Digital Divide:** Rich vs Poor, Urban vs Rural access to tech.
+*   **Censorship:** Governments controlling what you see.
+*   **Privacy:** Surveillance state.
 
 `,
                     type: "lesson",
@@ -696,7 +723,7 @@ The gap between those who have technology/internet and those who don't.
                     questions: [
                         {
                             id: "eq1",
-                            question: "Whch Act makes hacking illegal?",
+                            question: "Which Act covers hacking?",
                             type: "multiple-choice",
                             options: ["Data Protection Act", "Computer Misuse Act", "Copyright Act", "Freedom of Info Act"],
                             correctAnswer: "Computer Misuse Act",
@@ -706,13 +733,13 @@ The gap between those who have technology/internet and those who don't.
                         },
                         {
                             id: "eq2",
-                            question: "What is the Digital Divide?",
+                            question: "Which software license allows you to edit the source code?",
                             type: "multiple-choice",
-                            options: ["Separation of RAM and ROM", "Gap between technology haves and have-nots", "Dividing binary numbers", "A firewall setting"],
-                            correctAnswer: "Gap between technology haves and have-nots",
-                            explanation: "It refers to inequality in access to technology.",
+                            options: ["Proprietary", "Open Source", "Copyrighted", "Closed Source"],
+                            correctAnswer: "Open Source",
+                            explanation: "Open Source grants users the right to study and change the code.",
                             marks: 1,
-                            topic: "Culture"
+                            topic: "Licenses"
                         }
                     ]
                 }
@@ -727,62 +754,49 @@ The gap between those who have technology/internet and those who don't.
                 {
                     id: "searching-sorting",
                     title: "Searching and Sorting Algorithms",
-                    content: `# 🔎 2.1 Searching & Sorting Algorithms
-
-> **"Algorithms are step-by-step instructions to solve a problem."**
-
----
+                    content: `# 🔎 2.1 Searching & Sorting
 
 ## 🎯 Objectives
-- 🕵️‍♂️ Perform **Linear** and **Binary Searches**.
-- 🔢 Perform **Bubble**, **Merge**, and **Insertion Sorts**.
-- 📝 Understand **Pseudocode**.
-
-**XP Reward:** 200 ⭐
+- 🧠 **Computational Thinking:** Abstraction, Decomposition.
+- 🕵️‍♂️ **Search:** Linear vs Binary.
+- 🔢 **Sort:** Bubble, Merge, Insertion.
 
 ---
 
 ## 📚 Chapter 1: Searching
 
 ### 🚶 Linear Search
-Check items one by one from the start.
-*   *Method:* Look at item 1. Is it the target? If no, move to item 2.
-*   **Pros:** Works on **unsorted** lists. Easy to program.
+Check items one by one from start to end.
+*   **Pros:** Works on ANY list. Easy to code.
 *   **Cons:** Very slow for large lists.
+*   *Complexity:* O(n)
 
 ### 🌳 Binary Search
-Divide and conquer!
-*   **Rule:** List **MUST** be sorted first.
-*   **Method:**
-    1.  Pick the middle item.
-    2.  If it's the target, stop.
-    3.  If target is lower, discard the right half.
-    4.  If target is higher, discard the left half.
-    5.  Repeat with the remaining list.
-*   **Pros:** Extremely fast for large lists.
+"Divide and Conquer".
+1.  **Requirement:** List MUST be sorted.
+2.  Find Middle. If Middle == Target, Stop.
+3.  If Target < Middle, discard right half.
+4.  If Target > Middle, discard left half.
+5.  Repeat.
+*   *Complexity:* O(log n) - Super fast.
 
 ---
 
 ## 📚 Chapter 2: Sorting
 
 ### 🫧 Bubble Sort
-"Bubbles" the largest number to the top.
-1.  Compare first pair. Swap if in wrong order.
-2.  Move to next pair. Repeat until end of list.
-3.  This is 'Pass 1'. Repeat whole process until no swaps are made.
-*   *Efficiency:* Slow.
+*   Compare pairs. Swap if wrong order.
+*   Repeat until no swaps needed.
+*   *Verdict:* Slow, simple.
 
 ### 📥 Insertion Sort
-Like sorting playing cards in your hand.
-1.  Take the second card. Compare to the first. Insert in correct place.
-2.  Take third card. Compare to previous ones. Insert.
-3.  Repeat.
+*   Take each item and place it in the correct relative position in the sorted part (like sorting cards in hand).
+*   *Verdict:* Good for small lists.
 
 ### 🤝 Merge Sort
-A recursive "Divide and Conquer" algorithm.
-1.  **Divide:** Split the list in half again and again until every sub-list has only 1 item.
-2.  **Conquer:** Merge pairs of sub-lists back together, putting items in order as you merge.
-*   *Efficiency:* Very fast (n log n).
+*   **Split:** Divide list in half repeatedly until lists are size 1.
+*   **Merge:** Combine sub-lists in order.
+*   *Verdict:* Very fast, but uses more memory.
 
 `,
                     type: "lesson",
@@ -803,23 +817,23 @@ A recursive "Divide and Conquer" algorithm.
                     questions: [
                         {
                             id: "q_algo1",
-                            question: "If I have 1000 items, and I check them one by one, what search is this?",
+                            question: "Which search requires a sorted list?",
                             type: "multiple-choice",
-                            options: ["Linear Search", "Binary Search", "Merge Search", "Quick Search"],
-                            correctAnswer: "Linear Search",
-                            explanation: "Linear search iterates sequentially.",
+                            options: ["Linear Search", "Binary Search", "Random Search", "Google Search"],
+                            correctAnswer: "Binary Search",
+                            explanation: "Binary search relies on logical elimination which needs order.",
                             marks: 1,
                             topic: "Searching"
                         },
                         {
                             id: "q_algo2",
-                            question: "What is the requirement for Binary Search?",
+                            question: "Which sorting algorithm splits lists into size 1?",
                             type: "multiple-choice",
-                            options: ["List must be uneven", "List must be short", "List must be sorted", "List must be numbers"],
-                            correctAnswer: "List must be sorted",
-                            explanation: "You cannot eliminate half the data logically if the data is random.",
+                            options: ["Bubble", "Insertion", "Merge", "Quick"],
+                            correctAnswer: "Merge",
+                            explanation: "Merge sort uses the divide and conquer strategy.",
                             marks: 1,
-                            topic: "Searching"
+                            topic: "Sorting"
                         }
                     ]
                 }
@@ -834,59 +848,36 @@ A recursive "Divide and Conquer" algorithm.
                 {
                     id: "prog-basics",
                     title: "Variables and Constructs",
-                    content: `# ⌨️ 2.2 Programming Fundamentals
+                    content: `# ⌨️ 2.2 Programming
 
-## 🧱 The Building Blocks
+## 🧱 Key Concepts
 
-### 1. Variables
-A named location in memory used to store data.
-\`\`\`python
-score = 10
-name = "Alice"
-\`\`\`
+### 1. Variables & Constants
+*   **Variable:** \`score = 10\` (Can change).
+*   **Constant:** \`const PI = 3.14\` (Cannot change).
 
-### 2. Constants
-Data that does NOT change during the program run.
-\`\`\`python
-PI = 3.14159
-\`\`\`
+### 2. Data Types
+*   **Integer:** \`5\`
+*   **Float/Real:** \`5.5\`
+*   **String:** \`"Hello"\`
+*   **Boolean:** \`True\` / \`False\`
+*   **Casting:** Converting types. \`int("5")\`
 
----
-
-## 🧶 Data Types
-
-| Type | Description | Example |
-| :--- | :--- | :--- |
-| **Integer** | Whole number | 5, -10 |
-| **Real/Float** | Decimal number | 3.5, -0.99 |
-| **Boolean** | Logical | True, False |
-| **String** | Text | "Hello World" |
-| **Char** | Single character | 'A', '$' |
-
-> **Casting:** Changing data from one type to another. e.g. \`int("5")\` becomes integer 5.
+### 3. Constructs
+*   **Sequence:** Line by line.
+*   **Selection:** \`if ... elif ... else\`
+*   **Iteration:**
+    *   **Count-controlled:** \`for i in range(10):\`
+    *   **Condition-controlled:** \`while running == True:\`
 
 ---
 
-## 🚦 Programming Constructs
-
-### Sequence
-Code runs line by line, top to bottom.
-
-### Selection (IF Statements)
-Making a decision.
-\`\`\`python
-if age >= 18:
-    print("Adult")
-else:
-    print("Child")
-\`\`\`
-
-### Iteration (Loops)
-Repeating code.
-1.  **Count Controlled (FOR Loop):** Repeat a set number of times.
-    \`for i in range(10):\`
-2.  **Condition Controlled (WHILE Loop):** Repeat UNTIL a condition is true.
-    \`while hungry == True:\`
+## 🛡️ Robust Programming
+*   **Input Sanitisation:** Cleaning input (e.g. trimming spaces).
+*   **Validation:** Checking if input is allowed.
+    *   *Range Check:* Age > 0 and Age < 120.
+    *   *Type Check:* Is it a number?
+    *   *Length Check:* Is password > 8 chars?
 
 `,
                     type: "lesson",
@@ -907,84 +898,23 @@ Repeating code.
                     questions: [
                         {
                             id: "pq1",
-                            question: "What loop would you use to repeat code exactly 10 times?",
+                            question: "What is a Float?",
                             type: "multiple-choice",
-                            options: ["IF statement", "WHILE loop", "FOR loop", "DO loop"],
-                            correctAnswer: "FOR loop",
-                            explanation: "For loops are count-controlled.",
+                            options: ["A whole number", "A decimal number", "Text", "True/False"],
+                            correctAnswer: "A decimal number",
+                            explanation: "Floating point numbers contain decimals.",
                             marks: 1,
-                            topic: "Iteration"
-                        }
-                    ]
-                }
-            ],
-            tests: []
-        },
-        {
-            id: "2.3-robust-programs",
-            name: "2.3 Robust Programs",
-            completed: false,
-            studyMaterials: [
-                {
-                    id: "defensive-design",
-                    title: "Defensive Design & Testing",
-                    content: `# 🛡️ 2.3 Robust Programs
-
-## ⚠️ Defensive Design
- writing code that does not crash, even when the user is stupid or malicious.
-
-### 1. Input Sanitization
-Removing unwanted characters from input before processing.
-*   *Example:* Removing SQL commands from a password input to prevent SQL Injection.
-
-### 2. Validation
-Checking if data matches the rules **before** accepting it.
-*   **Range Check:** Is the number within limits? (e.g. Age 0-120).
-*   **Type Check:** Is it the right data type? (Number vs String).
-*   **Length Check:** Is the password long enough?
-*   **Presence Check:** Has data been entered?
-
----
-
-## 🧪 Testing
-
-### Iterative Testing
-Testing **during** development. Line by line.
-
-### Final / Terminal Testing
-Testing at the **end** of development.
-
-### Test Data Types
-1.  **Normal:** Data that should working. (e.g., Age 25).
-2.  **Boundary:** Data on the limit. (e.g., Age 0 or 120).
-3.  **Invalid/Erroneous:** Data that should fail. (e.g., Age -5, or "Ten").
-
-`,
-                    type: "lesson",
-                    difficulty: "foundation",
-                    estimatedTime: 35,
-                    learningObjectives: ["Explain validation types", "Create test plans"]
-                }
-            ],
-            quizzes: [
-                {
-                    id: "robust-exit-test",
-                    title: "End of Topic Test: Robustness",
-                    passingScore: 90,
-                    xpReward: 60,
-                    coinReward: 25,
-                    timeLimit: 15,
-                    difficulty: "higher",
-                    questions: [
+                            topic: "Data Types"
+                        },
                         {
-                            id: "rq1",
-                            question: "Testing done whilst writing the code is called...?",
+                            id: "pq2",
+                            question: "Which check ensures an age is not -5?",
                             type: "multiple-choice",
-                            options: ["Final Testing", "Iterative Testing", "Beta Testing", "A/B Testing"],
-                            correctAnswer: "Iterative Testing",
-                            explanation: "Iterative means repeating, happening as part of the cycle.",
+                            options: ["Type Check", "Length Check", "Range Check", "Format Check"],
+                            correctAnswer: "Range Check",
+                            explanation: "Range checks verify numbers fall within boundaries.",
                             marks: 1,
-                            topic: "Testing"
+                            topic: "Validation"
                         }
                     ]
                 }
@@ -992,40 +922,39 @@ Testing at the **end** of development.
             tests: []
         },
         {
-            id: "2.4-logic",
-            name: "2.4 Boolean Logic",
+            id: "2.3-logic",
+            name: "2.3 Boolean Logic",
             completed: false,
             studyMaterials: [
                 {
                     id: "logic-gates",
                     title: "Logic Gates & Truth Tables",
-                    content: `# 🔌 2.4 Boolean Logic
+                    content: `# 🔌 2.3 Boolean Logic
 
 ## ⚡ The Logic Gates
 
 ### AND Gate (D Shape)
-*   Output is 1 (True) ONLY if **Input A** AND **Input B** are both 1.
-*   Formula: Q = A AND B (or A.B)
+*   Output is 1 ONLY if **A** AND **B** are 1.
+*   \`Q = A . B\`
 
-### OR Gate (Arrowhead Shape)
-*   Output is 1 (True) if **Input A** OR **Input B** (or both) are 1.
-*   Formula: Q = A OR B (or A+B)
+### OR Gate (Arrowhead)
+*   Output is 1 if **A** OR **B** (or both) are 1.
+*   \`Q = A + B\`
 
-### NOT Gate (Triangle with bubble)
-*   Output is the opposite of the input.
-*   Formula: Q = NOT A (or Ā)
+### NOT Gate (Triangle)
+*   Output is opposite.
+*   \`Q = !A\`
 
 ---
 
 ## 📋 Truth Tables
-A table showing every possible combination of inputs and the resulting output.
 
-| A | B | AND | OR |
-|---|---|-----|----|
-| 0 | 0 | 0 | 0 |
-| 0 | 1 | 0 | 1 |
-| 1 | 0 | 0 | 1 |
-| 1 | 1 | 1 | 1 |
+A | B | A AND B
+--|---|--------
+0 | 0 | 0
+0 | 1 | 0
+1 | 0 | 0
+1 | 1 | 1
 
 `,
                     type: "lesson",
@@ -1046,11 +975,11 @@ A table showing every possible combination of inputs and the resulting output.
                     questions: [
                         {
                             id: "lq1",
-                            question: "Which gate outputs 1 only when both inputs are 1?",
+                            question: "Which gate looks like a 'D'?",
                             type: "multiple-choice",
                             options: ["OR", "NOT", "AND", "XOR"],
                             correctAnswer: "AND",
-                            explanation: "AND requires all inputs to be true.",
+                            explanation: "The AND gate is shaped like a D.",
                             marks: 1,
                             topic: "Logic"
                         }
@@ -1061,40 +990,28 @@ A table showing every possible combination of inputs and the resulting output.
         },
         {
             id: "2.5-ide",
-            name: "2.5 IDEs & Languages",
+            name: "2.5 IDEs & Translators",
             completed: false,
             studyMaterials: [
                 {
                     id: "ide-lesson",
-                    title: "Integrated Development Environments",
-                    content: `# 🛠️ 2.5 IDEs and Languages
+                    title: "The IDE & Translators",
+                    content: `# 🛠️ 2.5 IDEs
 
-## 🗣️ High vs Low Level Languages
+## 🗣️ High vs Low Level
+*   **High Level:** Python/Java. Human readable. Portable. Slow.
+*   **Low Level:** Machine Code / Assembly. Binary. Specific to CPU. Fast.
 
-### High Level Languages (HLL)
-*   **Examples:** Python, Java, C#.
-*   **Features:** Close to English, easy to read/write/debug.
-*   **Translation:** Must be translated by a Compiler or Interpreter.
-*   **Hardware:** Portable (runs on many CPU types).
+## 🗣️ Translators
+*   **Compiler:** Translates WHOLE code at once. Creates EXE. Fast execution. Hard to debug.
+*   **Interpreter:** Translates LINE BY LINE. Good for debugging. Slower execution.
+*   **Assembler:** Assembly -> Machine Code.
 
-### Low Level Languages (LLL)
-*   **Machine Code:** Binary (10110). Executed directly by CPU.
-*   **Assembly Language:** Uses mnemonics (ADD, SUB, MOV). 1-to-1 relationship with machine code.
-*   **Use Code:** Embedded systems, device drivers.
-*   **Pros:** Very fast, memory efficient.
-*   **Cons:** Very hard to write, specific to one CPU type.
-
----
-
-## 🔧 The IDE (Integrated Development Environment)
-Software that helps programmers write code.
-
-### Common Tools:
-1.  **Editor:** Write code. Has syntax highlighting (colors) and auto-completion.
-2.  **Error Diagnostics:** Highlights syntax errors (wavy red lines) and suggestions.
-3.  **Run-Time Environment:** Button to 'Run' the code.
-4.  **Debugger:** Allows you to pause execution (breakpoints), step through line-by-line, and inspect variable values.
-5.  **Translator:** Compiler or Interpreter built-in.
+## 🔧 IDE Tools
+*   **Editor:** Write code (colors, auto-complete).
+*   **Debugger:** Step through code interactively.
+*   **Run-time Environment:** Run code.
+*   **Error Diagnostics:** Finds syntax errors.
 
 `,
                     type: "lesson",
@@ -1115,23 +1032,13 @@ Software that helps programmers write code.
                     questions: [
                         {
                             id: "iq1",
-                            question: "Which type of language is Python?",
+                            question: "Which translator creates an EXE file?",
                             type: "multiple-choice",
-                            options: ["High Level", "Low Level", "Machine Code", "Assembly"],
-                            correctAnswer: "High Level",
-                            explanation: "Python is designed to be readable by humans.",
+                            options: ["Interpreter", "Compiler", "Assembler", "Editor"],
+                            correctAnswer: "Compiler",
+                            explanation: "Compilers build a standalone executable.",
                             marks: 1,
-                            topic: "Languages"
-                        },
-                        {
-                            id: "iq2",
-                            question: "Which IDE tool is used to find logic errors by stepping through code?",
-                            type: "multiple-choice",
-                            options: ["Editor", "Compiler", "Debugger", "Auto-correct"],
-                            correctAnswer: "Debugger",
-                            explanation: "Debuggers allow inspection of running code.",
-                            marks: 1,
-                            topic: "IDE"
+                            topic: "Translators"
                         }
                     ]
                 }
