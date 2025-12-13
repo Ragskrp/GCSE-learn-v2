@@ -31,7 +31,7 @@ export class AuthService {
 
             // Define subject IDs based on year group
             const subjectIds = yearGroup === 10
-                ? ['maths-10', 'science-10', 'english-lit-10', 'history-10']
+                ? ['maths-10', 'science-10', 'english-lit-10', 'history-10', 'computer-science-j277']
                 : ['maths-7'];
 
             for (const docId of subjectIds) {
