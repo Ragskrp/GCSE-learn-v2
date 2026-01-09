@@ -10,7 +10,7 @@ import { Sparkles, Lock, Play, BookOpen, Calculator, FlaskConical, Book, ScrollT
 // Static definition of all available subjects to ensure links ALWAYS appear
 const ALL_SUBJECTS = [
     {
-        id: "maths", // Matches firebase ID 'maths-10' typically, but let's handle the redirect
+        id: "maths-10",
         name: "Mathematics",
         icon: <Calculator />,
         color: "from-blue-400 to-indigo-500",
@@ -19,7 +19,7 @@ const ALL_SUBJECTS = [
         questions: 25
     },
     {
-        id: "science", // 'science-10'
+        id: "science-10",
         name: "Combined Science",
         icon: <FlaskConical />,
         color: "from-teal-400 to-green-500",
@@ -28,7 +28,7 @@ const ALL_SUBJECTS = [
         questions: 30
     },
     {
-        id: "english-lit", // 'english-lit-10'
+        id: "english-lit-10",
         name: "English Literature",
         icon: <Book />,
         color: "from-amber-400 to-orange-500",
@@ -37,7 +37,7 @@ const ALL_SUBJECTS = [
         questions: 20
     },
     {
-        id: "history", // 'history-10'
+        id: "history-10",
         name: "History",
         icon: <ScrollText />,
         color: "from-red-400 to-rose-500",
@@ -46,7 +46,7 @@ const ALL_SUBJECTS = [
         questions: 25
     },
     {
-        id: "computer-science-j277",
+        id: "computer-science-j277", // This one seems to be unique, double check if it needs suffix
         name: "Computer Science",
         icon: <Monitor />,
         color: "from-purple-400 to-fuchsia-500",

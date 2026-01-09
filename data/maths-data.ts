@@ -4,334 +4,568 @@ import { Subject } from "@/types/curriculum";
 export const year10Mathematics: Subject = {
     id: "maths-10",
     name: "Mathematics (Higher)",
-    duration: 180,
-    questions: 300,
-    color: "from-blue-500 to-indigo-600",
+    duration: 360,
+    questions: 1000,
+    color: "from-blue-600 to-cyan-500",
     icon: "📐",
     level: 1,
     xp: 0,
-    maxXp: 5000,
+    maxXp: 20000,
     coins: 0,
     unlocked: true,
     conquestTitle: "Maths Master",
     timeLimit: 120,
     topics: [
-        // --- 1. NUMBER ---
+        // ==========================================
+        // 1. NUMBER
+        // ==========================================
         {
-            id: "number-foundation",
-            name: "Number Skills",
+            id: "num-basics",
+            name: "Number & Arithmetic",
             completed: false,
             studyMaterials: [
                 {
-                    id: "surds",
-                    title: "Surds",
-                    content: `# 🌿 Surds
-
-## Rules of Surds
-- **√a × √b = √ab**
-- **√a / √b = √(a/b)**
-- **(√a)² = a**
-
-## Simplifying Surds
-Find the largest square number factor.
-*   **√12** = √(4×3) = √4 × √3 = **2√3**
-*   **√75** = √(25×3) = **5√3**
-
-## Rationalising the Denominator
-Get rid of the root on the bottom!
-*   **1/√a** -> multiply top and bottom by **√a**. Result: **√a/a**.
-*   **1/(a+√b)** -> multiply by **(a-√b)** (Difference of Two Squares).
-`,
+                    id: "primes-hcf-lcm",
+                    title: "Primes, HCF & LCM",
                     type: "lesson",
-                    difficulty: "higher",
-                    estimatedTime: 40,
-                    learningObjectives: ["Simplify surds", "Rationalise denominators"]
+                    difficulty: "foundation",
+                    estimatedTime: 30,
+                    learningObjectives: ["Prime factorisation", "Find HCF", "Find LCM"],
+                    content: `# 🔢 Primes, HCF & LCM
+
+## Definitions
+*   **Prime Number:** A number with exactly two factors (1 and itself). E.g., 2, 3, 5, 7, 11, 13, 17... (1 is NOT prime).
+*   **Prime Factorisation:** Writing a number as a product of prime numbers (e.g., $12 = 2^2 \\times 3$).
+
+## Finding HCF & LCM
+Using Prime Factorisation (Venn Diagram Method):
+**Example: 60 and 72**
+*   $60 = 2 \\times 2 \\times 3 \\times 5$
+*   $72 = 2 \\times 2 \\times 2 \\times 3 \\times 3$
+
+*   **HCF:** Product of common factors ($2, 2, 3$) -> $2 \\times 2 \\times 3 = 12$.
+*   **LCM:** Product of HCF and remaining factors -> $12 \\times 5 \\times 2 \\times 3 = 360$.
+`
                 },
                 {
-                    id: "indices",
-                    title: "Indices (Powers)",
-                    content: `# ⚡ Indices
+                    id: "fractions-fdp",
+                    title: "Fractions & Decimals",
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 35,
+                    learningObjectives: ["Recurring decimals to fractions", "Arithmetic with fractions"],
+                    content: `# 🍰 Fractions & Decimals
 
-## The Laws
-1.  **Multiply:** Add powers. (xᵃ × xᵇ = xᵃ⁺ᵇ)
-2.  **Divide:** Subtract powers. (xᵃ ÷ xᵇ = xᵃ⁻ᵇ)
-3.  **Brackets:** Multiply powers. ((xᵃ)ᵇ = xᵃᵇ)
-4.  **Negative:** Flip it. (x⁻ᵃ = 1/xᵃ)
-5.  **0 Power:** Anything to power 0 is **1**.
-6.  **Fractional:** Top is power, Bottom is root. (x½ = √x).
+## Recurring Decimals
+To convert $x = 0.\\dot{4}\\dot{5}$:
+1.  $x = 0.4545...$
+2.  Multiply by 100 (digits repeat every 2): $100x = 45.4545...$
+3.  Subtract: $99x = 45$.
+4.  $x = 45/99 = 5/11$.
 
-## Examples
-*   2⁵ × 2³ = 2⁸
-*   5⁻² = 1/5² = 1/25
-*   8^(2/3) = (³√8)² = 2² = 4
-`,
+## Fraction Arithmetic
+*   **Adding/Subtracting:** Find common denominator.
+    *   $2/3 + 1/5 = 10/15 + 3/15 = 13/15$.
+*   **Multiplying:** Top $\\times$ Top, Bottom $\\times$ Bottom.
+*   **Dividing (KFC):** Keep first, Flip second, Change to Multiply.
+    *   $2/3 \\div 4/5 = 2/3 \\times 5/4 = 10/12 = 5/6$.
+`
+                },
+                {
+                    id: "indices-surds",
+                    title: "Indices & Surds",
                     type: "lesson",
                     difficulty: "higher",
                     estimatedTime: 40,
-                    learningObjectives: ["Apply index laws", "Calculate fractional indices"]
+                    learningObjectives: ["Rationalise denominator", "Fractional indices"],
+                    content: `# ⚡ Indices & Surds
+
+## Index Laws
+1.  $x^a \\times x^b = x^{a+b}$
+2.  $x^a \\div x^b = x^{a-b}$
+3.  $(x^a)^b = x^{ab}$
+4.  $x^{-a} = 1/x^a$
+5.  $x^{m/n} = (\\sqrt[n]{x})^m$
+
+**Example:** $8^{-2/3} = 1 / (\\sqrt[3]{8})^2 = 1 / 2^2 = 1/4$.
+
+## Surds
+*   **Simplify:** $\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$.
+*   **Rationalise:** $\\frac{1}{3+\\sqrt{2}} \\times \\frac{3-\\sqrt{2}}{3-\\sqrt{2}} = \\frac{3-\\sqrt{2}}{9-2} = \\frac{3-\\sqrt{2}}{7}$.
+`
+                },
+                {
+                    id: "standard-form",
+                    title: "Standard Form & Bounds",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 35,
+                    learningObjectives: ["Calculate in standard form", "Upper and Lower Bounds"],
+                    content: `# 🔬 Standard Form & Bounds
+
+## Standard Form ($A \\times 10^n$)
+*   $45000 = 4.5 \\times 10^4$
+*   $0.0032 = 3.2 \\times 10^{-3}$
+*   **Multiply:** $(2 \\times 10^3) \\times (3 \\times 10^5) = 6 \\times 10^8$.
+
+## Bounds
+If length $x = 10cm$ (to nearest cm):
+*   **Lower Bound (LB):** $9.5cm$
+*   **Upper Bound (UB):** $10.5cm$
+*   **Error Interval:** $9.5 \\le x < 10.5$.
+
+**Calculation Example:**
+Max area of rectangle $5cm \\times 8cm$ (nearest cm)?
+Use UBs: $5.5 \\times 8.5 = 46.75cm^2$.
+`
                 }
             ],
             quizzes: [
                 {
-                    id: "num-quiz",
-                    title: "Test: Number",
-                    difficulty: "higher",
-                    passingScore: 90,
-                    xpReward: 100,
-                    coinReward: 20,
-                    timeLimit: 15,
+                    id: "qz-num-1", title: "Number Mastery", difficulty: "higher", passingScore: 75, xpReward: 300, coinReward: 40, timeLimit: 20,
                     questions: [
-                        { id: "q-num-1", question: "Simplify √50", type: "multiple-choice", options: ["5√2", "2√5", "5√10", "10√5"], correctAnswer: "5√2", marks: 1, topic: "Surds" },
-                        { id: "q-num-2", question: "Calculate 9^(1/2)", type: "multiple-choice", options: ["3", "4.5", "81", "1"], correctAnswer: "3", marks: 1, topic: "Indices" }
+                        { id: "nq1", question: "HCF of 24 and 36?", type: "short-answer", correctAnswer: "12", marks: 2, topic: "HCF" },
+                        { id: "nq2", question: "Convert 0.1666... to fraction", type: "multiple-choice", options: ["1/6", "16/99", "16/90", "1/5"], correctAnswer: "1/6", marks: 3, topic: "Fractions" },
+                        { id: "nq3", question: "Calculate 64^(2/3)", type: "short-answer", correctAnswer: "16", marks: 2, topic: "Indices" },
+                        { id: "nq4", question: "Rationalise 5/√5", type: "short-answer", correctAnswer: "√5", marks: 2, topic: "Surds" }
                     ]
                 }
             ]
         },
 
-        // --- 2. ALGEBRA ---
+        // ==========================================
+        // 2. ALGEBRA
+        // ==========================================
         {
-            id: "algebra-adv",
+            id: "alg-fund",
+            name: "Algebra Fundamentals",
+            completed: false,
+            studyMaterials: [
+                {
+                    id: "expanding-factorising",
+                    title: "Expanding & Factorising",
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 35,
+                    learningObjectives: ["Expand double brackets", "Factorise quadratics"],
+                    content: `# 📦 Expanding & Factorising
+
+## Expanding
+*   **Single:** $3(2x+5) = 6x + 15$
+*   **Double (FOIL):** $(x+3)(x-2) = x^2 - 2x + 3x - 6 = x^2 + x - 6$.
+*   **Triple:** Expand two first, then multiply result by third.
+
+## Factorising
+*   **Common Term:** $4x^2 + 8x = 4x(x+2)$.
+*   **Quadratic Simple:** $x^2 + 5x + 6$. Need numbers adding to 5, multiplying to 6 ($2, 3$). Result: $(x+2)(x+3)$.
+*   **Diff of Squares:** $x^2 - 16 = (x+4)(x-4)$.
+`
+                },
+                {
+                    id: "equations-inequalities",
+                    title: "Equations & Inequalities",
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 40,
+                    learningObjectives: ["Solve linear equations", "Solve inequalities"],
+                    content: `# ⚖️ Equations & Inequalities
+
+## Solving
+*   **Linear:** $5x - 3 = 17 \\rightarrow 5x=20 \\rightarrow x=4$.
+*   **Unknowns both sides:** $5x + 2 = 3x + 10 \\rightarrow 2x=8 \\rightarrow x=4$.
+
+## Inequalities
+Treat like equations, but **FLIP symbol if multiplying/dividing by negative**.
+*   $-2x < 10 \\rightarrow x > -5$.
+*   **Integer solutions:** If $-2 < x \\le 1$, integers are $-1, 0, 1$.
+`
+                },
+                {
+                    id: "formulae",
+                    title: "Rearranging Formulae",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 35,
+                    learningObjectives: ["Change the subject"],
+                    content: `# 🔄 Formulae
+
+## Changing the Subject
+Make $x$ the subject of $y = 3x^2 + 5$.
+1.  Subtract 5: $y - 5 = 3x^2$
+2.  Divide by 3: $\\frac{y-5}{3} = x^2$
+3.  Square Root: $x = \\sqrt{\\frac{y-5}{3}}$.
+
+**Factorising required:**
+Make $x$ subject of $ax - y = c - bx$.
+1.  Group x's: $ax + bx = c + y$
+2.  Factorise x: $x(a+b) = c + y$
+3.  Divide: $x = \\frac{c+y}{a+b}$.
+`
+                }
+            ],
+            quizzes: [
+                {
+                    id: "qz-alg-1", title: "Algebra Basics", difficulty: "foundation", passingScore: 70, xpReward: 250, coinReward: 30, timeLimit: 15,
+                    questions: [
+                        { id: "aq1", question: "Factorise x² - 25", type: "short-answer", correctAnswer: "(x+5)(x-5)", marks: 1, topic: "Diff Squares" },
+                        { id: "aq2", question: "Make u subject: v = u + at", type: "short-answer", correctAnswer: "u = v - at", marks: 1, topic: "Formulae" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "alg-adv",
             name: "Advanced Algebra",
             completed: false,
             studyMaterials: [
                 {
-                    id: "simultaneous-eq",
+                    id: "simultaneous",
                     title: "Simultaneous Equations",
-                    content: `# ⚔️ Simultaneous Equations
-
-## Elimination Method
-Make the coefficient of x or y the same.
-1.  3x + y = 10
-2.  x + y = 4
-
-Subtract (2) from (1):
-2x = 6  ->  **x = 3**
-Sub x=3 into (2):
-3 + y = 4 -> **y = 1**
-
-## Substitution Method
-Rearrange one equation to get x=... or y=... then plug into the other.
-Usually used when one is quadratic.
-`,
                     type: "lesson",
                     difficulty: "higher",
                     estimatedTime: 45,
-                    learningObjectives: ["Solve linear simultaneous equations", "Solve linear/quadratic pair"]
+                    content: `# ⚔️ Simultaneous Equations
+## Linear Elimination
+1. $3x + y = 10 \n 2. x - y = 2$
+*   Add them: $4x = 12 \\rightarrow x=3$.
+*   Sub back in: $3 - y = 2 \\rightarrow y=1$.
+
+## Quadratic Substitution
+1. $y = x^2$
+2. $y = 2x+3$
+*   $x^2 = 2x+3 \\rightarrow x^2 - 2x - 3 = 0$.
+*   $(x-3)(x+1)=0$. $x=3, x=-1$.
+*   Find y for each x.
+`,
+                    learningObjectives: ["Elimination method", "Substitution method"]
                 },
                 {
                     id: "quadratics-hard",
-                    title: "Quadratics: Completing the Square",
-                    content: `# 🎢 Quadratics
-
-## Solving Methods
-1.  **Factorising:** Find two numbers that multiply to add to b.
-2.  **Formula:** x = [-b ± √(b²-4ac)] / 2a
-3.  **Completing Square:** (x+p)² - q = 0.
-
-## Turning Points
-For y = (x+a)² + b
-*   Minimum point is at **(-a, b)**.
-`,
+                    title: "Harder Quadratics",
                     type: "lesson",
                     difficulty: "higher",
                     estimatedTime: 50,
-                    learningObjectives: ["Complete the square", "Find turning points"]
+                    content: `# 🎢 Quadratics
+## Formula
+$$x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$$
+
+## Completing the Square
+$x^2 + 6x - 5 = 0$
+$(x+3)^2 - 9 - 5 = 0$
+$(x+3)^2 = 14$
+$x = -3 \\pm \\sqrt{14}$
+
+## Turning Points
+Min point of $(x+a)^2 + b$ is $(-a, b)$.
+`,
+                    learningObjectives: ["Quadratic Formula", "Completing Square"]
+                },
+                {
+                    id: "sequences-graphs",
+                    title: "Sequences & Graphs",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 40,
+                    content: `# 📈 Sequences & Graphs
+## nth Term (Linear)
+$3, 7, 11, 15$ (Gap +4)
+$4n - 1$
+
+## nth Term (Quadratic)
+Find second difference. If 2nd diff is $2a$, then $n^2$ coefficient is $a$.
+
+## Graphs
+*   **Cubic:** S-shape.
+*   **Reciprocal ($1/x$):** Hyperbola (two curves).
+*   **Circle:** $x^2 + y^2 = r^2$. Centre (0,0), radius $r$.
+`,
+                    learningObjectives: ["Quadratic nth term", "Recognise graph shapes"]
                 }
             ],
             quizzes: [
                 {
-                    id: "alg-quiz",
-                    title: "Test: Algebra",
-                    difficulty: "higher",
-                    passingScore: 90,
-                    xpReward: 100,
-                    coinReward: 20,
-                    timeLimit: 15,
+                    id: "qz-alg-2", title: "Advanced Algebra", difficulty: "higher", passingScore: 70, xpReward: 400, coinReward: 50, timeLimit: 25,
                     questions: [
-                        { id: "q-alg-1", question: "Solve for x: 2x + y = 7 and x - y = 2", type: "multiple-choice", options: ["3", "2", "4", "1"], correctAnswer: "3", marks: 1, topic: "Simultaneous Eq" }
+                        { id: "aa1", question: "Solve x² + 4x + 1 = 0 (complete square)", type: "multiple-choice", options: ["-2±√3", "-2±√5", "2±√3"], correctAnswer: "-2±√3", marks: 3, topic: "Quadratics" }
                     ]
                 }
             ]
         },
 
-        // --- 3. RATIO & PROPORTION ---
+        // ==========================================
+        // 3. RATIO & PROPORTION
+        // ==========================================
         {
-            id: "ratio-prop",
+            id: "ratio-context",
             name: "Ratio & Proportion",
             completed: false,
             studyMaterials: [
                 {
-                    id: "direct-inverse",
-                    title: "Direct & Inverse Proportion",
-                    content: `# ⚖️ Proportion
+                    id: "ratio-basics",
+                    title: "Ratio Sharing & Compounding",
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 30,
+                    content: `# 🔢 Ratio
+## Sharing
+Share £40 in 3:5. 
+Total parts = 8.
+1 part = £5.
+Shares: £15, £25.
 
-## Direct Proportion (y ∝ x)
-*   **Formula:** y = kx
-*   Graph is a straight line through origin.
-*   *Example:* Cost is proportional to weight.
-
-## Inverse Proportion (y ∝ 1/x)
-*   **Formula:** y = k/x
-*   Graph is a curve (hyperbola).
-*   *Example:* Speed vs Time for a set distance.
+## Compound Measures
+*   **Speed** = Distance / Time
+*   **Density** = Mass / Volume
+*   **Pressure** = Force / Area
 `,
+                    learningObjectives: ["Share in ratios", "Use speed/density formulae"]
+                },
+                {
+                    id: "growth-decay",
+                    title: "Percent Growth & Decay",
                     type: "lesson",
                     difficulty: "higher",
                     estimatedTime: 40,
-                    learningObjectives: ["Set up proportion equations", "Calculate k constant"]
+                    content: `# 📈 Growth & Decay
+## Compound Interest
+Formula: $A = P \\times (1 \\pm r/100)^n$
+
+**Example:**
+£1000 invested at 5% interest for 3 years.
+$1000 \\times 1.05^3 = 1157.63$.
+
+## Depreciation
+Car worth £20k loses 10% per year for 2 years.
+$20000 \\times 0.9^2$.
+`,
+                    learningObjectives: ["Compound interest", "Depreciation multipliers"]
+                },
+                {
+                    id: "direct-inverse",
+                    title: "Direct & Inverse Proportion",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 40,
+                    content: `# 🔗 Proportion
+## Direct ($y \\propto x$)
+$y = kx$.
+If $y=10, x=2 \\rightarrow k=5$. Formula: $y=5x$.
+
+## Inverse ($y \\propto 1/x$)
+$y = k/x$.
+If $y=10, x=2 \\rightarrow 10=k/2 \\rightarrow k=20$. Formula: $y=20/x$.
+
+## Graph Types
+*   **Direct:** Straight line through origin.
+*   **Inverse:** Curve in 1st quadrant, never touching axes.
+`,
+                    learningObjectives: ["Solving proportion problems", "Proportion graphs"]
                 }
             ],
             quizzes: [
                 {
-                    id: "rat-quiz",
-                    title: "Test: Ratio",
-                    difficulty: "higher",
-                    passingScore: 90,
-                    xpReward: 100,
-                    coinReward: 20,
-                    timeLimit: 15,
+                    id: "qz-rat", title: "Ratio & Prop", difficulty: "foundation", passingScore: 75, xpReward: 250, coinReward: 30, timeLimit: 20,
                     questions: [
-                        { id: "q-rat-1", question: "If y is directly proportional to x, and y=10 when x=2, what is k?", type: "multiple-choice", options: ["5", "20", "0.2", "8"], correctAnswer: "5", marks: 1, topic: "Proportion" }
+                        { id: "rq1", question: "If y ∝ x² and y=20 when x=2, find k", type: "short-answer", correctAnswer: "5", marks: 2, topic: "Proportion" },
+                        { id: "rq2", question: "£2000 at 10% interest for 2 years?", type: "calculation", correctAnswer: "2420", marks: 2, topic: "Compound Interest" }
                     ]
                 }
             ]
         },
 
-        // --- 4. GEOMETRY ---
+        // ==========================================
+        // 4. GEOMETRY
+        // ==========================================
         {
-            id: "geometry-adv",
-            name: "Geometry",
+            id: "geo-shapes",
+            name: "Geometry: Shapes",
             completed: false,
             studyMaterials: [
                 {
-                    id: "trigonometry",
-                    title: "Trigonometry",
-                    content: `# 📐 Trigonometry
-
-## SOH CAH TOA (Right-angled)
-*   **Sin** x = Opp / Hyp
-*   **Cos** x = Adj / Hyp
-*   **Tan** x = Opp / Adj
-
-## Non-Right-Angled Triangles
-*   **Sine Rule:** a/sinA = b/sinB
-*   **Cosine Rule:** a² = b² + c² - 2bcCosA
-*   **Area:** 1/2 abSinC
-`,
+                    id: "angles-polygons",
+                    title: "Angles & Polygons",
                     type: "lesson",
-                    difficulty: "higher",
-                    estimatedTime: 50,
-                    learningObjectives: ["Use SOHCAHTOA", "Apply Sine and Cosine rules"]
+                    difficulty: "foundation",
+                    estimatedTime: 35,
+                    content: `# 🔷 Polygons
+*   **Ext Angle:** $360 / n$.
+*   **Int Angle:** $180 - \\text{Ext}$.
+*   **Sum of Int Angles:** $(n-2) \\times 180$.
+
+## Parallel Lines
+*   **Corresponding:** Equal (F-shape).
+*   **Alternate:** Equal (Z-shape).
+*   **Co-interior:** Sum to 180 (C-shape).
+`,
+                    learningObjectives: ["Calculate polygon angles", "Parallel line rules"]
                 },
                 {
-                    id: "vectors",
-                    title: "Vectors",
-                    content: `# ↗️ Vectors
-
-## Basics
-*   Vector: Magnitude + Direction.
-*   Notation: Column vector (x over y).
-
-## Geometry
-*   **Parallel Vectors:** One is a scalar multiple of another (e.g., **a** and **2a**).
-*   **Collinear:** Points lie on the same straight line.
-`,
+                    id: "transformations",
+                    title: "Transformations",
                     type: "lesson",
-                    difficulty: "higher",
+                    difficulty: "foundation",
                     estimatedTime: 40,
-                    learningObjectives: ["Add vectors", "Prove parallel lines"]
+                    content: `# 🔄 Transformations
+1.  **Reflection:** Need Mirror Line (e.g. $x=1$).
+2.  **Rotation:** Need Centre, Angle, Direction.
+3.  **Translation:** Need Vector $\\binom{x}{y}$.
+4.  **Enlargement:** Need Centre, Scale Factor (SF).
+    *   **Negative SF:** Shape is inverted.
+    *   **Fractional SF:** Shape gets smaller.
+`,
+                    learningObjectives: ["Describe transformations", "Perform enlargements"]
                 },
                 {
                     id: "circle-theorems",
                     title: "Circle Theorems",
-                    content: `# ⚪ Circle Theorems
-
-1.  **Angle at centre is twice angle at circumference.**
-2.  **Angle in a semicircle is 90°.**
-3.  **Angles in same segment are equal.**
-4.  **Cyclic Quadrilateral:** Opposite angles add to 180°.
-5.  **Tangent is 90° to radius.**
-6.  **Tangents from same point are equal length.**
-7.  **Alternate Segment Theorem:** Angle between tangent and chord = Angle in alternate segment.
-`,
                     type: "lesson",
                     difficulty: "higher",
                     estimatedTime: 45,
-                    learningObjectives: ["Identify circle theorems", "Calculate missing angles"]
+                    content: `# ⚪ Key Theorems
+1.  Angle at centre = $2 \\times$ angle at circumf.
+2.  Angle in semicircle = 90°.
+3.  Angles in same segment = Equal.
+4.  Cyclic Quad opposite angles sum to 180°.
+5.  Tangent $\\perp$ Radius.
+6.  Alternate Segment Theorem.
+`,
+                    learningObjectives: ["Apply circle theorems"]
                 }
             ],
             quizzes: [
                 {
-                    id: "geo-quiz",
-                    title: "Test: Geometry",
-                    difficulty: "higher",
-                    passingScore: 90,
-                    xpReward: 100,
-                    coinReward: 20,
-                    timeLimit: 15,
+                    id: "qz-geo-1", title: "Shapes & Angles", difficulty: "foundation", passingScore: 70, xpReward: 300, coinReward: 30, timeLimit: 20,
                     questions: [
-                        { id: "q-geo-1", question: "What is the angle in a semicircle?", type: "multiple-choice", options: ["90°", "180°", "45°", "60°"], correctAnswer: "90°", marks: 1, topic: "Circle Theorems" },
-                        { id: "q-geo-2", question: "Which rule relates sides and angles in any triangle?", type: "multiple-choice", options: ["SOHCAHTOA", "Sine Rule", "Pythagoras", "Circle Thm"], correctAnswer: "Sine Rule", marks: 1, topic: "Trigonometry" }
+                        { id: "gq1", question: "Sum of interior angles of hexagon?", type: "calculation", correctAnswer: "720", marks: 2, topic: "Polygons" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "geo-measures",
+            name: "Geometry: Measures",
+            completed: false,
+            studyMaterials: [
+                {
+                    id: "area-volume",
+                    title: "Perimeter, Area & Volume",
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 40,
+                    content: `# 📦 Measures
+## Area
+*   **Trapezium:** $\\frac{1}{2}(a+b)h$.
+*   **Circle:** $\\pi r^2$.
+*   **Sector:** $\\frac{\\theta}{360} \\times \\pi r^2$.
+
+## Volume
+*   **Prism:** Area of cross-section $\\times$ length.
+*   **Cylinder:** $\\pi r^2 h$.
+*   **Cone:** $\\frac{1}{3} \\pi r^2 h$.
+*   **Sphere:** $\\frac{4}{3} \\pi r^3$.
+`,
+                    learningObjectives: ["Area of compound shapes", "Volume of spheres/cones"]
+                },
+                {
+                    id: "trig-vectors",
+                    title: "Trigonometry & Vectors",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 50,
+                    content: `# 📐 Advanced Measures
+## Pythagoras
+$a^2 + b^2 = c^2$.
+
+## Trigonometry
+*   SOH CAH TOA for right-angled.
+*   **Sine Rule:** $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$.
+*   **Cosine Rule:** $a^2 = b^2 + c^2 - 2bc\\cos A$.
+*   **Area:** $\\frac{1}{2}ab\\sin C$.
+
+## Vectors
+*   Vector Arithmetic.
+*   Geometric Proofs (Parallel vectors).
+`,
+                    learningObjectives: ["Sine/Cosine Rules", "Vector Proofs"]
+                }
+            ],
+            quizzes: [
+                {
+                    id: "qz-geo-2", title: "Measures Mastery", difficulty: "higher", passingScore: 70, xpReward: 400, coinReward: 50, timeLimit: 25,
+                    questions: [
+                        { id: "mg1", question: "Volume of sphere radius 3? (Leave in terms of pi)", type: "short-answer", correctAnswer: "36pi", marks: 2, topic: "Volume" }
                     ]
                 }
             ]
         },
 
-        // --- 5. PROBABILITY & STATISTICS ---
+        // ==========================================
+        // 5. STATISTICS & PROBABILITY
+        // ==========================================
         {
-            id: "prob-stats",
+            id: "stats-prob",
             name: "Probability & Statistics",
             completed: false,
             studyMaterials: [
                 {
-                    id: "probability-hard",
+                    id: "probability",
                     title: "Probability",
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 35,
                     content: `# 🎲 Probability
-
-## Rules
-*   **P(A or B)** = P(A) + P(B) (Mutually Exclusive).
-*   **P(A and B)** = P(A) × P(B) (Independent).
+*   **AND** rule: Multiply (Independent events).
+*   **OR** rule: Add (Mutually exclusive).
 
 ## Tree Diagrams
-*   Multiply along branches (AND).
-*   Add results at the end (OR).
-*   **Conditional Probability:** The probability changes if you don't replace the item!
+Use for conditional probability (e.g. taking items without replacement).
+*   Multiply along branches.
+*   Add resulting columns required.
 `,
+                    learningObjectives: ["Tree diagrams", "Venn diagrams"]
+                },
+                {
+                    id: "stats-basics",
+                    title: "Averages & Charts",
+                    type: "lesson",
+                    difficulty: "foundation",
+                    estimatedTime: 35,
+                    content: `# 📊 Basics
+*   **Mean:** Sum / Count.
+*   **Median:** Middle value.
+*   **Mode:** Most common.
+*   **Range:** Max - Min.
+
+## Charts
+*   **Pie Chart:** Angle = (Freq / Total) $\\times 360$.
+*   **Scatter Graph:** Correlation (Positive/Negative). Line of Best Fit.
+`,
+                    learningObjectives: ["Calculate averages", "Interpret scatter graphs"]
+                },
+                {
+                    id: "stats-adv",
+                    title: "Advanced Statistics",
                     type: "lesson",
                     difficulty: "higher",
                     estimatedTime: 45,
-                    learningObjectives: ["Draw tree diagrams", "Calculate conditional probability"]
-                },
-                {
-                    id: "histograms",
-                    title: "Histograms",
-                    content: `# 📊 Histograms
+                    content: `# 📈 Advanced Stats
+## Histograms
+*   Area = Frequency.
+*   **Frequency Density** = Frequency / Class Width.
 
-For continuous data with unequal class widths.
-
-## Frequency Density
-> **FD = Frequency / Class Width**
-
-*   The **Area** of the bar = Frequency.
-*   No gaps between bars.
+## Cumulative Frequency
+*   Plot at upper bound.
+*   Read off Median (50%) and Quartiles (25%, 75%).
+*   **Box Plots:** Show Min, LQ, Median, UQ, Max.
 `,
-                    type: "lesson",
-                    difficulty: "higher",
-                    estimatedTime: 40,
-                    learningObjectives: ["Calculate Frequency Density", "Draw histograms"]
+                    learningObjectives: ["Draw histograms", "Cumulative frequency graphs"]
                 }
             ],
             quizzes: [
                 {
-                    id: "stat-quiz",
-                    title: "Test: Stats & Prob",
-                    difficulty: "higher",
-                    passingScore: 90,
-                    xpReward: 100,
-                    coinReward: 20,
-                    timeLimit: 15,
+                    id: "qz-stat", title: "Stats Master", difficulty: "higher", passingScore: 70, xpReward: 300, coinReward: 40, timeLimit: 20,
                     questions: [
-                        { id: "q-stat-1", question: "In a histogram, what does the area represent?", type: "multiple-choice", options: ["Frequency", "Class Width", "Density", "Mean"], correctAnswer: "Frequency", marks: 1, topic: "Histograms" }
+                        { id: "sq1", question: "FD if Freq=30 and Width=10?", type: "calculation", correctAnswer: "3", marks: 1, topic: "Histograms" }
                     ]
                 }
             ]
