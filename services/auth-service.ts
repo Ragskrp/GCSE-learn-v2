@@ -38,7 +38,10 @@ export class AuthService {
                 const docRef = doc(db, "subjects", docId);
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
-                    subjects.push(docSnap.data());
+                    subjects.push({
+                        ...docSnap.data(),
+                        id: docSnap.id
+                    });
                 }
             }
 

@@ -18,15 +18,22 @@ export class ContentService {
 
   static async getAllSubjects(): Promise<Subject[]> {
     try {
+      console.log("ContentService: Attempting to fetch subjects from Firestore...");
       const subjectsRef = collection(db, "subjects");
       const snapshot = await getDocs(subjectsRef);
+
       if (snapshot.empty) {
-        console.warn("No subjects found in Firestore. Falling back to local data.");
+        console.warn("ContentService: snapshot.empty is true. No subjects found in Firestore. Falling back to local data.");
         return this.getLocalAllSubjects();
       }
-      return snapshot.docs.map(doc => doc.data() as Subject);
+
+      console.log(`ContentService: Successfully fetched ${snapshot.size} subjects.`);
+      return snapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id // Crucial: Firestore data() doesn't include the ID
+      } as Subject));
     } catch (error) {
-      console.error("Error fetching subjects from Firestore:", error);
+      console.error("ContentService: Error fetching subjects from Firestore:", error);
       return this.getLocalAllSubjects();
     }
   }
@@ -36,7 +43,10 @@ export class ContentService {
       const docRef = doc(db, "subjects", subjectId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        return docSnap.data() as Subject;
+        return {
+          ...docSnap.data(),
+          id: docSnap.id
+        } as Subject;
       }
     } catch (error) {
       console.error("Error fetching subject:", error);
