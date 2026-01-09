@@ -41,7 +41,7 @@ export default function LeaderboardPage() {
             case 3:
                 return <Medal className="h-6 w-6 text-amber-600" />
             default:
-                return <span className="text-gray-500 font-bold">#{rank}</span>
+                return <span className="text-muted-foreground font-bold">#{rank}</span>
         }
     }
 
@@ -53,18 +53,18 @@ export default function LeaderboardPage() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
             {/* Header */}
             <div className="text-center">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-3">
+                <h1 className="text-3xl font-bold text-foreground mb-2 flex items-center justify-center gap-3">
                     <Trophy className="h-8 w-8 text-yellow-500" />
                     Leaderboard
                 </h1>
-                <p className="text-gray-500">See how you rank against other scholars</p>
+                <p className="text-muted-foreground">See how you rank against other scholars</p>
             </div>
 
             {/* Current User Rank */}
-            <Card className="border-2 border-primary/30 bg-gradient-to-r from-primary/5 to-purple-500/5">
+            <Card className="border-2 border-primary/30 bg-gradient-to-r from-primary/5 to-purple-500/5 dark:from-primary/10 dark:to-purple-900/20 glass-panel">
                 <CardContent className="pt-6">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
@@ -78,8 +78,8 @@ export default function LeaderboardPage() {
                                 </AvatarFallback>
                             </Avatar>
                             <div>
-                                <p className="font-semibold">{currentUser.username} (You)</p>
-                                <p className="text-sm text-gray-500">Year {currentUser.yearGroup}</p>
+                                <p className="font-semibold text-foreground">{currentUser.username} (You)</p>
+                                <p className="text-sm text-muted-foreground">Year {currentUser.yearGroup}</p>
                             </div>
                         </div>
                         <div className="text-right">
@@ -87,7 +87,7 @@ export default function LeaderboardPage() {
                                 <Star className="h-5 w-5 text-yellow-500" />
                                 <span className="text-2xl font-bold text-primary">{currentUser.profile.xp}</span>
                             </div>
-                            <p className="text-sm text-gray-500">XP</p>
+                            <p className="text-sm text-muted-foreground">XP</p>
                         </div>
                     </div>
                 </CardContent>
@@ -95,51 +95,51 @@ export default function LeaderboardPage() {
 
             {/* Top 3 Podium */}
             {allUsers.length >= 3 && (
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-3 gap-4 mb-8 items-end">
                     {/* 2nd Place */}
-                    <Card className="bg-gradient-to-b from-gray-50 to-white">
+                    <Card className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900/50 border-gray-200 dark:border-gray-700">
                         <CardContent className="pt-6 text-center">
                             <div className="mb-3">
-                                <Medal className="h-12 w-12 mx-auto text-gray-400" />
+                                <Medal className="h-12 w-12 mx-auto text-gray-400 dark:text-gray-300" />
                             </div>
-                            <Avatar className="h-16 w-16 mx-auto mb-3 border-2 border-gray-300">
+                            <Avatar className="h-16 w-16 mx-auto mb-3 border-2 border-gray-300 dark:border-gray-600">
                                 <AvatarImage src={allUsers[1].profile.avatarUrl} />
                                 <AvatarFallback>{allUsers[1].username[0]}</AvatarFallback>
                             </Avatar>
-                            <p className="font-semibold">{allUsers[1].username}</p>
-                            <p className="text-sm text-gray-500 mb-2">Year {allUsers[1].yearGroup}</p>
+                            <p className="font-semibold text-foreground">{allUsers[1].username}</p>
+                            <p className="text-sm text-muted-foreground mb-2">Year {allUsers[1].yearGroup}</p>
                             <Badge variant="secondary">{allUsers[1].profile.xp} XP</Badge>
                         </CardContent>
                     </Card>
 
                     {/* 1st Place */}
-                    <Card className="bg-gradient-to-b from-yellow-50 to-white border-2 border-yellow-200 -mt-4">
+                    <Card className="bg-gradient-to-b from-yellow-50 to-white dark:from-yellow-900/20 dark:to-yellow-900/5 border-2 border-yellow-200 dark:border-yellow-700 -mt-4 shadow-lg shadow-yellow-500/10 z-10">
                         <CardContent className="pt-6 text-center">
                             <div className="mb-3">
                                 <Crown className="h-16 w-16 mx-auto text-yellow-500" />
                             </div>
-                            <Avatar className="h-20 w-20 mx-auto mb-3 border-4 border-yellow-300">
+                            <Avatar className="h-20 w-20 mx-auto mb-3 border-4 border-yellow-300 dark:border-yellow-600">
                                 <AvatarImage src={allUsers[0].profile.avatarUrl} />
                                 <AvatarFallback>{allUsers[0].username[0]}</AvatarFallback>
                             </Avatar>
-                            <p className="font-bold text-lg">{allUsers[0].username}</p>
-                            <p className="text-sm text-gray-500 mb-2">Year {allUsers[0].yearGroup}</p>
-                            <Badge className="bg-yellow-500">{allUsers[0].profile.xp} XP</Badge>
+                            <p className="font-bold text-lg text-foreground">{allUsers[0].username}</p>
+                            <p className="text-sm text-muted-foreground mb-2">Year {allUsers[0].yearGroup}</p>
+                            <Badge className="bg-yellow-500 hover:bg-yellow-600 text-white border-none">{allUsers[0].profile.xp} XP</Badge>
                         </CardContent>
                     </Card>
 
                     {/* 3rd Place */}
-                    <Card className="bg-gradient-to-b from-amber-50 to-white">
+                    <Card className="bg-gradient-to-b from-amber-50 to-white dark:from-orange-900/20 dark:to-orange-900/5 border-amber-200 dark:border-orange-800">
                         <CardContent className="pt-6 text-center">
                             <div className="mb-3">
-                                <Medal className="h-12 w-12 mx-auto text-amber-600" />
+                                <Medal className="h-12 w-12 mx-auto text-amber-600 dark:text-amber-500" />
                             </div>
-                            <Avatar className="h-16 w-16 mx-auto mb-3 border-2 border-amber-300">
+                            <Avatar className="h-16 w-16 mx-auto mb-3 border-2 border-amber-300 dark:border-amber-700">
                                 <AvatarImage src={allUsers[2].profile.avatarUrl} />
                                 <AvatarFallback>{allUsers[2].username[0]}</AvatarFallback>
                             </Avatar>
-                            <p className="font-semibold">{allUsers[2].username}</p>
-                            <p className="text-sm text-gray-500 mb-2">Year {allUsers[2].yearGroup}</p>
+                            <p className="font-semibold text-foreground">{allUsers[2].username}</p>
+                            <p className="text-sm text-muted-foreground mb-2">Year {allUsers[2].yearGroup}</p>
                             <Badge variant="secondary">{allUsers[2].profile.xp} XP</Badge>
                         </CardContent>
                     </Card>
@@ -147,9 +147,9 @@ export default function LeaderboardPage() {
             )}
 
             {/* Full Leaderboard */}
-            <Card>
+            <Card className="glass-panel">
                 <CardHeader>
-                    <CardTitle>All Scholars</CardTitle>
+                    <CardTitle className="text-foreground">All Scholars</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <div className="space-y-3">
@@ -162,8 +162,8 @@ export default function LeaderboardPage() {
                                 <div
                                     key={user.username}
                                     className={`flex items-center justify-between p-4 rounded-lg transition-colors ${isCurrentUser
-                                            ? 'bg-primary/10 border-2 border-primary/30'
-                                            : 'bg-gray-50 hover:bg-gray-100'
+                                        ? 'bg-primary/10 border-2 border-primary/30'
+                                        : 'bg-muted/30 hover:bg-muted/50 border border-transparent hover:border-border'
                                         }`}
                                 >
                                     <div className="flex items-center gap-4">
@@ -175,11 +175,11 @@ export default function LeaderboardPage() {
                                             <AvatarFallback>{user.username[0]}</AvatarFallback>
                                         </Avatar>
                                         <div>
-                                            <p className="font-semibold flex items-center gap-2">
+                                            <p className="font-semibold flex items-center gap-2 text-foreground">
                                                 {user.username}
                                                 {isCurrentUser && <Badge variant="outline">You</Badge>}
                                             </p>
-                                            <div className="flex items-center gap-2 text-sm text-gray-500">
+                                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                                 <span>Year {user.yearGroup}</span>
                                                 {rankBadge && <span>• {rankBadge}</span>}
                                             </div>
@@ -188,9 +188,9 @@ export default function LeaderboardPage() {
                                     <div className="text-right">
                                         <div className="flex items-center gap-1 justify-end">
                                             <Star className="h-4 w-4 text-yellow-500" />
-                                            <span className="font-bold text-lg">{user.profile.xp}</span>
+                                            <span className="font-bold text-lg text-foreground">{user.profile.xp}</span>
                                         </div>
-                                        <p className="text-xs text-gray-500">Level {user.profile.level}</p>
+                                        <p className="text-xs text-muted-foreground">Level {user.profile.level}</p>
                                     </div>
                                 </div>
                             )

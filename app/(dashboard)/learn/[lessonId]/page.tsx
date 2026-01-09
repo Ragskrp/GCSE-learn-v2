@@ -13,18 +13,21 @@ export default function LessonPage({ params }: { params: { lessonId: string } })
     const [completed, setCompleted] = useState(false)
 
     useEffect(() => {
-        const context = ContentService.getLessonWithContext(params.lessonId)
-        if (context) {
-            setLesson(context.lesson)
-            // Try to find a quiz in the same topic.
-            // Ideally matches the lesson, but for now, just grab the first quiz in the topic (often the exit test)
-            if (context.topic.quizzes && context.topic.quizzes.length > 0) {
-                setRelatedQuizId(context.topic.quizzes[0].id)
+        const fetchLesson = async () => {
+            const context = await ContentService.getLessonWithContext(params.lessonId)
+            if (context) {
+                setLesson(context.lesson)
+                // Try to find a quiz in the same topic.
+                // Ideally matches the lesson, but for now, just grab the first quiz in the topic (often the exit test)
+                if (context.topic.quizzes && context.topic.quizzes.length > 0) {
+                    setRelatedQuizId(context.topic.quizzes[0].id)
+                }
+            } else {
+                // Lesson not found, redirect back
+                router.push("/subjects")
             }
-        } else {
-            // Lesson not found, redirect back
-            router.push("/subjects")
         }
+        fetchLesson()
     }, [params.lessonId, router])
 
     const handleComplete = () => {

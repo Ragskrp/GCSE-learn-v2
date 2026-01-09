@@ -89,6 +89,7 @@ export class AuthService {
                             coins: userData.coins || userData.profile?.coins || 0,
                             avatarUrl: userData.avatarUrl || userData.profile?.avatarUrl || "/cute-girl-avatar.png",
                             totalQuestsCompleted: userData.totalQuestsCompleted || userData.profile?.totalQuestsCompleted || 0,
+                            achievements: userData.achievements || userData.profile?.achievements || [],
                             subjects: userSubjects
                         };
 
@@ -193,6 +194,7 @@ export class AuthService {
                 coins: 0,
                 avatarUrl: "/cute-girl-avatar.png",
                 totalQuestsCompleted: 0,
+                achievements: [],
                 subjects: defaultSubjects
             };
 
@@ -289,6 +291,7 @@ export class AuthService {
                         coins: data.coins,
                         avatarUrl: data.avatarUrl || "/cute-girl-avatar.png",
                         totalQuestsCompleted: data.totalQuestsCompleted || 0,
+                        achievements: data.achievements || data.profile?.achievements || [],
                         subjects: data.subjects || []
                     };
 
@@ -345,6 +348,7 @@ export class AuthService {
                     coins: user.profile.coins,
                     avatarUrl: user.profile.avatarUrl,
                     totalQuestsCompleted: user.profile.totalQuestsCompleted,
+                    achievements: user.profile.achievements || [],
                     subjects: user.profile.subjects,
                     // Nested profile
                     profile: user.profile,
@@ -395,6 +399,7 @@ export class AuthService {
                     coins: userData.coins || userData.profile?.coins || 0,
                     avatarUrl: userData.avatarUrl || userData.profile?.avatarUrl || "/cute-girl-avatar.png",
                     totalQuestsCompleted: userData.totalQuestsCompleted || userData.profile?.totalQuestsCompleted || 0,
+                    achievements: userData.achievements || userData.profile?.achievements || [],
                     subjects: userSubjects
                 };
 

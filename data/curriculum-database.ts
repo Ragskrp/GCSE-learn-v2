@@ -1,7 +1,17 @@
-
 import { Subject, Topic, StudyMaterial, Quiz, QuizQuestion } from "@/types/curriculum";
 
 // Import Subject Data
+export { year10Mathematics } from "./maths-data";
+export { year10CombinedScience } from "./science-data";
+export { year10EnglishLiterature } from "./english-data";
+export { year10History } from "./history-data";
+export { year10ComputerScienceJ277 } from "./computer-science-data";
+
+// Need to import them for the array below too? 
+// Actually if I export them, I can't use them locally in the same file easily without aliasing or importing * as ...
+// Wait, 'export { foo } from "bar"' does NOT make 'foo' available in the current scope.
+// So I need to import them and then export them.
+
 import { year10Mathematics } from "./maths-data";
 import { year10CombinedScience } from "./science-data";
 import { year10EnglishLiterature } from "./english-data";
@@ -12,7 +22,7 @@ import { year10ComputerScienceJ277 } from "./computer-science-data";
 export type { Subject, Topic, StudyMaterial, Quiz, QuizQuestion };
 
 // Mock Year 7 Data (Placeholder)
-const year7Mathematics: Subject = {
+export const year7Mathematics: Subject = {
   id: "maths-7",
   name: "Mathematics (Year 7)",
   duration: 60,

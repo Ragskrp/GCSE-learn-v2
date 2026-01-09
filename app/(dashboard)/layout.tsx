@@ -13,10 +13,12 @@ import {
     Menu,
     GraduationCap,
     Sparkles,
-    UserCircle
+    UserCircle,
+    Medal
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { ModeToggle } from "@/components/mode-toggle"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
@@ -44,11 +46,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-pink-50">
+            <div className="min-h-screen flex items-center justify-center bg-background">
                 <div className="relative">
-                    <div className="h-24 w-24 rounded-full border-t-8 border-b-8 border-pink-400 animate-spin"></div>
-                    <div className="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-purple-400 animate-spin delay-150"></div>
-                    <div className="absolute inset-0 flex items-center justify-center font-bold text-pink-500">Loading...</div>
+                    <div className="h-24 w-24 rounded-full border-t-8 border-b-8 border-primary animate-spin"></div>
+                    <div className="absolute top-0 left-0 h-24 w-24 rounded-full border-t-8 border-b-8 border-secondary animate-spin delay-150"></div>
                 </div>
             </div>
         )
@@ -59,7 +60,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     const navItems = [
         { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
         { href: "/subjects", label: "My Quests", icon: BookOpen },
+        { href: "/mock-tests", label: "Mock Tests", icon: GraduationCap },
         { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
+        { href: "/achievements", label: "Achievements", icon: Medal },
         { href: "/profile", label: "My Profile", icon: UserCircle },
         { href: "/settings", label: "Settings", icon: Settings },
     ]
@@ -69,14 +72,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
             {/* Background Blobs for Dashboard */}
             <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-pink-200/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-200/40 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
+                <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
             </div>
 
             {/* Mobile Sidebar Overlay */}
             {!sidebarOpen && (
                 <div
-                    className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
                     onClick={() => setSidebarOpen(true)}
                 />
             )}
@@ -88,29 +91,29 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     !sidebarOpen && "-translate-x-full lg:translate-x-0"
                 )}
             >
-                <div className="glass-panel h-full rounded-3xl flex flex-col overflow-hidden bg-white/40">
-                    <div className="h-24 flex items-center justify-center border-b border-white/40 mb-2">
+                <div className="glass-panel h-full rounded-3xl flex flex-col overflow-hidden">
+                    <div className="h-24 flex items-center justify-center border-b border-white/10 mb-2">
                         <div className="flex items-center gap-3">
-                            <div className="bg-gradient-to-tr from-pink-400 to-purple-500 p-2.5 rounded-xl shadow-lg text-white">
+                            <div className="bg-gradient-to-tr from-primary to-purple-500 p-2.5 rounded-xl shadow-lg text-white">
                                 <GraduationCap size={28} />
                             </div>
                             <div>
-                                <h1 className="text-xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">GCSE Quest</h1>
-                                <p className="text-xs text-slate-500 font-medium tracking-wide">LEVEL UP LEARNING</p>
+                                <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">GCSE Quest</h1>
+                                <p className="text-xs text-muted-foreground font-medium tracking-wide">LEVEL UP LEARNING</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="p-4 flex-1 overflow-y-auto">
                         {/* User Profile Mini-Card */}
-                        <div className="glass-card p-4 rounded-2xl mb-8 flex items-center space-x-3 bg-white/60">
-                            <Avatar className="h-12 w-12 border-2 border-white shadow-md">
+                        <div className="glass-card p-4 rounded-2xl mb-8 flex items-center space-x-3">
+                            <Avatar className="h-12 w-12 border-2 border-white/20 shadow-md">
                                 <AvatarImage src={user.profile.avatarUrl} />
-                                <AvatarFallback className="bg-pink-100 text-pink-600">{user.username[0]}</AvatarFallback>
+                                <AvatarFallback className="bg-primary/20 text-primary">{user.username[0]}</AvatarFallback>
                             </Avatar>
                             <div className="overflow-hidden">
-                                <p className="text-sm font-bold text-slate-700 truncate">{user.username}</p>
-                                <div className="flex items-center text-xs text-pink-600 font-semibold bg-pink-100 px-2 py-0.5 rounded-full w-fit mt-1">
+                                <p className="text-sm font-bold text-foreground truncate">{user.username}</p>
+                                <div className="flex items-center text-xs text-primary font-semibold bg-primary/10 px-2 py-0.5 rounded-full w-fit mt-1">
                                     <Sparkles className="h-3 w-3 mr-1" />
                                     Level {user.profile.level}
                                 </div>
@@ -128,14 +131,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                         className={cn(
                                             "flex items-center space-x-3 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all duration-200 group relative overflow-hidden",
                                             isActive
-                                                ? "text-white shadow-md shadow-pink-200 scale-105"
-                                                : "text-slate-600 hover:bg-white/50 hover:text-pink-600"
+                                                ? "text-primary-foreground shadow-md shadow-primary/20 scale-105"
+                                                : "text-muted-foreground hover:bg-white/10 hover:text-primary dark:hover:bg-white/5"
                                         )}
                                     >
                                         {isActive && (
-                                            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-100 z-0"></div>
+                                            <div className="absolute inset-0 bg-gradient-to-r from-primary to-purple-500 opacity-100 z-0"></div>
                                         )}
-                                        <Icon className={cn("h-5 w-5 relative z-10 transition-transform group-hover:scale-110", isActive ? "text-white" : "text-slate-400 group-hover:text-pink-500")} />
+                                        <Icon className={cn("h-5 w-5 relative z-10 transition-transform group-hover:scale-110", isActive ? "text-white" : "text-slate-400 group-hover:text-primary")} />
                                         <span className="relative z-10">{item.label}</span>
                                         {isActive && <div className="absolute right-3 h-2 w-2 bg-white rounded-full z-10 animate-pulse"></div>}
                                     </Link>
@@ -144,10 +147,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                         </nav>
                     </div>
 
-                    <div className="p-4 mt-auto border-t border-white/40">
+                    <div className="p-4 mt-auto border-t border-white/10">
                         <Button
                             variant="ghost"
-                            className="w-full justify-start text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-xl h-12 px-4"
+                            className="w-full justify-start text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-xl h-12 px-4"
                             onClick={handleLogout}
                         >
                             <LogOut className="h-5 w-5 mr-3" />
@@ -165,14 +168,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="bg-white/50 text-slate-600"
+                            className="bg-white/50 text-slate-600 dark:bg-black/50 dark:text-slate-200"
                             onClick={() => setSidebarOpen(!sidebarOpen)}
                         >
                             <Menu className="h-6 w-6" />
                         </Button>
                     </div>
 
-                    {/* Page Title / Breadcrumbs Placeholder */}
+                    {/* Page Title */}
                     <div className="hidden lg:block">
                         <h2 className="text-2xl font-bold gradient-text">
                             {navItems.find(i => pathname.startsWith(i.href))?.label || "Adventure"}
@@ -181,16 +184,18 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
                     {/* Top Right Actions */}
                     <div className="flex items-center space-x-4">
-                        <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-4 bg-white/60">
+                        <ModeToggle />
+
+                        <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-4">
                             <div className="flex items-center text-yellow-500 font-bold">
-                                <div className="bg-yellow-100 p-1.5 rounded-full mr-2">
+                                <div className="bg-yellow-100 p-1.5 rounded-full mr-2 dark:bg-yellow-900/20">
                                     <Trophy size={16} />
                                 </div>
                                 <span>{user.profile.xp} XP</span>
                             </div>
-                            <div className="h-4 w-px bg-slate-200"></div>
-                            <div className="flex items-center text-pink-500 font-bold">
-                                <div className="bg-pink-100 p-1.5 rounded-full mr-2">
+                            <div className="h-4 w-px bg-slate-200 dark:bg-slate-700"></div>
+                            <div className="flex items-center text-primary font-bold">
+                                <div className="bg-primary/10 p-1.5 rounded-full mr-2">
                                     <Sparkles size={16} />
                                 </div>
                                 <span>{user.profile.coins} Coins</span>
@@ -201,7 +206,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
                 {/* Page Content Container */}
                 <div className="flex-1 overflow-y-auto p-4 lg:p-8 pt-0 scrollbar-hide">
-                    {/* Inner content wrapper with animation */}
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 ease-out">
                         {children}
                     </div>

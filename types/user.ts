@@ -9,8 +9,17 @@ export interface User {
     coins: number
     avatarUrl: string
     totalQuestsCompleted: number
+    achievements: string[]
     subjects: Subject[]
   }
+}
+
+export interface Achievement {
+  id: string
+  title: string
+  description: string
+  icon: string
+  xpReward: number
 }
 
 export interface Subject {

@@ -12,305 +12,189 @@ const firebaseConfig = {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
+if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+    console.error('❌ Error: Firebase configuration missing!');
+    process.exit(1);
+}
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const computerScienceCurriculum = {
     id: "computer-science-j277",
-    name: "Computer Science (J277)",
-    duration: 90, // total hours approx
-    questions: 50,
-    color: "from-blue-500 to-cyan-500",
+    name: "Computer Science (OCR J277)",
+    duration: 120,
+    questions: 200,
+    color: "from-purple-500 to-indigo-600",
     icon: "💻",
     level: 1,
     xp: 0,
-    maxXp: 1000,
+    maxXp: 4000,
     coins: 0,
     unlocked: true,
-    conquestTitle: "Binary Baron",
-    timeLimit: 90,
+    conquestTitle: "Code Crusader",
+    timeLimit: 120,
     topics: [
-        // COMPONENT 1: COMPUTER SYSTEMS
+        // --- COMPONENT 1: COMPUTER SYSTEMS ---
         {
-            id: "1.1-systems-architecture",
+            id: "1.1-systems",
             name: "1.1 Systems Architecture",
             completed: false,
             studyMaterials: [
                 {
-                    id: "cpu-architecture",
-                    title: "The CPU and Van Neumann Architecture",
-                    content: `# 🧠 The Brain of the Computer: CPU Architecture
-
-> **"The CPU is the conductor of the digital orchestra."**
-
----
-
-## 🎯 Quest Objectives
-- 🏛️ Understand the purpose of the CPU
-- 🔄 Master the Fetch-Execute Cycle
-- 🧠 Explore Von Neumann Architecture
-- 💾 Learn about registers (MAR, MDR, PC, ACC)
-
-**XP Reward:** 150 ⭐ | **Time:** 45 mins
-
----
-
-## 📚 Chapter 1: The Central Processing Unit (CPU)
-The CPU (**Central Processing Unit**) is the most important component. It processes all data and instructions.
-
-### 🔑 Key Characteristics
-- **Clock Speed:** How many cycles per second (Hz). 3GHz = 3 billion cycles/sec!
-- **Cores:** Independent processing units (Dual Core, Quad Core).
-- **Cache:** Super-fast memory close to the CPU.
-
----
-
-## 📚 Chapter 2: Von Neumann Architecture
-In 1945, John von Neumann proposed a design where **data and instructions are stored in the same memory**.
-
-### 🏗️ Components:
-1. **CU (Control Unit):** Manages the flow of data.
-2. **ALU (Arithmetic Logic Unit):** The calculator. Does the math (+, -) and logic (AND, OR).
-3. **Cache:** Fast access storage.
-4. **Registers:** Tiny, fast memory slots inside the CPU.
-
----
-
-## 📚 Chapter 3: The Registers 📦
-Think of registers as the CPU's "hands" holding data right now.
-
-| Register | Name | Purpose |
-| :--- | :--- | :--- |
-| **PC** | Program Counter | Holds address of *next* instruction |
-| **MAR** | Memory Address Register | Holds address of current data being fetched |
-| **MDR** | Memory Data Register | Holds actual data fetched from memory |
-| **ACC** | Accumulator | Stores results of calculations from ALU |
-
----
-
-## 📚 Chapter 4: The Fetch-Decode-Execute Cycle 🔄
-This is the heartbeat of the computer.
-
-1.  **FETCH:** CPU gets instruction from memory (RAM).
-2.  **DECODE:** CU interprets what the instruction means.
-3.  **EXECUTE:** The instruction is carried out (e.g., adding a number).
-
----
-
-## 📝 Practice Quiz
-1. What does CPU stand for?
-2. Which register holds the address of the next instruction?
-3. What happens during the 'Execute' stage?
-
-`,
-                    type: "lesson",
-                    difficulty: "intermediate",
-                    estimatedTime: 45,
-                    learningObjectives: ["Define CPU functions", "Explain Von Neumann architecture", "Describe the F-D-E cycle"]
+                    id: "cs-cpu", title: "The CPU",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 🧠 The CPU\nCentral Processing Unit. The 'brain'.\n## Components\n* **ALU (Arithmetic Logic Unit):** Maths (+,-) and Logic (AND, OR).\n* **CU (Control Unit):** Manages data flow. Decodes instructions.\n* **Cache:** Super fast memory close to CPU.\n* **Registers:** Tiny, fast memory locations.",
+                    learningObjectives: ["Function of CPU", "Components (ALU, CU, Cache)"]
+                },
+                {
+                    id: "cs-von-neumann", title: "Von Neumann Architecture",
+                    type: "lesson", difficulty: "higher", estimatedTime: 40,
+                    content: "# 🏗️ Von Neumann\nStored Program Concept: Data and Instructions stored in same memory.\n## Registers\n* **PC (Program Counter):** Address of NEXT instruction.\n* **MAR (Memory Address Register):** Address of CURRENT data.\n* **MDR (Memory Data Register):** The ACTUAL data.\n* **Accumulator:** Stores ALU results.",
+                    learningObjectives: ["Explain Von Neumann", "Describe FDE Cycle"]
+                },
+                {
+                    id: "cs-performance", title: "CPU Performance",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 🚀 Performance\nFactors affecting speed:\n1. **Clock Speed:** Hz. Cycles per second.\n2. **Cores:** More cores = Parallel processing.\n3. **Cache Size:** More cache = Less fetching from RAM.\n4. **Embedded Systems:** Single function CPUs (e.g., Washing Machine).",
+                    learningObjectives: ["Factors affecting speed", "Define Embedded System"]
                 }
             ],
-            quizzes: [
-                {
-                    id: "cpu-quiz-1",
-                    title: "CPU & Architecture Quiz",
-                    description: "Test your knowledge of the CPU components and cycle",
-                    questions: [
-                        {
-                            id: "q1",
-                            question: "Which register stores the address of the next instruction to be fetched?",
-                            options: ["MAR", "MDR", "PC", "ACC"],
-                            correctAnswer: "PC",
-                            explanation: "The Program Counter (PC) always points to the next instruction."
-                        },
-                        {
-                            id: "q2",
-                            question: "What stands for ALU?",
-                            options: ["Arithmetic Logic Unit", "Advanced Learning Unit", "Address Logic Unit", "Automatic Logic User"],
-                            correctAnswer: "Arithmetic Logic Unit",
-                            explanation: "ALU performs arithmetic and logical operations."
-                        }
-                    ],
-                    xpReward: 50,
-                    coinReward: 20,
-                    timeLimit: 10,
-                    difficulty: "easy"
-                }
-            ]
+            quizzes: [{ id: "cpu-quiz", title: "Test: Architecture", questions: [{ id: "q1", question: "What stores the address of the next instruction?", options: ["PC", "MAR", "MDR"], correctAnswer: "PC", marks: 1, topic: "Registers" }] }]
         },
         {
-            id: "1.2-memory-storage",
+            id: "1.2-memory",
             name: "1.2 Memory and Storage",
             completed: false,
             studyMaterials: [
                 {
-                    id: "ram-rom-lesson",
-                    title: "Primary Memory: RAM vs ROM",
-                    content: `# 💾 Primary Memory: RAM & ROM
-
-> **"Memory is transient, Storage is forever (mostly)."**
-
----
-
-## 🎯 Quest Objectives
-- ⚡ Differences between RAM and ROM
-- 🧠 What is Virtual Memory?
-- 📼 Intro to Secondary Storage
-
-**XP Reward:** 100 ⭐
-
----
-
-## 📚 RAM (Random Access Memory)
-- **Volatile:** Loses data when power is off.
-- **Read/Write:** Can be changed.
-- **Purpose:** Stores currently running programs and OS data.
-
-## 📚 ROM (Read Only Memory)
-- **Non-Volatile:** Keeps data without power.
-- **Read-Only:** Cannot be easily changed.
-- **Purpose:** Stores the Bootstrap (startup) instructions.
-
-## 📚 Virtual Memory
-When RAM is full, the OS uses part of the Hard Drive as "fake RAM". It is slower because of "disk thrashing".
-
----
-`,
-                    type: "lesson",
-                    difficulty: "foundation",
-                    estimatedTime: 30,
+                    id: "cs-memory", title: "Primary Memory (RAM/ROM)",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 🧠 Memory\n* **RAM (Random Access Memory):** Volatile. Stores currently running programs. Read/Write.\n* **ROM (Read Only Memory):** Non-Volatile. Stores BIOS/Bootstrap. Read Only.\n* **Virtual Memory:** Part of HDD used as RAM when RAM is full (Slow).",
                     learningObjectives: ["Compare RAM and ROM", "Explain Virtual Memory"]
+                },
+                {
+                    id: "cs-storage", title: "Secondary Storage",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 💾 Storage\nLong term non-volatile storage.\n1. **Magnetic (HDD):** High capacity, cheap, fragile.\n2. **Optical (CD/DVD):** Cheap, portable, low capacity.\n3. **Solid State (SSD):** Fast, durable, expensive.",
+                    learningObjectives: ["Compare Storage Types", "Calculate capacity"]
+                },
+                {
+                    id: "cs-units", title: "Units of Data",
+                    type: "lesson", difficulty: "higher", estimatedTime: 20,
+                    content: "# 📏 Units\nBit (b) -> Nibble (4b) -> Byte (8b) -> KB (1000B) -> MB -> GB -> TB -> PB.\n* Why Binary? Computer circuits are ON (1) or OFF (0).",
+                    learningObjectives: ["Convert data units", "Order of magnitude"]
                 }
             ],
-            quizzes: []
+            quizzes: [{ id: "mem-quiz", title: "Test: Memory", questions: [{ id: "q1", question: "Which is Volatile?", options: ["RAM", "ROM", "HDD"], correctAnswer: "RAM", marks: 1, topic: "Memory Types" }] }]
         },
         {
             id: "1.3-networks",
             name: "1.3 Networks",
             completed: false,
-            studyMaterials: [],
-            quizzes: []
+            studyMaterials: [
+                {
+                    id: "cs-net-types", title: "LAN vs WAN",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 🌐 Networks\n* **LAN (Local Area):** Small site (School/Home). Own hardware.\n* **WAN (Wide Area):** Large geo area (Internet). Hired hardware.\n* **Client-Server:** Central server controls security.\n* **Peer-to-Peer:** All devices equal.",
+                    learningObjectives: ["Define LAN/WAN", "Compare Client-Server vs P2P"]
+                },
+                {
+                    id: "cs-topologies", title: "Topologies",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 🕸️ Topologies\n* **Star:** All nodes connect to central switch. Reliable.\n* **Mesh:** Nodes connect to each other. Self-healing but expensive wifi.",
+                    learningObjectives: ["Draw Star/Mesh", "Discuss pros/cons"]
+                },
+                {
+                    id: "cs-protocols", title: "Protocols",
+                    type: "lesson", difficulty: "higher", estimatedTime: 40,
+                    content: "# 📜 Protocols\nSet of rules for communication.\n* **TCP/IP:** Layers (Application, Transport, Internet, Link).\n* **HTTP/S:** Web pages.\n* **IMAP/POP/SMTP:** Email.\n* **FTP:** Files.",
+                    learningObjectives: ["Define Protocol", "List Layers"]
+                }
+            ],
+            quizzes: [{ id: "net-quiz", title: "Test: Networks", questions: [{ id: "q1", question: "Which protocol sends email?", options: ["SMTP", "POP", "IMAP"], correctAnswer: "SMTP", marks: 1, topic: "Protocols" }] }]
         },
         {
-            id: "1.4-network-security",
+            id: "1.4-security",
             name: "1.4 Network Security",
             completed: false,
-            studyMaterials: [],
-            quizzes: []
+            studyMaterials: [
+                {
+                    id: "cs-threats", title: "Threats",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 35,
+                    content: "# 🛡️ Threats\n* **Malware:** Viruses, Trojan, Spyware.\n* **Phishing:** Fake emails.\n* **Brute Force:** Guessing passwords.\n* **DDOS:** Flooding server with traffic.\n* **SQL Injection:** Malicious code in database inputs.",
+                    learningObjectives: ["List threats", "Define SQL Injection"]
+                },
+                {
+                    id: "cs-prevention", title: "Prevention",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 🔒 Prevention\n* **Firewall:** Monitors traffic.\n* **Encryption:** Scrambling data.\n* **Anti-malware:** Scans files.\n* **User Access Levels:** Limit permissions.",
+                    learningObjectives: ["Explain Firewalls", "Purpose of Encryption"]
+                }
+            ],
+            quizzes: [{ id: "sec-quiz", title: "Test: Security", questions: [{ id: "q1", question: "What attempts to flood a server?", options: ["DDOS", "Phishing", "Virus"], correctAnswer: "DDOS", marks: 1, topic: "Threats" }] }]
         },
         {
-            id: "1.5-system-software",
+            id: "1.5-software",
             name: "1.5 Systems Software",
             completed: false,
-            studyMaterials: [],
-            quizzes: []
+            studyMaterials: [
+                {
+                    id: "cs-os", title: "Operating Systems",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 🖥️ OS Functions\n* **User Interface:** GUI, CLI.\n* **Memory Management:** Paging.\n* **Multitasking:** Giving CPU time slices.\n* **File Management:** Hierarchical folders.\n* **Device Drivers:** Translators for hardware.",
+                    learningObjectives: ["List OS functions", "Compare GUI and CLI"]
+                },
+                {
+                    id: "cs-utility", title: "Utility Software",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 20,
+                    content: "# 🛠️ Utilities\nMaintenance programs.\n* **Defragmentation:** Reorganising file blocks on HDD.\n* **Backup:** Full vs Incremental.\n* **Compression:** Reducing file size.",
+                    learningObjectives: ["Explain Defrag", "Why backup?"]
+                }
+            ],
+            quizzes: [{ id: "soft-quiz", title: "Test: Software", questions: [{ id: "q1", question: "Which software reduces file size?", options: ["Compression", "Defrag", "Encryption"], correctAnswer: "Compression", marks: 1, topic: "Utilities" }] }]
         },
-        {
-            id: "1.6-ethics",
-            name: "1.6 Ethical & Legal",
-            completed: false,
-            studyMaterials: [],
-            quizzes: []
-        },
-        // COMPONENT 2: ALGORITHMS & PROGRAMMING
+
+        // --- COMPONENT 2: ALGORITHMS & PROGRAMMING ---
         {
             id: "2.1-algorithms",
             name: "2.1 Algorithms",
             completed: false,
             studyMaterials: [
                 {
-                    id: "searching-sorting",
-                    title: "Searching and Sorting Algorithms",
-                    content: `# 🔎 Searching & Sorting Algorithms
-
-> **"Algorithms are just recipes for computers."**
-
----
-
-## 🎯 Quest Objectives
-- 🕵️‍♂️ Linear vs Binary Search
-- 🔢 Bubble, Merge, and Insertion Sort
-- 📝 Pseudocode basics
-
-**XP Reward:** 200 ⭐
-
----
-
-## 📚 Chapter 1: Searching
-
-### 🚶 Linear Search
-Check items one by one.
-- **Pros:** Works on unsorted lists.
-- **Cons:** Slow for large lists.
-
-### 🌳 Binary Search
-Divide and conquer!
-- **Rule:** List MUST be sorted first.
-- **Steps:** Check middle item. If target is lower, discard top half. Repeat.
-- **Pros:** Super fast.
-
----
-
-## 📚 Chapter 2: Sorting
-
-### 🫧 Bubble Sort
-Compare pairs and swap.
-- Slow but simple.
-
-### 📥 Insertion Sort
-Build a sorted list one item at a time (like sorting cards).
-
-### 🤝 Merge Sort
-Split list into tiny lists, then merge them back together in order.
-- Very efficient for large lists!
-
-`,
-                    type: "lesson",
-                    difficulty: "higher",
-                    estimatedTime: 60,
-                    learningObjectives: ["Perform linear/binary searches", "Trace sorting algorithms"]
+                    id: "cs-search", title: "Searching Algorithms",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 40,
+                    content: "# 🔍 Searching\n## Linear Search\nCheck items one by one. Works on unsorted data.\n## Binary Search\nFind middle. High or Low? Discard half. Repeat. **Must be sorted.**",
+                    learningObjectives: ["Perform Linear Search", "Perform Binary Search"]
+                },
+                {
+                    id: "cs-sort", title: "Sorting Algorithms",
+                    type: "lesson", difficulty: "higher", estimatedTime: 45,
+                    content: "# 🔢 Sorting\n* **Bubble Sort:** Compare pairs, swap if wrong. Slow.\n* **Merge Sort:** Divide list into 1s, merge pairs in order. Fast.\n* **Insertion Sort:** Take item, insert into correct place in sorted list.",
+                    learningObjectives: ["Perform Bubble Sort", "Perform Merge Sort"]
                 }
             ],
-            quizzes: [
-                {
-                    id: "algorithms-quiz-1",
-                    title: "Algorithms Master",
-                    description: "Test your sorting and searching skills",
-                    questions: [
-                        {
-                            id: "q_algo1",
-                            question: "Which search algorithm requires the list to be sorted?",
-                            options: ["Linear Search", "Binary Search", "Random Search", "Bubble Search"],
-                            correctAnswer: "Binary Search",
-                            explanation: "Binary search relies on eliminating half the list, which only works if it's order."
-                        },
-                        {
-                            id: "q_algo2",
-                            question: "Which sorting algorithm is a 'Divide and Conquer' method?",
-                            options: ["Bubble Sort", "Insertion Sort", "Merge Sort", "Quick Sort"],
-                            correctAnswer: "Merge Sort",
-                            explanation: "Merge sort divides the list recursively."
-                        }
-                    ],
-                    xpReward: 60,
-                    coinReward: 25,
-                    timeLimit: 15,
-                    difficulty: "medium"
-                }
-            ]
+            quizzes: [{ id: "algo-quiz", title: "Test: Algorithms", questions: [{ id: "q1", question: "Which search requires sorted data?", options: ["Binary", "Linear", "Bubble"], correctAnswer: "Binary", marks: 1, topic: "Searching" }] }]
         },
         {
             id: "2.2-programming",
-            name: "2.2 Programming Fundamentals",
+            name: "2.2 Programming Techniques",
             completed: false,
-            studyMaterials: [],
-            quizzes: []
-        },
-        {
-            id: "2.3-robust-programs",
-            name: "2.3 Robust Programs",
-            completed: false,
-            studyMaterials: [],
-            quizzes: []
+            studyMaterials: [
+                {
+                    id: "cs-constructs", title: "Programming Constructs",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 40,
+                    content: "# 💻 Constructs\n1. **Sequence:** Lines run in order.\n2. **Selection:** IF/ELSE logic.\n3. **Iteration:** Loops (FOR, WHILE).",
+                    learningObjectives: ["Write a loop", "Use IF statements"]
+                },
+                {
+                    id: "cs-robust", title: "Robustness",
+                    type: "lesson", difficulty: "higher", estimatedTime: 30,
+                    content: "# 🛡️ Robust Code\n* **Input Sanitisation:** Removing dangerous character.\n* **Validation:** Checking input meets rules (Range check, Length check).\n* **Maintainability:** Comments, Indentation.",
+                    learningObjectives: ["Write validation checks", "Explain maintainability"]
+                }
+            ],
+            quizzes: [{ id: "prog-quiz", title: "Test: Programming", questions: [{ id: "q1", question: "Which loop runs a set number of times?", options: ["FOR", "WHILE", "IF"], correctAnswer: "FOR", marks: 1, topic: "Iteration" }] }]
         },
         {
             id: "2.4-logic",
@@ -318,46 +202,46 @@ Split list into tiny lists, then merge them back together in order.
             completed: false,
             studyMaterials: [
                 {
-                    id: "logic-gates",
-                    title: "Login Gates & Truth Tables",
-                    content: "# 🔌 Logic Gates\n\nAND, OR, NOT operations determine the logic flow of circuits.",
-                    type: "lesson",
-                    difficulty: "foundation",
-                    estimatedTime: 30,
-                    learningObjectives: ["Draw truth tables", "Identify logic gates"]
+                    id: "cs-gates", title: "Logic Gates",
+                    type: "lesson", difficulty: "foundation", estimatedTime: 30,
+                    content: "# 💡 Logic Gates\n* **AND:** Both inputs must be 1.\n* **OR:** At least one input must be 1.\n* **NOT:** Flips the input (1->0).",
+                    learningObjectives: ["Draw Truch Tables", "Draw Logic Circuits"]
                 }
             ],
-            quizzes: []
+            quizzes: [{ id: "logic-quiz", title: "Test: Logic", questions: [{ id: "q1", question: "1 AND 0 = ?", options: ["0", "1"], correctAnswer: "0", marks: 1, topic: "Gates" }] }]
         },
         {
-            id: "2.5-ide",
-            name: "2.5 IDEs & Languages",
+            id: "2.6-data",
+            name: "2.6 Data Representation",
             completed: false,
-            studyMaterials: [],
-            quizzes: []
+            studyMaterials: [
+                {
+                    id: "cs-binary-hex", title: "Binary & Hexadecimal",
+                    type: "lesson", difficulty: "higher", estimatedTime: 40,
+                    content: "# 0101 Binary\n* **Convert Denary -> Binary** (128 64 32 16 8 4 2 1).\n* **Hexadecimal:** Base 16 (0-9, A-F). 4 bits = 1 Hex digit.\n* **Binary Shifts:** Multiply/Divide by 2.",
+                    learningObjectives: ["Convert Binary/Hex", "Perform Shifts"]
+                },
+                {
+                    id: "cs-images-sound", title: "Images & Sound",
+                    type: "lesson", difficulty: "higher", estimatedTime: 40,
+                    content: "# 🖼️ Media\n* **Images:** Pixels. Colour Depth (bits per pixel), Resolution.\n* **Sound:** Sampling. Sample Rate (Hz), Bit Depth.\n* **Compression:** Lossy (removes data) vs Lossless (keeps data).",
+                    learningObjectives: ["Calculate file size", "Explain colour depth"]
+                }
+            ],
+            quizzes: [{ id: "data-quiz", title: "Test: Data", questions: [{ id: "q1", question: "Hex for 10?", options: ["A", "B", "10"], correctAnswer: "A", marks: 1, topic: "Hex" }] }]
         }
     ]
 };
 
 async function seedDatabase() {
+    console.log('🔥 Starting Computer Science Seeding...');
     try {
-        console.log('🌱 Starting Computer Science curriculum seeding...');
-
-        // 1. Save to "subjects" collection
-        await setDoc(doc(db, "subjects", computerScienceCurriculum.id), computerScienceCurriculum);
-        console.log(`✅ Saved subject: ${computerScienceCurriculum.name}`);
-
-        // 2. Add to existing users if needed (Optional: usually handled by AuthService self-healing)
-        // We strictly define it in the database so AuthService calls fetchCurriculumForYear(10) and finds this new subject id.
-
-        // UPDATE: We need to ensure AuthService knows about 'computer-science-j277'.
-        // Currently AuthService has hardcoded IDs like ['maths-10', 'science-10'].
-        // We will need to update AuthService separately.
-
-        console.log('🎉 Seeding complete! Remember to update AuthService to include "computer-science-j277" in the Year 10 curriculum list.');
+        console.log('📝 Seeding Computer Science (J277)...');
+        await setDoc(doc(db, 'subjects', 'computer-science-j277'), computerScienceCurriculum);
+        console.log('✅ Computer Science (J277) seeded successfully with EXPANDED content!');
         process.exit(0);
     } catch (error) {
-        console.error('❌ Error seeding database:', error);
+        console.error('❌ Seeding failed:', error);
         process.exit(1);
     }
 }
