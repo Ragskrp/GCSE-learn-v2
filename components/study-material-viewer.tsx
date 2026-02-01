@@ -16,7 +16,10 @@ import {
 import type { StudyMaterial } from "@/data/curriculum-database"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 import rehypeRaw from 'rehype-raw'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 
 interface StudyMaterialViewerProps {
   material: StudyMaterial
@@ -116,18 +119,55 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
               [&>*:first-child]:mt-0
               [&>*:last-child]:mb-0">
               <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
+                remarkPlugins={[remarkGfm, remarkMath]}
+                rehypePlugins={[rehypeRaw, rehypeKatex]}
                 components={{
-                  // Override components to use our styles if needed
+                  // Enhance images
                   img: ({ src, alt }) => (
-                    <div className="my-6 flex justify-center">
-                      <img
-                        src={src}
-                        alt={alt || 'Lesson illustration'}
-                        className="rounded-2xl shadow-lg border-4 border-white/20 max-h-[400px] object-contain bg-white/5"
-                      />
+                    <div className="my-8 flex justify-center">
+                      <div className="relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                        <img
+                          src={src}
+                          alt={alt || 'Lesson illustration'}
+                          className="relative rounded-2xl shadow-xl border-2 border-white/20 max-h-[450px] object-contain bg-white/5"
+                        />
+                      </div>
                     </div>
+                  ),
+                  // Custom Callout Support (Example: blockquotes as cards)
+                  blockquote: ({ children }) => (
+                    <div className="my-8 p-6 glass-panel border-l-8 border-primary rounded-r-2xl transform hover:scale-[1.01] transition-transform duration-300">
+                      <div className="flex gap-4">
+                        <div className="text-3xl mt-1">💡</div>
+                        <div className="italic text-xl text-foreground font-medium">
+                          {children}
+                        </div>
+                      </div>
+                    </div>
+                  ),
+                  // Style tables for better readability
+                  table: ({ children }) => (
+                    <div className="my-8 overflow-hidden rounded-xl border border-white/20 glass-card">
+                      <table className="w-full text-left border-collapse">
+                        {children}
+                      </table>
+                    </div>
+                  ),
+                  thead: ({ children }) => (
+                    <thead className="bg-primary/10 text-primary font-bold">
+                      {children}
+                    </thead>
+                  ),
+                  th: ({ children }) => (
+                    <th className="p-4 border-b border-white/10 uppercase tracking-wider text-sm">
+                      {children}
+                    </th>
+                  ),
+                  td: ({ children }) => (
+                    <td className="p-4 border-b border-white/5 text-muted-foreground">
+                      {children}
+                    </td>
                   ),
                 }}
               >

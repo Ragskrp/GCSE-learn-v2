@@ -44,7 +44,49 @@ const year10CombinedScience = {
                 {
                     id: "b1-structure", title: "Cell Structure",
                     type: "lesson", difficulty: "foundation", estimatedTime: 30,
-                    content: "# 🔬 Cell Structure\n## Eukaryotes vs Prokaryotes\n* **Eukaryotic:** Animal and Plant cells (Has Nucleus).\n* **Prokaryotic:** Bacteria (No Nucleus, Plasmids).\n\n## Organelles\n* **Nucleus:** Controls cell.\n* **Mitochondria:** Respiration.\n* **Ribosomes:** Protein Synthesis.",
+                    content: `# 🔬 Cell Structure
+
+> [!NOTE]
+> **Learning Objectives:** Compare Eukaryotic and Prokaryotic cells and identify key organelles.
+
+## 🧬 Eukaryotes vs Prokaryotes
+Every living thing is made of cells. There are two main categories:
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <div class="concept-card">
+    <h3 class="flex items-center gap-2 text-primary font-bold">🐾 Eukaryotes</h3>
+    <p class="text-sm">Complex cells with a <strong>Nucleus</strong>.</p>
+    <ul class="text-xs mt-2 list-disc pl-4">
+      <li>Animal Cells</li>
+      <li>Plant Cells</li>
+    </ul>
+  </div>
+  <div class="concept-card border-purple-500">
+    <h3 class="flex items-center gap-2 text-purple-600 font-bold">🦠 Prokaryotes</h3>
+    <p class="text-sm">Small, simple cells. <strong>No Nucleus</strong>.</p>
+    <ul class="text-xs mt-2 list-disc pl-4">
+      <li>Bacterial Cells</li>
+      <li>Single DNA loop</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🏗️ The Building Blocks (Organelles)
+| Organelle | Function | Found In |
+|-----------|----------|----------|
+| **Nucleus** | Controls DNA | Animal, Plant |
+| **Mitochondria** | Aerobic Respiration (Energy) | Animal, Plant |
+| **Ribosomes** | Protein Synthesis | All |
+| **Chloroplasts**| Photosynthesis | Plant Only |
+| **Cell Wall** | Strength/Structure | Plant, Bacteria |
+
+<div class="exam-tip">
+  <h3>🌟 Exam Master Tip:</h3>
+  <p>If a question asks for organelles found <strong>only</strong> in plant cells, remember: <strong>Chloroplasts, Vacuole, and Cell Wall</strong>.</p>
+</div>
+`,
                     learningObjectives: ["Compare cell types", "Label organelles"]
                 },
                 {
@@ -76,7 +118,52 @@ const year10CombinedScience = {
                 {
                     id: "b2-heart", title: "The Heart & Blood",
                     type: "lesson", difficulty: "foundation", estimatedTime: 40,
-                    content: "# 🫀 The Heart\nDouble circulatory system.\n* **Vena Cava -> Right Atrium -> Right Ventricle -> Pulmonary Artery (Lungs)**.\n* **Pulmonary Vein -> Left Atrium -> Left Ventricle -> Aorta (Body)**.\n* **Arteries:** Thick walls, High pressure.\n* **Veins:** Thin walls, Valves.",
+                    content: `# 🫀 The Heart & Blood
+
+> [!NOTE]
+> **Focus:** Understanding the double circulatory system and the structure of blood vessels.
+
+### The Double Circulatory System
+Humans have a **double system**:
+1. One system pumps blood to the **Lungs**.
+2. The second system pumps blood to the **Body**.
+
+<div class="visual-container">
+  <svg width="240" height="240" viewBox="0 0 240 240" class="drop-shadow-2xl overflow-visible">
+    <!-- Right side (Blue-ish/Deoxygenated) -->
+    <path d="M120 220 C40 180 40 80 120 40" fill="rgba(0,0,255,0.1)" stroke="#3b82f6" stroke-width="8" />
+    <!-- Left side (Red-ish/Oxygenated) -->
+    <path d="M120 220 C200 180 200 80 120 40" fill="rgba(255,0,0,0.1)" stroke="#ef4444" stroke-width="12" />
+    <line x1="120" y1="40" x2="120" y2="220" stroke="currentColor" stroke-width="4" opacity="0.2" />
+    <!-- Labels -->
+    <text x="-20" y="80" fill="#3b82f6" font-weight="bold" font-size="12">Vena Cava</text>
+    <text x="180" y="80" fill="#ef4444" font-weight="bold" font-size="12">Aorta</text>
+    <text x="120" y="110" text-anchor="middle" fill="currentColor" font-weight="bold" font-size="24">🫀</text>
+  </svg>
+</div>
+
+---
+
+# 🩸 The Blood Vessels
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="concept-card">
+    <h3 class="text-red-500 font-bold">🚀 Arteries</h3>
+    <p>Carry blood <strong>AWAY</strong> from the heart.</p>
+    <ul class="text-sm mt-2">
+      <li>Thick elastic walls</li>
+      <li>High pressure</li>
+    </ul>
+  </div>
+  <div class="concept-card">
+    <h3 class="text-blue-500 font-bold">🌊 Veins</h3>
+    <p>Carry blood <strong>TO</strong> the heart.</p>
+    <ul class="text-sm mt-2">
+      <li>Thin walls</li>
+      <li>Valves (prevent backflow)</li>
+    </ul>
+  </div>
+</div>
+`,
                     learningObjectives: ["Label the heart", "Compare blood vessels"]
                 },
                 {

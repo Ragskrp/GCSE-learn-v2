@@ -45,7 +45,10 @@ const year10Mathematics = {
           difficulty: "foundation",
           estimatedTime: 30,
           learningObjectives: ["Prime factorisation", "Find HCF", "Find LCM", "Venn Diagram Method"],
-          content: `# 🔢 Primes, HCF & LCM: Introduction
+          content: `# 🔢 Primes, HCF & LCM
+
+> [!NOTE]
+> **Learning Objectives:** Learn to find Prime Factorisations, calculate HCF and LCM, and master the Venn Diagram Method.
 
 ## What are Prime Numbers?
 A **Prime Number** is a natural number greater than 1 that has exactly two factors: **1 and itself**.
@@ -59,70 +62,73 @@ A **Prime Number** is a natural number greater than 1 that has exactly two facto
 ---
 
 # 🌳 Prime Factorisation
-Every composite number can be written as a product of its prime factors. We often use a **Factor Tree** for this.
+Every composite number can be written as a product of its prime factors. We use **Factor Trees** to break them down.
 
-## How to do it:
-1.  Start with the number at the top.
-2.  Find two factors that multiply to give that number.
-3.  Continue splitting until only prime numbers remain at the ends of the branches.
+### How to use a Factor Tree:
+1.  Split the number into two factors.
+2.  If a factor is prime, **circle it**.
+3.  Continue until every branch ends in a circled prime.
 
 **Example: 60**
-*   $60 = 6 \times 10$
-*   $6 = 2 \times 3$ (Primes!)
-*   $10 = 2 \times 5$ (Primes!)
-*   **Result (Index Form):** $60 = 2^2 \times 3 \times 5$
+<div class="flex justify-center p-6 my-6 glass-panel rounded-2xl">
+  <svg width="200" height="200" viewBox="0 0 200 200" class="drop-shadow-lg">
+    <text x="90" y="20" font-weight="bold" fill="currentColor">60</text>
+    <line x1="100" y1="30" x2="60" y2="70" stroke="currentColor" stroke-width="2" />
+    <line x1="100" y1="30" x2="140" y2="70" stroke="currentColor" stroke-width="2" />
+    <text x="45" y="90" fill="currentColor">6</text>
+    <text x="135" y="90" fill="currentColor">10</text>
+    <line x1="55" y1="100" x2="35" y2="140" stroke="currentColor" stroke-width="2" />
+    <line x1="55" y1="100" x2="75" y2="140" stroke="currentColor" stroke-width="2" />
+    <circle cx="35" cy="155" r="15" fill="rgba(255,105,180,0.2)" stroke="#FF69B4" stroke-width="2" />
+    <text x="30" y="160" fill="#FF69B4" font-weight="bold">2</text>
+    <circle cx="75" cy="155" r="15" fill="rgba(255,105,180,0.2)" stroke="#FF69B4" stroke-width="2" />
+    <text x="70" y="160" fill="#FF69B4" font-weight="bold">3</text>
+  </svg>
+</div>
+
+**Result (Index Form):** $60 = 2^2 \times 3 \times 5$
 
 ---
 
 # 🎯 Highest Common Factor (HCF)
 The **HCF** is the largest number that divides exactly into two or more numbers.
 
-## Using Venn Diagrams (The Best Way):
-1.  Perform prime factorisation for both numbers.
-2.  Draw two overlapping circles.
-3.  Place common prime factors in the **intersection** (middle overlap).
-4.  Place remaining factors in the outer parts of their respective circles.
-
-**HCF Rule:** Multiply all numbers in the **intersection**.
+### The Venn Diagram Method:
+1. Find prime factors for both numbers.
+2. Place common factors in the **intersection** (overlap).
+3. **HCF Rule:** Multiply all numbers in the overlapping middle part.
 
 ---
 
 # 🔗 Lowest Common Multiple (LCM)
 The **LCM** is the smallest number that is a multiple of all the numbers in the set.
 
-## Why use Venn Diagrams?
-Once you have filled in your Venn Diagram with prime factors, finding the LCM is simple.
-
-**LCM Rule:** Multiply **EVERY** number shown in the entire Venn Diagram (both circles and the intersection).
-
-> 💡 **Tip:** LCM is always equal to or larger than the starting numbers.
+### Finding LCM with Venn Diagrams:
+1. Fill in the Venn Diagram as you did for HCF.
+2. **LCM Rule:** Multiply **EVERY** number shown in both circles.
 
 ---
 
 # ✍️ Worked Example: 60 and 72
 Let's find the HCF and LCM of 60 and 72.
 
-*   $60 = 2 \times 2 \times 3 \times 5$
-*   $72 = 2 \times 2 \times 2 \times 3 \times 3$
+Prime factors:
+$60 = 2 \times 2 \times 3 \times 5$
+$72 = 2 \times 2 \times 2 \times 3 \times 3$
 
-### Step 1: Find Intersection
-Common factors are $2, 2, 3$.
-*   **Intersection:** $\{2, 2, 3\}$
-*   **HCF** $= 2 \times 2 \times 3 = \mathbf{12}$
-
-### Step 2: Multiply All
-*   **LCM** $= (5) \times (2 \times 2 \times 3) \times (2 \times 3) = \mathbf{360}$
+*   **HCF** (Middle Only) $= 2 \times 2 \times 3 = \mathbf{12}$
+*   **LCM** (All Numbers) $= 5 \times (2 \times 2 \times 3) \times 2 \times 3 = \mathbf{360}$
 
 ---
 
 # 🚀 Exam Strategy: Problem Solving
-Sometimes you aren't given the numbers, but their prime factorisations:
+Sometimes you aren't given the numbers, but their prime factorisations already in index form:
 $A = 2^3 \times 3^2 \times 5$
 $B = 2^2 \times 3^4 \times 7$
 
-*   **For HCF:** Take the **lowest** power of each common prime.
+*   **For HCF:** Take the **lowest** power of each common prime factor.
     *   $HCF = 2^2 \times 3^2 = 36$.
-*   **For LCM:** Take the **highest** power of every prime mentioned.
+*   **For LCM:** Take the **highest** power of every prime factor mentioned.
     *   $LCM = 2^3 \times 3^4 \times 5 \times 7 = 25200$.
 `
         },
@@ -134,67 +140,75 @@ $B = 2^2 \times 3^4 \times 7$
           estimatedTime: 35,
           learningObjectives: ["Recurring decimals to fractions", "Arithmetic with mixed numbers", "Comparing FDP"],
           content: `# 🍰 Fractions, Decimals & Percentages
-In this lesson, we master the conversion between Fraction, Decimal, and Percentage (FDP) and tackle complex arithmetic.
+
+> [!NOTE]
+> **Learning Objectives:** Mastering conversions, handling recurring decimals, and perfecting fraction arithmetic.
 
 ## Fundamental Conversions
-*   **Fraction to Decimal:** Divide top by bottom ($3/4 = 3 \div 4 = 0.75$).
-*   **Decimal to Percentage:** Multiply by 100 ($0.75 = 75\%$).
-*   **Percentage to Fraction:** Put over 100 ($45\% = 45/100 = 9/20$).
+In GCSE, speed is key. You should know these conversions by heart:
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+  <div class="concept-card text-center">
+    <div class="text-3xl mb-2">🔢</div>
+    <strong>Fraction to Decimal</strong>
+    <p class="text-sm">Divide Top by Bottom</p>
+    <div class="formula-block">$3/4 = 0.75$</div>
+  </div>
+  <div class="concept-card text-center">
+    <div class="text-3xl mb-2">💹</div>
+    <strong>Decimal to %</strong>
+    <p class="text-sm">Multiply by 100</p>
+    <div class="formula-block">$0.75 = 75\%$</div>
+  </div>
+  <div class="concept-card text-center">
+    <div class="text-3xl mb-2">🧩</div>
+    <strong>% to Fraction</strong>
+    <p class="text-sm">Put over 100</p>
+    <div class="formula-block">$45\% = \frac{45}{100}$</div>
+  </div>
+</div>
 
 ---
 
 # 🔁 Recurring Decimals (Higher Tier)
 Recurring decimals keep going forever (e.g., $0.333...$ or $0.\dot{4}\dot{5}$).
 
-## Converting to Fractions:
-To convert $x = 0.\dot{4}\dot{5}$:
-1.  **Let $x = 0.4545...$**
-2.  **Multiply** by 100 (since 2 digits repeat): $100x = 45.4545...$
-3.  **Subtract** the original $x$: 
-    $100x - x = 45.4545... - 0.4545...$
-    $99x = 45$.
-4.  **Solve for $x$:** $x = 45/99$, which simplifies to **$5/11$**.
+<div class="concept-card">
+  <h3>Steps to Convert $x = 0.\dot{4}\dot{5}$ to a Fraction:</h3>
+  <ol class="space-y-2 ml-4">
+    <li>1. Let $x = 0.4545...$</li>
+    <li>2. Multiply by 100 (2 repeating digits): $100x = 45.4545...$</li>
+    <li>3. Subtract $x$: $99x = 45$</li>
+    <li>4. Solve: $x = \frac{45}{99} = \mathbf{\frac{5}{11}}$</li>
+  </ol>
+</div>
 
 ---
 
-# ➕ Arithmetic: Addition & Subtraction
-## The Golden Rule: Common Denominators
-You cannot add/subtract fractions unless the bottom numbers (denominators) are the same.
+# ➕ Arithmetic: The Golden Rules
 
-**Example:** $2/3 + 1/4$
-1.  Find LCM of 3 and 4 $\rightarrow 12$.
-2.  Convert: $2/3 = 8/12$ and $1/4 = 3/12$.
-3.  Add tops: $11/12$.
+<div class="exam-tip">
+  <h3>🌟 The Golden Rule for Addition/Subtraction:</h3>
+  <p>You MUST find a <strong>Common Denominator</strong> (LCM of the bottom numbers) before you can add or subtract.</p>
+</div>
 
-## Mixed Numbers
-Always convert to **Improper Fractions** before calculating.
-$1\frac{2}{3} = 5/3$.
-
----
-
-# ✖️ Arithmetic: Multiplications & Division
-## Multiplying
-The easiest one! Just multiply across.
-$\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d}$
-
-## Dividing (The KFC Method)
-1.  **Keep** the first fraction.
-2.  **Flip** the second fraction (the reciprocal).
-3.  **Change** the sign to multiply.
-
-**Example:** $2/3 \div 4/5 = 2/3 \times 5/4 = 10/12 = \mathbf{5/6}$.
+### Multiplication vs Division:
+*   **Multiplication:** Just multiply across! $\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$
+*   **Division (KFC Method):** 
+    1. **K**eep the first. 
+    2. **F**lip the second. 
+    3. **C**hange to multiply.
 
 ---
 
-# 🏆 Comparing & Ordering
-To order fractions like $3/5, 7/10, 2/3$:
-1.  Convert them all to decimals:
-    *   $3/5 = 0.6$
-    *   $7/10 = 0.7$
-    *   $2/3 = 0.666...$
-2.  Order them: $3/5 < 2/3 < 7/10$.
+# 🏆 Ordering & Comparing
+To order a mix of FDP, convert them TOP to decimals first:
 
-> 💡 **Exam Tip:** If a question asks for the answer in a specific format, make sure you convert at the final step!
+**Example:** Order $3/5, 7/10, 0.62$
+1. $3/5 = 0.60$
+2. $7/10 = 0.70$
+3. $0.62$
+**Result:** $3/5 < 0.62 < 7/10$
 `
         },
         {
@@ -205,73 +219,80 @@ To order fractions like $3/5, 7/10, 2/3$:
           estimatedTime: 40,
           learningObjectives: ["Index laws", "Negative and fractional indices", "Simplifying surds", "Rationalising"],
           content: `# ⚡ The Index Laws
-Indices (powers) follow specific rules when base numbers are the same.
 
-1.  **Multiplication:** $a^m \times a^n = a^{m+n}$
-2.  **Division:** $a^m \div a^n = a^{m-n}$
-3.  **Power of a Power:** $(a^m)^n = a^{mn}$
-4.  **Zero Index:** $a^0 = 1$ (Always, unless $a=0$)
+> [!NOTE]
+> **Focus:** Mastering the 4 basic laws and tackling negative/fractional indices.
 
-**Wait!** These only work if the **base** is the same. You can't simplify $2^3 \times 3^2$ using these laws.
+Indices follow specific rules when base numbers are the same:
+
+<div class="formula-block">
+  $a^m \times a^n = a^{m+n}$ <br/>
+  $a^m \div a^n = a^{m-n}$ <br/>
+  $(a^m)^n = a^{mn}$ <br/>
+  $a^0 = 1$
+</div>
+
+<div class="pitfall-card">
+  <h3>⚠️ Watch out!</h3>
+  <p>These only work if the <strong>base</strong> is the same. You cannot simplify $2^3 \times 3^2$ using these laws!</p>
+</div>
 
 ---
 
 # 📉 Advanced Indices
-## Negative Indices
-A negative index indicates a reciprocal (flipping the number).
-$x^{-n} = \frac{1}{x^n}$
-Example: $5^{-2} = 1/25$.
 
-## Fractional Indices
-The denominator is the **root**, the numerator is the **power**.
-$x^{m/n} = (\sqrt[n]{x})^m$
+### 1. Negative Indices
+A negative index indicates a **reciprocal** (flipping the number).
+<div class="formula-block">
+  $x^{-n} = \frac{1}{x^n}$
+</div>
+**Example:** $5^{-2} = \frac{1}{5^2} = \frac{1}{25}$
 
-**Worked Example:** $27^{2/3}$
-1.  Take the cube root (denominator 3): $\sqrt[3]{27} = 3$.
-2.  Apply the power (numerator 2): $3^2 = 9$.
-3.  Final Answer: **9**.
+### 2. Fractional Indices
+The denominator is the **root**, and the numerator is the **power**.
+<div class="formula-block">
+  $x^{m/n} = (\sqrt[n]{x})^m$
+</div>
+
+**Worked Example:** Calculate $27^{2/3}$
+1. Take the **cube root** (denominator 3): $\sqrt[3]{27} = 3$
+2. Apply the **power** (numerator 2): $3^2 = 9$
+3. **Final Answer: 9**
 
 ---
 
 # 📐 Surds: The Logic
-A surd is an irrational root. We need to be able to manipulate them accurately.
+A surd is an irrational root (like $\sqrt{2}$). We must be able to simplify them accurately.
 
-## Rule 1: Multiplication
-$\sqrt{a} \times \sqrt{b} = \sqrt{a \times b}$
+<div class="concept-card">
+  <h3>Multiplying & Dividing Surds:</h3>
+  <ul>
+    <li>$\sqrt{a} \times \sqrt{b} = \sqrt{ab}$</li>
+    <li>$\frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}}$</li>
+  </ul>
+</div>
 
-## Rule 2: Division
-$\frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}}$
+### Simplifying Surds
+To simplify, find the **largest square number** that is a factor.
 
-## Simplifying Surds
-Find the largest square number that is a factor.
 **Example:** $\sqrt{72}$
-*   $72 = 36 \times 2$.
-*   $\sqrt{72} = \sqrt{36} \times \sqrt{2} = \mathbf{6\sqrt{2}}$.
+*   $72 = 36 \times 2$
+*   $\sqrt{72} = \sqrt{36} \times \sqrt{2} = \mathbf{6\sqrt{2}}$
 
 ---
 
 # 🚿 Rationalising the Denominator
 Standard form requires that we don't leave surds on the bottom of fractions.
 
-## Basic Type
+### Type 1: Basic
 If you have $\frac{k}{\sqrt{a}}$, multiply top and bottom by $\sqrt{a}$.
-Example: $\frac{6}{\sqrt{3}} \times \frac{\sqrt{3}}{\sqrt{3}} = \frac{6\sqrt{3}}{3} = \mathbf{2\sqrt{3}}$.
+<div class="formula-block">
+  $\frac{6}{\sqrt{3}} = \frac{6\sqrt{3}}{3} = 2\sqrt{3}$
+</div>
 
-## Conjugate Type
-If you have $\frac{k}{a + \sqrt{b}}$, multiply by $\frac{a - \sqrt{b}}{a - \sqrt{b}}$.
-This uses the "Difference of Two Squares" to cancel out the middle surd term.
-
----
-
-# ✍️ Surd Algebra Example
-Expand and simplify: $(3 + \sqrt{5})(2 - \sqrt{5})$
-
-1.  **First:** $3 \times 2 = 6$
-2.  **Outer:** $3 \times -\sqrt{5} = -3\sqrt{5}$
-3.  **Inner:** $\sqrt{5} \times 2 = 2\sqrt{5}$
-4.  **Last:** $\sqrt{5} \times -\sqrt{5} = -5$
-
-**Simplify:** $(6 - 5) + (-3\sqrt{5} + 2\sqrt{5}) = \mathbf{1 - \sqrt{5}}$.
+### Type 2: Conjugate (Higher Tier)
+If you have $\frac{k}{a + \sqrt{b}}$, multiply by the **conjugate** ($a - \sqrt{b}$).
+This uses the "Difference of Two Squares" to cancel out the surd.
 `
         },
         {

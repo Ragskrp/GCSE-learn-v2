@@ -233,6 +233,32 @@
     scrollbar-width: none;
   }
 
+  /* Premium Learning Content Styles */
+  .concept-card {
+    @apply my-8 p-6 glass-panel border-l-8 border-primary rounded-r-2xl transform hover:scale-[1.01] transition-all duration-300;
+  }
+
+  .exam-tip {
+    @apply my-8 p-6 bg-gradient-to-r from-yellow-100 to-amber-50 dark:from-yellow-900/20 dark:to-orange-900/10 border-l-8 border-yellow-500 rounded-r-2xl shadow-md;
+  }
+
+  .pitfall-card {
+    @apply my-8 p-6 bg-gradient-to-r from-red-100 to-rose-50 dark:from-red-900/20 dark:to-rose-900/10 border-l-8 border-red-500 rounded-r-2xl shadow-md;
+  }
+
+  .formula-block {
+    @apply my-6 p-4 bg-secondary/30 rounded-xl border border-white/20 font-mono text-center text-2xl text-primary shadow-inner italic;
+  }
+
+  .visual-container {
+    @apply my-8 flex justify-center p-8 glass-panel rounded-3xl border-2 border-white/40 shadow-2xl overflow-hidden relative;
+  }
+
+  .visual-container::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-600/5 pointer-events-none;
+  }
+
   /* Custom Scrollbar */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;

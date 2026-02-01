@@ -44,7 +44,54 @@ const computerScienceCurriculum = {
                 {
                     id: "cs-cpu", title: "The CPU",
                     type: "lesson", difficulty: "foundation", estimatedTime: 30,
-                    content: "# 🧠 The CPU\nCentral Processing Unit. The 'brain'.\n## Components\n* **ALU (Arithmetic Logic Unit):** Maths (+,-) and Logic (AND, OR).\n* **CU (Control Unit):** Manages data flow. Decodes instructions.\n* **Cache:** Super fast memory close to CPU.\n* **Registers:** Tiny, fast memory locations.",
+                    content: `# 🧠 The CPU: Central Processing Unit
+
+> [!NOTE]
+> **Learning Objectives:** Understand the FDE cycle and identify the key internal components of the "brain" of the computer.
+
+## The CPU Architecture
+The CPU is responsible for executing instructions and processing data.
+
+<div class="visual-container">
+  <svg width="300" height="200" viewBox="0 0 300 200" class="overflow-visible">
+    <!-- CPU Box -->
+    <rect x="50" y="20" width="200" height="160" rx="10" fill="none" stroke="currentColor" stroke-width="4" />
+    <text x="150" y="50" text-anchor="middle" fill="currentColor" font-weight="bold" font-size="16">CPU</text>
+    
+    <!-- ALU -->
+    <rect x="70" y="70" width="60" height="40" rx="5" fill="rgba(255,105,180,0.1)" stroke="#FF69B4" stroke-width="2" />
+    <text x="100" y="95" text-anchor="middle" fill="#FF69B4" font-weight="bold" font-size="12">ALU</text>
+    
+    <!-- CU -->
+    <rect x="170" y="70" width="60" height="40" rx="5" fill="rgba(147,112,219,0.1)" stroke="#9370DB" stroke-width="2" />
+    <text x="200" y="95" text-anchor="middle" fill="#9370DB" font-weight="bold" font-size="12">CU</text>
+    
+    <!-- Cache -->
+    <rect x="70" y="130" width="160" height="30" rx="5" fill="rgba(75,0,130,0.1)" stroke="currentColor" stroke-width="2" />
+    <text x="150" y="150" text-anchor="middle" fill="currentColor" font-size="12">Cache Memory</text>
+  </svg>
+</div>
+
+---
+
+# 🏗️ Core Components
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="concept-card">
+    <h3 class="text-primary font-bold">➕ ALU</h3>
+    <p class="text-xs"><strong>Arithmetic Logic Unit</strong>: Performs all mathematical calculations and logic comparisons.</p>
+  </div>
+  <div class="concept-card border-purple-500">
+    <h3 class="text-purple-600 font-bold">🎮 CU</h3>
+    <p class="text-xs"><strong>Control Unit</strong>: Manages the flow of data and decodes instructions.</p>
+  </div>
+</div>
+
+<div class="exam-tip">
+  <h3>🌟 Performance Factors:</h3>
+  <p>Remember the "Big 3" that make a CPU faster: <strong>Clock Speed</strong>, <strong>Cores</strong>, and <strong>Cache Size</strong>.</p>
+</div>
+`,
                     learningObjectives: ["Function of CPU", "Components (ALU, CU, Cache)"]
                 },
                 {

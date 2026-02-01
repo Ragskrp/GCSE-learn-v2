@@ -104,7 +104,59 @@ const year10History = {
                 {
                     id: "east-west-conflict",
                     title: "Conflict and Tension: Cold War",
-                    content: `# 🧊 East vs West 1945-1972\n\n## 📚 Origins\n- Yalta/Potsdam, Iron Curtain, Truman Doctrine, Berlin Blockade.\n\n## 📚 Development\n- **Arms Race:** Atomic Bomb, H-Bomb, ICBMs.\n- **Alliances:** NATO vs Warsaw Pact.\n- **Hungary (1956):** Uprising crushed.\n- **Berlin Wall (1961).**\n\n## 📚 Crises\n- **Cuban Missile Crisis (1962):** Closest to nuclear war.\n- **Czechoslovakia (1968):** Prague Spring.\n- **Détente:** Thawing of tension (SALT 1).`,
+                    content: `# 🧊 East vs West 1945-1972
+
+> [!NOTE]
+> **Key Themes:** Ideological conflict, the Arms Race, and the various crises that brought the world to the brink of nuclear war.
+
+### 📅 The Cold War Timeline
+<div class="visual-container overflow-x-auto">
+  <svg width="600" height="150" viewBox="0 0 600 150" class="overflow-visible">
+    <line x1="50" y1="100" x2="550" y2="100" stroke="#FF69B4" stroke-width="4" stroke-linecap="round" />
+    <circle cx="50" cy="100" r="8" fill="#FF1493" />
+    <text x="50" y="130" text-anchor="middle" fill="currentColor" font-size="12">1945</text>
+    <text x="50" y="80" text-anchor="middle" fill="#FF1493" font-weight="bold" font-size="10">Yalta/Potsdam</text>
+    <circle cx="150" cy="100" r="8" fill="#FF1493" />
+    <text x="150" y="130" text-anchor="middle" fill="currentColor" font-size="12">1948</text>
+    <text x="150" y="80" text-anchor="middle" fill="#FF1493" font-weight="bold" font-size="10">Berlin Blockade</text>
+    <circle cx="300" cy="100" r="8" fill="#FF1493" />
+    <text x="300" y="130" text-anchor="middle" fill="currentColor" font-size="12">1961</text>
+    <text x="300" y="80" text-anchor="middle" fill="#FF1493" font-weight="bold" font-size="10">Berlin Wall</text>
+    <circle cx="450" cy="100" r="8" fill="#FF1493" />
+    <text x="450" y="130" text-anchor="middle" fill="currentColor" font-size="12">1962</text>
+    <text x="450" y="80" text-anchor="middle" fill="#FF1493" font-weight="bold" font-size="10">Cuban Crisis</text>
+  </svg>
+</div>
+
+---
+
+# 🛡️ Origins & Development
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <div class="concept-card">
+    <h3 class="text-primary font-bold">🗳️ Truman Doctrine</h3>
+    <p class="text-sm">The US policy to <strong>contain</strong> communism and stop its spread across Europe.</p>
+  </div>
+  <div class="concept-card border-purple-500">
+    <h3 class="text-purple-600 font-bold">🧱 Iron Curtain</h3>
+    <p class="text-sm">The symbolic and physical divide between the democratic West and communist East.</p>
+  </div>
+</div>
+
+<div class="exam-tip">
+  <h3>📝 Exam Master Tip:</h3>
+  <p>When analyzing the causes, always mention the breakdown of the "Grand Alliance" between the USA, USSR, and Britain after WWII.</p>
+</div>
+
+---
+
+# 🚀 The Arms Race & Crises
+The competition for military supremacy was a defining feature of the Cold War.
+
+*   **Atomic Bomb (1945):** USA's secret weapon.
+*   **H-Bomb (1952):** Thousands of times more powerful.
+*   **Cuban Missile Crisis (1962):** The closest the world ever came to nuclear destruction.
+`,
                     type: "lesson",
                     difficulty: "foundation",
                     estimatedTime: 50,
