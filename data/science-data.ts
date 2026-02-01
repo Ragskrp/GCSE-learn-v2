@@ -25,42 +25,54 @@ export const year10CombinedScience: Subject = {
                 {
                     id: "cell-structure-transport",
                     title: "Cells & Transport",
-                    content: `# 🔬 Biology: Cell Structure & Transport
-
-> **"All living things are made of cells."**
-
----
-
-## 🎯 Objectives
-- 🦠 Compare **Prokaryotic and Eukaryotic** cells.
-- 🧱 Describe **organelles** in animal and plant cells.
-- 📉 Understand **Mitosis** (Cell Division).
-- 🌊 Master **Diffusion, Osmosis, and Active Transport**.
+                    content: `# 🔬 B1: Cell Structure & Transport
+3
+> [!NOTE]
+> **Essential Concept:** Every living organism is built from cells—the fundamental units of life. Master these structures to understand how everything from bacteria to blue whales functions.
 
 ---
 
-## 📚 Chapter 1: Eukaryotic vs Prokaryotic
+## 🏛️ Cell Classification
 
+The world of cells is divided into two major "kingdoms" based on how they store their genetic blueprints.
+
+### 🦠 Eukaryotic vs Prokaryotic
 | Feature | Eukaryotic (Animal/Plant) | Prokaryotic (Bacteria) |
 | :--- | :--- | :--- |
-| **Size** | Larger (10-100 µm) | Tiny (0.1 - 5 µm) |
-| **DNA** | Enclosed in a **Nucleus** | Loop of DNA + Plasmids |
-| **Mitochondria** | Yes | No |
-| **Cell Wall** | Plants only (Cellulose) | Yes (Peptidoglycan) |
+| **Nucleus** | Yes - DNA is safely enclosed. | No - DNA floats freely in a loop. |
+| **Scale** | Larger and complex (10-100 µm). | Tiny and simple (0.1 - 5 µm). |
+| **Organelles** | Has mitochondria and chloroplasts. | None - very basic internal structure. |
+| **Plasmids** | No. | Yes - extra rings of DNA. |
 
-## 📚 Chapter 2: Cell Transport Actions
+---
 
-1.  **Diffusion:** Movement of particles from **High -> Low** concentration. (Passive - No energy).
-    *   *Example:* Oxygen entering blood lungs.
-2.  **Osmosis:** Movement of **Water** from dilute -> concentrated solution through a partially permeable membrane.
-3.  **Active Transport:** Movement from **Low -> High** concentration. (Requires Energy).
-    *   *Example:* Root hair cells absorbing minerals.
+## 🏛️ Cell Transport Mechanisms
 
-## 📚 Chapter 3: Cell Division (Mitosis)
-Used for **Growth and Repair**.
-1.  **Replication:** DNA doubles. Organelles increase.
-2.  **Mitosis:** Nucleus divides. Chromosomes pulled to ends.
-3.  **Division:** Cytoplasm/membrane splits. Two identical daughter cells formed.
+Cells are not sealed boxes; they constanty swap materials with their environment using three main methods:
+
+### 1. Diffusion 💨
+* **Mechanism:** Particles move from **High to Low** concentration.
+* **Energy:** Passive (No ATP required).
+* **Example:** Oxygen diffusing into your bloodstream.
+
+### 2. Osmosis 🌊
+* **Mechanism:** The diffusion of **Water** across a partially permeable membrane.
+* **Movement:** From a dilute solution (lots of water) to a concentrated one (less water).
+
+### 3. Active Transport 🔋
+* **Mechanism:** Particles move **AGAINST** the gradient (Low to High).
+* **Energy:** Requires energy from respiration.
+* **Example:** Plants absorbing minerals from soil.
+
+---
+
+## 🏛️ Cell Division: The Cell Cycle
+
+For an organism to grow or repair itself, its cells must divide via **Mitosis**.
+
+1. **Interphase:** DNA replicates and organelles (like mitochondria) double.
+2. **Mitosis:** The chromosomes are pulled to opposite ends of the cell and the nucleus divides.
+3. **Cytokinesis:** The cytoplasm and cell membrane split, creating **two identical daughter cells**.
 
 `,
                     type: "lesson",

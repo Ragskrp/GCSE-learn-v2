@@ -24,106 +24,74 @@ export const year10ComputerScienceJ277: Subject = {
                 {
                     id: "cpu-architecture",
                     title: "The CPU and Von Neumann Architecture",
-                    content: `# 🧠 1.1 Systems Architecture: The Brain of the Computer
-
-> **"The CPU is the conductor of the digital orchestra."**
-
----
-
-## 🎯 Learning Objectives
-- 🏛️ Describe the **purpose of the CPU**.
-- 🧠 Explain the **Von Neumann architecture**.
-- 🔄 Describe the **Fetch-Decode-Execute** cycle.
-- 💾 Explain the function of common **CPU components** (ALU, CU, Cache).
-- 📦 Describe the function of **Registers** (MAR, MDR, PC, ACC).
-
-**XP Reward:** 150 ⭐ | **Time:** 45 mins
+                    content: `# 🧠 1.1 Systems Architecture: Brain of the Computer
+3
+> [!NOTE]
+> **Mission Objective:** By the end of this chapter, you will be able to explain exactly how a lump of silicon "thinks" by mastering the Fetch-Decode-Execute cycle.
 
 ---
 
-## 📚 Chapter 1: The Central Processing Unit (CPU)
+## 🏛️ The Central Processing Unit (CPU)
 
-The **CPU (Central Processing Unit)** is the key component of a computer system. It contains the circuitry necessary to interpret and execute program instructions.
+The **CPU** is the "brain" of the computer. Its job is to process data by following instructions.
 
-### 🔑 Key Characteristics
-1.  **Clock Speed:** Measured in Hertz (Hz). It represents the number of Fetch-Decode-Execute cycles per second.
-    *   *Example:* 3.5 GHz = 3.5 billion cycles per second.
-2.  **Cores:** A core is a complete processing unit within the CPU.
-    *   **Dual Core:** Two processors in one chip. Can do two things at once!
-    *   **Quad Core:** Four processors.
-3.  **Cache:** Very fast, expensive memory inside the CPU. It stores frequently used instructions so the CPU doesn't have to wait for RAM.
+### 🔑 Key Performance Factors
+Not all CPUs are equal. Three main factors determine how fast a CPU can process instructions:
 
----
-
-## 📚 Chapter 2: Von Neumann Architecture
-
-In 1945, John von Neumann proposed a revolutionary design where **data and instructions are stored in the same memory (RAM)** in binary form.
-
-### 🏗️ The Main Components
-
-#### 1. The Control Unit (CU) 🎮
-- **Controls the flow of data** inside and outside the CPU.
-- Sends control signals to other components.
-- Manages the Fetch-Decode-Execute cycle.
-
-#### 2. The Arithmetic Logic Unit (ALU) 🧮
-- **Arithmetic:** Addition, Subtraction, Multiplication (+, -, *, /).
-- **Logic:** Comparisons (Is A > B?), AND, OR, NOT operations.
-- The "Calculator" of the CPU.
-
-#### 3. Cache ⚡
-- Stores regularly used data.
-- **Grades of Cache:**
-    - **L1:** Smallest but fastest.
-    - **L2:** Larger, slightly slower.
-    - **L3:** Largest, slowest (but still faster than RAM).
+1. **Clock Speed:** The number of cycles per second (measured in **Hertz**). 
+   * *Example:* A 3.5 GHz CPU performs 3.5 billion cycles every single second!
+2. **Cores:** A core is an independent processor. 
+   * **Dual-Core:** Two brains.
+   * **Quad-Core:** Four brains. More cores allow for better "Parallel Processing".
+3. **Cache Size:** Super-fast memory located *directly on the CPU chip*. It stores instructions that are used frequently so the CPU doesn't have to wait for the slow RAM.
 
 ---
 
-## 📚 Chapter 3: The Registers 📦
-Registers are tiny, super-fast memory locations *inside* the CPU. They hold data that is being worked on *right now*.
+## 🏛️ Von Neumann Architecture
 
-| Register | Full Name | Function |
+In 1945, John von Neumann designed the standard model for computers we still use today. The key idea: **Data and instructions are stored in the same memory (RAM).**
+
+### 📦 The Registers (Tiny, Fast Memory)
+Registers are special-purpose memory locations inside the CPU that hold data being processed *right now*.
+
+| Register | Name | Key Responsibility |
 | :--- | :--- | :--- |
-| **PC** | Program Counter | Holds the **memory address** of the *next* instruction to be fetched. Increments by 1 after each fetch. |
-| **MAR** | Memory Address Register | Holds the **address** of the current instruction/data being fetched from memory. |
-| **MDR** | Memory Data Register | Holds the **actual data or instruction** that has just been fetched from memory. |
-| **ACC** | Accumulator | Stores the **result** of calculations done by the ALU. |
+| **PC** | Program Counter | Holds the **Address** of the *NEXT* instruction. |
+| **MAR** | Memory Address Register | Holds the **Address** of where data is being fetched *FROM*. |
+| **MDR** | Memory Data Register | Holds the **ACTUAL DATA** that was just fetched. |
+| **ACC** | Accumulator | Stores the **RESULT** of calculations. |
 
 ---
 
-## 📚 Chapter 4: The Fetch-Decode-Execute Cycle 🔄
-This is the heartbeat of the computer. It happens billions of times a second.
+## 🔄 The Fetch-Decode-Execute Cycle
+
+This cycle is the continuous process that every CPU performs billions of times per second.
 
 ### 1. FETCH 🚚
-1.  **Copy Address:** The address in the **PC** is copied to the **MAR**.
-2.  **Fetch Data:** The data at that address in RAM is copied into the **MDR**.
-3.  **Increment PC:** The **PC** goes up by 1, pointing to the next instruction.
+* The address in the **PC** is copied to the **MAR**.
+* The CPU looks at that address in RAM and copies the instruction into the **MDR**.
+* The **Program Counter** increments by 1.
 
 ### 2. DECODE 🧩
-The **CU** looks at the instruction in the **MDR** and figures out what it means. It translates binary into commands.
+* The **Control Unit (CU)** translates the binary instruction into something the CPU can actually do.
 
 ### 3. EXECUTE 🚀
-The instruction is carried out.
-*   *Example:* Load data from memory, Add two numbers, Jump to a different instruction.
+* The instruction is carried out (e.g., adding two numbers in the **ALU**).
+* The result is stored in the **Accumulator**.
 
 ---
 
-## 📚 Chapter 5: Embedded Systems 🤖
-An **Embedded System** is a computer system built *into* another device. It has a **dedicated purpose**.
+## 🤖 Embedded Systems
 
-### Examples:
-- **Washing Machine:** Controls water, spin speed, timer.
-- **Microwave:** Controls power, time.
-- **Car Engine Management:** Controls fuel injection.
-- **Vending Machine:** Processes coins vs item selection.
+An **Embedded System** is a computer with a **dedicated, single purpose** built into a larger mechanical or electrical system.
 
-### Characteristics:
-- Low power consumption.
-- Small size.
-- Rugged/Reliable.
-- Low cost.
-- Usually no Operating System (just firmware).
+### 💡 Common Examples:
+- **Domestic:** Washing machines, Microwaves, Dishwashers.
+- **Industrial:** Factory robots, Traffic lights.
+- **Automotive:** Engine Management Systems (EMS), ABS brakes.
+
+### 🛠️ Why use them?
+They are designed to be **reliable**, **low-power**, and **low-cost**. They usually don't have a screen or keyboard and run on simple "firmware".
 
 ---
 
@@ -441,7 +409,7 @@ A **Protocol** is a set of rules for how computers communicate.
 
 `,
                     type: "lesson",
-                    difficulty: "hard",
+                    difficulty: "higher",
                     estimatedTime: 60,
                     learningObjectives: ["Define LAN/WAN", "Compare Star and Mesh", "Explain Protocols"]
                 }

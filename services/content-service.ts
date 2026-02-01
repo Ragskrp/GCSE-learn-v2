@@ -14,9 +14,19 @@ import {
 import { AuthService } from "@/services/auth-service";
 
 export class ContentService {
+  private static subjectsCache: Subject[] | null = null;
+  private static lastFetchTime: number = 0;
+  private static CACHE_TTL = 60000; // 1 minute
+
   // --- Asynchronous Firebase Methods ---
 
-  static async getAllSubjects(): Promise<Subject[]> {
+  static async getAllSubjects(forceRefresh = false): Promise<Subject[]> {
+    const now = Date.now();
+    if (!forceRefresh && this.subjectsCache && (now - this.lastFetchTime < this.CACHE_TTL)) {
+      console.log("ContentService: Returning cached subjects.");
+      return this.subjectsCache;
+    }
+
     try {
       console.log("ContentService: Attempting to fetch subjects from Firestore...");
       const subjectsRef = collection(db, "subjects");
@@ -28,10 +38,14 @@ export class ContentService {
       }
 
       console.log(`ContentService: Successfully fetched ${snapshot.size} subjects.`);
-      return snapshot.docs.map(doc => ({
+      const subjects = snapshot.docs.map(doc => ({
         ...doc.data(),
-        id: doc.id // Crucial: Firestore data() doesn't include the ID
+        id: doc.id
       } as Subject));
+
+      this.subjectsCache = subjects;
+      this.lastFetchTime = now;
+      return subjects;
     } catch (error) {
       console.error("ContentService: Error fetching subjects from Firestore:", error);
       return this.getLocalAllSubjects();

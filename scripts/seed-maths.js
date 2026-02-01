@@ -359,10 +359,10 @@ What is the largest or smallest a final result could be?
         {
           id: "qz-num-1", title: "Number Mastery", difficulty: "higher", passingScore: 75, xpReward: 300, coinReward: 40, timeLimit: 20,
           questions: [
-            { id: "nq1", question: "HCF of 24 and 36?", type: "short-answer", correctAnswer: "12", marks: 2, topic: "HCF" },
-            { id: "nq2", question: "Convert 0.1666... to fraction", type: "multiple-choice", options: ["1/6", "16/99", "16/90", "1/5"], correctAnswer: "1/6", marks: 3, topic: "Fractions" },
-            { id: "nq3", question: "Calculate 64^(2/3)", type: "short-answer", correctAnswer: "16", marks: 2, topic: "Indices" },
-            { id: "nq4", question: "Rationalise 5/√5", type: "short-answer", correctAnswer: "√5", marks: 2, topic: "Surds" }
+            { id: "nq1", question: "Find the **HCF** of $24$ and $36$.", type: "short-answer", correctAnswer: "12", marks: 2, topic: "HCF" },
+            { id: "nq2", question: "Convert $0.1\\dot{6}$ to a fraction in its simplest form.", type: "multiple-choice", options: ["$1/6$", "$16/99$", "$16/90$", "$1/5$"], correctAnswer: "$1/6$", marks: 3, topic: "Fractions" },
+            { id: "nq3", question: "Calculate **$64^{2/3}$**.", type: "short-answer", correctAnswer: "16", marks: 2, topic: "Indices" },
+            { id: "nq4", question: "Rationalise the denominator of $\\frac{5}{\\sqrt{5}}$.", type: "short-answer", correctAnswer: "√5", marks: 2, topic: "Surds" }
           ]
         }
       ]
@@ -568,8 +568,8 @@ This is the most common "hard" question in GCSE Higher. What if the new subject 
         {
           id: "qz-alg-1", title: "Algebra Basics", difficulty: "foundation", passingScore: 70, xpReward: 250, coinReward: 30, timeLimit: 15,
           questions: [
-            { id: "aq1", question: "Factorise x² - 25", type: "short-answer", correctAnswer: "(x+5)(x-5)", marks: 1, topic: "Diff Squares" },
-            { id: "aq2", question: "Make u subject: v = u + at", type: "short-answer", correctAnswer: "u = v - at", marks: 1, topic: "Formulae" }
+            { id: "aq1", question: "Factorise $x^2 - 25$.", type: "short-answer", correctAnswer: "(x+5)(x-5)", marks: 1, topic: "Diff Squares" },
+            { id: "aq2", question: "Rearrange **$v = u + at$** to make $u$ the subject.", type: "short-answer", correctAnswer: "u = v - at", marks: 1, topic: "Formulae" }
           ]
         }
       ]
@@ -781,7 +781,7 @@ If the turning point of $y = x^2$ is $(0,0)$, where is the turning point of $y =
         {
           id: "qz-alg-2", title: "Advanced Algebra", difficulty: "higher", passingScore: 70, xpReward: 400, coinReward: 50, timeLimit: 25,
           questions: [
-            { id: "aa1", question: "Solve x² + 4x + 1 = 0 (complete square)", type: "multiple-choice", options: ["-2±√3", "-2±√5", "2±√3"], correctAnswer: "-2±√3", marks: 3, topic: "Quadratics" }
+            { id: "aa1", question: "Solve $x^2 + 4x + 1 = 0$ by completing the square.", type: "multiple-choice", options: ["$-2 \pm \sqrt{3}$", "$-2 \pm \sqrt{5}$", "$2 \pm \sqrt{3}$"], correctAnswer: "$-2 \pm \sqrt{3}$", marks: 3, topic: "Quadratics" }
           ]
         }
       ]
@@ -972,8 +972,8 @@ You can recognize the relationship by the shape of the graph:
         {
           id: "qz-rat", title: "Ratio & Prop", difficulty: "foundation", passingScore: 75, xpReward: 250, coinReward: 30, timeLimit: 20,
           questions: [
-            { id: "rq1", question: "If y ∝ x² and y=20 when x=2, find k", type: "short-answer", correctAnswer: "5", marks: 2, topic: "Proportion" },
-            { id: "rq2", question: "£2000 at 10% interest for 2 years?", type: "calculation", correctAnswer: "2420", marks: 2, topic: "Compound Interest" }
+            { id: "rq1", question: "Given that $y \propto x^2$ and $y=20$ when $x=2$, find the constant of proportionality $k$.", type: "short-answer", correctAnswer: "5", marks: 2, topic: "Proportion" },
+            { id: "rq2", question: "Calculate the total amount after £2000 is invested at 10% compound interest for 2 years.", type: "short-answer", correctAnswer: "2420", marks: 2, topic: "Compound Interest" }
           ]
         }
       ]
@@ -1153,7 +1153,7 @@ If you enlarge a shape by scale factor $k$:
         {
           id: "qz-geo-1", title: "Shapes & Angles", difficulty: "foundation", passingScore: 70, xpReward: 300, coinReward: 30, timeLimit: 20,
           questions: [
-            { id: "gq1", question: "Sum of interior angles of hexagon?", type: "calculation", correctAnswer: "720", marks: 2, topic: "Polygons" }
+            { id: "gq1", question: "What is the sum of the interior angles of a regular hexagon?", type: "short-answer", correctAnswer: "720", marks: 2, topic: "Polygons" }
           ]
         }
       ]
@@ -1294,7 +1294,7 @@ Find $\vec{AM}$ in terms of $\mathbf{a}$ and $\mathbf{b}$.
         {
           id: "qz-geo-2", title: "Measures Mastery", difficulty: "higher", passingScore: 70, xpReward: 400, coinReward: 50, timeLimit: 25,
           questions: [
-            { id: "mg1", question: "Volume of sphere radius 3? (Leave in terms of pi)", type: "short-answer", correctAnswer: "36pi", marks: 2, topic: "Volume" }
+            { id: "mg1", question: "Find the volume of a sphere with radius $3$. Leave your answer in terms of $\pi$.", type: "short-answer", correctAnswer: "36pi", marks: 2, topic: "Volume" }
           ]
         }
       ]
@@ -1490,7 +1490,7 @@ They are perfect for **comparing** two data sets.
         {
           id: "qz-stat", title: "Stats Master", difficulty: "higher", passingScore: 70, xpReward: 300, coinReward: 40, timeLimit: 20,
           questions: [
-            { id: "sq1", question: "FD if Freq=30 and Width=10?", type: "calculation", correctAnswer: "3", marks: 1, topic: "Histograms" }
+            { id: "sq1", question: "Calculate the Frequency Density (FD) if $Frequency = 30$ and $Class Width = 10$.", type: "short-answer", correctAnswer: "3", marks: 1, topic: "Histograms" }
           ]
         }
       ]

@@ -24,55 +24,60 @@ export const year10EnglishLiterature: Subject = {
                 {
                     id: "macbeth-full",
                     title: "Macbeth: The Scottish Play",
-                    content: `# 🎭 Macbeth
+                    content: `# 🎭 Macbeth: Ambition & The Supernatural
 
-> **"By the pricking of my thumbs, something wicked this way comes."**
-
----
-
-## 🎯 Objectives
-- 🏰 Describe the **Plot** Act by Act.
-- 🧑‍🤝‍🧑 Analyze key **Characters** (Macbeth, Lady Macbeth).
-- 👻 Explore **Themes** (Ambition, Guilt, Supernatural).
+> [!NOTE]
+> **"Fair is foul, and foul is fair..."**
+> Master the tragic descent of a hero into a tyrant in Shakespeare's fastest-paced tragedy.
 
 ---
 
-## 📚 Chapter 1: Plot Summary
+## 🏛️ The Setting & Mood
 
-### Act 1: The Prophecy
-Macbeth and Banquo meet three Witches. They predict:
-1.  Macbeth will be Thane of Cawdor.
-2.  Macbeth will be King.
-3.  Banquo's children will be Kings.
-King Duncan makes Macbeth Thane of Cawdor. Lady Macbeth reads a letter and decides Duncan must die.
+The play opens in Scotland, an 11th-century landscape of brutal civil war and terrifying supernatural storms.
 
-### Act 2: The Murder 🗡️
-Macbeth sees a floating dagger. He kills Duncan. Lady Macbeth plants the daggers on the guards. Macbeth is shaken ("Macbeth does murder sleep").
+### 🔑 Pathetic Fallacy
+Shakespeare uses weather to reflect the moral decay of characters:
+- **Thunder & Lightning:** Signal the presence of the Witches. 🌩️
+- **Darkness:** Most defining scenes occur at night, symbolizing Macbeth's "black and deep desires." 🌑
 
-### Act 3: The Banquo Ghost 👻
-Macbeth is King but paranoid. He has Banquo killed, but Fleance escapes. At a feast, Macbeth sees Banquo's ghost and panics.
-
-### Act 4: The Apparitions 🔮
-Macbeth visits the witches again. They show:
-1.  Beware Macduff.
-2.  None of woman born shall harm Macbeth.
-3.  Safe until Birnam Wood moves to Dunsinane.
-Macbeth has Macduff's family killed.
-
-### Act 5: The Downfall 🩸
-Lady Macbeth goes mad (sleepwalking) and dies. Macduff (born by Caesarean, not "natural birth") kills Macbeth. Malcolm becomes King.
+### 🧩 The "Fair is Foul" Paradox
+This central theme means **Appearances are Deceiving**. 
+- What looks good (Macbeth's bravery) is actually hiding a dark secret.
+- What looks bad (The Witches) is actually speaking some truths that tempt Macbeth.
 
 ---
 
-## 📚 Chapter 2: Key Quotes
+## 🏛️ The Main Players
 
-| Who | Quote | Meaning |
+| Character | Role | Key Trait |
 | :--- | :--- | :--- |
-| **Witches** | "Fair is foul, and foul is fair." | Appearance vs Reality. Chaos. |
-| **L. Macbeth** | "Look like the innocent flower, but be the serpent under't." | Deception. |
-| **Macbeth** | "Is this a dagger which I see before me?" | Hallucination. Guilt. |
-| **L. Macbeth** | "Out, damned spot!" | Guilt driving her mad. |
+| **Macbeth** | Tragic Hero | Brave but fatally weak-willed 🐺 |
+| **Lady Macbeth** | The Architect | Ruthless, manipulative, and ambitious 🐍 |
+| **The Witches** | The Catalyst | Chaotic agents of prophecy 🔮 |
+| **King Duncan** | The Just King | Trusting, virtuous, and doomed 👑 |
 
+---
+
+## 🏛️ Summary of Act 1: The Inciting Incidents
+
+1. **The Prophecies:** The Witches greet Macbeth as **Thane of Glamis**, **Thane of Cawdor**, and **King hereafter**.
+2. **The First Realisation:** Moments later, Macbeth learns he *has* been named Thane of Cawdor. The "instruments of darkness" have spoken truth.
+3. **The Letter:** Lady Macbeth reads of the prophecies and immediately fears her husband is "too full o' the milk of human kindness" to seize the crown.
+4. **The Plan:** Duncan arrives at their castle (Inverness). Lady Macbeth invokes spirits to "unsex" her and prepares the murder plot while Duncan sleeps.
+
+---
+
+## 🏛️ Central Themes to Watch
+
+### 1. Ambition (The Hamartia)
+Macbeth's "Vaulting Ambition" is his fatal flaw. He knows that his only reason for killing Duncan is his own ego, yet he cannot stop himself.
+
+### 2. Fate vs. Free Will
+Did the Witches determine Macbeth's path? Or did they simply plant a seed in a soil that was already fertile with ambition?
+
+### 3. Masculinity
+Lady Macbeth links "Manhood" with violence and cruelty. She successfully bullies Macbeth into the murder by questioning his courage.
 `,
                     type: "lesson",
                     difficulty: "foundation",
@@ -123,34 +128,47 @@ Lady Macbeth goes mad (sleepwalking) and dies. Macduff (born by Caesarean, not "
                 {
                     id: "inspector-themes",
                     title: "AIC: Themes and Characters",
-                    content: `# 🕵️‍♂️ An Inspector Calls
+                    content: `# 🕵️‍♂️ An Inspector Calls: Responsibility & Society
 
-## 🎯 Context
-- Written in **1945** (Post-War, Socialism).
-- Set in **1912** (Pre-War, Capitalism).
-- Priestley asks: "Why did society fail?"
-
----
-
-## 📚 Chapter 1: The Generations
-
-### Older Generation (Mr & Mrs Birling)
-- **Static:** They do not change.
-- **Capitalist:** Care about money and status.
-- **Refuse Responsibility:** "I can't accept any responsibility."
-
-### Younger Generation (Sheila & Eric)
-- **Dynamic:** They change and regret their actions.
-- **Socialist:** They care about people.
-- **Accept Responsibility:** "It frightens me the way you talk."
+> [!NOTE]
+> **Priority Quote:** "We are members of one body. We are responsible for each other."
+> Priestley uses a middle-class family to reflect the failures of capitalist society in 1912.
 
 ---
 
-## 📚 Chapter 2: The Inspector (Goole)
-- He is not a normal police officer.
-- He knows everything already.
-- He controls the time and lighting ("brighter and harder").
-- **Message:** "We are members of one body."
+## 🏛️ Context: The Conflict of Time
+
+Priestley wrote the play in **1945** (at the end of WWII) but set it in **1912** (just before WWI). 
+
+### 🔑 The Purpose of the Time Gap
+- **Dramatic Irony:** The audience in 1945 knows about the wars and the Titanic; when Mr. Birling calls the Titanic "unsinkable," he looks foolish and unreliable.
+- **The Message:** Priestley wanted to show that the old ways of thinking (selfishness and greed) led to the horrors of the wars.
+
+---
+
+## 🏛️ The Clash of Generations
+
+The play's biggest conflict is not just between the Birlings and the Inspector, but between the **Old** and the **Young**.
+
+### 👴 The Older Generation (Mr & Mrs Birling)
+- **Trait:** Static (They do not change or learn).
+- **Philosphy:** "A man has to make his own way—has to look after himself."
+- **Response:** They care more about their reputation and avoiding a "public scandal" than about the girl they helped kill.
+
+### 🧒 The Younger Generation (Sheila & Eric)
+- **Trait:** Dynamic (They transform during the play).
+- **Philosophy:** "It frightens me the way you talk... you're beginning to pretend now that nothing's really happened."
+- **Response:** They accept their **Social Responsibility** and are deeply shaken by their actions.
+
+---
+
+## 🏛️ The Inspector: Who is Goole?
+
+Inspector Goole is more than just a policeman; he is a moral force.
+
+- **Appearance:** He creates an impression of "massiveness, solidity and purposefulness."
+- **Lighting:** When he arrives, the lighting changes from "pink and intimate" to **"brighter and harder."** It's like an interrogation lamp.
+- **Name:** "Goole" sounds like "Ghoul" (ghost). Is he a spirit? A conscience? Or an angel of justice?
 
 `,
                     type: "lesson",
@@ -192,19 +210,38 @@ Lady Macbeth goes mad (sleepwalking) and dies. Macduff (born by Caesarean, not "
                 {
                     id: "ozymandias",
                     title: "Ozymandias & London",
-                    content: `# 🗿 Poetry: Power & Conflict
+                    content: `# 🗿 Poetry: The Power of Conflict
 
-## 1. Ozymandias (Percy Shelley)
-*   **Theme:** Power of Nature vs Power of Humans.
-*   **Content:** A ruined statue of a King in the desert.
-*   **Key Quote:** "Look on my works, ye Mighty, and despair!"
-    *   *Irony:* There is nothing left to look at.
+> [!NOTE]
+> **Key Comparison:** How do poets represent the fragility of human power compared to the permanence of nature and time?
 
-## 2. London (William Blake)
-*   **Theme:** Abuse of Power, Suffering.
-*   **Content:** Walking through London seeing misery.
-*   **Key Quote:** "Mind-forged manacles."
-    *   *Meaning:* People are trapped by their own thoughts and society's rules.
+---
+
+## 🏛️ Ozymandias (Percy Bysshe Shelley)
+
+A Romantic poet's take on the arrogance of a dictator and the inevitable triumph of time.
+
+### 🔑 The Image of Ruin
+The poem describes a "shattered visage" and "two vast and trunkless legs of stone" standing in a lonely desert. 
+
+### 🧩 The Irony 
+The pedestal says: *"Look on my works, ye Mighty, and despair!"* 
+- **Irony:** There are no works left to see. Just "lone and level sands."
+- **Meaning:** Human power is temporary; nature and time are the only true masters.
+
+---
+
+## 🏛️ London (William Blake)
+
+A bleak, angry walk through the streets of Industrial-era London, where everywhere Blake sees misery and "chartered" (owned/restricted) streets.
+
+### 🔑 "Mind-Forged Manacles"
+This is the most famous quote. It suggests that people are not just trapped by laws and poverty, but by **their own minds** and the belief that they cannot change their situation.
+
+### 🧩 The "Black'ning Church" & "Palace"
+Blake blames the powerful institutions:
+- **The Church:** For ignoring the "sweep's" cry.
+- **The State (Palace):** For the "hapless soldier's blood" running down its walls.
 
 `,
                     type: "lesson",

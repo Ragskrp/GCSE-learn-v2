@@ -2,7 +2,7 @@
 export interface QuizQuestion {
     id: string
     question: string
-    type: "multiple-choice" | "text" | "boolean"
+    type: "multiple-choice" | "text" | "boolean" | "short-answer"
     options?: string[]
     correctAnswer: string | boolean
     explanation?: string

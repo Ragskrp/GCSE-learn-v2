@@ -31,20 +31,46 @@ export const year10Mathematics: Subject = {
                     difficulty: "foundation",
                     estimatedTime: 30,
                     learningObjectives: ["Prime factorisation", "Find HCF", "Find LCM"],
-                    content: `# 🔢 Primes, HCF & LCM
+                    content: `# 🔢 Number Foundations: Primes, HCF & LCM
 
-## Definitions
-*   **Prime Number:** A number with exactly two factors (1 and itself). E.g., 2, 3, 5, 7, 11, 13, 17... (1 is NOT prime).
-*   **Prime Factorisation:** Writing a number as a product of prime numbers (e.g., $12 = 2^2 \\times 3$).
+> [!NOTE]
+> **Foundation Skill:** Prime numbers are the "building blocks" of all integers. Master them to solve complex problems involving fractions and cyclic events.
 
-## Finding HCF & LCM
-Using Prime Factorisation (Venn Diagram Method):
-**Example: 60 and 72**
-*   $60 = 2 \\times 2 \\times 3 \\times 5$
-*   $72 = 2 \\times 2 \\times 2 \\times 3 \\times 3$
+---
 
-*   **HCF:** Product of common factors ($2, 2, 3$) -> $2 \\times 2 \\times 3 = 12$.
-*   **LCM:** Product of HCF and remaining factors -> $12 \\times 5 \\times 2 \\times 3 = 360$.
+## 🏛️ Prime Numbers & Factorisation
+
+A **Prime Number** is an integer greater than 1 that has exactly two factors: 1 and itself.
+
+### 🔑 The First Few Primes
+2, 3, 5, 7, 11, 13, 17, 19, 23...
+*Note: **2** is the only even prime number.*
+
+### 🌳 Prime Factor Trees
+Any number can be broken down into a product of its prime factors.
+* **Example:** $60 = 2 \\times 2 \\times 3 \\times 5 = 2^2 \\times 3 \\times 5$.
+
+---
+
+## 🏛️ HCF and LCM
+
+### 📦 HCF (Highest Common Factor)
+The largest number that divides exactly into two or more numbers.
+- **Method:** Find the prime factors of both numbers. The HCF is the product of the **common** prime factors.
+
+### 📦 LCM (Lowest Common Multiple)
+The smallest number that is a multiple of two or more numbers.
+- **Method:** The LCM is the product of **every** prime factor used, but if a factor appears in both, only use the highest power.
+
+---
+
+## 🔄 Using Venn Diagrams
+
+A visual way to find HCF and LCM:
+1. Put the **common** prime factors in the intersection (middle).
+2. Put the **remaining** factors in the outer circles.
+- **HCF:** Multiply the numbers in the intersection.
+- **LCM:** Multiply **ALL** numbers in both circles.
 `
                 },
                 {
@@ -367,7 +393,7 @@ If $y=10, x=2 \\rightarrow 10=k/2 \\rightarrow k=20$. Formula: $y=20/x$.
                     id: "qz-rat", title: "Ratio & Prop", difficulty: "foundation", passingScore: 75, xpReward: 250, coinReward: 30, timeLimit: 20,
                     questions: [
                         { id: "rq1", question: "If y ∝ x² and y=20 when x=2, find k", type: "short-answer", correctAnswer: "5", marks: 2, topic: "Proportion" },
-                        { id: "rq2", question: "£2000 at 10% interest for 2 years?", type: "calculation", correctAnswer: "2420", marks: 2, topic: "Compound Interest" }
+                        { id: "rq2", question: "£2000 at 10% interest for 2 years?", type: "short-answer", correctAnswer: "2420", marks: 2, topic: "Compound Interest" }
                     ]
                 }
             ]
@@ -436,7 +462,7 @@ If $y=10, x=2 \\rightarrow 10=k/2 \\rightarrow k=20$. Formula: $y=20/x$.
                 {
                     id: "qz-geo-1", title: "Shapes & Angles", difficulty: "foundation", passingScore: 70, xpReward: 300, coinReward: 30, timeLimit: 20,
                     questions: [
-                        { id: "gq1", question: "Sum of interior angles of hexagon?", type: "calculation", correctAnswer: "720", marks: 2, topic: "Polygons" }
+                        { id: "gq1", question: "Sum of interior angles of hexagon?", type: "short-answer", correctAnswer: "720", marks: 2, topic: "Polygons" }
                     ]
                 }
             ]
@@ -565,7 +591,7 @@ Use for conditional probability (e.g. taking items without replacement).
                 {
                     id: "qz-stat", title: "Stats Master", difficulty: "higher", passingScore: 70, xpReward: 300, coinReward: 40, timeLimit: 20,
                     questions: [
-                        { id: "sq1", question: "FD if Freq=30 and Width=10?", type: "calculation", correctAnswer: "3", marks: 1, topic: "Histograms" }
+                        { id: "sq1", question: "FD if Freq=30 and Width=10?", type: "short-answer", correctAnswer: "3", marks: 1, topic: "Histograms" }
                     ]
                 }
             ]

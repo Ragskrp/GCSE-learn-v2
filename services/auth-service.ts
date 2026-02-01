@@ -27,24 +27,30 @@ export class AuthService {
         if (!isFirebaseConfigured()) return [];
 
         try {
-            const subjects: any[] = [];
+            console.log(`AuthService: Fetching curriculum for Year ${yearGroup} in parallel...`);
 
             // Define subject IDs based on year group
             const subjectIds = yearGroup === 10
                 ? ['maths-10', 'science-10', 'english-lit-10', 'history-10', 'computer-science-j277']
                 : ['maths-7'];
 
-            for (const docId of subjectIds) {
+            // Fetch all subjects in parallel for maximum speed
+            const subjectPromises = subjectIds.map(async (docId) => {
                 const docRef = doc(db, "subjects", docId);
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
-                    subjects.push({
+                    return {
                         ...docSnap.data(),
                         id: docSnap.id
-                    });
+                    };
                 }
-            }
+                return null;
+            });
 
+            const results = await Promise.all(subjectPromises);
+            const subjects = results.filter((s): s is any => s !== null);
+
+            console.log(`AuthService: Successfully fetched ${subjects.length} subjects from Firestore.`);
             return subjects;
         } catch (error) {
             console.error("Error fetching curriculum:", error);
@@ -139,7 +145,8 @@ export class AuthService {
                             }
                         }
 
-                        // Also update memory for legacy calls
+                        // Also update memory for legacy calls and await cache update
+                        await this.updateUser(user);
                         updateUserProgress(normalizedName, user.profile);
 
                         return user;
@@ -389,8 +396,11 @@ export class AuthService {
 
                 // Fallback to static if Firestore fetch returned nothing
                 if (!userSubjects || userSubjects.length === 0) {
+                    console.log("AuthService: No subjects found in Firestore, using static defaults...");
+                    // Try to get at least the revamped subjects
+                    const { year10Mathematics, year10CombinedScience, year10History } = require("@/data/curriculum-database");
                     const defaultSubjects = yearGroup === 10
-                        ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
+                        ? [year10Mathematics, year10CombinedScience, year10History]
                         : [year7Mathematics];
                     userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
                 }
@@ -413,8 +423,9 @@ export class AuthService {
                     profile: profile
                 };
 
-                // Update local cache
-                this.updateUser(user);
+                // Update local cache and memory
+                await this.updateUser(user);
+                updateUserProgress(username, user.profile);
 
                 return user;
             }

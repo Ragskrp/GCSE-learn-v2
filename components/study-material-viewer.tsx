@@ -103,69 +103,94 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
           <div className="p-8 md:p-12 flex-1 flex flex-col justify-center">
             <div className="prose prose-lg dark:prose-invert max-w-none
               prose-headings:text-foreground
-              prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-6 prose-h1:gradient-text
-              prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:text-primary
-              prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:text-foreground
-              prose-p:text-xl prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
-              prose-strong:text-primary prose-strong:font-bold
-              prose-em:text-primary/80 prose-em:not-italic
-              prose-ul:my-4 prose-ul:list-none prose-ul:pl-0
-              prose-li:mb-3 prose-li:text-xl prose-li:text-muted-foreground prose-li:pl-8 prose-li:relative
-              prose-li:before:content-['✨'] prose-li:before:absolute prose-li:before:left-0 prose-li:before:text-primary
+              prose-h1:text-4xl prose-h1:font-extrabold prose-h1:mb-8 prose-h1:gradient-text prose-h1:tracking-tight
+              prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-primary prose-h2:pb-2 prose-h2:border-b-2 prose-h2:border-primary/20
+              prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-foreground/90 prose-h3:flex prose-h3:items-center prose-h3:gap-2
+              prose-p:text-lg prose-p:md:text-xl prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
+              prose-strong:text-foreground prose-strong:font-bold prose-strong:bg-primary/5 prose-strong:px-1 prose-strong:rounded
+              prose-em:text-primary prose-em:not-italic prose-em:font-medium
+              prose-ul:my-6 prose-ul:list-none prose-ul:pl-0 prose-ul:space-y-4
+              prose-li:text-lg prose-li:md:text-xl prose-li:text-muted-foreground prose-li:pl-10 prose-li:relative prose-li:leading-snug
+              prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-2 prose-li:before:top-[0.6em] prose-li:before:h-2.5 prose-li:before:w-2.5 prose-li:before:rounded-full prose-li:before:bg-primary/60
               prose-code:bg-secondary prose-code:text-primary prose-code:px-2 prose-code:py-1 prose-code:rounded-md prose-code:font-mono prose-code:text-sm
-              prose-pre:bg-secondary/50 prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-pre:shado-inner
-              prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:text-muted-foreground prose-blockquote:bg-secondary/30 prose-blockquote:py-4 prose-blockquote:my-6 prose-blockquote:rounded-r-xl
+              prose-pre:bg-secondary/50 prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-pre:shadow-inner
+              prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:m-0
               prose-a:text-primary prose-a:underline prose-a:decoration-2 prose-a:underline-offset-2 hover:prose-a:text-primary/80
-              [&>*:first-child]:mt-0
+              [&>h2:first-child]:mt-0
+              [&>h3:first-child]:mt-0
               [&>*:last-child]:mb-0">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeRaw, rehypeKatex]}
                 components={{
+                  // Better Headings
+                  h2: ({ children }) => (
+                    <h2 className="flex items-center gap-3 group">
+                      <span className="h-8 w-1.5 bg-primary rounded-full group-hover:h-10 transition-all duration-300" />
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({ children }) => (
+                    <h3 className="flex items-center gap-2 group italic font-bold">
+                      <span className="text-primary group-hover:translate-x-1 transition-transform inline-block">→</span>
+                      {children}
+                    </h3>
+                  ),
                   // Enhance images
                   img: ({ src, alt }) => (
-                    <div className="my-8 flex justify-center">
+                    <div className="my-10 flex flex-col items-center">
                       <div className="relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <img
                           src={src}
                           alt={alt || 'Lesson illustration'}
-                          className="relative rounded-2xl shadow-xl border-2 border-white/20 max-h-[450px] object-contain bg-white/5"
+                          className="relative rounded-2xl shadow-xl border-2 border-white/20 max-h-[500px] w-full object-cover bg-white/5"
                         />
                       </div>
+                      {alt && <p className="mt-4 text-sm italic text-muted-foreground">{alt}</p>}
                     </div>
                   ),
                   // Custom Callout Support (Example: blockquotes as cards)
                   blockquote: ({ children }) => (
-                    <div className="my-8 p-6 glass-panel border-l-8 border-primary rounded-r-2xl transform hover:scale-[1.01] transition-transform duration-300">
-                      <div className="flex gap-4">
-                        <div className="text-3xl mt-1">💡</div>
-                        <div className="italic text-xl text-foreground font-medium">
+                    <div className="my-10 p-8 glass-panel border-l-8 border-primary rounded-r-2xl transform hover:scale-[1.01] transition-all duration-300 shadow-xl relative overflow-hidden group">
+                      <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <Trophy className="w-16 h-16 text-primary" />
+                      </div>
+                      <div className="flex gap-4 relative z-10">
+                        <div className="text-4xl mt-1">💡</div>
+                        <div className="italic text-xl md:text-2xl text-foreground font-medium leading-relaxed">
                           {children}
                         </div>
                       </div>
                     </div>
                   ),
+                  // Enhance list items to NOT have the double marker if markdown provides one
+                  li: ({ children }) => (
+                    <li className="group ml-2">
+                      <span className="absolute left-[-4px] top-[0.6em] h-3 w-3 rounded-md bg-primary/20 group-hover:bg-primary transition-colors origin-center rotate-45" />
+                      <div className="group-hover:text-foreground transition-colors">{children}</div>
+                    </li>
+                  ),
                   // Style tables for better readability
                   table: ({ children }) => (
-                    <div className="my-8 overflow-hidden rounded-xl border border-white/20 glass-card">
+                    <div className="my-10 overflow-hidden rounded-2xl border border-white/10 glass-card shadow-2xl">
                       <table className="w-full text-left border-collapse">
                         {children}
                       </table>
                     </div>
                   ),
                   thead: ({ children }) => (
-                    <thead className="bg-primary/10 text-primary font-bold">
+                    <thead className="bg-primary/20 text-primary font-bold">
                       {children}
                     </thead>
                   ),
                   th: ({ children }) => (
-                    <th className="p-4 border-b border-white/10 uppercase tracking-wider text-sm">
+                    <th className="p-5 border-b border-white/10 uppercase tracking-widest text-xs font-black">
                       {children}
                     </th>
                   ),
                   td: ({ children }) => (
-                    <td className="p-4 border-b border-white/5 text-muted-foreground">
+                    <td className="p-5 border-b border-white/5 text-muted-foreground text-lg">
                       {children}
                     </td>
                   ),

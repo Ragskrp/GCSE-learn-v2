@@ -11,6 +11,13 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { ArrowLeft, Clock, Trophy, CheckCircle, XCircle, Award } from "lucide-react"
 import { useRouter } from "next/navigation"
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import rehypeRaw from 'rehype-raw'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
+import { Input } from "@/components/ui/input"
 
 export default function QuizPage({ params }: { params: { quizId: string } }) {
     const router = useRouter()
@@ -157,13 +164,28 @@ export default function QuizPage({ params }: { params: { quizId: string } }) {
                                                 <XCircle className="h-5 w-5 text-destructive mt-0.5" />
                                             )}
                                             <div className="flex-1">
-                                                <p className="font-medium mb-2 text-foreground">
-                                                    {index + 1}. {question.question}
-                                                </p>
+                                                <div className="font-medium mb-2 text-foreground prose prose-invert max-w-none">
+                                                    <ReactMarkdown
+                                                        remarkPlugins={[remarkMath]}
+                                                        rehypePlugins={[rehypeKatex]}
+                                                    >
+                                                        {`${index + 1}. ${question.question}`}
+                                                    </ReactMarkdown>
+                                                </div>
                                                 {!isCorrect && (
                                                     <div className="space-y-1 text-sm">
-                                                        <p className="text-destructive">Your answer: {answers[question.id] || "Not answered"}</p>
-                                                        <p className="text-green-600 dark:text-green-400">Correct answer: {question.correctAnswer}</p>
+                                                        <div className="flex gap-1 text-destructive">
+                                                            <span>Your answer:</span>
+                                                            <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
+                                                                {String(answers[question.id] || "Not answered")}
+                                                            </ReactMarkdown>
+                                                        </div>
+                                                        <div className="flex gap-1 text-green-600 dark:text-green-400">
+                                                            <span>Correct answer:</span>
+                                                            <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
+                                                                {String(question.correctAnswer)}
+                                                            </ReactMarkdown>
+                                                        </div>
                                                     </div>
                                                 )}
                                                 <p className="text-sm text-muted-foreground mt-2 italic">{question.explanation}</p>
@@ -229,35 +251,59 @@ export default function QuizPage({ params }: { params: { quizId: string } }) {
             {/* Question Card */}
             <div className="glass-card rounded-2xl p-6 min-h-[300px] flex flex-col justify-center">
                 <div className="mb-6 flex justify-between items-start">
-                    <h2 className="text-xl font-bold text-foreground leading-relaxed">
-                        {currentQuestion.question}
-                    </h2>
+                    <div className="text-xl font-bold text-foreground leading-relaxed prose prose-invert max-w-none">
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm, remarkMath]}
+                            rehypePlugins={[rehypeRaw, rehypeKatex]}
+                        >
+                            {currentQuestion.question}
+                        </ReactMarkdown>
+                    </div>
                     {currentQuestion.marks && (
                         <Badge variant="outline" className="w-fit shrink-0 ml-4">{currentQuestion.marks} marks</Badge>
                     )}
                 </div>
 
                 <div className="space-y-3">
-                    {currentQuestion.options?.map((option, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleAnswer(currentQuestion.id, option)}
-                            className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-4 ${answers[currentQuestion.id] === option
-                                ? "border-primary bg-primary/10 shadow-md"
-                                : "border-border hover:border-primary/50 hover:bg-secondary/50"
-                                }`}
-                        >
-                            <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${answers[currentQuestion.id] === option
-                                ? "border-primary bg-primary text-white"
-                                : "border-muted-foreground/30 text-transparent"
-                                }`}>
-                                {answers[currentQuestion.id] === option && <span className="text-xs">✓</span>}
-                            </div>
-                            <span className={`font-medium ${answers[currentQuestion.id] === option ? 'text-primary' : 'text-foreground'}`}>
-                                {option}
-                            </span>
-                        </button>
-                    ))}
+                    {currentQuestion.type === "short-answer" ? (
+                        <div className="space-y-4">
+                            <Input
+                                placeholder="Type your answer here..."
+                                value={answers[currentQuestion.id] || ""}
+                                onChange={(e) => handleAnswer(currentQuestion.id, e.target.value)}
+                                className="text-lg p-6 rounded-xl border-2 border-border focus:border-primary bg-background"
+                            />
+                            <p className="text-sm text-muted-foreground italic">
+                                Note: High-stakes math answers should be written clearly.
+                            </p>
+                        </div>
+                    ) : (
+                        currentQuestion.options?.map((option, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleAnswer(currentQuestion.id, option)}
+                                className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center gap-4 ${answers[currentQuestion.id] === option
+                                    ? "border-primary bg-primary/10 shadow-md"
+                                    : "border-border hover:border-primary/50 hover:bg-secondary/50"
+                                    }`}
+                            >
+                                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${answers[currentQuestion.id] === option
+                                    ? "border-primary bg-primary text-white"
+                                    : "border-muted-foreground/30 text-transparent"
+                                    }`}>
+                                    {answers[currentQuestion.id] === option && <span className="text-xs">✓</span>}
+                                </div>
+                                <span className={`font-medium ${answers[currentQuestion.id] === option ? 'text-primary' : 'text-foreground'}`}>
+                                    <ReactMarkdown
+                                        remarkPlugins={[remarkMath]}
+                                        rehypePlugins={[rehypeKatex]}
+                                    >
+                                        {option}
+                                    </ReactMarkdown>
+                                </span>
+                            </button>
+                        ))
+                    )}
                 </div>
             </div>
 
