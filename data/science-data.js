@@ -1,7 +1,7 @@
 
-import { Subject } from "@/types/curriculum";
 
-export const year10CombinedScience: Subject = {
+
+const year10CombinedScience = {
     id: "science-10",
     name: "AQA: Combined Science Trilogy",
     duration: 180,
@@ -2058,3 +2058,5 @@ A current carrying wire in a magnetic field experiences a FORCE.
         }
     ]
 };
+
+module.exports = { year10CombinedScience };

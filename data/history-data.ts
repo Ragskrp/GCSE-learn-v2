@@ -439,7 +439,7 @@ By 1914, the war had reached a **stalemate** on the Western Front. Soldiers dug 
 
 ## 🏛️ Anatomy of a Trench
 
-![Cross-section Diagram of a WWI Trench](C:/Users/Dell/.gemini/antigravity/brain/f02c14d8-3f2c-460b-b24d-0d903850ce9d/trench_warfare_diagram_1770481478106.png)
+![Cross-section Diagram of a WWI Trench](/images/lessons/trench_warfare_diagram_1770481478106.png)
 
 ### Key Features:
 *   **Parapet:** Protective front wall banked with sandbags.

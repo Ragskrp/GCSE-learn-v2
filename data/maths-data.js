@@ -1,7 +1,7 @@
 
-import { Subject } from "@/types/curriculum";
 
-export const year10Mathematics: Subject = {
+
+const year10Mathematics = {
     id: "maths-10",
     name: "Edexcel: Maths",
     duration: 360,
@@ -624,3 +624,5 @@ Use for conditional probability (e.g. taking items without replacement).
         }
     ]
 };
+
+module.exports = { year10Mathematics };
