@@ -3,7 +3,7 @@ import { Subject } from "@/types/curriculum";
 
 export const year10Mathematics: Subject = {
     id: "maths-10",
-    name: "Mathematics (Higher)",
+    name: "Edexcel: Maths",
     duration: 360,
     questions: 1000,
     color: "from-blue-600 to-cyan-500",

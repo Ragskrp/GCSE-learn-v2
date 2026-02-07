@@ -4,18 +4,19 @@ import { Subject, Topic, StudyMaterial, Quiz, QuizQuestion } from "@/types/curri
 export { year10Mathematics } from "./maths-data";
 export { year10CombinedScience } from "./science-data";
 export { year10EnglishLiterature } from "./english-data";
-export { year10History } from "./history-data";
+export { year10EnglishLanguage } from "./english-language-data";
+export { year10Business } from "./business-data";
+export { year10French } from "./french-data";
+export { year10ReligiousStudies } from "./re-data";
 export { year10ComputerScienceJ277 } from "./computer-science-data";
-
-// Need to import them for the array below too? 
-// Actually if I export them, I can't use them locally in the same file easily without aliasing or importing * as ...
-// Wait, 'export { foo } from "bar"' does NOT make 'foo' available in the current scope.
-// So I need to import them and then export them.
 
 import { year10Mathematics } from "./maths-data";
 import { year10CombinedScience } from "./science-data";
 import { year10EnglishLiterature } from "./english-data";
-import { year10History } from "./history-data";
+import { year10EnglishLanguage } from "./english-language-data";
+import { year10Business } from "./business-data";
+import { year10French } from "./french-data";
+import { year10ReligiousStudies } from "./re-data";
 import { year10ComputerScienceJ277 } from "./computer-science-data";
 
 // Re-export types for use in other files
@@ -43,10 +44,13 @@ export const year7Mathematics: Subject = {
 export const curriculumDatabase: Record<number, Subject[]> = {
   7: [year7Mathematics],
   10: [
-    year10Mathematics,
-    year10CombinedScience,
+    year10Business,
+    year10French,
     year10EnglishLiterature,
-    year10History,
+    year10EnglishLanguage,
+    year10CombinedScience,
+    year10ReligiousStudies,
+    year10Mathematics,
     year10ComputerScienceJ277
   ],
 }

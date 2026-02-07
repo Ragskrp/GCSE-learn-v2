@@ -3,7 +3,7 @@ import { Subject } from "@/types/curriculum";
 
 export const year10CombinedScience: Subject = {
     id: "science-10",
-    name: "Combined Science (Trilogy)",
+    name: "AQA: Combined Science Trilogy",
     duration: 180,
     questions: 300,
     color: "from-teal-400 to-green-600",

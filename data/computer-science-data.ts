@@ -3,7 +3,7 @@ import { Subject } from "@/types/curriculum";
 
 export const year10ComputerScienceJ277: Subject = {
     id: "computer-science-j277",
-    name: "Computer Science (J277)",
+    name: "OCR: Computer Science",
     duration: 120,
     questions: 50,
     color: "from-purple-400 to-fuchsia-500",

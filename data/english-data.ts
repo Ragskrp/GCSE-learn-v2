@@ -3,7 +3,7 @@ import { Subject } from "@/types/curriculum";
 
 export const year10EnglishLiterature: Subject = {
     id: "english-lit-10",
-    name: "English Literature",
+    name: "AQA: English Literature",
     duration: 120,
     questions: 30,
     color: "from-amber-400 to-orange-600",
