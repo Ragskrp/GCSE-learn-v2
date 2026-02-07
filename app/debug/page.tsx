@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import { db } from "@/lib/firebase"
 import { collection, getDocs, doc, getDoc } from "firebase/firestore"
 
+export const dynamic = "force-dynamic";
+
 export default function DebugFirebasePage() {
     const [status, setStatus] = useState("Initializing...")
     const [configCheck, setConfigCheck] = useState<any>({})
@@ -23,7 +25,7 @@ export default function DebugFirebasePage() {
 
                 // 2. Fetch Subjects
                 setStatus("Fetching 'subjects' collection...")
-                const subjectsRef = collection(db, "subjects")
+                const subjectsRef = collection(db as any, "subjects")
                 const snapshot = await getDocs(subjectsRef)
 
                 if (snapshot.empty) {

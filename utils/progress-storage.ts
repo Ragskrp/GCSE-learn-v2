@@ -43,7 +43,7 @@ export class ProgressStorage {
       try {
         for (const user of users) {
           // Remove circular references or complex objects if necessary, but User type should be clean
-          await setDoc(doc(db, "users", user.username), user);
+          await setDoc(doc(db as any, "users", user.username), user);
         }
       } catch (error) {
         console.error("Failed to save progress to Firebase:", error)
@@ -56,7 +56,7 @@ export class ProgressStorage {
 
     if (isFirebaseConfigured()) {
       try {
-        const usersSnapshot = await getDocs(collection(db, "users"));
+        const usersSnapshot = await getDocs(collection(db as any, "users"));
         if (!usersSnapshot.empty) {
           const users = usersSnapshot.docs.map(doc => doc.data() as User);
           this.saveToLocalStorageOnly(users);
@@ -93,7 +93,7 @@ export class ProgressStorage {
 
     if (isFirebaseConfigured()) {
       try {
-        const userRef = doc(db, "users", username);
+        const userRef = doc(db as any, "users", username);
         await updateDoc(userRef, { profile: updatedProfile });
       } catch (error) { }
     }

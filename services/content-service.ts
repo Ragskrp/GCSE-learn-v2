@@ -18,6 +18,15 @@ export class ContentService {
   private static lastFetchTime: number = 0;
   private static CACHE_TTL = 60000; // 1 minute
 
+  private static isFirebaseConfigured(): boolean {
+    return !!(
+      process.env.NEXT_PUBLIC_FIREBASE_API_KEY &&
+      process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID &&
+      typeof db !== 'undefined' &&
+      db !== undefined
+    );
+  }
+
   // --- Asynchronous Firebase Methods ---
 
   static async getAllSubjects(forceRefresh = false): Promise<Subject[]> {
@@ -28,10 +37,15 @@ export class ContentService {
     }
 
     try {
+      if (!this.isFirebaseConfigured()) {
+        console.log("ContentService: Firebase not configured. Falling back to local data.");
+        return this.getLocalAllSubjects();
+      }
+
       console.log("ContentService: Attempting to fetch subjects from Firestore...");
 
       // Add a timeout to the fetch to prevent long hangs
-      const fetchPromise = getDocs(collection(db, "subjects"));
+      const fetchPromise = getDocs(collection(db as any, "subjects"));
       const timeoutPromise = new Promise((_, reject) =>
         setTimeout(() => reject(new Error("Firestore fetch timeout")), 5000)
       );
@@ -60,7 +74,9 @@ export class ContentService {
 
   static async getSubjectById(subjectId: string): Promise<Subject | undefined> {
     try {
-      const docRef = doc(db, "subjects", subjectId);
+      if (!this.isFirebaseConfigured()) return this.getLocalAllSubjects().find(s => s.id === subjectId);
+
+      const docRef = doc(db as any, "subjects", subjectId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         return {

@@ -36,7 +36,7 @@ export class AuthService {
 
             // Fetch all subjects in parallel for maximum speed
             const subjectPromises = subjectIds.map(async (docId) => {
-                const docRef = doc(db, "subjects", docId);
+                const docRef = doc(db as any, "subjects", docId);
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
                     return {
@@ -66,7 +66,7 @@ export class AuthService {
         if (isFirebaseConfigured()) {
             try {
                 // Check 'users' collection (standardized)
-                const userDoc = await getDoc(doc(db, "users", normalizedName));
+                const userDoc = await getDoc(doc(db as any, "users", normalizedName));
 
                 if (userDoc.exists()) {
                     const userData = userDoc.data();
@@ -136,7 +136,7 @@ export class AuthService {
                         // Ensure Firestore has the latest subjects (repair) if they were missing
                         if ((!userData.subjects || userData.subjects.length === 0) && userSubjects.length > 0) {
                             try {
-                                await setDoc(doc(db, "users", normalizedName), {
+                                await setDoc(doc(db as any, "users", normalizedName), {
                                     subjects: userSubjects,
                                     profile: { ...profile, subjects: userSubjects }
                                 }, { merge: true });
@@ -180,7 +180,7 @@ export class AuthService {
         try {
             const normalizedName = name.trim();
 
-            const existingDoc = await getDoc(doc(db, "users", normalizedName));
+            const existingDoc = await getDoc(doc(db as any, "users", normalizedName));
             if (existingDoc.exists()) {
                 console.error("User already exists");
                 return null;
@@ -225,7 +225,7 @@ export class AuthService {
                 createdAt: new Date().toISOString()
             };
 
-            await setDoc(doc(db, "users", normalizedName), userData);
+            await setDoc(doc(db as any, "users", normalizedName), userData);
 
             const newUser: User = {
                 username: normalizedName,
@@ -291,7 +291,7 @@ export class AuthService {
     static async getAllUsers(): Promise<User[]> {
         if (isFirebaseConfigured()) {
             try {
-                const usersSnapshot = await getDocs(collection(db, "users"));
+                const usersSnapshot = await getDocs(collection(db as any, "users"));
                 return usersSnapshot.docs.map(doc => {
                     const data = doc.data();
                     const profile = data.profile || {
@@ -344,7 +344,7 @@ export class AuthService {
 
         if (isFirebaseConfigured()) {
             try {
-                const userRef = doc(db, "users", user.username);
+                const userRef = doc(db as any, "users", user.username);
                 // Merge update
                 await setDoc(userRef, {
                     name: user.username,
@@ -381,7 +381,7 @@ export class AuthService {
         if (!username || !isFirebaseConfigured()) return null;
 
         try {
-            const userDoc = await getDoc(doc(db, "users", username));
+            const userDoc = await getDoc(doc(db as any, "users", username));
             if (userDoc.exists()) {
                 const userData = userDoc.data();
 
