@@ -22,91 +22,99 @@ export const year10ComputerScienceJ277: Subject = {
             completed: false,
             studyMaterials: [
                 {
-                    id: "cpu-architecture",
-                    title: "The CPU and Von Neumann Architecture",
-                    content: `# 🧠 1.1 Systems Architecture: Brain of the Computer
-3
+                    id: "cpu-architecture-1",
+                    title: "CPU Components & Architecture",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 40,
+                    learningObjectives: ["Explain CPU purpose", "Identify CU, ALU and Cache functions", "Describe Von Neumann architecture"],
+                    content: `# 🧠 1.1 Systems Architecture: Part 1
+
 > [!NOTE]
-> **Mission Objective:** By the end of this chapter, you will be able to explain exactly how a lump of silicon "thinks" by mastering the Fetch-Decode-Execute cycle.
+> **Core Purpose:** The CPU (Central Processing Unit) is the "brain" of the computer. Its primary job is to **Process Data** by following instructions.
 
 ---
 
-## 🏛️ The Central Processing Unit (CPU)
+## 🏛️ The Inner Workings of the CPU
 
-The **CPU** is the "brain" of the computer. Its job is to process data by following instructions.
+The CPU is made of three main internal components:
 
-### 🔑 Key Performance Factors
-Not all CPUs are equal. Three main factors determine how fast a CPU can process instructions:
-
-1. **Clock Speed:** The number of cycles per second (measured in **Hertz**). 
-   * *Example:* A 3.5 GHz CPU performs 3.5 billion cycles every single second!
-2. **Cores:** A core is an independent processor. 
-   * **Dual-Core:** Two brains.
-   * **Quad-Core:** Four brains. More cores allow for better "Parallel Processing".
-3. **Cache Size:** Super-fast memory located *directly on the CPU chip*. It stores instructions that are used frequently so the CPU doesn't have to wait for the slow RAM.
+1.  **Control Unit (CU):**
+    *   Coordinates all CPU activities.
+    *   Manages the Fetch-Decode-Execute cycle.
+    *   Controls the flow of data inside and outside the CPU.
+2.  **Arithmetic Logic Unit (ALU):**
+    *   Performs all calculations (Addition, Subtraction, etc.).
+    *   Performs logical operations (AND, OR, NOT) and comparisons (<, >, ==).
+3.  **Cache:**
+    *   Extremely fast memory located directly on the CPU.
+    *   Stores frequently used instructions and data.
+    *   **Rule:** Larger cache = Faster processing (less time spent fetching from slow RAM).
 
 ---
 
 ## 🏛️ Von Neumann Architecture
 
-In 1945, John von Neumann designed the standard model for computers we still use today. The key idea: **Data and instructions are stored in the same memory (RAM).**
+John von Neumann proposed the "Stored Program" concept where both **instructions and data** are stored in the same memory (RAM).
 
-### 📦 The Registers (Tiny, Fast Memory)
-Registers are special-purpose memory locations inside the CPU that hold data being processed *right now*.
+### The Registers (Tiny, High-Speed Storage)
+Registers are special-purpose memory locations inside the CPU:
 
-| Register | Name | Key Responsibility |
+| Register | Name | Role |
 | :--- | :--- | :--- |
-| **PC** | Program Counter | Holds the **Address** of the *NEXT* instruction. |
-| **MAR** | Memory Address Register | Holds the **Address** of where data is being fetched *FROM*. |
-| **MDR** | Memory Data Register | Holds the **ACTUAL DATA** that was just fetched. |
-| **ACC** | Accumulator | Stores the **RESULT** of calculations. |
+| **PC** | Program Counter | Holds the **memory address** of the *next* instruction. |
+| **MAR** | Memory Address Register | Holds the address of the data/instruction being fetched. |
+| **MDR** | Memory Data Register | Holds the *actual data* or instruction just fetched. |
+| **ACC** | Accumulator | Stores the results of calculations performed by the ALU. |
+`
+                },
+                {
+                    id: "cpu-fde-performance",
+                    title: "The FDE Cycle & Performance",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 45,
+                    learningObjectives: ["Master the Fetch-Decode-Execute cycle", "Explain factors affecting performance", "Identify embedded systems"],
+                    content: `# 🔄 Fetch-Decode-Execute: The Heartland Cycle
+
+Every second, your CPU performs billions of cycles. This is the rhythmic "heartbeat" of the machine.
 
 ---
 
-## 🔄 The Fetch-Decode-Execute Cycle
+## 🏛️ Step-by-Step FDE Cycle
 
-This cycle is the continuous process that every CPU performs billions of times per second.
+1.  **FETCH:**
+    *   The address in the **PC** is copied to the **MAR**.
+    *   The CPU sends a signal to RAM to fetch the instruction at that address.
+    *   The instruction is copied into the **MDR**.
+    *   The **PC** increments by 1.
+2.  **DECODE:**
+    *   The **Control Unit (CU)** decodes the instruction to see what needs to be done.
+3.  **EXECUTE:**
+    *   The instruction is carried out (e.g., ALU does a sum or data is moved).
 
-### 1. FETCH 🚚
-* The address in the **PC** is copied to the **MAR**.
-* The CPU looks at that address in RAM and copies the instruction into the **MDR**.
-* The **Program Counter** increments by 1.
+---
 
-### 2. DECODE 🧩
-* The **Control Unit (CU)** translates the binary instruction into something the CPU can actually do.
+## 🏛️ Performance Factors (The "Big Three")
 
-### 3. EXECUTE 🚀
-* The instruction is carried out (e.g., adding two numbers in the **ALU**).
-* The result is stored in the **Accumulator**.
+Why is one computer faster than another?
+
+1.  **Clock Speed:** Number of cycles per second (Gigahertz - GHz). 
+2.  **Number of Cores:** More cores allow for "Parallel Processing" (doing multiple tasks at once).
+3.  **Cache Size:** More cache means fewer trips to the slow RAM.
 
 ---
 
 ## 🤖 Embedded Systems
 
-An **Embedded System** is a computer with a **dedicated, single purpose** built into a larger mechanical or electrical system.
+An **Embedded System** is a computer with a **dedicated, single purpose** built into a larger device.
 
-### 💡 Common Examples:
-- **Domestic:** Washing machines, Microwaves, Dishwashers.
-- **Industrial:** Factory robots, Traffic lights.
-- **Automotive:** Engine Management Systems (EMS), ABS brakes.
+*   **Traits:** Low power, low cost, highly reliable, robust.
+*   **Examples:** Microwaves, ABS brakes, Washing machines, Smart bulbs.
 
-### 🛠️ Why use them?
-They are designed to be **reliable**, **low-power**, and **low-cost**. They usually don't have a screen or keyboard and run on simple "firmware".
-
----
-
-## 📝 Concept Check
-**Q: What happens if the PC is not incremented?**
-*A: The computer would execute the same instruction forever (Infinite Loop).*
-
-**Q: Where is the result of 5 + 3 stored?**
-*A: In the Accumulator (ACC).*
-
-`,
-                    type: "lesson",
-                    difficulty: "higher",
-                    estimatedTime: 45,
-                    learningObjectives: ["Define CPU functions", "Explain Von Neumann architecture", "Describe the F-D-E cycle"]
+> [!WARNING]
+> General-purpose computers (like your laptop) are **NOT** embedded systems because they can perform many different tasks.
+`
                 }
             ],
             quizzes: [
@@ -180,95 +188,128 @@ They are designed to be **reliable**, **low-power**, and **low-cost**. They usua
             completed: false,
             studyMaterials: [
                 {
-                    id: "ram-rom-lesson",
-                    title: "Memory, Storage and Data",
-                    content: `# 💾 1.2 Memory, Storage & Data Representation
-
-> **"Memory is transient, Storage is forever (mostly)."**
-
----
-
-## 🎯 Learning Objectives
-- ⚡ **Primary Storage:** RAM vs ROM.
-- 👻 Explain **Virtual Memory**.
-- 💿 **Secondary Storage:** Magnetic vs Optical vs Solid State.
-- 🔢 **Data:** Units, Numbers, Images, Sound, Compression.
-
-**XP Reward:** 250 ⭐ | **Time:** 60 mins
-
----
-
-## 📚 Chapter 1: Primary Storage (Main Memory)
-Primary storage is memory that the CPU can access **directly**.
-
-### 1. RAM (Random Access Memory) 💭
-*   **Volatile:** Data is LOST when power is turned off.
-*   **Read/Write:** The CPU can read data from it and write data to it.
-*   **Purpose:** Stores the Operating System, running programs, and data currently in use.
-*   **Size:** Typically 8GB - 32GB.
-
-### 2. ROM (Read Only Memory) 🗿
-*   **Non-Volatile:** Data is KEPT when power is turned off.
-*   **Read-Only:** The CPU can only read; it cannot easily write new data.
-*   **Purpose:** Stores the **BIOS / Bootstrap Loader** (Start-up instructions).
-*   **Size:** Very small (e.g., 4-8 MB).
-
----
-
-## 📚 Chapter 2: Secondary Storage
-Long-term, non-volatile storage. The CPU cannot access it directly; data must be loaded into RAM first.
-
-### Types of Storage
-| Type | Technology | Examples | Pros | Cons |
-| :--- | :--- | :--- | :--- | :--- |
-| **Magnetic** | Moving platters, magnetic read/write head. | HDD (Hard Drive), Tape | High capacity, Cheap per GB | Moving parts (fragile), Slow(er), Noisy |
-| **Optical** | Lasers burn pits and lands. | CD, DVD, Blu-Ray | Cheap, Portable | Slowest, Easily Scratched, Low Capacity |
-| **Solid State** | Flash memory (floating gate transistors). No moving parts. | SSD, USB Pen, SD Card | Super Fast, Durable, Silent | Expensive per GB, Finite write cycles |
-
-### ⚠️ Capacity vs Speed vs Cost
-*   **SSD:** Fastest, Most Expensive.
-*   **HDD:** Good balance of speed/cost for large storage.
-*   **Tape:** Slowest access (sequential), but huge capacity for cheap (used for archives).
-
----
-
-## 📚 Chapter 3: Units of Data 📏
-
-| Unit | Value | Example size |
-| :--- | :--- | :--- |
-| **Bit (b)** | A single 1 or 0 | On/Off switch |
-| **Nibble** | 4 bits | Half a byte |
-| **Byte (B)** | 8 bits | One character of text |
-| **Kilobyte (KB)** | 1000 Bytes | A text file |
-| **Megabyte (MB)** | 1000 KB | An MP3 song |
-| **Gigabyte (GB)** | 1000 MB | A Movie |
-| **Terabyte (TB)** | 1000 GB | A Hard Drive |
-| **Petabyte (PB)** | 1000 TB | Google's Servers |
-
----
-
-## 📚 Chapter 4: Data Representation
-
-### 🖼️ Images
-*   **Pixel:** Picture Element. The smallest dot of colour.
-*   **Colour Depth:** Number of bits used to represent the colour of each pixel. (Higher depth = More colours = Larger file).
-*   **Resolution:** Width x Height in pixels.
-
-### 🎵 Sound
-*   **Sampling:** Converting analogue sound waves into digital binary.
-*   **Sample Rate:** How many times per second we measure the wave (Hz). (Higher rate = Better quality = Larger file).
-*   **Bit Depth:** How accurate each sample is.
-
-### 📦 Compression
-Reducing file size.
-1.  **Lossy:** Removes data PERMANENTLY. Quality is reduced. (e.g., JPG, MP3).
-2.  **Lossless:** Shrinks file but KEEPS perfectly original quality. (e.g., ZIP, PNG).
-
-`,
+                    id: "primary-memory-ram",
+                    title: "Primary Memory & RAM",
                     type: "lesson",
                     difficulty: "higher",
-                    estimatedTime: 60,
-                    learningObjectives: ["Compare RAM and ROM", "Explain Virtual Memory", "List Data Units"]
+                    estimatedTime: 40,
+                    learningObjectives: ["Contrast RAM and ROM", "Explain Virtual Memory", "Identify Flash memory traits"],
+                    content: `# 💾 Primary Memory: RAM vs ROM
+
+> [!NOTE]
+> **Primary Storage** is memory that the CPU can access **directly**. It is much faster than secondary storage.
+
+---
+
+## 🏛️ RAM (Random Access Memory) 💭
+
+RAM is the "temporary workspace" of your computer.
+*   **Volatile:** Data is **LOST** instantly if the power goes out.
+*   **Read/Write:** The CPU can both read from and write to it.
+*   **Role:** Holds the Operating System, open applications, and data being processed *right now*.
+*   **Performance:** Adding more RAM allows more programs to run simultaneously without slowing down.
+
+---
+
+## 🏛️ ROM (Read Only Memory) 🗿
+
+ROM is the "unforgettable" memory.
+*   **Non-Volatile:** Data is **KEPT** even without power.
+*   **Read-Only:** Under normal circumstances, you cannot change the contents.
+*   **Role:** Holds the **BIOS** (Basic Input/Output System) or "Bootstrap Loader" — instructions needed to start the computer.
+
+---
+
+## 🏛️ Virtual Memory (The Ghost RAM) 👻
+
+What happens when your RAM is full?
+1.  The CPU uses a section of the **Hard Drive** as if it were RAM.
+2.  Data that hasn't been used recently is "paged" out to the disk.
+3.  **The Catch:** Virtual memory is much **slower** than real RAM. If the CPU is constantly swapping data back and forth, it causes **Disk Thrashing**.
+`
+                },
+                {
+                    id: "secondary-storage-devices",
+                    title: "Secondary Storage Devices",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 45,
+                    learningObjectives: ["Compare Magnetic, Optical, and Solid State", "List characteristics (6 markers)", "Choose the right storage for a scenario"],
+                    content: `# 💿 Secondary Storage: Long-Term Memory
+
+Secondary storage is **Non-Volatile** storage used to save data (files, photos, OS) permanently. The CPU cannot access it directly.
+
+---
+
+## 🏛️ The Three Main Technologies
+
+| Type | Physical Method | Examples | Pros | Cons |
+| :--- | :--- | :--- | :--- | :--- |
+| **Magnetic** | Magnetic platters & heads. | HDD (Hard Drive) | Cheap, High Capacity | Moving parts, fragile. |
+| **Optical** | Lasers reading pits/lands. | DVD, Blu-Ray | Cheap, Portable | Slow, Easily damaged. |
+| **Solid State** | Electrical charges in flash. | SSD, USB stick | Super Fast, Robust | Expensive, Limited life. |
+
+---
+
+## 🏛️ Measuring Storage (The 6 Factors)
+
+When choosing storage, you evaluate these 6 traits:
+1.  **Capacity:** How much data can it hold?
+2.  **Speed:** How fast can data be read/written?
+3.  **Portability:** Can it be moved easily?
+4.  **Durability:** How well does it handle being dropped/knocked?
+5.  **Reliability:** How long will it last before failing?
+6.  **Cost:** What is the cost per Gigabyte?
+
+> [!TIP]
+> **Scenario:** A photographer needs to give photos to a client. 
+> *   **Choice:** USB Stick or Optical Disc (Cheap/Portable).
+> **Scenario:** A data center backing up terabytes of video.
+> *   **Choice:** Magnetic Tape (High Capacity/Low Cost).
+`
+                },
+                {
+                    id: "data-binary-hex",
+                    title: "Data: Bits, Binary & Hex",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 50,
+                    learningObjectives: ["Convert Binary to Denary", "Convert Denary to Hex", "Identify units of storage"],
+                    content: `# 🔢 Data Representation: The Language of Computers
+
+Computers only understand **Binary** (Base 2) because they are made of billions of tiny transistors that can either be ON (1) or OFF (0).
+
+---
+
+## 🏛️ The Units of Storage
+
+| Unit | Size |
+| :--- | :--- |
+| **Bit (b)** | A single 0 or 1. |
+| **Nibble** | 4 bits. |
+| **Byte (B)** | 8 bits (one character). |
+| **Kilobyte (KB)** | 1,000 bytes. |
+| **Megabyte (MB)** | 1,000 KB. |
+| **Gigabyte (GB)** | 1,000 MB. |
+| **Terabyte (TB)** | 1,000 GB. |
+
+---
+
+## 🏛️ Binary & Hexadecimal
+
+*   **Binary (Base 2):** 0, 1
+*   **Denary (Base 10):** 0-9 (Human numbers)
+*   **Hexadecimal (Base 16):** 0-9 and **A-F**. 
+    *   *A=10, B=11, C=12, D=13, E=14, F=15*
+
+### Why use Hex?
+Hex is easier for humans to read than long strings of binary. It is also more compact.
+**One Hex digit equals exactly 4 binary bits (one nibble).**
+
+> [!IMPORTANT]
+> **Calculation Check:** 
+> Binary \`1010\` is \`10\` in Denary, which is \`A\` in Hex.
+`
                 }
             ],
             quizzes: [
@@ -282,44 +323,114 @@ Reducing file size.
                     timeLimit: 20,
                     questions: [
                         {
-                            id: "mq1",
-                            question: "Which type of memory is volatile?",
+                            id: "m1",
+                            question: "Which of these is volatile memory?",
                             type: "multiple-choice",
-                            options: ["RAM", "ROM", "HDD", "SSD"],
+                            options: ["RAM", "ROM", "SSD", "Hard Drive"],
                             correctAnswer: "RAM",
-                            explanation: "RAM loses its contents when power is lost.",
+                            explanation: "RAM loses its contents when power is removed.",
                             marks: 1,
                             topic: "Memory"
                         },
                         {
-                            id: "mq2",
-                            question: "What is stored in ROM?",
+                            id: "m2",
+                            question: "Where is the BIOS / Bootstrap loader stored?",
                             type: "multiple-choice",
-                            options: ["User files", "Bootstrap loader / BIOS", "Currently open apps", "Videos"],
-                            correctAnswer: "Bootstrap loader / BIOS",
-                            explanation: "ROM stores the startup instructions needed to boot the computer.",
+                            options: ["RAM", "ROM", "Virtual Memory", "Cache"],
+                            correctAnswer: "ROM",
+                            explanation: "ROM stores non-volatile startup instructions.",
                             marks: 1,
                             topic: "Memory"
                         },
                         {
-                            id: "mq3",
-                            question: "Which storage has no moving parts?",
+                            id: "m3",
+                            question: "What is Virtual Memory?",
                             type: "multiple-choice",
-                            options: ["Optical", "Magnetic", "Solid State", "Cloud"],
+                            options: [
+                                "Extra RAM chips",
+                                "Temporary file on secondary storage used as RAM",
+                                "Cloud storage",
+                                "Fast cache memory"
+                            ],
+                            correctAnswer: "Temporary file on secondary storage used as RAM",
+                            explanation: "Virtual memory helps when physical RAM is full.",
+                            marks: 1,
+                            topic: "Memory"
+                        },
+                        {
+                            id: "m4",
+                            question: "Which storage technology has no moving parts?",
+                            type: "multiple-choice",
+                            options: ["Magnetic", "Optical", "Solid State", "Tape"],
                             correctAnswer: "Solid State",
-                            explanation: "Solid State uses flash memory circuits, making it durable and fast.",
+                            explanation: "SSD uses flash memory with zero moving parts.",
                             marks: 1,
                             topic: "Storage"
                         },
                         {
-                            id: "mq4",
-                            question: "Which compression type loses quality?",
+                            id: "m5",
+                            question: "How many bits are in a Kilobyte in GCSE (simplified)?",
                             type: "multiple-choice",
-                            options: ["Lossless", "Lossy", "Archive", "Encrypt"],
-                            correctAnswer: "Lossy",
-                            explanation: "Lossy removes data permanently to save space.",
+                            options: ["1024", "1000", "8000", "8"],
+                            correctAnswer: "8000",
+                            explanation: "1000 bytes = 1 KB. Since 1 byte = 8 bits, 1000 x 8 = 8000.",
                             marks: 1,
-                            topic: "Compression"
+                            topic: "Units"
+                        },
+                        {
+                            id: "m6",
+                            question: "What is the denary value of the binary number 1001?",
+                            type: "multiple-choice",
+                            options: ["5", "9", "7", "10"],
+                            correctAnswer: "9",
+                            explanation: "8 + 0 + 0 + 1 = 9.",
+                            marks: 1,
+                            topic: "Data"
+                        },
+                        {
+                            id: "m7",
+                            question: "Which storage is best for archiving terabytes of data cheaply?",
+                            type: "multiple-choice",
+                            options: ["SSD", "USB Pen", "Magnetic Tape", "Cloud"],
+                            correctAnswer: "Magnetic Tape",
+                            explanation: "Tape has the lowest cost per Gigabyte for huge backups.",
+                            marks: 1,
+                            topic: "Storage"
+                        },
+                        {
+                            id: "m8",
+                            question: "What Hex digit represents the denary number 13?",
+                            type: "multiple-choice",
+                            options: ["C", "D", "E", "F"],
+                            correctAnswer: "D",
+                            explanation: "A=10, B=11, C=12, D=13.",
+                            marks: 1,
+                            topic: "Data"
+                        },
+                        {
+                            id: "m9",
+                            question: "Which factor refers to how well storage handles drops?",
+                            type: "multiple-choice",
+                            options: ["Capacity", "Durability", "Portability", "Reliability"],
+                            correctAnswer: "Durability",
+                            explanation: "Durability describes the physical robustness.",
+                            marks: 1,
+                            topic: "Storage"
+                        },
+                        {
+                            id: "m10",
+                            question: "Why is ROM non-volatile?",
+                            type: "multiple-choice",
+                            options: [
+                                "It keeps data without power",
+                                "It is very fast",
+                                "It can be written to easily",
+                                "It uses lasers"
+                            ],
+                            correctAnswer: "It keeps data without power",
+                            explanation: "Non-volatile means the data is permanent.",
+                            marks: 1,
+                            topic: "Memory"
                         }
                     ]
                 }
@@ -332,86 +443,97 @@ Reducing file size.
             completed: false,
             studyMaterials: [
                 {
-                    id: "networks-deep-dive",
-                    title: "Networks, Protocols and The Internet",
-                    content: `# 🌐 1.3 Networks: Deep Dive
-
-## 🎯 Objectives
-- 🌍 **LAN vs WAN.**
-- 🌟 **Topologies:** Star and Mesh.
-- 📡 **Protocols:** TCP/IP, HTTP, FTP, IMAP, SMTP.
-- 🍰 **Layers:** The 4-Layer TCP/IP Model.
-
----
-
-## 📚 Chapter 1: Network Types
-
-### LAN (Local Area Network) 🏠
-*   **Area:** Small (School, Home).
-*   **Hardware:** Owned by you.
-*   **Tech:** Ethernet, Wi-Fi.
-
-### WAN (Wide Area Network) 🌍
-*   **Area:** Large (The Internet, Connecting branch offices).
-*   **Hardware:** Leased from Telecom companies (BT, Virgin) because you can't lay cables across the ocean!
-*   **Tech:** Fiber Optics, Satellite.
-
----
-
-## 📚 Chapter 2: Hardware & Topologies
-
-### 📦 Hardware
-*   **NIC (Network Interface Controller):** Allows device to connect.
-*   **Switch:** Connects devices on a LAN. Intelligent (sends data ONLY to intended recipient).
-*   **Router:** Connects different networks (e.g., LAN to WAN). Routes packets.
-*   **WAP:** Wireless Access Point.
-
-### 🌟 Star Topology
-*   All nodes connect to a central **Switch**.
-*   ✅ Fast, Reliable (one cable break doesn't kill network).
-*   ❌ Expensive cabling, Switch is single point of failure.
-
-### 🕸️ Mesh Topology
-*   All nodes connect to many others.
-*   ✅ No single point of failure, Self-healing.
-*   ❌ Very expensive to wire (Full mesh).
-
----
-
-## 📚 Chapter 3: Client-Server vs P2P
-
-| Feature | Client-Server | Peer-to-Peer (P2P) |
-| :--- | :--- | :--- |
-| **Control** | Central Server controls access/security. | No central control. All peers equal. |
-| **Backups** | Done centrally (Easy). | Done individually on each PC (Risky). |
-| **Cost** | Expensive (Server + Expert staff). | Cheap (Just cables/Wi-Fi). |
-| **Use Case** | Schools, Offices. | Home networks. |
-
----
-
-## 📚 Chapter 4: Protocols 📜
-A **Protocol** is a set of rules for how computers communicate.
-
-| Protocol | Full Name | Use |
-| :--- | :--- | :--- |
-| **TCP/IP** | Transmission Control Protocol / Internet Protocol | The dictating rules of the internet. TCP bursts data into packets; IP addresses them. |
-| **HTTP(S)** | HyperText Transfer Protocol (Secure) | Viewing webpages. (S = Encrypted). |
-| **FTP** | File Transfer Protocol | Uploading/Downloading files to a server. |
-| **SMTP** | Simple Mail Transfer Protocol | **Sending** emails. |
-| **IMAP** | Internet Message Access Protocol | **Retrieving** emails. |
-| **POP** | Post Office Protocol | Older way to retrieve emails (deletes from server). |
-
-### 🍰 The 4 Layers (TCP/IP Model)
-1.  **Application:** The app you are using (Browser, Email). (HTTP, FTP, SMTP).
-2.  **Transport:** Splits data into packets. (TCP).
-3.  **Internet:** Adds IP addresses to packets. (IP).
-4.  **Link:** Physical cables/Wi-Fi. (Ethernet).
-
-`,
+                    id: "networks-types-topologies",
+                    title: "Network Types & Topologies",
                     type: "lesson",
                     difficulty: "higher",
-                    estimatedTime: 60,
-                    learningObjectives: ["Define LAN/WAN", "Compare Star and Mesh", "Explain Protocols"]
+                    estimatedTime: 40,
+                    learningObjectives: ["Contrast LAN and WAN", "Identify network hardware", "Compare Star and Mesh topologies"],
+                    content: `# 🌐 1.3 Networks: Types & Topologies
+
+> [!NOTE]
+> **What is a Network?** Simply two or more computers connected together to share resources (files, internet, printers).
+
+---
+
+## 🏛️ LAN vs WAN: The Scale of Networks
+
+### 🏠 LAN (Local Area Network)
+*   **Scale:** Small geographical area (Home, School, Single Office).
+*   **Infrastructure:** Owned by the organization.
+*   **Speed:** Very high.
+
+### 🌍 WAN (Wide Area Network)
+*   **Scale:** Large geographical area (Multiple cities, countries).
+*   **Infrastructure:** Leased from Telecom companies (Fiber optics, satellites).
+*   **The Internet** is the largest WAN in existence.
+
+---
+
+## 🏛️ Network Hardware
+
+1.  **NIC (Network Interface Controller):** The hardware inside a device that allows it to connect to a network.
+2.  **Switch:** Connects devices on a LAN. It is **intelligent**: it only sends data to the specific device that needs it.
+3.  **Router:** Connects different networks together (e.g., your home LAN to the Internet WAN).
+4.  **WAP (Wireless Access Point):** Connects wireless devices to the wired network.
+
+---
+
+## 🏛️ Network Topologies
+
+### 🌟 Star Topology
+All devices connect to a central **Switch**. 
+*   **Pros:** If one cable breaks, only that device is affected. Easy to add new devices.
+*   **Cons:** If the central switch fails, the whole network goes down.
+
+### 🕸️ Mesh Topology
+Every device is connected to every other device (directly or indirectly).
+*   **Pros:** Highly resilient with no single point of failure (Self-healing).
+*   **Cons:** Very expensive to install due to the amount of cabling/hardware required.
+`
+                },
+                {
+                    id: "protocols-layers-internet",
+                    title: "Protocols & Layers",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 50,
+                    learningObjectives: ["Master TCP/IP model layers", "Describe common protocols", "Explain the concept of Packet Switching"],
+                    content: `# 📜 Protocols & The 4-Layer Model
+
+A **Protocol** is simply a set of rules for how computers communicate. Without them, computers would be speaking different languages.
+
+---
+
+## 🏛️ Common Protocols
+
+| Protocol | Name | Use Case |
+| :--- | :--- | :--- |
+| **HTTP/S** | HyperText Transfer Protocol | Browsing webpages. **S** stands for Secure (Encrypted). |
+| **FTP** | File Transfer Protocol | Sending files across a network. |
+| **SMTP** | Simple Mail Transfer Protocol | **Sending** emails to a server. |
+| **IMAP** | Internet Message Access Protocol | **Retrieving** (viewing) emails. |
+| **TCP** | Transmission Control Protocol | Breaks data into **packets** and ensures they arrive safely. |
+| **IP** | Internet Protocol | Directs packets to the correct destination using **IP Addresses**. |
+
+---
+
+## 🏛️ The 4-Layer TCP/IP Model 🍰
+
+Why use layers? Layers allow developers to focus on one area (like the app) without worrying about how the physical cables work.
+
+1.  **Application Layer:** Where the user interacts with the network (e.g., Chrome, Outlook).
+2.  **Transport Layer:** Breaks data into packets and numbers them (TCP).
+3.  **Internet Layer:** Addresses and routes the packets (IP).
+4.  **Link Layer:** The physical hardware (Cables, NIC, Wi-Fi).
+
+---
+
+## 🏛️ IP vs MAC Addresses
+
+*   **MAC Address:** A unique, **permanent** ID assigned to every network card in the factory. It cannot be changed.
+*   **IP Address:** A **temporary** address assigned to a device when it joins a network. It changes depending on where you are.
+`
                 }
             ],
             quizzes: [
@@ -425,32 +547,117 @@ A **Protocol** is a set of rules for how computers communicate.
                     timeLimit: 20,
                     questions: [
                         {
-                            id: "nq1",
-                            question: "Who owns the infrastructure of a WAN?",
+                            id: "n1",
+                            question: "Which of these is a large-scale network covering a country?",
                             type: "multiple-choice",
-                            options: ["Telecoms Companies", "The User", "Amazon", "Microsoft"],
-                            correctAnswer: "Telecoms Companies",
-                            explanation: "WANs lease lines from external providers.",
+                            options: ["LAN", "WAN", "PAN", "WAP"],
+                            correctAnswer: "WAN",
+                            explanation: "Wide Area Networks cover large geographical areas.",
                             marks: 1,
-                            topic: "Networks"
+                            topic: "Network Types"
                         },
                         {
-                            id: "nq2",
-                            question: "Which protocol is used for SENDING email?",
+                            id: "n2",
+                            question: "Which protocol is used to retrieve emails?",
                             type: "multiple-choice",
-                            options: ["IMAP", "POP", "SMTP", "HTTP"],
-                            correctAnswer: "SMTP",
-                            explanation: "Simple Mail Transfer Protocol is for sending.",
+                            options: ["SMTP", "FTP", "IMAP", "HTTP"],
+                            correctAnswer: "IMAP",
+                            explanation: "IMAP (and POP) are used for retrieving mail.",
                             marks: 1,
                             topic: "Protocols"
                         },
                         {
-                            id: "nq3",
-                            question: "Which topology uses a central switch?",
+                            id: "n3",
+                            question: "What is the function of a Router?",
                             type: "multiple-choice",
-                            options: ["Bus", "Ring", "Star", "Mesh"],
-                            correctAnswer: "Star",
-                            explanation: "Star topology connects everything to a central point.",
+                            options: [
+                                "Connecting devices on a LAN",
+                                "Connecting different networks together",
+                                "Providing wireless signals",
+                                "Storing webpage files"
+                            ],
+                            correctAnswer: "Connecting different networks together",
+                            explanation: "Routers forward packets between networks (e.g. LAN to WAN).",
+                            marks: 1,
+                            topic: "Hardware"
+                        },
+                        {
+                            id: "n4",
+                            question: "Which topology is the most resilient to cable failure?",
+                            type: "multiple-choice",
+                            options: ["Star", "Mesh", "Bus", "Ring"],
+                            correctAnswer: "Mesh",
+                            explanation: "Mesh networks have multiple paths for data.",
+                            marks: 1,
+                            topic: "Topologies"
+                        },
+                        {
+                            id: "n5",
+                            question: "In the 4-layer model, what is the layer closest to the user?",
+                            type: "multiple-choice",
+                            options: ["Transport", "Internet", "Application", "Link"],
+                            correctAnswer: "Application",
+                            explanation: "Application layer is where user software operates.",
+                            marks: 1,
+                            topic: "Layers"
+                        },
+                        {
+                            id: "n6",
+                            question: "What does the 'S' in HTTPS stand for?",
+                            type: "multiple-choice",
+                            options: ["Simple", "Secure", "Special", "System"],
+                            correctAnswer: "Secure",
+                            explanation: "HTTPS uses SSL/TLS encryption for security.",
+                            marks: 1,
+                            topic: "Protocols"
+                        },
+                        {
+                            id: "n7",
+                            question: "Which address is permanent and assigned in the factory?",
+                            type: "multiple-choice",
+                            options: ["IP Address", "MAC Address", "Web Address", "Postcode"],
+                            correctAnswer: "MAC Address",
+                            explanation: "Media Access Control addresses are fixed to the NIC.",
+                            marks: 1,
+                            topic: "Addressing"
+                        },
+                        {
+                            id: "n8",
+                            question: "What is the primary role of a Switch?",
+                            type: "multiple-choice",
+                            options: [
+                                "To connect individual devices on a LAN",
+                                "To connect a LAN to the Internet",
+                                "To host websites",
+                                "To encrypt files"
+                            ],
+                            correctAnswer: "To connect individual devices on a LAN",
+                            explanation: "Switches connect devices within a single local network.",
+                            marks: 1,
+                            topic: "Hardware"
+                        },
+                        {
+                            id: "n9",
+                            question: "Which protocol breaks data into packets and manages their delivery?",
+                            type: "multiple-choice",
+                            options: ["IP", "TCP", "HTTP", "FTP"],
+                            correctAnswer: "TCP",
+                            explanation: "Transmission Control Protocol manages packet assembly/ordering.",
+                            marks: 1,
+                            topic: "Protocols"
+                        },
+                        {
+                            id: "n10",
+                            question: "What is a major disadvantage of Star topology?",
+                            type: "multiple-choice",
+                            options: [
+                                "One broken cable kills the whole network",
+                                "The central switch is a single point of failure",
+                                "It is very slow",
+                                "It cannot be used for Wi-Fi"
+                            ],
+                            correctAnswer: "The central switch is a single point of failure",
+                            explanation: "If the hub/switch dies, no device can communicate.",
                             marks: 1,
                             topic: "Topologies"
                         }
@@ -465,56 +672,86 @@ A **Protocol** is a set of rules for how computers communicate.
             completed: false,
             studyMaterials: [
                 {
-                    id: "security-threats",
-                    title: "Threats and Prevention",
-                    content: `# 🛡️ 1.4 Network Security
-
-## 🎯 Objectives
-- 🦠 **Threats:** Malware, Phishing, SQL Injection, DDOS.
-- 💂‍♂️ **Prevention:** Firewalls, Anti-malware, Encryption.
-
----
-
-## 📚 Chapter 1: The Threats 🦠
-
-### Malware (Malicious Software)
-1.  **Virus:** Needs a host file. Replicates. Damages data.
-2.  **Worm:** Standalone. Replicates through networks. Eats bandwidth.
-3.  **Trojan:** Disguised as something good. Opens backdoors.
-4.  **Ransomware:** Encrypts files. Demands bitcoin.
-5.  **Spyware:** Keyloggers steal passwords.
-
-### Hacking Methods
-*   **Social Engineering:** Manipulating **people** (Phishing calls/emails).
-*   **Brute Force:** Trying every password combination.
-*   **DDOS:** Flooding a server with traffic to crash it.
-*   **SQL Injection:** Typing SQL code into a web box to break the database.
-    *   *Prevention:* Input Sanitization.
-
----
-
-## 📚 Chapter 2: The Defences 🛡️
-
-| Method | How it works |
-| :--- | :--- |
-| **Penetration Testing** | Hiring "White Hat" hackers to find bugs *before* bad guys do. |
-| **Anti-Malware** | Scans filesystem for signatures of known viruses. |
-| **Firewall** | Can be Hardware or Software. Inspects packets. Blocks unauthorized ports. |
-| **User Access Levels** | "Least Privilege". Only give staff access to files they *need*. |
-| **Encryption** | Scrambling data using an algorithm and a key. |
-| **Physical Security** | Locks, Biometrics, CCTV. |
-
-`,
+                    id: "security-threats-malware",
+                    title: "Threats & Malware",
                     type: "lesson",
-                    difficulty: "foundation",
-                    estimatedTime: 35,
-                    learningObjectives: ["Identify security threats", "Explain prevention methods"]
+                    difficulty: "higher",
+                    estimatedTime: 40,
+                    learningObjectives: ["Identify types of malware", "Explain Social Engineering", "Describe DDOS and SQL Injection"],
+                    content: `# 🦠 1.4 Network Security: The Threats
+
+In the digital world, threats come from many directions. Some are automated (Malware), while others target human psychology (Social Engineering).
+
+---
+
+## 🏛️ Malware (Malicious Software)
+
+| Malware Type | Description |
+| :--- | :--- |
+| **Virus** | Needs a host file to run. It replicates and damages/deletes data. |
+| **Worm** | Standalone program. Replicates across networks, often slowing them down. |
+| **Trojan** | Disguised as legitimate software. Opens a "backdoor" for hackers. |
+| **Ransomware** | Encrypts your files and demands money (usually Bitcoin) for the key. |
+| **Spyware** | Secretly records your actions (e.g., Keyloggers recording passwords). |
+
+---
+
+## 🏛️ Human & Technical Attacks
+
+### 🎭 Social Engineering
+Targeting the "weakest link" in security: **People**.
+*   **Phishing:** Sending fake emails that look like they're from a bank to steal login details.
+*   **Shouldering:** Looking over someone's shoulder while they type their PIN.
+
+### 💻 Technical Attacks
+*   **Brute Force:** Using software to try every possible password combination until one works.
+*   **DDOS (Distributed Denial of Service):** Flooding a server with so much traffic that it crashes.
+*   **SQL Injection:** Typing SQL commands into a website's input box (like a search bar) to steal data from the database.
+`
+                },
+                {
+                    id: "security-prevention-defences",
+                    title: "Prevention & Defences",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 45,
+                    learningObjectives: ["Explain the role of Firewalls", "Identify 'White Hat' hacking", "Describe internal security measures"],
+                    content: `# 🛡️ Defending the Network
+
+Having identified the threats, how do we stop them? Real security uses **Layers of Defence**.
+
+---
+
+## 🏛️ The Great Wall: Firewalls
+
+A **Firewall** acts as a barrier between your internal network and the outside world (the Internet).
+*   It monitors all incoming and outgoing **packets**.
+*   It blocks unauthorized traffic based on a set of rules.
+
+---
+
+## 🏛️ Proactive Defence: Penetration Testing
+
+Organizations hire "White Hat" (ethical) hackers to perform **Penetration Testing**.
+*   They try to hack the system to find bugs.
+*   They report these bugs so they can be fixed *before* a real "Black Hat" hacker finds them.
+
+---
+
+## 🏛️ Internal Security Measures
+
+1.  **Anti-Malware:** Software that scans your computer for known malware signatures and deletes them.
+2.  **User Access Levels:** Ensures users only have access to files they *need* for their job (Least Privilege).
+3.  **Passwords:** Using strong, complex passwords that are changed regularly.
+4.  **Encryption:** Scrambling data so that even if it's stolen, it's unreadable without a secret "key".
+5.  **Physical Security:** Using locks, biometrics (fingerprints), and CCTV to protect server rooms.
+`
                 }
             ],
             quizzes: [
                 {
                     id: "security-exit-test",
-                    title: "End of Topic Test: Security",
+                    title: "End of Topic Test: Network Security",
                     difficulty: "higher",
                     passingScore: 90,
                     xpReward: 200,
@@ -522,24 +759,124 @@ A **Protocol** is a set of rules for how computers communicate.
                     timeLimit: 20,
                     questions: [
                         {
-                            id: "sq1",
-                            question: "What differentiates a Worm from a Virus?",
+                            id: "s1",
+                            question: "Which type of malware replicates itself across a network without a host file?",
                             type: "multiple-choice",
-                            options: ["Worms are bigger", "Worms do not need a host file", "Viruses are safe", "There is no difference"],
-                            correctAnswer: "Worms do not need a host file",
-                            explanation: "Worms are standalone programs that self-replicate.",
+                            options: ["Virus", "Worm", "Trojan", "Spyware"],
+                            correctAnswer: "Worm",
+                            explanation: "Worms are standalone and self-replicating.",
                             marks: 1,
                             topic: "Malware"
                         },
                         {
-                            id: "sq2",
-                            question: "Which attack inserts code into a database input?",
+                            id: "s2",
+                            question: "What is the primary purpose of a Firewall?",
                             type: "multiple-choice",
-                            options: ["Phishing", "SQL Injection", "DDOS", "Brute Force"],
-                            correctAnswer: "SQL Injection",
-                            explanation: "Structured Query Language Injection exploits un-sanitized inputs.",
+                            options: [
+                                "To speed up the internet",
+                                "To monitor and filter packet traffic",
+                                "To back up files",
+                                "To encrypt emails"
+                            ],
+                            correctAnswer: "To monitor and filter packet traffic",
+                            explanation: "Firewalls block unauthorized access based on traffic rules.",
+                            marks: 1,
+                            topic: "Defences"
+                        },
+                        {
+                            id: "s3",
+                            question: "Which attack floods a server with traffic to make it crash?",
+                            type: "multiple-choice",
+                            options: ["Phishing", "DDOS", "SQL Injection", "Brute Force"],
+                            correctAnswer: "DDOS",
+                            explanation: "Distributed Denial of Service aims to overwhelm a server.",
                             marks: 1,
                             topic: "Threats"
+                        },
+                        {
+                            id: "s4",
+                            question: "What does 'Social Engineering' target?",
+                            type: "multiple-choice",
+                            options: ["The Firewall", "The Database", "The User (Humans)", "The Router"],
+                            correctAnswer: "The User (Humans)",
+                            explanation: "Social engineering manipulates people into giving away secrets.",
+                            marks: 1,
+                            topic: "Threats"
+                        },
+                        {
+                            id: "s5",
+                            question: "What is an Ethical (White Hat) hacker hired to do?",
+                            type: "multiple-choice",
+                            options: [
+                                "Steal competitor data",
+                                "Perform Penetration Testing",
+                                "Create ransomware",
+                                "Install spyware"
+                            ],
+                            correctAnswer: "Perform Penetration Testing",
+                            explanation: "They find vulnerabilities so they can be patched.",
+                            marks: 1,
+                            topic: "Defences"
+                        },
+                        {
+                            id: "s6",
+                            question: "Which threat encrypts data and demands payment for the key?",
+                            type: "multiple-choice",
+                            options: ["Trojan", "Ransomware", "Worm", "Adware"],
+                            correctAnswer: "Ransomware",
+                            explanation: "Ransomware holds data 'hostage' until a ransom is paid.",
+                            marks: 1,
+                            topic: "Malware"
+                        },
+                        {
+                            id: "s7",
+                            question: "What is SQL Injection used for?",
+                            type: "multiple-choice",
+                            options: [
+                                "Crashing the CPU",
+                                "Bypassing website inputs to access databases",
+                                "Blocking emails",
+                                "Deleting files from the hard drive"
+                            ],
+                            correctAnswer: "Bypassing website inputs to access databases",
+                            explanation: "It uses malicious SQL code in input fields.",
+                            marks: 1,
+                            topic: "Threats"
+                        },
+                        {
+                            id: "s8",
+                            question: "Which defence principle gives users the absolute minimum access they need?",
+                            type: "multiple-choice",
+                            options: ["Strong Passwords", "Encryption", "Least Privilege", "Biometrics"],
+                            correctAnswer: "Least Privilege",
+                            explanation: "User access levels should be restricted to only necessary files.",
+                            marks: 1,
+                            topic: "Defences"
+                        },
+                        {
+                            id: "s9",
+                            question: "What is a 'Brute Force' attack?",
+                            type: "multiple-choice",
+                            options: [
+                                "Physically breaking a server",
+                                "Trying every possible password combination",
+                                "Sending fake emails",
+                                "Using a magnet to erase data"
+                            ],
+                            correctAnswer: "Trying every possible password combination",
+                            explanation: "It systematically tries all combinations until one works.",
+                            marks: 1,
+                            topic: "Threats"
+                        },
+                        {
+                            id: "s10",
+                            question: "What does Anti-Malware software look for when scanning?",
+                            type: "multiple-choice",
+                            options: ["Large files", "Malware signatures", "Browser history", "Empty folders"],
+                            correctAnswer: "Malware signatures",
+                            explanation: "It matches file patterns against a database of known threats.",
+                            marks: 1,
+                            topic: "Defences"
                         }
                     ]
                 }

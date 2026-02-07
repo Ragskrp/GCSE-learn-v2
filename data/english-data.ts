@@ -22,67 +22,132 @@ export const year10EnglishLiterature: Subject = {
             completed: false,
             studyMaterials: [
                 {
-                    id: "macbeth-full",
-                    title: "Macbeth: The Scottish Play",
-                    content: `# 🎭 Macbeth: Ambition & The Supernatural
+                    id: "macbeth-intro",
+                    title: "Macbeth: The Tragedy of Ambition",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 45,
+                    learningObjectives: ["Analyse the Witches' influence", "Understand the 'Fair is Foul' paradox"],
+                    content: `# 🎭 Macbeth: The Architecture of Tragedy
 
 > [!NOTE]
 > **"Fair is foul, and foul is fair..."**
-> Master the tragic descent of a hero into a tyrant in Shakespeare's fastest-paced tragedy.
+> This paradox is the heartbeat of the play. It suggests that appearances are deceiving and the moral order of Scotland is about to be turned upside down.
 
 ---
 
-## 🏛️ The Setting & Mood
+## 🏛️ The Inciting Incident
 
-The play opens in Scotland, an 11th-century landscape of brutal civil war and terrifying supernatural storms.
+The play begins in thunder and lightning with three **Witches** (The Weird Sisters). They are the catalysts of the tragedy.
 
-### 🔑 Pathetic Fallacy
-Shakespeare uses weather to reflect the moral decay of characters:
-- **Thunder & Lightning:** Signal the presence of the Witches. 🌩️
-- **Darkness:** Most defining scenes occur at night, symbolizing Macbeth's "black and deep desires." 🌑
-
-### 🧩 The "Fair is Foul" Paradox
-This central theme means **Appearances are Deceiving**. 
-- What looks good (Macbeth's bravery) is actually hiding a dark secret.
-- What looks bad (The Witches) is actually speaking some truths that tempt Macbeth.
+### The Prophecies:
+1.  **Thane of Glamis** (Macbeth's current title).
+2.  **Thane of Cawdor** (A reward for his bravery in battle).
+3.  **King hereafter** (The spark that ignites his ambition).
 
 ---
 
-## 🏛️ The Main Players
+## 🏛️ The Supernatural & Pathetic Fallacy
 
-| Character | Role | Key Trait |
-| :--- | :--- | :--- |
-| **Macbeth** | Tragic Hero | Brave but fatally weak-willed 🐺 |
-| **Lady Macbeth** | The Architect | Ruthless, manipulative, and ambitious 🐍 |
-| **The Witches** | The Catalyst | Chaotic agents of prophecy 🔮 |
-| **King Duncan** | The Just King | Trusting, virtuous, and doomed 👑 |
+Shakespeare uses the environment to reflect the internal state of his characters. This is called **Pathetic Fallacy**.
+
+*   **Storms:** Every time the Witches appear, there is a storm. 🌩️
+*   **Darkness:** Macbeth's evil deeds always take place at night. He asks the stars to "hide your fires" so they cannot see his "black and deep desires."
 
 ---
 
-## 🏛️ Summary of Act 1: The Inciting Incidents
+## 🐍 Lady Macbeth: The Architect
 
-1. **The Prophecies:** The Witches greet Macbeth as **Thane of Glamis**, **Thane of Cawdor**, and **King hereafter**.
-2. **The First Realisation:** Moments later, Macbeth learns he *has* been named Thane of Cawdor. The "instruments of darkness" have spoken truth.
-3. **The Letter:** Lady Macbeth reads of the prophecies and immediately fears her husband is "too full o' the milk of human kindness" to seize the crown.
-4. **The Plan:** Duncan arrives at their castle (Inverness). Lady Macbeth invokes spirits to "unsex" her and prepares the murder plot while Duncan sleeps.
+While Macbeth is "too full o' the milk of human kindness," Lady Macbeth is ruthless. She fears his conscience will stop him from seizing the crown.
 
----
+> *"Unsex me here, and fill me from the crown to the toe top-full of direst cruelty!"*
 
-## 🏛️ Central Themes to Watch
-
-### 1. Ambition (The Hamartia)
-Macbeth's "Vaulting Ambition" is his fatal flaw. He knows that his only reason for killing Duncan is his own ego, yet he cannot stop himself.
-
-### 2. Fate vs. Free Will
-Did the Witches determine Macbeth's path? Or did they simply plant a seed in a soil that was already fertile with ambition?
-
-### 3. Masculinity
-Lady Macbeth links "Manhood" with violence and cruelty. She successfully bullies Macbeth into the murder by questioning his courage.
-`,
+She successfully manipulates Macbeth by questioning his **masculinity**, essentially bullying him into committing regicide.
+`
+                },
+                {
+                    id: "macbeth-key-scenes",
+                    title: "Macbeth: Key Scenes & Quotes",
                     type: "lesson",
-                    difficulty: "foundation",
+                    difficulty: "higher",
                     estimatedTime: 50,
-                    learningObjectives: ["Summarise the plot", "Analyse key quotes"]
+                    learningObjectives: ["Analyse the Dagger Soliloquy", "Discuss the Banquo's Ghost scene"],
+                    content: `# 🗡️ Key Scenes: The Descent into Madness
+
+As Macbeth moves from "Valiant Cousin" to "Dead Butcher," several pivotal scenes mark his psychological collapse.
+
+---
+
+## 🏛️ The Dagger Soliloquy (Act 2, Sc 1)
+
+Just before the murder of Duncan, Macbeth sees a vision of a floating dagger.
+
+> *"Is this a dagger which I see before me, the handle toward my hand?"*
+
+*   **Interpretation:** Is it a supernatural warning? Or a hallucination caused by his extreme guilt and anxiety?
+*   **Symbolism:** The "gouts of blood" on the blade foreshadow the bloodbath that follows.
+
+---
+
+## 🏛️ The Ghost of Banquo (Act 3, Sc 4)
+
+After ordering the murder of his friend Banquo, Macbeth sees Banquo's ghost sitting in his seat at a royal banquet.
+
+*   **Effect:** Macbeth loses control in front of his lords, showing that his "fit" is a sign of his crumbling mental state.
+*   **Lady Macbeth's Role:** She tries to maintain order, telling the guests it is a "momentary" flaw, but her power is also fading.
+
+---
+
+## 🏛️ Out, Damned Spot! (Act 5, Sc 1)
+
+At the end of the play, the once-ruthless Lady Macbeth is reduced to a sleepwalking shell, trying to "wash" imaginary blood from her hands.
+
+> *"Out, damned spot! out, I say!"*
+
+*   **Contrast:** In Act 2, she said "A little water clears us of this deed." Now, she realizes that "All the perfumes of Arabia will not sweeten this little hand."
+`
+                },
+                {
+                    id: "macbeth-themes-context",
+                    title: "Macbeth: Context & Grand Themes",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 40,
+                    learningObjectives: ["Explain the Divine Right of Kings", "Discuss the theme of Kingship vs Tyranny"],
+                    content: `# ⚖️ Context: Kingship, Tyranny & The Divine
+
+Shakespeare wrote *Macbeth* partly to please **King James I**, who had recently survived the Gunpowder Plot.
+
+---
+
+## 🏛️ The Divine Right of Kings
+
+In the 17th century, people believed that Kings were chosen by God. Killing a King (**Regicide**) was not just a crime; it was a sin against God and Nature.
+
+### The Great Chain of Being:
+When Macbeth kills Duncan, the "Chain" is broken. This is why we hear reports of:
+*   Horses eating each other.
+*   An owl killing a falcon.
+*   The earth "shaking."
+
+---
+
+## 🏛️ Kingship vs. Tyranny
+
+Through the contrast of Duncan, Macbeth, and Malcolm, Shakespeare explores what makes a good leader.
+
+| Leader | Style | Biblical Parallel |
+| :--- | :--- | :--- |
+| **Duncan** | Virtuous, holy, and trusting. | The Lamb of God. |
+| **Macbeth** | Violent, selfish, and paranoid. | The Devil / Lucifer. |
+| **Malcolm** | Diplomatic, cautious, and restorative. | The True Heir. |
+
+---
+
+## 🏛️ The Final Message
+
+Macbeth concludes that life is a "walking shadow" and a "tale told by an idiot, signifying nothing." His ambition led him to a crown, but it cost him his soul and his sanity.
+`
                 }
             ],
             quizzes: [
@@ -126,9 +191,13 @@ Lady Macbeth links "Manhood" with violence and cruelty. She successfully bullies
             completed: false,
             studyMaterials: [
                 {
-                    id: "inspector-themes",
-                    title: "AIC: Themes and Characters",
-                    content: `# 🕵️‍♂️ An Inspector Calls: Responsibility & Society
+                    id: "inspector-responsibility",
+                    title: "AIC: Social Responsibility",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 40,
+                    learningObjectives: ["Analyse the Inspector's final speech", "Explain Priestley's political message"],
+                    content: `# 🕵️‍♂️ AIC: The Ghost of Social Responsibility
 
 > [!NOTE]
 > **Priority Quote:** "We are members of one body. We are responsible for each other."
@@ -146,35 +215,42 @@ Priestley wrote the play in **1945** (at the end of WWII) but set it in **1912**
 
 ---
 
-## 🏛️ The Clash of Generations
-
-The play's biggest conflict is not just between the Birlings and the Inspector, but between the **Old** and the **Young**.
-
-### 👴 The Older Generation (Mr & Mrs Birling)
-- **Trait:** Static (They do not change or learn).
-- **Philosphy:** "A man has to make his own way—has to look after himself."
-- **Response:** They care more about their reputation and avoiding a "public scandal" than about the girl they helped kill.
-
-### 🧒 The Younger Generation (Sheila & Eric)
-- **Trait:** Dynamic (They transform during the play).
-- **Philosophy:** "It frightens me the way you talk... you're beginning to pretend now that nothing's really happened."
-- **Response:** They accept their **Social Responsibility** and are deeply shaken by their actions.
-
----
-
 ## 🏛️ The Inspector: Who is Goole?
 
 Inspector Goole is more than just a policeman; he is a moral force.
 
-- **Appearance:** He creates an impression of "massiveness, solidity and purposefulness."
-- **Lighting:** When he arrives, the lighting changes from "pink and intimate" to **"brighter and harder."** It's like an interrogation lamp.
-- **Name:** "Goole" sounds like "Ghoul" (ghost). Is he a spirit? A conscience? Or an angel of justice?
-
-`,
+*   **Appearance:** He creates an impression of "massiveness, solidity and purposefulness."
+*   **Lighting:** When he arrives, the lighting changes from "pink and intimate" to **"brighter and harder."** It's like an interrogation lamp.
+*   **Name:** "Goole" sounds like "Ghoul" (ghost). Is he a spirit? A conscience? Or an angel of justice?
+`
+                },
+                {
+                    id: "inspector-generations",
+                    title: "AIC: The Clash of Generations",
                     type: "lesson",
-                    difficulty: "foundation",
-                    estimatedTime: 40,
-                    learningObjectives: ["Contrast generations", "Explain Priestley's message"]
+                    difficulty: "higher",
+                    estimatedTime: 35,
+                    learningObjectives: ["Contrast the Birling children with their parents", "Discuss the theme of change"],
+                    content: `# 🧒 The Generation Gap: Old vs. Young
+
+The play's biggest conflict is not just between the Birlings and the Inspector, but between those who can change and those who cannot.
+
+---
+
+## 🏛️ The Older Generation (Mr & Mrs Birling)
+
+*   **Trait:** Static (They do not change or learn).
+*   **Philosophy:** "A man has to make his own way—has to look after himself."
+*   **Response:** They care more about their reputation and avoiding a "public scandal" than about the girl they helped kill. By the end of the play, they are relieved to think it might have been a "hoax."
+
+---
+
+## 🏛️ The Younger Generation (Sheila & Eric)
+
+*   **Trait:** Dynamic (They transform during the play).
+*   **Philosophy:** "It frightens me the way you talk... you're beginning to pretend now that nothing's really happened."
+*   **Response:** They accept their **Social Responsibility**. Sheila becomes the Inspector's "proxy," helping him to expose the truth when he is out of the room.
+`
                 }
             ],
             quizzes: [

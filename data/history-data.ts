@@ -24,20 +24,82 @@ export const year10History: Subject = {
             studyMaterials: [
                 {
                     id: "usa-expansion",
-                    title: "Expansion and Consolidation",
-                    content: `# 🦅 America 1840-1895
-
-## 🎯 Key Themes
-- **Manifest Destiny:** The belief it was God's will to expand West.
-- **The Plains Indians:** Culture, buffalo, conflict with settlers.
-- **The Civil War:** North vs South, Slavery, Reconstruction.
-- **Settlement:** Homesteaders, Cattlemen, Railroads.
-
-`,
+                    title: "Expansion: Manifest Destiny & The West",
                     type: "lesson",
-                    difficulty: "foundation",
+                    difficulty: "higher",
                     estimatedTime: 40,
-                    learningObjectives: ["Explain Manifest Destiny", "Describe Plains Indian life"]
+                    learningObjectives: ["Explain Manifest Destiny", "Describe the 1849 Gold Rush", "Explain the impact of the Railroad"],
+                    content: `# 🦅 America: Expansion Westward (1840-1895)
+
+> [!NOTE]
+> **Key Concept:** Between 1840 and 1895, the USA transformed from a collection of states on the East Coast into a continental superpower. This growth was driven by the idea of "Manifest Destiny".
+
+---
+
+## 🏛️ Manifest Destiny
+
+In the 1840s, many Americans believed it was their **God-given right** to occupy and "civilize" the entire North American continent from the Atlantic to the Pacific.
+
+### Why move West?
+*   **Economic Opportunity:** Cheap land for farming.
+*   **Religious Freedom:** Groups like the Mormons fled persecution.
+*   **Crowding:** Eastern cities were becoming overpopulated.
+*   **The "Pioneer Spirit":** A desire for adventure and a new life.
+
+---
+
+## 💰 The 1849 Gold Rush
+
+In 1848, gold was discovered at Sutter's Mill in California. This triggered a massive migration of "Forty-Niners".
+
+*   **Impact:** California's population exploded from 15,000 to over 250,000 in just a few years.
+*   **Consequence:** Thousands of Native Americans were displaced, and lawlessness became a major issue in "Boom Towns".
+
+---
+
+## 🚂 The Transcontinental Railroad (1869)
+
+The completion of the railroad at Promontory Point changed everything.
+
+1.  **Speed:** The journey West dropped from 6 months (by wagon) to just **6 days**.
+2.  **Trade:** Goods could be shipped across the country, boosting the economy.
+3.  **Settlement:** It encouraged millions of homesteaders to move into the Great Plains.
+`
+                },
+                {
+                    id: "plains-indians-culture",
+                    title: "Culture of the Plains Indians",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 35,
+                    learningObjectives: ["Describe the importance of the Buffalo", "Explain beliefs about land ownership"],
+                    content: `# 🏹 The Way of the Plains Indians
+
+To understand the conflict of the 19th century, we must first understand the unique culture of the tribes like the Sioux, Cheyenne, and Apache.
+
+---
+
+## 🦬 The Buffalo: Lifeblood of the Tribes
+
+For many Plains Indians, the buffalo was essential for survival. They used almost every part of the animal:
+
+*   **Flesh:** Eaten raw, cooked, or dried.
+*   **Skin:** Used for clothing and **Tipis**.
+*   **Bones:** Fashioned into tools and weapons.
+*   **Dung:** Burnt as fuel for fires.
+
+---
+
+## 🗺️ Beliefs About Land
+
+The biggest clash between settlers and Native Americans was over **land ownership**.
+
+*   **Native View:** Land cannot be owned. It is a gift from the Great Spirit to be shared by all.
+*   **Settler View:** Land should be fenced, farmed, and owned as private property.
+
+> [!WARNING]
+> This fundamental disagreement led to decades of broken treaties and "The Indian Wars".
+`
                 }
             ],
             quizzes: [
@@ -333,24 +395,71 @@ export const year10History: Subject = {
             completed: false,
             studyMaterials: [
                 {
-                    id: "ww1-conflict",
-                    title: "Conflict and Tension: WW1",
-                    content: `# 💣 WW1 1894-1918
-
-## 📚 Causes (MAIN)
-- **M**ilitarism, **A**lliances, **I**mperialism, **N**ationalism.
-- **Trigger:** Assassination of Archduke Franz Ferdinand.
-
-## 📚 The First World War
-- **Schlieffen Plan.**
-- **Stalemate:** Trench Warfare (Somme, Passchendaele, Verdun).
-- **New Tech:** Tanks, Gas, Planes.
-- **End:** USA entry, Russian exit, German collapse.
-`,
+                    id: "ww1-causes",
+                    title: "Conflict and Tension: The M.A.I.N Causes",
                     type: "lesson",
                     difficulty: "foundation",
                     estimatedTime: 45,
-                    learningObjectives: ["Explain MAIN causes", "Describe Trench Warfare"]
+                    learningObjectives: ["Explain M.A.I.N. causes", "Explain the Archduke's assassination"],
+                    content: `# 💣 WW1: The Global Explosion (1894-1918)
+
+Why did the world go to war in 1914? Historians use the acronym **M.A.I.N.** to remember the long-term causes.
+
+---
+
+## 🏗️ The M.A.I.N. Causes
+
+1.  **Militarism:** Countries like Germany and Britain raced to build the largest armies and navies (**Dreadnoughts**).
+2.  **Alliances:** Europe was divided into two armed camps: The **Triple Entente** (Britain, France, Russia) and the **Triple Alliance** (Germany, Austria-Hungary, Italy).
+3.  **Imperialism:** Nations competed for colonies and resources in Africa and Asia.
+4.  **Nationalism:** An intense pride in one's own country and a desire for independence (especially in the Balkans).
+
+---
+
+## 🔫 The Trigger: Sarajevo, 1914
+
+On June 28, 1914, **Archduke Franz Ferdinand** (the heir to the Austro-Hungarian throne) was assassinated in Sarajevo by Gavrilo Princip, a member of the **Black Hand** Serbian nationalist group.
+
+> [!IMPORTANT]
+> This single event triggered a chain reaction of alliances that dragged all the major powers into war within weeks.
+`
+                },
+                {
+                    id: "trench-warfare-life",
+                    title: "Life in the Trenches",
+                    type: "lesson",
+                    difficulty: "higher",
+                    estimatedTime: 40,
+                    learningObjectives: ["Identify trench features", "Describe conditions for soldiers"],
+                    content: `# 🕳️ Life in the Trenches
+
+By 1914, the war had reached a **stalemate** on the Western Front. Soldiers dug a vast network of trenches stretching for hundreds of miles.
+
+---
+
+## 🏛️ Anatomy of a Trench
+
+![Cross-section Diagram of a WWI Trench](C:/Users/Dell/.gemini/antigravity/brain/f02c14d8-3f2c-460b-b24d-0d903850ce9d/trench_warfare_diagram_1770481478106.png)
+
+### Key Features:
+*   **Parapet:** Protective front wall banked with sandbags.
+*   **Fire Step:** Used to look over the parapet and fire towards the enemy.
+*   **Duckboards:** Planks on the floor to keep soldiers' feet out of the mud and water.
+*   **No Man's Land:** The dangerous area of craters and barbed wire between the two front lines.
+
+---
+
+## 🦠 Living Conditions
+
+Life was a cycle of boredom, terror, and disease.
+
+1.  **Trench Foot:** A painful condition caused by feet being constantly wet/cold.
+2.  **Lice & Rats:** Vermin infested the trenches, spreading diseases like Trench Fever.
+3.  **Shell Shock:** The psychological trauma caused by constant bombardment.
+
+> [!WARNING]
+> Going "Over the Top" meant climbing out of the trench into a hail of machine-gun fire to attack the enemy line.
+`
                 }
             ],
             quizzes: [
