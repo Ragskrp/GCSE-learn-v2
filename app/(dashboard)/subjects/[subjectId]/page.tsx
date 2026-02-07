@@ -58,11 +58,11 @@ export default function SubjectDetailsPage({ params }: { params: { subjectId: st
                     </Button>
                 </Link>
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                        <span className="text-4xl">{subject.icon}</span>
+                    <h1 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 md:gap-3">
+                        <span className="text-3xl md:text-4xl transform hover:scale-110 transition-transform">{subject.icon}</span>
                         {subject.name}
                     </h1>
-                    <p className="text-gray-500">{subject.conquestTitle}</p>
+                    <p className="text-slate-500 font-medium ml-10 md:ml-12">{subject.conquestTitle}</p>
                 </div>
             </div>
 
@@ -83,33 +83,27 @@ export default function SubjectDetailsPage({ params }: { params: { subjectId: st
                 <div className="grid gap-4">
                     {subject.topics.map((topic) => (
                         <Card key={topic.id} className={`transition-all ${topic.completed ? 'bg-green-50/50 border-green-100' : 'hover:border-primary/50'}`}>
-                            <CardContent className="p-6 flex items-center justify-between">
+                            <CardContent className="p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div className="space-y-1">
                                     <div className="flex items-center gap-2">
-                                        <h3 className="font-semibold text-lg">{topic.name}</h3>
-                                        {topic.completed && <CheckCircle className="h-5 w-5 text-green-500" />}
+                                        <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">{topic.name}</h3>
+                                        {topic.completed && <CheckCircle className="h-5 w-5 text-green-500 shrink-0" />}
                                     </div>
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-xs md:text-sm text-slate-500 font-medium">
                                         {topic.studyMaterials.length} Lessons • {topic.quizzes.length} Quizzes
                                     </p>
                                 </div>
 
-                                <div className="flex gap-2">
-                                    {/* For now, we just link to the first lesson if available, or a generic topic view */}
-                                    {/* In a real app, we might have a topic details page /subjects/[id]/topics/[topicId] */}
-                                    {/* But based on the original app, it seems to jump to lessons/quizzes. */}
-                                    {/* I'll link to a hypothetical topic page or just expand. */}
-                                    {/* Let's just link to the first lesson for now to demonstrate routing. */}
-
+                                <div className="flex gap-2 w-full sm:w-auto">
                                     {topic.studyMaterials.length > 0 ? (
-                                        <Link href={`/learn/${topic.studyMaterials[0].id}`}>
-                                            <Button>
+                                        <Link href={`/learn/${topic.studyMaterials[0].id}`} className="w-full sm:w-auto">
+                                            <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white shadow-md">
                                                 <PlayCircle className="h-4 w-4 mr-2" />
                                                 Start Learning
                                             </Button>
                                         </Link>
                                     ) : (
-                                        <Button variant="outline" disabled>Coming Soon</Button>
+                                        <Button variant="outline" disabled className="w-full sm:w-auto">Coming Soon</Button>
                                     )}
                                 </div>
                             </CardContent>

@@ -4,7 +4,8 @@
 import { useEffect, useState } from "react"
 import { AuthService } from "@/services/auth-service"
 import { ContentService } from "@/services/content-service"
-import { Subject, User } from "@/types/user" // Assuming User type has subjects in profile
+import { Subject } from "@/types/curriculum"
+import { User } from "@/types/user"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -17,22 +18,34 @@ export default function MockTestsDashboard() {
 
     useEffect(() => {
         const fetchData = async () => {
-            // 1. Get User for context (year group)
-            const user = AuthService.getCurrentUser()
+            try {
+                const user = AuthService.getCurrentUser()
+                let allSubjects: Subject[] = []
 
-            // 2. Fetch all subjects available
-            // In a real scenario, we might default to the user's enrolled subjects
-            let allSubjects: Subject[] = []
+                if (user && user.profile.subjects && user.profile.subjects.length > 0) {
+                    allSubjects = user.profile.subjects as any
+                } else {
+                    allSubjects = await ContentService.getAllSubjects()
+                }
 
-            if (user && user.profile.subjects && user.profile.subjects.length > 0) {
-                allSubjects = user.profile.subjects
-            } else {
-                // Fallback to fetching all for default year 10
-                allSubjects = await ContentService.getAllSubjects()
+                // Filter and Deduplicate
+                const yearGroup = user?.yearGroup || 10
+                const filtered = allSubjects.filter(s => {
+                    if (s.id.includes("-")) {
+                        const parts = s.id.split("-")
+                        const idYear = parseInt(parts[parts.length - 1])
+                        if (!isNaN(idYear) && idYear !== yearGroup) return false
+                    }
+                    return true
+                })
+
+                const uniqueSubjects = Array.from(new Map(filtered.map(s => [s.id, s])).values())
+                setSubjects(uniqueSubjects)
+            } catch (err) {
+                console.error("MockTests: Error loading data", err)
+            } finally {
+                setLoading(false)
             }
-
-            setSubjects(allSubjects)
-            setLoading(false)
         }
         fetchData()
     }, [])
@@ -66,43 +79,51 @@ export default function MockTestsDashboard() {
                 </div>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {subjects.map((subject) => (
-                    <Card key={subject.id} className="group hover:shadow-lg transition-all border-l-4" style={{ borderLeftColor: subject.color ? undefined : '#3b82f6' }}>
-                        {/* Fallback color logic if 'from-blue-500' string is used, rarely works for inline styles directly without parsing.
-                             For now, we rely on tailwind classes if possible or just standard border.
-                          */}
-                        <div className={`h-2 w-full bg-gradient-to-r ${subject.color || "from-gray-400 to-gray-500"}`}></div>
+                    <Card key={subject.id} className="group hover:shadow-xl transition-all duration-300 border-none overflow-hidden glass-card flex flex-col h-full">
+                        <div className={`h-3 bg-gradient-to-r ${subject.color || "from-pink-400 to-purple-500"}`}></div>
 
-                        <CardContent className="p-6">
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="text-4xl">{subject.icon || "📚"}</div>
-                                <Badge variant="outline" className="font-mono">
-                                    Paper 1
+                        <CardContent className="p-6 flex flex-col flex-1">
+                            <div className="flex justify-between items-start mb-6">
+                                <div className="text-5xl group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+                                    {subject.icon || "📚"}
+                                </div>
+                                <Badge variant="secondary" className="font-bold bg-primary/10 text-primary border-none">
+                                    Mock Paper 1
                                 </Badge>
                             </div>
 
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                            <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">
                                 {subject.name}
                             </h3>
+                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">FULL SYLLABUS</p>
 
-                            <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
-                                <div className="flex items-center gap-1">
-                                    <Timer className="h-4 w-4" />
-                                    <span>~30m</span>
+                            <div className="grid grid-cols-2 gap-4 mb-8">
+                                <div className="flex items-center gap-2 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
+                                    <Timer className="h-4 w-4 text-primary" />
+                                    <div className="text-xs">
+                                        <p className="text-slate-400 font-bold uppercase pb-0.5" style={{ fontSize: '0.6rem' }}>Duration</p>
+                                        <p className="font-bold text-slate-700 dark:text-slate-300">~{subject.timeLimit || 30}m</p>
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-1">
-                                    <Trophy className="h-4 w-4" />
-                                    <span>25-40 Marks</span>
+                                <div className="flex items-center gap-2 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/50">
+                                    <Trophy className="h-4 w-4 text-yellow-500" />
+                                    <div className="text-xs">
+                                        <p className="text-slate-400 font-bold uppercase pb-0.5" style={{ fontSize: '0.6rem' }}>Reward</p>
+                                        <p className="font-bold text-slate-700 dark:text-slate-300">250 XP</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <Link href={`/mock-tests/${subject.id}`}>
-                                <Button className="w-full group-hover:bg-primary group-hover:text-white">
-                                    Sit Exam
-                                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </Link>
+                            <div className="mt-auto pt-4">
+                                <Link href={`/mock-tests/${subject.id}`}>
+                                    <Button className="w-full bg-gradient-to-r from-primary to-purple-500 hover:scale-105 transition-transform text-white font-bold h-12 rounded-xl border-none shadow-md shadow-primary/20">
+                                        Sit Examination
+                                        <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </Button>
+                                </Link>
+                            </div>
                         </CardContent>
                     </Card>
                 ))}

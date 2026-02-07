@@ -22,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const year10EnglishLiterature = {
-    id: "english-lit",
+    id: "english-lit-10",
     name: "English Literature",
     duration: 120,
     questions: 30,

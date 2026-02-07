@@ -2,7 +2,7 @@
 import { Subject } from "@/types/curriculum";
 
 export const year10EnglishLiterature: Subject = {
-    id: "english-lit",
+    id: "english-lit-10",
     name: "English Literature",
     duration: 120,
     questions: 30,

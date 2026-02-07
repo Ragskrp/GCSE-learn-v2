@@ -62,7 +62,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="glass-card p-6 rounded-3xl flex items-center space-x-4 hover:scale-105 transition-transform">
                     <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-yellow-100 to-amber-100 flex items-center justify-center shadow-inner">
                         <Trophy className="h-8 w-8 text-yellow-600" />
@@ -127,7 +127,7 @@ export default function DashboardPage() {
                         </Button>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {user.profile.subjects.slice(0, 3).map((subject) => (
                             <Link key={subject.id} href={`/subjects/${subject.id}`}>
                                 <div className={`glass-card p-0 rounded-3xl overflow-hidden h-full group ${!subject.unlocked ? 'opacity-70 grayscale' : ''}`}>
@@ -159,6 +159,6 @@ export default function DashboardPage() {
                     </div>
                 )}
             </div>
-        </div>
+        </div >
     )
 }

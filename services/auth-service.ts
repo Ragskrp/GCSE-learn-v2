@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { getAllUsers, getUserProgress, updateUserProgress } from "@/data/users";
-import { year10Mathematics, year7Mathematics, year10CombinedScience, year10EnglishLiterature, year10History } from "@/data/curriculum-database";
+import { year10Mathematics, year7Mathematics, year10CombinedScience, year10EnglishLiterature, year10History, year10ComputerScienceJ277 } from "@/data/curriculum-database";
 
 const LOGGED_IN_USER_KEY = "loggedInUser";
 
@@ -85,7 +85,7 @@ export class AuthService {
                         // Fallback to static if Firestore fetch returned nothing
                         if (!userSubjects || userSubjects.length === 0) {
                             const defaultSubjects = yearGroup === 10
-                                ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History]
+                                ? [year10Mathematics, year10CombinedScience, year10EnglishLiterature, year10History, year10ComputerScienceJ277]
                                 : [year7Mathematics];
                             userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
                         }

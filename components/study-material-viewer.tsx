@@ -51,8 +51,8 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
   const isLastSlide = currentSlide === slides.length - 1
 
   return (
-    <div className="min-h-screen p-6 animate-fade-in-up">
-      <div className="max-w-5xl mx-auto space-y-6">
+    <div className="min-h-screen p-4 md:p-6 animate-fade-in-up">
+      <div className="max-w-5xl mx-auto space-y-4 md:space-y-6">
         {/* Header Section */}
         <div className="glass-panel rounded-2xl p-6 border-t-4 border-primary">
           <div className="flex items-start justify-between mb-4">
@@ -98,9 +98,9 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
         </div>
 
         {/* Main Slide Card */}
-        <div className="glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 min-h-[500px] flex flex-col relative">
+        <div className="glass-card rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 min-h-[400px] md:min-h-[500px] flex flex-col relative">
           <div className="bg-gradient-to-r from-primary to-purple-600 h-2 absolute top-0 w-full" />
-          <div className="p-8 md:p-12 flex-1 flex flex-col justify-center">
+          <div className="p-6 md:p-12 flex-1 flex flex-col justify-center">
             <div className="prose prose-lg dark:prose-invert max-w-none
               prose-headings:text-foreground
               prose-h1:text-4xl prose-h1:font-extrabold prose-h1:mb-8 prose-h1:gradient-text prose-h1:tracking-tight
@@ -138,7 +138,7 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
                   ),
                   // Enhance images
                   img: ({ src, alt }) => (
-                    <div className="my-10 flex flex-col items-center">
+                    <div className="my-6 md:my-10 flex flex-col items-center">
                       <div className="relative group">
                         <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <img
@@ -152,13 +152,13 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
                   ),
                   // Custom Callout Support (Example: blockquotes as cards)
                   blockquote: ({ children }) => (
-                    <div className="my-10 p-8 glass-panel border-l-8 border-primary rounded-r-2xl transform hover:scale-[1.01] transition-all duration-300 shadow-xl relative overflow-hidden group">
+                    <div className="my-6 md:my-10 p-5 md:p-8 glass-panel border-l-8 border-primary rounded-r-2xl transform hover:scale-[1.01] transition-all duration-300 shadow-xl relative overflow-hidden group">
                       <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <Trophy className="w-16 h-16 text-primary" />
                       </div>
-                      <div className="flex gap-4 relative z-10">
-                        <div className="text-4xl mt-1">💡</div>
-                        <div className="italic text-xl md:text-2xl text-foreground font-medium leading-relaxed">
+                      <div className="flex gap-3 md:gap-4 relative z-10">
+                        <div className="text-3xl md:text-4xl mt-1">💡</div>
+                        <div className="italic text-lg md:text-2xl text-foreground font-medium leading-relaxed">
                           {children}
                         </div>
                       </div>
@@ -173,8 +173,8 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
                   ),
                   // Style tables for better readability
                   table: ({ children }) => (
-                    <div className="my-10 overflow-hidden rounded-2xl border border-white/10 glass-card shadow-2xl">
-                      <table className="w-full text-left border-collapse">
+                    <div className="my-6 md:my-10 overflow-x-auto rounded-2xl border border-white/10 glass-card shadow-2xl scrollbar-hide">
+                      <table className="w-full text-left border-collapse min-w-[500px]">
                         {children}
                       </table>
                     </div>
@@ -203,16 +203,16 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
         </div>
 
         {/* Navigation Controls */}
-        <div className="flex items-center justify-between glass-panel rounded-2xl p-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 glass-panel rounded-2xl p-4 md:p-6">
           <Button
             onClick={prevSlide}
             disabled={currentSlide === 0}
             size="lg"
             variant="outline"
-            className="gap-2 text-lg font-semibold border-primary/20 hover:bg-primary/10 hover:text-primary"
+            className="w-full sm:w-auto gap-2 text-base md:text-lg font-semibold border-primary/20 hover:bg-primary/10 hover:text-primary order-2 sm:order-1"
           >
             <ChevronLeft className="w-5 h-5" />
-            Previous
+            <span className="inline">Previous</span>
           </Button>
 
           {/* Slide Indicators */}
@@ -234,28 +234,28 @@ export function StudyMaterialViewer({ material, onComplete, isCompleted, related
             <Button
               onClick={nextSlide}
               size="lg"
-              className="gap-2 text-lg font-semibold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25"
+              className="w-full sm:w-auto gap-2 text-base md:text-lg font-semibold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 order-1 sm:order-3"
             >
               Next
               <ChevronRight className="w-5 h-5" />
             </Button>
           ) : (
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto order-1 sm:order-3">
               <Button
                 onClick={onComplete}
                 disabled={isCompleted}
                 size="lg"
-                className="gap-2 text-lg font-semibold bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-500/20"
+                className="w-full sm:w-auto gap-2 text-base md:text-lg font-semibold bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-500/20"
               >
                 <Trophy className="w-5 h-5" />
-                {isCompleted ? "Completed!" : "Complete Lesson"}
+                {isCompleted ? "Completed!" : "Finish"}
               </Button>
               {relatedQuizId && (
                 <Button
                   onClick={() => window.location.href = `/quiz/${relatedQuizId}`}
                   size="lg"
                   variant="secondary"
-                  className="gap-2 text-lg font-semibold"
+                  className="w-full sm:w-auto gap-2 text-base md:text-lg font-semibold"
                 >
                   Take Test
                   <ChevronRight className="w-5 h-5" />

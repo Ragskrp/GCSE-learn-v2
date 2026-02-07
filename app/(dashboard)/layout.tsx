@@ -27,7 +27,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     const pathname = usePathname()
     const [user, setUser] = useState<User | null>(null)
     const [loading, setLoading] = useState(true)
-    const [sidebarOpen, setSidebarOpen] = useState(true)
+    const [sidebarOpen, setSidebarOpen] = useState(false)
 
     useEffect(() => {
         const currentUser = AuthService.getCurrentUser()
@@ -72,23 +72,23 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
             {/* Background Blobs for Dashboard */}
             <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
+                <div className="absolute top-[-10%] left-[-10%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-secondary/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
             </div>
 
             {/* Mobile Sidebar Overlay */}
-            {!sidebarOpen && (
+            {sidebarOpen && (
                 <div
-                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-                    onClick={() => setSidebarOpen(true)}
+                    className="fixed inset-0 bg-black/60 backdrop-blur-md z-40 lg:hidden transition-all duration-300"
+                    onClick={() => setSidebarOpen(false)}
                 />
             )}
 
             {/* Sidebar (Glass Panel) */}
             <aside
                 className={cn(
-                    "fixed lg:static inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 ease-in-out flex flex-col p-4",
-                    !sidebarOpen && "-translate-x-full lg:translate-x-0"
+                    "fixed lg:static inset-y-0 left-0 z-50 w-72 transform transition-all duration-300 ease-in-out flex flex-col p-4 pb-2 lg:pb-4",
+                    sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
                 )}
             >
                 <div className="glass-panel h-full rounded-3xl flex flex-col overflow-hidden">
@@ -161,7 +161,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1 flex flex-col min-w-0 overflow-hidden h-screen">
+            <main className="flex-1 flex flex-col min-w-0 overflow-hidden min-h-screen lg:h-screen">
                 {/* Glass Header */}
                 <header className="h-20 px-8 flex items-center justify-between shrink-0">
                     <div className="lg:hidden">
@@ -183,29 +183,29 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     </div>
 
                     {/* Top Right Actions */}
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-2 md:space-x-4">
                         <ModeToggle />
 
-                        <div className="glass-card px-4 py-2 rounded-full flex items-center space-x-4">
-                            <div className="flex items-center text-yellow-500 font-bold">
-                                <div className="bg-yellow-100 p-1.5 rounded-full mr-2 dark:bg-yellow-900/20">
-                                    <Trophy size={16} />
+                        <div className="glass-card px-2 md:px-4 py-2 rounded-full flex items-center space-x-2 md:space-x-4">
+                            <div className="flex items-center text-yellow-500 font-bold text-xs md:text-sm">
+                                <div className="bg-yellow-100 p-1 md:p-1.5 rounded-full mr-1 md:mr-2 dark:bg-yellow-900/20">
+                                    <Trophy size={14} className="md:w-4 md:h-4" />
                                 </div>
-                                <span>{user.profile.xp} XP</span>
+                                <span>{user.profile.xp}<span className="hidden sm:inline ml-1">XP</span></span>
                             </div>
                             <div className="h-4 w-px bg-slate-200 dark:bg-slate-700"></div>
-                            <div className="flex items-center text-primary font-bold">
-                                <div className="bg-primary/10 p-1.5 rounded-full mr-2">
-                                    <Sparkles size={16} />
+                            <div className="flex items-center text-primary font-bold text-xs md:text-sm">
+                                <div className="bg-primary/10 p-1 md:p-1.5 rounded-full mr-1 md:mr-2">
+                                    <Sparkles size={14} className="md:w-4 md:h-4" />
                                 </div>
-                                <span>{user.profile.coins} Coins</span>
+                                <span>{user.profile.coins}<span className="hidden sm:inline ml-1">Coins</span></span>
                             </div>
                         </div>
                     </div>
                 </header>
 
                 {/* Page Content Container */}
-                <div className="flex-1 overflow-y-auto p-4 lg:p-8 pt-0 scrollbar-hide">
+                <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 pt-0 scrollbar-hide pb-10">
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 ease-out">
                         {children}
                     </div>

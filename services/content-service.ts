@@ -29,16 +29,22 @@ export class ContentService {
 
     try {
       console.log("ContentService: Attempting to fetch subjects from Firestore...");
-      const subjectsRef = collection(db, "subjects");
-      const snapshot = await getDocs(subjectsRef);
+
+      // Add a timeout to the fetch to prevent long hangs
+      const fetchPromise = getDocs(collection(db, "subjects"));
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("Firestore fetch timeout")), 5000)
+      );
+
+      const snapshot = await Promise.race([fetchPromise, timeoutPromise]) as any;
 
       if (snapshot.empty) {
-        console.warn("ContentService: snapshot.empty is true. No subjects found in Firestore. Falling back to local data.");
+        console.warn("ContentService: snapshot.empty is true. Falling back to local data.");
         return this.getLocalAllSubjects();
       }
 
       console.log(`ContentService: Successfully fetched ${snapshot.size} subjects.`);
-      const subjects = snapshot.docs.map(doc => ({
+      const subjects = snapshot.docs.map((doc: any) => ({
         ...doc.data(),
         id: doc.id
       } as Subject));
@@ -47,7 +53,7 @@ export class ContentService {
       this.lastFetchTime = now;
       return subjects;
     } catch (error) {
-      console.error("ContentService: Error fetching subjects from Firestore:", error);
+      console.error("ContentService: Error fetching subjects:", error);
       return this.getLocalAllSubjects();
     }
   }
@@ -119,10 +125,14 @@ export class ContentService {
   private static getLocalAllSubjects(): Subject[] {
     // Try to get from logged-in user first
     const currentUser = AuthService.getCurrentUser();
+
+    // If the user has subjects in their profile, use those
     if (currentUser && currentUser.profile.subjects && currentUser.profile.subjects.length > 0) {
       return currentUser.profile.subjects as Subject[];
     }
-    // Fallback to static database
-    return Object.values(curriculumDatabase).flat();
+
+    // Otherwise fallback to the static database for their specific year group
+    const yearGroup = currentUser?.yearGroup || 10;
+    return getSubjectsForYear(yearGroup);
   }
 }

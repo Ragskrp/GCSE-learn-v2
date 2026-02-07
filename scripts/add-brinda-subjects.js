@@ -46,12 +46,11 @@ async function main() {
 
     // Define the default subjects
     const defaultSubjects = [
-        { id: "maths", name: "Mathematics", xp: 0 },
-        { id: "english", name: "English", xp: 0 },
-        { id: "science", name: "Science", xp: 0 },
-        { id: "history", name: "History", xp: 0 },
-        { id: "geography", name: "Geography", xp: 0 },
-        { id: "art", name: "Art & Design", xp: 0 },
+        { id: "maths-10", name: "Mathematics", xp: 0, maxXp: 20000, color: "from-blue-600 to-cyan-500", icon: "📐", unlocked: true },
+        { id: "science-10", name: "Combined Science (Trilogy)", xp: 0, maxXp: 5000, color: "from-teal-400 to-green-600", icon: "🧪", unlocked: true },
+        { id: "english-lit-10", name: "English Literature", xp: 0, maxXp: 600, color: "from-amber-400 to-amber-600", icon: "📚", unlocked: true },
+        { id: "history-10", name: "History", xp: 0, maxXp: 5000, color: "from-rose-500 to-red-700", icon: "⚔️", unlocked: true },
+        { id: "computer-science-j277", name: "Computer Science (J277)", xp: 0, maxXp: 2000, color: "from-purple-400 to-fuchsia-500", icon: "💻", unlocked: true },
     ];
 
     // Fetch fresh data
