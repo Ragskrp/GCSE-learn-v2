@@ -1,7 +1,7 @@
 export interface User {
   username: string
   password: string
-  yearGroup: 7 | 10
+  yearGroup: 7 | 8 | 9 | 10 | 11
   profile: {
     level: number
     xp: number
@@ -11,6 +11,10 @@ export interface User {
     totalQuestsCompleted: number
     achievements: string[]
     subjects: Subject[]
+    gender?: "male" | "female"
+    themePreference?: "superhero" | "fairy-princess"
+    dreamGcseGrade?: number
+    unlockedStoryCards?: string[]
   }
 }
 

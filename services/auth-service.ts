@@ -30,7 +30,7 @@ export class AuthService {
             console.log(`AuthService: Fetching curriculum for Year ${yearGroup} in parallel...`);
 
             // Define subject IDs based on year group
-            const subjectIds = yearGroup === 10
+            const subjectIds = yearGroup >= 10
                 ? ['business-10', 'french-10', 'english-lit-10', 'english-lang-10', 'science-10', 're-10', 'maths-10', 'computer-science-j277']
                 : ['maths-7', 'science-7', 'english-7'];
 
@@ -84,7 +84,7 @@ export class AuthService {
 
                         // Fallback to static if Firestore fetch returned nothing
                         if (!userSubjects || userSubjects.length === 0) {
-                            const defaultSubjects = yearGroup === 10
+                            const defaultSubjects = yearGroup >= 10
                                 ? [year10Business, year10French, year10EnglishLiterature, year10EnglishLanguage, year10CombinedScience, year10ReligiousStudies, year10Mathematics, year10ComputerScienceJ277]
                                 : [year7Mathematics, year7Science, year7English];
                             userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
@@ -99,13 +99,17 @@ export class AuthService {
                             avatarUrl: userData.avatarUrl || userData.profile?.avatarUrl || "/cute-girl-avatar.png",
                             totalQuestsCompleted: userData.totalQuestsCompleted || userData.profile?.totalQuestsCompleted || 0,
                             achievements: userData.achievements || userData.profile?.achievements || [],
-                            subjects: userSubjects
+                            subjects: userSubjects,
+                            gender: userData.gender || userData.profile?.gender || "male",
+                            themePreference: userData.themePreference || userData.profile?.themePreference || "superhero",
+                            dreamGcseGrade: userData.dreamGcseGrade || userData.profile?.dreamGcseGrade || 9,
+                            unlockedStoryCards: userData.unlockedStoryCards || userData.profile?.unlockedStoryCards || []
                         };
 
                         const user: User = {
                             username: normalizedName,
                             password: pin,
-                            yearGroup: yearGroup,
+                            yearGroup: yearGroup as any,
                             profile: profile
                         };
 
@@ -171,7 +175,15 @@ export class AuthService {
         return null;
     }
 
-    static async registerStudent(name: string, pin: string, yearGroup: 7 | 10): Promise<User | null> {
+    static async registerStudent(
+        name: string,
+        pin: string,
+        yearGroup: 7 | 8 | 9 | 10 | 11,
+        gender: "male" | "female" = "male",
+        avatarUrl: string = "/cute-girl-avatar.png",
+        dreamGcseGrade: number = 9,
+        themePreference: "superhero" | "fairy-princess" = "superhero"
+    ): Promise<User | null> {
         if (!isFirebaseConfigured()) {
             console.error("Firebase not configured. Cannot register students.");
             return null;
@@ -191,7 +203,7 @@ export class AuthService {
 
             // Fallback if fetch failed
             if (defaultSubjects.length === 0) {
-                const staticSubjects = yearGroup === 10
+                const staticSubjects = yearGroup >= 10
                     ? [year10Business, year10French, year10EnglishLiterature, year10EnglishLanguage, year10CombinedScience, year10ReligiousStudies, year10Mathematics, year10ComputerScienceJ277]
                     : [year7Mathematics, year7Science, year7English];
                 defaultSubjects.push(...JSON.parse(JSON.stringify(staticSubjects)));
@@ -200,12 +212,16 @@ export class AuthService {
             const profile = {
                 level: 1,
                 xp: 0,
-                maxXp: yearGroup === 10 ? 500 : 400,
+                maxXp: yearGroup >= 10 ? 500 : 400,
                 coins: 0,
-                avatarUrl: "/cute-girl-avatar.png",
+                avatarUrl: avatarUrl,
                 totalQuestsCompleted: 0,
                 achievements: [],
-                subjects: defaultSubjects
+                subjects: defaultSubjects,
+                gender: gender,
+                themePreference: themePreference,
+                dreamGcseGrade: dreamGcseGrade,
+                unlockedStoryCards: ["welcome-quest"]
             };
 
             const userData = {
@@ -216,13 +232,17 @@ export class AuthService {
                 yearGroup: yearGroup,
                 level: 1,
                 xp: 0,
-                maxXp: yearGroup === 10 ? 500 : 400,
+                maxXp: yearGroup >= 10 ? 500 : 400,
                 coins: 0,
-                avatarUrl: "/cute-girl-avatar.png",
+                avatarUrl: avatarUrl,
                 totalQuestsCompleted: 0,
                 subjects: defaultSubjects,
                 profile: profile,
-                createdAt: new Date().toISOString()
+                createdAt: new Date().toISOString(),
+                gender: gender,
+                themePreference: themePreference,
+                dreamGcseGrade: dreamGcseGrade,
+                unlockedStoryCards: ["welcome-quest"]
             };
 
             await setDoc(doc(db as any, "users", normalizedName), userData);

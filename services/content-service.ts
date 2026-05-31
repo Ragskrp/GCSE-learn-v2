@@ -144,7 +144,7 @@ export class ContentService {
 
     // If the user has subjects in their profile, use those
     if (currentUser && currentUser.profile.subjects && currentUser.profile.subjects.length > 0) {
-      return currentUser.profile.subjects as Subject[];
+      return currentUser.profile.subjects as unknown as Subject[];
     }
 
     // Otherwise fallback to the static database for their specific year group

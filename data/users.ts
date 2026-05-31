@@ -1,4 +1,4 @@
-import { User, UserProfile } from '@/types/user';
+import { User } from '@/types/user';
 
 export const users: User[] = [
   {
@@ -12,6 +12,7 @@ export const users: User[] = [
       coins: 0,
       avatarUrl: '/cute-girl-avatar.png',
       totalQuestsCompleted: 0,
+      achievements: [],
       subjects: []
     }
   },
@@ -26,6 +27,7 @@ export const users: User[] = [
       coins: 0,
       avatarUrl: '/cute-girl-avatar.png',
       totalQuestsCompleted: 0,
+      achievements: [],
       subjects: []
     }
   },
@@ -40,7 +42,7 @@ export const getUserProgress = (username: string): User | null => {
   return user || null;
 };
 
-export const updateUserProgress = (username: string, profile: UserProfile): void => {
+export const updateUserProgress = (username: string, profile: User['profile']): void => {
   const user = users.find(u => u.username.toLowerCase() === username.toLowerCase());
   if (user) {
     user.profile = profile;
