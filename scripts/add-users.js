@@ -24,20 +24,26 @@ async function addUsers() {
 
   try {
     // User 1: Brinda
-    const brindaRef = doc(db, "users", "brinda");
+    const brindaRef = doc(db, "users", "Brinda");
     await setDoc(brindaRef, {
       name: "Brinda",
-      pin: "1234"
-    });
-    console.log("Successfully added: Brinda");
+      username: "Brinda",
+      pin: "1234",
+      yearGroup: 10,
+      subjects: [] // Clear subjects to force refresh based on yearGroup
+    }, { merge: true });
+    console.log("Successfully added/updated: Brinda (Year 10)");
 
     // User 2: Suppu
-    const suppuRef = doc(db, "users", "suppu");
+    const suppuRef = doc(db, "users", "Suppu");
     await setDoc(suppuRef, {
       name: "Suppu",
-      pin: "9654"
-    });
-    console.log("Successfully added: Suppu");
+      username: "Suppu",
+      pin: "9654",
+      yearGroup: 7,
+      subjects: [] // Clear subjects to force refresh based on yearGroup
+    }, { merge: true });
+    console.log("Successfully added/updated: Suppu (Year 7)");
 
     console.log("\nUsers created successfully!");
     console.log("You can now log in with these credentials.");
@@ -46,9 +52,9 @@ async function addUsers() {
     console.error("Error adding users to Firestore:", error);
     console.log("\nPlease ensure your Firebase project's Firestore security rules allow writes.");
   } finally {
-      // The Firebase client SDK keeps the process alive.
-      // We need to explicitly exit the script.
-      process.exit(0);
+    // The Firebase client SDK keeps the process alive.
+    // We need to explicitly exit the script.
+    process.exit(0);
   }
 }
 

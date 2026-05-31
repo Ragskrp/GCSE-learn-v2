@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { getAllUsers, getUserProgress, updateUserProgress } from "@/data/users";
-import { year10Mathematics, year7Mathematics, year10CombinedScience, year10EnglishLiterature, year10EnglishLanguage, year10Business, year10French, year10ReligiousStudies, year10ComputerScienceJ277 } from "@/data/curriculum-database";
+import { year10Mathematics, year7Mathematics, year7Science, year7English, year10CombinedScience, year10EnglishLiterature, year10EnglishLanguage, year10Business, year10French, year10ReligiousStudies, year10ComputerScienceJ277 } from "@/data/curriculum-database";
 
 const LOGGED_IN_USER_KEY = "loggedInUser";
 
@@ -32,7 +32,7 @@ export class AuthService {
             // Define subject IDs based on year group
             const subjectIds = yearGroup === 10
                 ? ['business-10', 'french-10', 'english-lit-10', 'english-lang-10', 'science-10', 're-10', 'maths-10', 'computer-science-j277']
-                : ['maths-7'];
+                : ['maths-7', 'science-7', 'english-7'];
 
             // Fetch all subjects in parallel for maximum speed
             const subjectPromises = subjectIds.map(async (docId) => {
@@ -86,7 +86,7 @@ export class AuthService {
                         if (!userSubjects || userSubjects.length === 0) {
                             const defaultSubjects = yearGroup === 10
                                 ? [year10Business, year10French, year10EnglishLiterature, year10EnglishLanguage, year10CombinedScience, year10ReligiousStudies, year10Mathematics, year10ComputerScienceJ277]
-                                : [year7Mathematics];
+                                : [year7Mathematics, year7Science, year7English];
                             userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
                         }
 
@@ -193,7 +193,7 @@ export class AuthService {
             if (defaultSubjects.length === 0) {
                 const staticSubjects = yearGroup === 10
                     ? [year10Business, year10French, year10EnglishLiterature, year10EnglishLanguage, year10CombinedScience, year10ReligiousStudies, year10Mathematics, year10ComputerScienceJ277]
-                    : [year7Mathematics];
+                    : [year7Mathematics, year7Science, year7English];
                 defaultSubjects.push(...JSON.parse(JSON.stringify(staticSubjects)));
             }
 
@@ -401,11 +401,11 @@ export class AuthService {
                     const {
                         year10Business, year10French, year10EnglishLiterature, year10EnglishLanguage,
                         year10CombinedScience, year10ReligiousStudies, year10Mathematics, year10ComputerScienceJ277,
-                        year7Mathematics
+                        year7Mathematics, year7Science, year7English
                     } = require("@/data/curriculum-database");
                     const defaultSubjects = yearGroup === 10
                         ? [year10Business, year10French, year10EnglishLiterature, year10EnglishLanguage, year10CombinedScience, year10ReligiousStudies, year10Mathematics, year10ComputerScienceJ277]
-                        : [year7Mathematics];
+                        : [year7Mathematics, year7Science, year7English];
                     userSubjects = JSON.parse(JSON.stringify(defaultSubjects));
                 }
 
