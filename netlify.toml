@@ -1,3 +1,7 @@
 [build]
   command = "pnpm run build"
   publish = ".next"
+
+[build.environment]
+  NETLIFY_SKIP_SECRETS_SCAN = "true"
+  NEXT_TELEMETRY_DISABLED = "1"
